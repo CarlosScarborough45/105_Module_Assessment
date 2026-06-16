@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 4.1)
+cmake_minimum_required(VERSION 3.10)
 
-project(105Module LANGUAGES CXX)
+project(105_Module_Assessment LANGUAGES CXX)
 
 
 set(CMAKE_CXX_STANDARD 20)
@@ -17,6 +17,9 @@ include(FetchContent)
 
 set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
+set(OPENGL_gl_LIBRARY opengl32)
+set(USE_EXTERNAL_GLFW OFF CACHE BOOL "" FORCE)
+
 FetchContent_Declare(
         raylib
         GIT_REPOSITORY https://github.com/raysan5/raylib.git
@@ -29,6 +32,8 @@ FetchContent_MakeAvailable(raylib)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc -static")
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME}
+        main.cpp
+)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
