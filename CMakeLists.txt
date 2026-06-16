@@ -34,6 +34,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc -static
 
 add_executable(${PROJECT_NAME}
         main.cpp
+        Global.h
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
