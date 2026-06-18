@@ -3,15 +3,21 @@
 #include "raygui.h"
 #include "Headers/Screens.h"
 
-int main() {
+int main()
+{
     InitWindow(1500, 850, "Eats & Treats");
     SetTargetFPS(64);
 
-    while (!WindowShouldClose()) {
+    bool dropdown = false;
+    int selectedRole = 0;
 
+
+    while (!WindowShouldClose())
+    {
         BeginDrawing();
 
-        if (currentScreen == Screen::LOGIN) {
+        if (currentScreen == Screen::LOGIN)
+        {
             ClearBackground({0, 255, 255, 255});
             DrawRectangle(0, 0, 400, 900, {28, 40, 58, 255});
             DrawText("\n\n Welcome to \n\n\n Eats & Treats", 20, 220, 40, WHITE);
@@ -22,19 +28,45 @@ int main() {
             DrawText("Password", 650, 520, 20, {74, 122, 150, 255});
             DrawRectangle(650, 550, 350, 45, WHITE);
 
-            if (GuiButton((Rectangle){650, 600, 200, 40}, "SIGN - IN")) {
-                currentScreen = Screen::DASHBOARD;
+            if (GuiDropdownBox({650, 600, 200, 40}, "Admin; Customer; Manager; Staff", &selectedRole, dropdown))
+            {
+                dropdown = !dropdown;
             }
-            if (GuiButton((Rectangle){650, 650, 200, 40}, "Please - Register!!!!")) {
+
+
+            if (GuiButton((Rectangle){900, 600, 200, 40}, "SIGN - IN"))
+            {
+                currentScreen = Screen::DASHBOARD;
+                if (selectedRole == 0)
+                {
+                    currentScreen = Screen::AdminDashboard;
+                }
+                else if (selectedRole == 1)
+                {
+                    currentScreen = Screen::CustomerDashboard;
+                }
+                else if (selectedRole == 2)
+                {
+                    currentScreen = Screen::ManagerDashboard;
+                }
+                else if (selectedRole == 3)
+                {
+                    currentScreen = Screen::StaffDashboard;
+                }
+            }
+
+            if (GuiButton((Rectangle){650, 650, 200, 40}, "Please - Register!!!!"))
+            {
                 currentScreen = Screen::REGISTER;
             }
-                }
-                else if (currentScreen == Screen::DASHBOARD) {
-                    Dashboard(currentScreen);
-                }
-                else if (currentScreen == Screen::REGISTER) {
-                    Registration(currentScreen);
-                }
+        }
+
+        if (currentScreen == Screen::AdminDashboard) Admin_View(currentScreen);
+        if (currentScreen == Screen::CustomerDashboard) customer_view(currentScreen);
+        if (currentScreen == Screen::ManagerDashboard) Manager_view(currentScreen);
+        if (currentScreen == Screen::StaffDashboard) Staff_View(currentScreen);
+
+        DrawFPS(200, 200);
 
         EndDrawing();
     }

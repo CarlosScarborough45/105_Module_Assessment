@@ -48,6 +48,7 @@ add_executable(${PROJECT_NAME}
         Admin_View.cpp
         Staff_View.cpp
         Manager_view.cpp
+        Customer_View.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
