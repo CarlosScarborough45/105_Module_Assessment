@@ -37,16 +37,22 @@ FetchContent_MakeAvailable(raylib)
 FetchContent_MakeAvailable(raygui)
 
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc -static")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -static-libstdc++ -static-libgcc")
 
 add_executable(${PROJECT_NAME}
-        main.cpp
-        Global.h
-        main.cpp
-        Screens.h
-        Dashboard.cpp
+        Headers/Global.h
+        Headers/Screens.h
         Registration.cpp
+        Dashboard.cpp
+        main.cpp
+        Admin_View.cpp
+        Staff_View.cpp
+        Manager_view.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
 target_include_directories(${PROJECT_NAME} PRIVATE ${raygui_SOURCE_DIR}/src)
+target_include_directories(${PROJECT_NAME} PRIVATE
+        ${raylib_SOURCE_DIR}/src
+        ${raygui_SOURCE_DIR}/src
+)

@@ -2,7 +2,8 @@
 #define INC_105_MODULE_ASSESSMENT_GLOBAL_H
 #include <iostream>
 
-struct User {
+class Manager{
+	public:
 	std::string username;
 	std::string Password;
 	std::string Age;
@@ -10,7 +11,8 @@ struct User {
 	std::string Lastname;
 };
 
-struct Admin {
+class User{
+	public:
 	std::string username;
 	std::string Password;
 	std::string Age;
@@ -18,7 +20,8 @@ struct Admin {
 	std::string Lastname;
 };
 
-struct Manager {
+class Admin{
+	public:
 	std::string username;
 	std::string Password;
 	std::string Age;
