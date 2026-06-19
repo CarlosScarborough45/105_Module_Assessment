@@ -1,5 +1,6 @@
 #ifndef INC_105_MODULE_ASSESSMENT_SCREENS_H
 #define INC_105_MODULE_ASSESSMENT_SCREENS_H
+#include <string>
 
 enum class Screen { REGISTER, LOGIN, DASHBOARD, AdminDashboard, StaffDashboard, ManagerDashboard, CustomerDashboard };
 

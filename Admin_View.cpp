@@ -22,4 +22,10 @@ void Admin_View(Screen screen)
     //     case 2: {   break;}
     //     case 3: {   break;}
     // }
+
+
+    if (GuiButton((Rectangle){900, 600, 200, 40}, "Return to Menu"))
+    {
+        currentScreen = Screen::LOGIN;
+    }
 }

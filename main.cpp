@@ -2,6 +2,8 @@
 #define RAYGUI_IMPLEMENTATION
 #include "raygui.h"
 #include "Headers/Screens.h"
+#include <iostream>
+
 
 int main()
 {
@@ -15,6 +17,7 @@ int main()
     while (!WindowShouldClose())
     {
         BeginDrawing();
+
 
         if (currentScreen == Screen::LOGIN)
         {
@@ -55,16 +58,16 @@ int main()
                 }
             }
 
-            if (GuiButton((Rectangle){650, 650, 200, 40}, "Please - Register!!!!"))
+            if (GuiButton((Rectangle){900, 650, 200, 40}, "Please - Register!!!!"))
             {
                 currentScreen = Screen::REGISTER;
             }
         }
 
-        if (currentScreen == Screen::AdminDashboard) Admin_View(currentScreen);
-        if (currentScreen == Screen::CustomerDashboard) customer_view(currentScreen);
-        if (currentScreen == Screen::ManagerDashboard) Manager_view(currentScreen);
-        if (currentScreen == Screen::StaffDashboard) Staff_View(currentScreen);
+        else if (currentScreen == Screen::AdminDashboard) Admin_View(currentScreen);
+        else if (currentScreen == Screen::CustomerDashboard) customer_view(currentScreen);
+        else if (currentScreen == Screen::ManagerDashboard) Manager_view(currentScreen);
+        else if (currentScreen == Screen::StaffDashboard) Staff_View(currentScreen);
 
         DrawFPS(200, 200);
 
