@@ -3,6 +3,8 @@
 #include "Headers/Screens.h"
 #include "raygui.h"
 #include <iostream>
+#include <fstream>
+#include <iomanip>
 
 //drop down state
 bool dropdown = false;
@@ -19,9 +21,11 @@ char TextBox003Text[128] = "";
 bool TextBox004EditMode = false;
 char TextBox004Text[128] = "";
 
+const char* roles[] = {"Admin", "Customer", "Manager", "Staff"};
 
 void Registration(Screen screen)
 {
+
     ClearBackground({0, 255, 255, 255});
     DrawRectangle(0, 0, 400, 900, {28, 40, 58, 255}); // dark sidebar
     DrawText("Registration", 620, 80, 38, {10, 61, 92, 255});
@@ -47,6 +51,32 @@ void Registration(Screen screen)
 
     if (GuiButton((Rectangle){900, 600, 200, 40}, "SIGN - IN"))
     {
+
+        std::ofstream file("../File/User.CSV", std::ios::app);
+
+        if (!file.is_open()) {
+            DrawText("Error Cannot open file to Save!!!!", 940, 640, 100, BLACK);
+        }
+
+        User newuser;
+
+        newuser.Name = TextBox000Text;
+        newuser.Lastname = TextBox001Text;
+        newuser.username = TextBox002Text;
+        newuser.Password = TextBox003Text;
+        newuser.Role = roles[selectedRole];
+
+        users.push_back(newuser);
+
+            file << std::left << std::setw(20)
+                 << TextBox000Text << " | " << std::setw(20) << TextBox001Text << " | "
+                 << std::setw(20) << TextBox002Text << " | "
+                 << std::setw(20) << TextBox003Text << " | "
+                 << std::setw(20) << TextBox004Text << " | "
+                 << roles[selectedRole] << std::endl;
+
+            file.close();
+
         currentScreen = Screen::LOGIN;
     }
 }

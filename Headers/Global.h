@@ -2,21 +2,7 @@
 #define INC_105_MODULE_ASSESSMENT_GLOBAL_H
 #include <iostream>
 #include <iostream>
-
-class Manager{
-	public:
-		std::string username;
-		std::string Password;
-		std::string Age;
-		std::string Name;
-		std::string Lastname;
-
-	private:
-		void Create_Manager()
-		{
-
-		}
-};
+#include <vector>
 
 class User{
 	public:
@@ -25,27 +11,10 @@ class User{
 		std::string Age;
 		std::string Name;
 		std::string Lastname;
-	private:
+		std::string Role;
 };
 
-class Admin{
-	public:
-		std::string username;
-		std::string Password;
-		std::string Age;
-		std::string Name;
-		std::string Lastname;
-	private:
-};
+inline std::vector<User> users;
 
-class customer
-{
-	public:
-		std::string username;
-		std::string Password;
-		std::string Age;
-		std::string Name;
-		std::string Lastname;
-	private:
-};
+inline User u;
 #endif //INC_105_MODULE_ASSESSMENT_GLOBAL_H
