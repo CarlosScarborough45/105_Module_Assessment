@@ -8,7 +8,7 @@
 int main()
 {
     InitWindow(1500, 850, "Eats & Treats");
-    SetTargetFPS(64);
+    SetTargetFPS(30);
 
     bool dropdown = false;
     int selectedRole = 0;
@@ -39,7 +39,6 @@ int main()
 
             if (GuiButton((Rectangle){900, 600, 200, 40}, "SIGN - IN"))
             {
-                currentScreen = Screen::DASHBOARD;
                 if (selectedRole == 0)
                 {
                     currentScreen = Screen::AdminDashboard;
@@ -58,7 +57,7 @@ int main()
                 }
             }
 
-            if (GuiButton((Rectangle){900, 650, 200, 40}, "Please - Register!!!!"))
+            if (GuiButton((Rectangle){900, 720, 200, 40}, "Please - Register!!!!"))
             {
                 currentScreen = Screen::REGISTER;
             }
@@ -68,6 +67,7 @@ int main()
         else if (currentScreen == Screen::CustomerDashboard) customer_view(currentScreen);
         else if (currentScreen == Screen::ManagerDashboard) Manager_view(currentScreen);
         else if (currentScreen == Screen::StaffDashboard) Staff_View(currentScreen);
+        else if (currentScreen == Screen::REGISTER)       Registration(currentScreen);
 
         DrawFPS(200, 200);
 
