@@ -31,31 +31,41 @@ void Registration(Screen screen)
     DrawText("Registration", 620, 80, 38, {10, 61, 92, 255});
     DrawText("\n\n Welcome to \n\n\n Registration", 20, 220, 40, WHITE);
 
+
+        DrawText("First Name", 650, 160, 20,  BLACK);
     if (GuiTextBox({650, 200, 350, 45,}, TextBox000Text, 128, TextBox000EditMode))
         TextBox000EditMode = !TextBox000EditMode;
 
-
+        DrawText("Last Name", 650, 270, 20,  BLACK);
     if (GuiTextBox({650, 300, 350, 45}, TextBox001Text, 128, TextBox001EditMode))
         TextBox001EditMode = !TextBox001EditMode;
 
+
+        DrawText("UserName", 650, 370, 20,  BLACK);
     if (GuiTextBox({650, 400, 350, 45}, TextBox002Text, 128, TextBox002EditMode))
         TextBox002EditMode = !TextBox002EditMode;
 
+        DrawText("Password", 650, 470, 20,  BLACK);
     if (GuiTextBox({650, 500, 350, 45}, TextBox003Text, 128, TextBox003EditMode))
         TextBox003EditMode = !TextBox003EditMode;
 
-    if (GuiDropdownBox({650, 600, 200, 40}, "Admin; Customer; Manager; Staff", &selectedRole, dropdown))
+
+        DrawText("Age", 650, 570, 20,  BLACK);
+    if (GuiTextBox({650, 600, 350, 45}, TextBox004Text, 128, TextBox004EditMode))
+        TextBox004EditMode = !TextBox004EditMode;
+
+    if (GuiDropdownBox({650, 650, 200, 40}, "Admin; Customer; Manager; Staff", &selectedRole, dropdown))
     {
         dropdown = !dropdown;
     }
 
-    if (GuiButton((Rectangle){900, 600, 200, 40}, "SIGN - IN"))
+    if (GuiButton((Rectangle){900, 650, 200, 40}, "Register!!!"))
     {
 
         std::ofstream file("../File/User.CSV", std::ios::app);
 
         if (!file.is_open()) {
-            DrawText("Error Cannot open file to Save!!!!", 940, 640, 100, BLACK);
+            DrawText("Error Cannot open file to Save!!!!", 650, 640, 20, BLACK);
         }
 
         User newuser;
@@ -64,6 +74,7 @@ void Registration(Screen screen)
         newuser.Lastname = TextBox001Text;
         newuser.username = TextBox002Text;
         newuser.Password = TextBox003Text;
+        newuser.Age = TextBox004Text;
         newuser.Role = roles[selectedRole];
 
         users.push_back(newuser);

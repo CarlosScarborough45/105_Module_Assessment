@@ -2,6 +2,8 @@
 #define INC_105_MODULE_ASSESSMENT_SCREENS_H
 #include <string>
 
+#include "Global.h"
+
 enum class Screen { REGISTER, LOGIN, DASHBOARD, AdminDashboard, StaffDashboard, ManagerDashboard, CustomerDashboard };
 
 inline Screen currentScreen = Screen::LOGIN;

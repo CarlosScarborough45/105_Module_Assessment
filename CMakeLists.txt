@@ -44,11 +44,11 @@ add_executable(${PROJECT_NAME}
         Headers/Screens.h
         Registration.cpp
         Dashboard.cpp
-        main.cpp
         Admin_View.cpp
         Staff_View.cpp
         Manager_view.cpp
         Customer_View.cpp
+        main.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)

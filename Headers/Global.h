@@ -12,9 +12,15 @@ class User{
 		std::string Name;
 		std::string Lastname;
 		std::string Role;
+
+	private:
+		bool verifyPassword{
+
+
+
+		};
 };
 
 inline std::vector<User> users;
 
-inline User u;
 #endif //INC_105_MODULE_ASSESSMENT_GLOBAL_H

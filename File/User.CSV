@@ -1,4 +1,9 @@
-Carlos               | Scaborough           | Carlos45             | DavidandCarlos       |                      | 0
-Carlos               | Scaborough           | Carlos45             | DavidandCarlos       |                      | 1
-David                | Scarborough          | Carlos45             | DavidandCarlos       |                      | Admin
-Carlos               | David                | David45              | DavidandCarlos       |                      | Admin
+Carlos               | Scarborough          | Carlos45             | DavidandCarlos       | 27                   | Customer
+Carlos               | Scarborough          | Carlos45             | DavidandCarlos       | 27                   | Manager
+Carlos               | Scarborough          | Carlos45             | DavidandCarlos       | 27                   | Customer
+Carlos               | Scarborough          | Carlos45             | DavidandCarlos       | 27                   | Manager
+Carlos               | Scarborough          | David45              | DavidandCarlos       | 27                   | Manager
+Talia                | Scarborough          | David45              | DavidandCarlos       | 27                   | Staff
+Talia                | Scarborough          | Talia45              | DavidandCarlos       | 27                   | Staff
+Talia                | Scarborough          | Talia45              | DavidandCarlos       | 27                   | Staff
+Talia                | Scarborough          | Talia45              | DavidandCarlos       | 27                   | Staff
