@@ -3,4 +3,10 @@ project(105Module)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(105Module main.cpp)
+add_executable(105Module
+        main.cpp
+        Staff.cpp
+        Manager.cpp
+        Kitchen.cpp
+        Admin.cpp
+        Global.h)
