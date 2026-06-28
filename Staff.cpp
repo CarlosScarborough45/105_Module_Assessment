@@ -4,6 +4,7 @@
 
 void staff(){
 
+	int staff;
 	std::cout << "+==================================================+" << std::endl;
 	std::cout << "|                                                 |" << std::endl;
 	std::cout << "|								                    |" << std::endl;
@@ -19,5 +20,19 @@ void staff(){
 	std::cout << "|  3. Profile              |  4. Return to Menu    |" << std::endl;
 	std::cout << "|                          |                       |" << std::endl;
 	std::cout << "+==================================================+" << std::endl;
+	std::cin >> staff;
 
+	switch (staff) {
+		case 1:{break;}
+		case 2:{break;}
+		case 3:{break;}
+		case 4:{std::cout <<"+======================================+\n"
+					      <<"|										|\n"
+						  <<"|										|\n"
+					      <<"|		You are logging out				|\n"
+						  <<"|										|\n"
+						  <<"|										|\n"
+						  <<"+======================================+\n";break;}
+		default: {std::cout << " [X] Choose between 1 - 4" << std::endl;break;}
+	}
 }

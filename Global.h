@@ -21,4 +21,5 @@ void Signup();
 void staff();
 void Manager();
 void Admin();
+void login();
 #endif //INC_105MODULE_GLOBAL_H

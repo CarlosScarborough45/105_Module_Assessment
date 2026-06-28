@@ -10,3 +10,5 @@ add_executable(105Module
         Kitchen.cpp
         Admin.cpp
         Global.h)
+
+target_link_options(105Module PRIVATE -static -static-libgcc -static-libstdc++)
