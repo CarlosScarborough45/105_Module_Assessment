@@ -2,6 +2,12 @@
 
 void Admin() {
 
-	std::cout << "Welcome to Admin" << std::endl;
+	std::cout << "+==================================================+" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "|								                    |" << std::endl;
+	std::cout << "|            Welcome to Admin Display             |" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "|                                                 |" << std::endl;
+	std::cout << "+==================================================+" << std::endl;
 
 }
