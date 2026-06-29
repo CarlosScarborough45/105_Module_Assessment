@@ -21,6 +21,34 @@ inline bool loggedin  = false;
 inline bool found     = false;
 inline User currentUser;
 
+inline bool isvalidpassword(std::string& password) {
+	bool hasUpper = false;
+	bool hasLower = false;
+	bool hasDigit = false;
+	bool hasSpecial = false;
+
+	if (password.length() <= 8) {
+		std::cout << "must have a length of 8 characters" << std::endl;
+		return false;
+	}
+
+		for (char pw : password)
+		{
+			if (isupper(pw)) hasUpper   = true;
+			if (islower(pw)) hasLower   = true;
+			if (isdigit(pw)) hasDigit   = true;
+			if (ispunct(pw)) hasSpecial = true;
+		}
+
+		if (!hasUpper){std::cout << "Must have an Upper character (U)" << std::endl;}
+		if (!hasLower){std::cout << "Must have an Lower character (u)" << std::endl;}
+		if (!hasDigit){std::cout << "Must have an Digit character (1)" << std::endl;}
+		if (!hasSpecial){std::cout << "Must have an Special character (!)" << std::endl;
+	}
+
+	return hasDigit && hasLower && hasSpecial && hasUpper;
+}
+
 void Signup();
 void staff();
 void Manager();

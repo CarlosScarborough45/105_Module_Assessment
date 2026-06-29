@@ -14,7 +14,7 @@ int main()
 {
     int choice = 0;
 
-    while (choice != 3 && !loggedin)
+    while (choice != 3 && loggedin == false)
     {
         std::cout << "+==================================================+" << std::endl;
         std::cout << "|                                                  |" << std::endl;
@@ -37,7 +37,7 @@ int main()
         }
     }
 
-    if (loggedin)
+    if (loggedin == true)
     {
         switch (currentUser.role)
         {
@@ -73,8 +73,16 @@ void Signup()
     std::cout << "Enter your Email: ";
     std::cin  >> u.email;
 
-    std::cout << "Enter your Password: ";
-    std::cin  >> u.password;
+    std::cin.ignore();
+
+    do{
+        std::cout << "Enter your Password: ";
+        std::getline(std::cin, u.password);
+
+        if (!isvalidpassword(u.password)) {
+            std::cout << "!invalid password try again" << std::endl;
+        }
+    }while (!isvalidpassword(u.password));
 
     std::cout << "Enter your Number: ";
     std::cin  >> u.number;

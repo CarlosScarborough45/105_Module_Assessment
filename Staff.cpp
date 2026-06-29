@@ -12,10 +12,12 @@ void staff(){
 	std::cout << "+==================================================+\n";
 
 	std::cout << "+==================================================+\n";
-	std::cout << "|                                                  |\n";
+	std::cout << "|                      |                           |\n";
 	std::cout << "|  1. Kitchen          |  2. Tables / Orders       |\n";
 	std::cout << "|                      |                           |\n";
+	std::cout << "|                      |                           |\n";
 	std::cout << "|  3. Profile          |  4. Return to Menu        |\n";
+	std::cout << "|                      |                           |\n";
 	std::cout << "|                      |                           |\n";
 	std::cout << "+==================================================+\n";
 	std::cin >> staff;
