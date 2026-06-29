@@ -7,211 +7,209 @@
 
 #include "Global.h"
 
-bool operator==(const std::string & lhs, Roles rhs);
-
-bool found = false;
-bool loggedin = false;
-bool running = false;
-
-
+// ─────────────────────────────────────────────
+//  MAIN
+// ─────────────────────────────────────────────
 int main()
 {
-	int choice;
-	while (choice != 3) {
-		std::cout << "+==================================================+" << std::endl;
-		std::cout << "|                                                  |" << std::endl;
-		std::cout << "|                                                  |" << std::endl;
-		std::cout << "|             Welcome to Eat && Treats             |" << std::endl;
-		std::cout << "|                                                  |" << std::endl;
-		std::cout << "|                                                  |" << std::endl;
-		std::cout << "+==================================================+" << std::endl;
+    int choice = 0;
 
-		std::cout << "+==================================================+" << std::endl;
-		std::cout << "|                     |                            |" << std::endl;
-		std::cout << "|                     |                            |" << std::endl;
-		std::cout << "|  1. Login			|		2. Register          |" << std::endl;
-		std::cout << "|                     |                            |" << std::endl;
-		std::cout << "|                     |                            |" << std::endl;
-		std::cout << "|  3. Exit            |                            |" << std::endl;
-		std::cout << "|                     |                            |" << std::endl;
-		std::cout << "|                     |                            |" << std::endl;
-		std::cout << "+==================================================+" << std::endl;
-		std::cin >> choice;
+    while (choice != 3 && !loggedin)
+    {
+        std::cout << "+==================================================+" << std::endl;
+        std::cout << "|                                                  |" << std::endl;
+        std::cout << "|             Welcome to Eat && Treats             |" << std::endl;
+        std::cout << "|                                                  |" << std::endl;
+        std::cout << "+==================================================+" << std::endl;
+        std::cout << "|  1. Login    |  2. Register  |  3. Exit         |" << std::endl;
+        std::cout << "+==================================================+" << std::endl;
+        std::cin >> choice;
 
-		switch (choice) {
-			case 1: {login();  break;}
-			case 2: {Signup(); break;}
-			case 3: {exit(0);}
-			default: {std::cout << "\n+==========================================+\n"
-								<< "\n|                                          |\n"
-								<< "\n|    Must choose between 1 - 3		     |\n"
-								<< "\n|                                          |\n"
-								<< "\n+==========================================+\n" << std::endl;};
-		}
-	}
-		}
-
-void Signup(){
-
-    std::ofstream file("../Users.CSV", std::ios::app);
-
-    if (!file.is_open()) {
-        std::cout << "\n+==========================================+\n"
-                  << "\n|                                          |\n"
-                  << "\n|    File Cannot be created or found       |\n"
-                  << "\n|                                          |\n"
-                  << "\n+==========================================+\n" << std::endl;
-    }
-    else if (file.is_open()) {
-        std::cout << "\n+==========================================+\n"
-                  << "\n|                                          |\n"
-                  << "\n|     File Has been Created Continue       |\n"
-                  << "\n|                                          |\n"
-                  << "\n+==========================================+\n" << std::endl;
+        switch (choice)
+        {
+            case 1: { login();  break; }
+            case 2: { Signup(); break; }
+            case 3: { exit(0); }
+            default:
+            {
+                std::cout << "\n| Must choose between 1 - 3 |\n" << std::endl;
+            }
+        }
     }
 
-    std::vector<User> users;
+    if (loggedin)
+    {
+        switch (currentUser.role)
+        {
+            case Roles::Staff:   { staff();   break; }
+            case Roles::Manager: { Manager(); break; }
+            case Roles::Admin:   { Admin();   break; }
+        }
+    }
+
+    return 0;
+}
+
+// ─────────────────────────────────────────────
+//  SIGNUP
+// ─────────────────────────────────────────────
+void Signup()
+{
     User u;
+    std::string roleStr;
 
     std::cout << "+====================================================+" << std::endl;
-    std::cout << "|                                                    |" << std::endl;
     std::cout << "|                                                    |" << std::endl;
     std::cout << "|              Welcome to Registration               |" << std::endl;
     std::cout << "|                                                    |" << std::endl;
-    std::cout << "|                                                    |" << std::endl;
     std::cout << "+====================================================+" << std::endl;
 
-    std::cout << "Enter your Name: " << std::endl;
-    std::cin >> u.fullname;
+    std::cout << "Enter your Name: ";
+    std::cin  >> u.fullname;
 
-    std::cout << "Enter your Age: " << std::endl;
-    std::cin >> u.age;
+    std::cout << "Enter your Age: ";
+    std::cin  >> u.age;
 
-    std::cout << "Enter your Email: " << std::endl;
-    std::cin >> u.email;
+    std::cout << "Enter your Email: ";
+    std::cin  >> u.email;
 
-    std::cout << "Enter your Password: " << std::endl;
-    std::cin >> u.password;
+    std::cout << "Enter your Password: ";
+    std::cin  >> u.password;
 
-    std::cout << "Enter your number: " << std::endl;
-    std::cin >> u.number;
+    std::cout << "Enter your Number: ";
+    std::cin  >> u.number;
 
-    std::cout << "Enter your Address: " << std::endl;
-    std::cin >> u.address;
+    std::cout << "Enter your Address: ";
+    std::cin  >> u.address;
 
-	int role;
-    std::cout << "Select your Role > "
-              << "1. Staff "
-			  << "2. Manager "
-			  << "3. Admin " << std::endl;
-	std::cin >> role;
+    int role = 0;
+    std::cout << "Select your Role > 1. Staff  2. Manager  3. Admin: ";
+    std::cin  >> role;
 
-	switch (role) {
-		case 1: {u.role = Roles::Staff; break;}
-		case 2: {u.role = Roles::Manager; break;}
-		case 3: {u.role = Roles::Admin; break;}
-		default: {std::cout << "+==========================================+"
-							<< "|                                          |"
-							<< "|     Must select Between 1 - 3			   |"
-							<< "|                                          |"
-							<< "+==========================================+" << std::endl; break;}
-	}
+    switch (role)
+    {
+        case 1: { u.role = Roles::Staff;   roleStr = "Staff";   break; }
+        case 2: { u.role = Roles::Manager; roleStr = "Manager"; break; }
+        case 3: { u.role = Roles::Admin;   roleStr = "Admin";   break; }
+        default:
+        {
+            std::cout << "\n| Must select between 1 - 3. Defaulting to Staff. |\n";
+            u.role  = Roles::Staff;
+            roleStr = "Staff";
+            break;
+        }
+    }
 
-	if (u.role == Roles::Staff) RolesUser =  "Staff";
-	if (u.role == Roles::Manager) RolesUser =  "Manager";
-	if (u.role == Roles::Admin) RolesUser =  "Admin";
+    // Check if the file is empty so we only write the header once
+    bool needsHeader = false;
+    {
+        std::ifstream check("../Users.CSV");
+        if (!check.good() || check.peek() == std::ifstream::traits_type::eof())
+            needsHeader = true;
+        check.close();
+    }
 
-	users.push_back(u);
+    std::ofstream file("../Users.CSV", std::ios::app);
 
-	std::string line;
+    if (!file.is_open())
+    {
+        std::cout << "\n+==========================================+" << std::endl;
+        std::cout << "|   Error: could not open or create file.  |" << std::endl;
+        std::cout << "+==========================================+\n" << std::endl;
+        return;
+    }
 
-	    file << std::left << "FullName " << ","
-						  << "Age "		<< ","
-						  << "Email "	<< ","
-						  << "Password "<< ","
-						  << "Number "	<< ","
-						  << "Address "	<< ","
-						  << "Role "		<< "," << std::endl;
+    if (needsHeader)
+        file << "FullName,Age,Email,Password,Number,Address,Role" << std::endl;
 
-		file << std::left <<  u.fullname << ","
-						  <<  u.age	   << ","
-						  <<  u.email	   << ","
-						  <<  u.password << ","
-						  <<  u.number   << ","
-						  <<  u.address  << ","
-						  <<  RolesUser << "," << std::endl;
-	file.close();
+    file << u.fullname << ","
+         << u.age      << ","
+         << u.email    << ","
+         << u.password << ","
+         << u.number   << ","
+         << u.address  << ","
+         << roleStr    << std::endl;
 
-	std::cout << "\n+==========================================+\n"
-			  << "\n|                                          |\n"
-			  << "\n|     New User has been Created		     |\n"
-			  << "\n|                                          |\n"
-			  << "\n+==========================================+\n" << std::endl;
+    file.close();
+
+    std::cout << "\n+==========================================+" << std::endl;
+    std::cout << "|     New user has been created!           |" << std::endl;
+    std::cout << "+==========================================+\n" << std::endl;
 }
 
-void login() {
-	std::cout << "+====================================================+" << std::endl;
-	std::cout << "|                                                    |" << std::endl;
-	std::cout << "|                                                    |" << std::endl;
-	std::cout << "|               Welcome to your login                |" << std::endl;
-	std::cout << "|                                                    |" << std::endl;
-	std::cout << "|                                                    |" << std::endl;
-	std::cout << "+====================================================+" << std::endl;
+// ─────────────────────────────────────────────
+//  LOGIN
+// ─────────────────────────────────────────────
+void login()
+{
+    std::string InputUsername, InputPassword;
+    std::vector<User> users;
 
-	std::fstream file("../Users.CSV");
-	std::string line;
-	std::vector<User> users;
-	User u;
-	std::string InputPassword, InputUsername;
+    std::cout << "+====================================================+" << std::endl;
+    std::cout << "|               Welcome to your Login                |" << std::endl;
+    std::cout << "+====================================================+" << std::endl;
 
-	while (getline(file, line)) {
-		if (line.empty())
-			continue;
+    std::cout << "Enter your Email: ";
+    std::cin  >> InputUsername;
 
-		std::stringstream ss (line);
+    std::cout << "Enter your Password: ";
+    std::cin  >> InputPassword;
 
-		std::getline(ss, u.fullname, ',');
-		std::getline(ss, u.age, ',');
-		std::getline(ss, u.email, ',');
-		std::getline(ss, u.password, ',');
-		std::getline(ss, u.number, ',');
-		std::getline(ss, u.address, ',');
-		std::getline(ss, RolesUser, ',');
+    // Read CSV into vector
+    std::string line;
+    std::fstream file("../Users.CSV");
+    bool firstLine = true;
 
-		if (RolesUser == "Staff") {
-			u.role = Roles::Staff;
-		}
-		else if (RolesUser == "Manager") {
-			u.role = Roles::Manager;
-		}
-		else if (RolesUser == "Admin") {
-			u.role = Roles::Admin;
-		}
-		User loggedinUser;
+    while (std::getline(file, line))
+    {
+        if (line.empty()) continue;
+        if (firstLine) { firstLine = false; continue; } // skip header row
 
-		for (const User& u : users) {
-			if (InputUsername == u.email && InputPassword == u.password) {
-				std::cout << "Email and Password has been found" << std::endl;
-				loggedinUser = u;
-				found = true;
-				break;
-			}
-		}
+        User u;
+        std::string roleStr;
+        std::stringstream ss(line);
 
-		if (found == true) {
-			std::cout << "Login was successful" << std::endl;
-			switch (loggedinUser.role) {
-				case Roles::Staff: {staff(); break;}
-				case Roles::Manager: {Manager(); break;}
-				case Roles::Admin: {Admin(); break;}
-			}
-		}
-		users.push_back(u);
-	}
+        std::getline(ss, u.fullname, ',');
+        std::getline(ss, u.age,      ',');
+        std::getline(ss, u.email,    ',');
+        std::getline(ss, u.password, ',');
+        std::getline(ss, u.number,   ',');
+        std::getline(ss, u.address,  ',');
+        std::getline(ss, roleStr,    ',');
 
-	std::cout << "Enter your Email: "    << std::endl;
-	std::cin >> InputUsername;
+        // Trim leading space from role string if present
+        if (!roleStr.empty() && roleStr.front() == ' ') roleStr.erase(0, 1);
 
-	std::cout << "Enter your Password: " << std::endl;
-	std::cin >> InputPassword;
+        if      (roleStr == "Staff")   u.role = Roles::Staff;
+        else if (roleStr == "Manager") u.role = Roles::Manager;
+        else if (roleStr == "Admin")   u.role = Roles::Admin;
+
+        users.push_back(u);
+    }
+    file.close();
+
+    // Search for matching credentials
+    for (const User& u : users)
+    {
+        if (InputUsername == u.email && InputPassword == u.password)
+        {
+            currentUser = u;
+            loggedin    = true;
+            found       = true;
+            break;
+        }
+    }
+
+    if (loggedin)
+    {
+        std::cout << "\n+==========================================+" << std::endl;
+        std::cout << "|  Login successful! Welcome, " << currentUser.fullname << std::endl;
+        std::cout << "+==========================================+\n" << std::endl;
+    }
+    else
+    {
+        std::cout << "\n+==========================================+" << std::endl;
+        std::cout << "|  Incorrect email or password. Try again. |" << std::endl;
+        std::cout << "+==========================================+\n" << std::endl;
+    }
 }

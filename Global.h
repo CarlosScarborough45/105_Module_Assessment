@@ -17,9 +17,14 @@ class User {
 		Roles role;
 };
 
+inline bool loggedin  = false;
+inline bool found     = false;
+inline User currentUser;
+
 void Signup();
 void staff();
 void Manager();
 void Admin();
 void login();
+int main();
 #endif //INC_105MODULE_GLOBAL_H

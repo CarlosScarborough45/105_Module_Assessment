@@ -5,34 +5,30 @@
 void staff(){
 
 	int staff;
-	std::cout << "+==================================================+" << std::endl;
-	std::cout << "|                                                 |" << std::endl;
-	std::cout << "|								                    |" << std::endl;
-	std::cout << "|            Welcome to Staff Display             |" << std::endl;
-	std::cout << "|                                                 |" << std::endl;
-	std::cout << "|                                                 |" << std::endl;
-	std::cout << "+==================================================+" << std::endl;
+	std::cout << "+==================================================+\n";
+	std::cout << "|                                                  |\n";
+	std::cout << "|           Welcome to Staff Display               |\n";
+	std::cout << "|                                                  |\n";
+	std::cout << "+==================================================+\n";
 
-	std::cout << "+==================================================+" << std::endl;
-	std::cout << "|                          |                       |" << std::endl;
-	std::cout << "|  1. Kitchen				 | 2. Tables / Orders    |" << std::endl;
-	std::cout << "|                          |                       |" << std::endl;
-	std::cout << "|  3. Profile              |  4. Return to Menu    |" << std::endl;
-	std::cout << "|                          |                       |" << std::endl;
-	std::cout << "+==================================================+" << std::endl;
+	std::cout << "+==================================================+\n";
+	std::cout << "|                                                  |\n";
+	std::cout << "|  1. Kitchen          |  2. Tables / Orders       |\n";
+	std::cout << "|                      |                           |\n";
+	std::cout << "|  3. Profile          |  4. Return to Menu        |\n";
+	std::cout << "|                      |                           |\n";
+	std::cout << "+==================================================+\n";
 	std::cin >> staff;
 
 	switch (staff) {
 		case 1:{break;}
 		case 2:{break;}
 		case 3:{break;}
-		case 4:{std::cout <<"+======================================+\n"
-					      <<"|										|\n"
-						  <<"|										|\n"
-					      <<"|		You are logging out				|\n"
-						  <<"|										|\n"
-						  <<"|										|\n"
-						  <<"+======================================+\n";break;}
+		case 4:{std::cout << "+======================================+\n"
+						  << "|                                      |\n"
+						  << "|         You are logging out          |\n"
+						  << "|                                      |\n"
+						  << "+======================================+\n"; loggedin = false; main(); return;}
 		default: {std::cout << " [X] Choose between 1 - 4" << std::endl;break;}
 	}
 }
