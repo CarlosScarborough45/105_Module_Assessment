@@ -70,10 +70,18 @@ void Signup()
     std::cout << "Enter your Age: ";
     std::cin  >> u.age;
 
-    std::cout << "Enter your Email: ";
-    std::cin  >> u.email;
-
     std::cin.ignore();
+
+    do{
+    std::cout << "Enter your Email: ";
+    std::getline(std::cin, u.email);
+
+     if (!isvalidEmail(u.email)) {
+         std::cout << "Must input the valid requirements\n"
+                      "Must have (@)\n"
+                      "Must have gmail.com"<< std::endl;
+     }
+    }while (!isvalidEmail(u.email));
 
     do{
         std::cout << "Enter your Password: ";

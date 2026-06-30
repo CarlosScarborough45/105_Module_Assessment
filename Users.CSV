@@ -1,21 +1,4 @@
 FullName ,Age ,Email ,Password ,Number ,Address ,Role ,
-Carlos,27,cscarborough@gmail.com,DavidandCarlos,0212306071,Henderson,Staff,
-FullName ,Age ,Email ,Password ,Number ,Address ,Role ,
-David,51,D@informace.com,DavidandCarlos,0211109112,Henderson,Admin,
-FullName ,Age ,Email ,Password ,Number ,Address ,Role ,
-Hugh,25,Scarborough@gmail.com,HHH2,0212306071,Henderson,Admin,
-FullName ,Age ,Email ,Password ,Number ,Address ,Role ,
-Carlos,25,cscarborough83@gmail.com,David5,0212306071,Henderson,Admin,
-FullName ,Age ,Email ,Password ,Number ,Address ,Role ,
-David,54',HHH@gmail.com,DavidandCarlos2,02109112,Henderson,Manager,
-FullName ,Age ,Email ,Password ,Number ,Address ,Role ,
-Carlos,2,cscarborough83@gmail.com,DavidandCarlos,0212306071,Henderson,Staff,
-FullName ,Age ,Email ,Password ,Number ,Address ,Role ,
-Carlos,27,scarborough,Davidand,0212306071,Henderson,Staff,
-FullName ,Age ,Email ,Password ,Number ,Address ,Role ,
-Carlos,27,cscarborough23@gnauk.com,DavidandCarlos23,0212306071,Henderson,Staff,
-FullName ,Age ,Email ,Password ,Number ,Address ,Role ,
-ddd,21,ds.com,ds21,21,21,Staff,
-Carlos,27,dds.com,sss21,0212306071,Henderson,Staff
-Carlos,27,hhh@.com,Carlos@!1,0212306071,Henderson,Staff
-Carlos,27,hhhh@gm.com,Carlos22@,0212306071,Henderson,Staff
+
+CarlosScarborough,27,cscarborough@gmail.com,DavidandCarlos2@,0212306071,Henderson,Staff
+CarlosScarborough,27,Carlos@gmail.com,DavidCarlos21@,0212306071,Henderson,Admin

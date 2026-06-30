@@ -49,6 +49,26 @@ inline bool isvalidpassword(std::string& password) {
 	return hasDigit && hasLower && hasSpecial && hasUpper;
 }
 
+inline bool isvalidEmail(std::string& email) {
+	if (email.length() > 30) {
+		return false;
+	}
+
+	size_t atPos = email.find("@");
+	if (atPos == std::string::npos || atPos == 0) {
+		return false;
+	}
+
+	std::string domain = email.substr(atPos + 1);
+
+
+	if (domain != "gmail.com" && domain != "outlook.com" && domain != "Eatandtreats.com") {
+		return false;
+	}
+	return true;
+
+}
+
 void Signup();
 void staff();
 void Manager();
