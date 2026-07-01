@@ -22,10 +22,11 @@ void staff(){
 	std::cout << "+==================================================+\n";
 	std::cin >> staff;
 
+
 	switch (staff) {
 		case 1:{break;}
 		case 2:{break;}
-		case 3:{break;}
+		case 3:{profile(); break;}
 		case 4:{std::cout << "+======================================+\n"
 						  << "|                                      |\n"
 						  << "|         You are logging out          |\n"
@@ -33,4 +34,21 @@ void staff(){
 						  << "+======================================+\n"; loggedin = false; main(); return;}
 		default: {std::cout << " [X] Choose between 1 - 4" << std::endl;break;}
 	}
+}
+
+void profile() {
+
+	User u;
+
+	std::cout << "Your Name: " << " " << u.fullname << std::endl;
+
+	std::cout << "Your Age: " << " " << u.age << std::endl;
+
+	std::cout << "Your Email: " << " " << u.email << std::endl;
+
+	std::cout << "Your Password: " << " " << u.password << std::endl;
+
+	std::cout << "Your Number: " << " " << u.number << std::endl;
+
+	std::cout << "Your Address: " << " " << u.address << std::endl;
 }

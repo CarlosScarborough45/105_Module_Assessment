@@ -75,4 +75,5 @@ void Manager();
 void Admin();
 void login();
 int main();
+void profile();
 #endif //INC_105MODULE_GLOBAL_H
