@@ -40,9 +40,9 @@ inline bool isvalidpassword(std::string& password) {
 			if (ispunct(pw)) hasSpecial = true;
 		}
 
-		if (!hasUpper){std::cout << "Must have an Upper character (U)" << std::endl;}
-		if (!hasLower){std::cout << "Must have an Lower character (u)" << std::endl;}
-		if (!hasDigit){std::cout << "Must have an Digit character (1)" << std::endl;}
+		if (!hasUpper)
+		if (!hasLower)
+		if (!hasDigit)
 		if (!hasSpecial){std::cout << "Must have an Special character (!)" << std::endl;
 	}
 

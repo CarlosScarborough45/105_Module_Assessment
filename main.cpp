@@ -29,7 +29,11 @@ int main()
         {
             case 1: { login();  break; }
             case 2: { Signup(); break; }
-            case 3: { exit(0); }
+            case 3: {std::cout << "+======================================+\n"
+                              << "|                                      |\n"
+                              << "|     You are Exiting the program      |\n"
+                              << "|                                      |\n"
+                              << "+======================================+\n"; exit(0);}
             default:
             {
                 std::cout << "\n| Must choose between 1 - 3 |\n" << std::endl;
@@ -88,7 +92,10 @@ void Signup()
         std::getline(std::cin, u.password);
 
         if (!isvalidpassword(u.password)) {
-            std::cout << "!invalid password try again" << std::endl;
+            std::cout << "Must have valid password\n"
+                      << "Must contain at least one number\n"
+                      << "Must contain at least one Capital\n"
+                      << "Must contain at least 8 Characters\n" << std::endl;
         }
     }while (!isvalidpassword(u.password));
 
@@ -156,24 +163,42 @@ void Signup()
 // ─────────────────────────────────────────────
 //  LOGIN
 // ─────────────────────────────────────────────
-void login()
-{
-    std::string InputUsername, InputPassword;
+void login() {
     std::vector<User> users;
+    User U;
+
+    std::cin.ignore(); // flush leftover newline left by std::cin >> choice in main()
 
     std::cout << "+====================================================+" << std::endl;
     std::cout << "|               Welcome to your Login                |" << std::endl;
     std::cout << "+====================================================+" << std::endl;
 
-    std::cout << "Enter your Email: ";
-    std::cin  >> InputUsername;
+    do {
+        std::cout << "Enter your Email: ";
+        std::getline(std::cin, U.email);
 
-    std::cout << "Enter your Password: ";
-    std::cin  >> InputPassword;
+        if (!isvalidEmail(U.email)) {
+            std::cout << "Must input the valid requirements\n"
+                         "Must have (@)\n"
+                         "Must have gmail.com"<< std::endl;
+        }
+    } while (!isvalidEmail(U.email));
 
-    // Read CSV into vector
+    do {
+        std::cout << "Enter your Password: ";
+        std::getline(std::cin, U.password);
+
+        if (!isvalidpassword(U.password)) {
+            std::cout << "Must have valid password\n"
+                      << "Must contain at least one number\n"
+                      << "Must contain at least one Capital\n"
+                      << "Must contain at least 8 Characters\n" << std::endl;
+        }
+    } while (!isvalidpassword(U.password));
+
+    // Read CSV into vector (happens once, after both fields are validated)
     std::string line;
-    std::fstream file("../Users.CSV");
+    std::ifstream file("../Users.CSV");
     bool firstLine = true;
 
     while (std::getline(file, line))
@@ -207,7 +232,7 @@ void login()
     // Search for matching credentials
     for (const User& u : users)
     {
-        if (InputUsername == u.email && InputPassword == u.password)
+        if (U.email == u.email && U.password == u.password)
         {
             currentUser = u;
             loggedin    = true;
