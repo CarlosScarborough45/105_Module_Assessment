@@ -76,4 +76,5 @@ void Admin();
 void login();
 int main();
 void profile();
+void kitchen();
 #endif //INC_105MODULE_GLOBAL_H
