@@ -9,6 +9,7 @@ add_executable(105Module
         Manager.cpp
         Kitchen.cpp
         Admin.cpp
-        Global.h)
+        Global.h
+        Orders.h)
 
 target_link_options(105Module PRIVATE -static -static-libgcc -static-libstdc++)
