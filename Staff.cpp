@@ -5,6 +5,8 @@
 #include <iomanip>
 #include <sstream>
 #include "Orders.h"
+#include <filesystem>
+
 
 void staff(){
 
@@ -85,15 +87,6 @@ void place_new_orders() {
 	if (order.empty()) {
 		std::cout << "[X] Must place an order to continue" << std::endl;
 	}
-	else {
-		for (Order& O : order) {
-			std::cout << "Table: " << O.TableNumber << std::endl;
-			std::cout << "Items: " << O.Items << std::endl;
-			std::cout << "Status: " << O.Status << std::endl;
-			std::cout << "_________________________________" << std::endl;
-		}
-	}
-
 
 	std::ofstream file("../Orders.CSV", std::ios::app);
 	if (!file.is_open()) {
@@ -115,11 +108,14 @@ void place_new_orders() {
 	std::cout << "Enter the order ID: " << std::endl;
 	std::cin >> O.orderID;
 
-	if (file.tellp() == 0) {
+	//before opening a file check if said file has content
+	bool fileexists = std::filesystem::exists("../Orders.CSV") &&
+					  std::filesystem::file_size("../Orders.CSV") > 0;
+	if (!fileexists) {
 		file << std::left << std::setw(20) << "OrderID" << " | "
-						  << std::setw(20) << "TableNumber" << " | "
-						  << std::setw(20) << "Item" << " | "
-						  << std::setw(20) << "Status" << " | " << std::endl;
+				  << std::setw(20) << "TableNumber" << " | "
+				  << std::setw(20) << "Item" << " | "
+				  << std::setw(20) << "Status" << " | " << std::endl;
 	}
 
 	file << std::left << std::setw(20) << O.orderID << " | "
