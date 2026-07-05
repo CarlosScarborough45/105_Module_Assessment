@@ -1,2 +1,3 @@
-OrderID              | TableNumber          | Item                 | Status               | 
-222                  | 1                    | Padthai              | Active               | 
+OrderID              | TableNumber          | Item                 | Price                | Status               | 
+222                  | 1                    | Padthai              | $23.50               | Pending              | 
+222                  | 1                    | Ramon                | $23.00               | Pending              | 

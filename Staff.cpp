@@ -11,6 +11,7 @@
 void staff(){
 
 	int staff;
+	while (true){
 	std::cout << "+==================================================+\n";
 	std::cout << "|                                                  |\n";
 	std::cout << "|           Welcome to Staff Display               |\n";
@@ -38,6 +39,7 @@ void staff(){
 						  << "|                                      |\n"
 						  << "+======================================+\n"; loggedin = false; main(); return;}
 		default: {std::cout << " [X] Choose between 1 - 4" << std::endl;break;}
+	}
 	}
 }
 
@@ -102,6 +104,9 @@ void place_new_orders() {
 	std::cout << "Enter the Item: " << std::endl;
 	std::cin >> O.Items;
 
+	std::cout << "Enter the price: " <<std::endl;
+	std::cin >> O.Price;
+
 	std::cout << "Enter the Status: " << std::endl;
 	std::cin >> O.Status;
 
@@ -115,12 +120,14 @@ void place_new_orders() {
 		file << std::left << std::setw(20) << "OrderID" << " | "
 				  << std::setw(20) << "TableNumber" << " | "
 				  << std::setw(20) << "Item" << " | "
+				  << std::setw(20) << "Price" << " | "
 				  << std::setw(20) << "Status" << " | " << std::endl;
 	}
 
 	file << std::left << std::setw(20) << O.orderID << " | "
 					  << std::setw(20) << O.TableNumber << " | "
 					  << std::setw(20) << O.Items << " | "
+					  << std::setw(20) << O.Price << " | "
 					  << std::setw(20) << O.Status << " | " << std::endl;
 
 	order.push_back(O);
