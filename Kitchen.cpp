@@ -73,17 +73,17 @@ void order_is_Pending() {
     }
     file.close();
 
-    for (const Order& O : orders) {
-        std::cout << "________________________________________" << std::endl;
-        std::cout << "_______   Orders Pending  ______________" << std::endl;
-        std::cout << "________________________________________" << std::endl;
-        std::cout << "  orderID:     [" << O.orderID     << "]" << std::endl;
-        std::cout << "  TableNumber: [" << O.TableNumber << "]" << std::endl;
-        std::cout << "  Items:       [" << O.Items       << "]" << std::endl;
-        std::cout << "  Price:       [" << O.Price       << "]" << std::endl;
-        std::cout << "  Status:      [" << O.Status      << "]" << std::endl;
-        std::cout << "________________________________________" << std::endl;
-    }
+    std::cout << "________________________________________" << std::endl;
+    std::cout << "_______   Orders Pending  ______________" << std::endl;
+    std::cout << "________________________________________" << std::endl;
+        for (const Order& O : orders) {
+            std::cout << "  orderID:     [" << O.orderID     << "]" << std::endl;
+            std::cout << "  TableNumber: [" << O.TableNumber << "]" << std::endl;
+            std::cout << "  Items:       [" << O.Items       << "]" << std::endl;
+            std::cout << "  Price:       [" << O.Price       << "]" << std::endl;
+            std::cout << "  Status:      [" << O.Status      << "]" << std::endl;
+            std::cout << "________________________________________" << std::endl;
+        }
 }
 
 void order_as_Ready() {
