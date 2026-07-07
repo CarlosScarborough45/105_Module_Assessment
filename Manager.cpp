@@ -9,6 +9,7 @@
 
 void Manager() {
 
+	int manager;
 	std::cout << "+==================================================+\n";
 	std::cout << "|                                                 |\n";
 	std::cout << "|								                    |\n";
@@ -25,6 +26,17 @@ void Manager() {
 	std::cout << "|                          |                       |\n";
 	std::cout << "|  5. Sales	             |  6. Menu changes      |\n";
 	std::cout << "+==================================================+\n";
+	std::cin >> manager;
+
+	switch (manager) {
+		case 1: {	break;}
+		case 2: {	break;}
+		case 3: {	break;}
+		case 4: {	break;}
+		case 5: {sales(); break;}
+		case 6: {	break;}
+	}
+
 
 }
 void sales() {

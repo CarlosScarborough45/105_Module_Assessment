@@ -15,5 +15,6 @@ class Order {
 void place_new_orders();
 void order_Menu();
 void order_is_Pending();
+void sales();
 
 #endif //INC_105MODULE_ORDERS_H
