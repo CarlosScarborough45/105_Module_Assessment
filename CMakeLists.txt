@@ -4,4 +4,8 @@ project(backend_00P)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(backend_00P main.cpp
-        Users.h)
+        Users.h
+        User.cpp
+        Manager.cpp
+        Manager.h
+)
