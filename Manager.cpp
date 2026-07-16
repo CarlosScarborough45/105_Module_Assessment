@@ -36,6 +36,45 @@ void menu() {
         }
 }
 
-void reports(){}
+void reports() {
+    int reports;
+    std::cout << "Welcome to Report display\n";
+    std::cout << "1. Have a daily sales report\n";
+    std::cout << "2. Have a weekly sales report\n";
+    std::cout << "3. Most ordered items\n";
+    std::cout << "4. View all Totals orders\n";
+    std::cout << "5. Return to menu\n";
+    std::cin >> reports;
 
-void Table(){}
+    switch (reports) {
+        case 1: {break;}
+        case 2: {break;}
+        case 3: {break;}
+        case 4: {break;}
+        case 5: {std::cout << "User is returning to menu, Thank you." << std::endl; return;}
+        default:{std::cout << "[X] Must choose between 1 - 5" << std::endl; break;}
+    }
+}
+
+void Table() {
+    int table;
+    std::cout << "Welcome to table display\n";
+    std::cout << "1. View Available Tables\n";
+    std::cout << "2. View Occupied Tables\n";
+    std::cout << "3. View Reserved Tables\n";
+    std::cout << "4. Add Tables\n";
+    std::cout << "5. Remove Tables\n";
+    std::cout << "6. Assign/Reserve Tables\n";
+    std::cout << "7. Return to menu\n";
+
+    switch (table) {
+        case 1: {break;}
+        case 2: {break;}
+        case 3: {break;}
+        case 4: {break;}
+        case 5: {break;}
+        case 6: {break;}
+        case 7: {std::cout << "Returning to menu, Thankyou.\n"; return;}
+        default:{std::cout << "Must choose between 1 - 7" << std::endl; break;}
+    }
+}
