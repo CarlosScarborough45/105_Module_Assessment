@@ -8,4 +8,6 @@ add_executable(backend_00P main.cpp
         User.cpp
         Manager.cpp
         Manager.h
+        Tables.cpp
+        Tables.h
 )

@@ -1,4 +1,5 @@
 #include "Manager.h"
+#include "Tables.h"
 
 void orders() {
     int orders;
@@ -64,16 +65,17 @@ void Table() {
     std::cout << "3. View Reserved Tables\n";
     std::cout << "4. Add Tables\n";
     std::cout << "5. Remove Tables\n";
-    std::cout << "6. Assign/Reserve Tables\n";
+    std::cout << "6. View all Tables\n";
     std::cout << "7. Return to menu\n";
+    std::cin >> table;
 
     switch (table) {
-        case 1: {break;}
-        case 2: {break;}
+        case 1: {Available_Table(); break;}
+        case 2: {Occupied_Table();  break;}
         case 3: {break;}
         case 4: {break;}
         case 5: {break;}
-        case 6: {break;}
+        case 6: {ViewAllTables(); break;}
         case 7: {std::cout << "Returning to menu, Thankyou.\n"; return;}
         default:{std::cout << "Must choose between 1 - 7" << std::endl; break;}
     }
