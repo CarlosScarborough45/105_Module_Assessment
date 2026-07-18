@@ -5,7 +5,8 @@
 
 struct Tables {
     int TableID;
-    int TableNumber;
+    std::string TableNumber;
+    std::string TableName;
     int Capacity;
     std::string Status;
     int CurrentOrderID;

@@ -13,19 +13,20 @@ void Available_Table() {
 
     std::vector<Tables> tables;
 
-    std::getline(file, line);
+    std::getline(file, line); // skip header row
 
     while (std::getline(file, line)) {
         if (line.empty()) continue;
 
         std::stringstream ss (line);
-        Tables t;   // moved inside loop, one per row
+        Tables t;
 
         std::getline(ss, field, '|');
         t.TableID = std::stoi(field);
 
-        std::getline(ss, field, '|');
-        t.TableNumber = std::stoi(field);
+        std::getline(ss, t.TableNumber, '|');   // string now, NOT stoi
+
+        std::getline(ss, t.TableName, '|');
 
         std::getline(ss, field, '|');
         t.Capacity = std::stoi(field);
@@ -37,13 +38,24 @@ void Available_Table() {
 
         tables.push_back(t);
     }
+    std::cout << "\n"
+              << std::left << std::setw(10) << "ID"
+              << std::setw(15) << "Table Number"
+              << std::setw(15) << "Table Name"
+              << std::setw(10) << "Capacity"
+              << std::setw(15) << "Status" << "\n";
+    std::cout << std::string(65, '-') << "\n";
+
     for (const Tables& t : tables){
         if (t.Status == "Available"){
-            std::cout << std::left << std::setw(20) << t.TableID
-                      << std::setw(20) << t.TableNumber
-                      << std::setw(20) << t.Status << std::endl;
+            std::cout << std::left << std::setw(10) << t.TableID
+                      << std::setw(15) << t.TableNumber
+                      << std::setw(15) << t.TableName
+                      << std::setw(10) << t.Capacity
+                      << std::setw(15) << t.Status << "\n";
         }
     }
+    std::cout << std::string(65, '-') << std::endl;
 }
 
 void Occupied_Table() {
@@ -57,19 +69,20 @@ void Occupied_Table() {
 
     std::vector<Tables> tables;
 
-    std::getline(file, line);
+    std::getline(file, line); // skip header row
 
     while (std::getline(file, line)) {
         if (line.empty()) continue;
 
         std::stringstream ss (line);
-        Tables t;   // moved inside loop, one per row
+        Tables t;
 
         std::getline(ss, field, '|');
         t.TableID = std::stoi(field);
 
-        std::getline(ss, field, '|');
-        t.TableNumber = std::stoi(field);
+        std::getline(ss, t.TableNumber, '|');
+
+        std::getline(ss, t.TableName, '|');
 
         std::getline(ss, field, '|');
         t.Capacity = std::stoi(field);
@@ -81,14 +94,25 @@ void Occupied_Table() {
 
         tables.push_back(t);
     }
+    std::cout << "\n"
+              << std::left << std::setw(10) << "ID"
+              << std::setw(15) << "Table Number"
+              << std::setw(15) << "Table Name"
+              << std::setw(10) << "Capacity"
+              << std::setw(15) << "Status" << "\n";
+    std::cout << std::string(65, '-') << "\n";
+
     for (const Tables& t : tables){
         if (t.Status == "Occupied"){
-            std::cout << std::left << std::setw(20) << t.TableID
-                      << std::setw(20) << t.TableNumber
-                      << std::setw(20) << t.Status << std::endl;
+            std::cout << std::left << std::setw(10) << t.TableID
+                      << std::setw(15) << t.TableNumber
+                      << std::setw(15) << t.TableName
+                      << std::setw(10) << t.Capacity
+                      << std::setw(15) << t.Status << "\n";
         }
     }
-    std::cout << "Tables are all available\n";
+    std::cout << "There are not Occupied Tables, All Waiting to be filled" << std::endl;
+    std::cout << std::string(65, '-') << std::endl;
 }
 
 
@@ -98,10 +122,11 @@ void ViewAllTables() {
     for (int i = 1; i <= 8; i++) {
         Tables t;
         t.TableID = i;
-        t.TableNumber = i;
+        t.TableNumber = "Table " + std::to_string(i);
+        t.TableName = "Table " + std::to_string(i);   // now actually set
         t.Capacity = 4;
         t.Status = "Available";
-        t.CurrentOrderID = -i;
+        t.CurrentOrderID = -1;
         tables.push_back(t);
     }
 
@@ -129,11 +154,12 @@ void ViewAllTables() {
     }
     std::cout << "[ok] File have been available or created" << std::endl;
 
-    file << "Table ID|Table Number|Capacity|Status|CurrentOrderID" << std::endl;
+    // header now matches exactly what's written below, in the same order
+    file << "Table ID|Table Number|Table Name|Capacity|Status|CurrentOrderID" << std::endl;
 
     for (const Tables& t : tables) {
-        file << t.TableID << "|" << t.TableNumber << "|" << t.Capacity << "|"
-             << t.Status << "|" << t.CurrentOrderID << "|" << std::endl;
+        file << t.TableID << "|" << t.TableNumber << "|" << t.TableName << "|"
+             << t.Capacity << "|" << t.Status << "|" << t.CurrentOrderID << std::endl;
     }
     file.close();
 }
