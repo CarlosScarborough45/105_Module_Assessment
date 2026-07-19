@@ -2,13 +2,12 @@
 #define BACKEND_00P_USERS_H
 #include <string>
 #include <fstream>
-#include <sstream>
 #include <iostream>
 #include <memory>
 
 int main();
 
-enum class roles { StaffRole, ManagerRole, CustomerRole, AdminRole };
+enum class roles { StaffRole, ManagerRole, CustomerRole, AdminRole, WaitStaff, Kitchen, Host };
 
 class Admin;
 class Manager;
@@ -19,6 +18,9 @@ inline roles stringtorole(const std::string& roleString) {
     if (roleString == "Admin")   return roles::AdminRole;
     if (roleString == "Manager") return roles::ManagerRole;
     if (roleString == "Staff")   return roles::StaffRole;
+    if (roleString == "WaitStaff") return roles::WaitStaff;
+    if (roleString == "Kitchen") return roles::Kitchen;
+    if (roleString == "Host") return roles::Host;
     return roles::CustomerRole;
 }
 

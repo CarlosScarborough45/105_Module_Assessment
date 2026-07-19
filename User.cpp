@@ -1,5 +1,9 @@
+#include <sstream>
+#include "Admin.h"
+#include "Customer.h"
 #include "Users.h"
 #include "Manager.h"
+#include "Staff.h"
 
 std::unique_ptr<Users> signin() {
     std::cout << "Welcome to login" << std::endl;
@@ -31,13 +35,15 @@ std::unique_ptr<Users> signin() {
 
         if (csvUsername == username && csvPassword == password) {
             roles userRole = stringtorole(roleString);
-
             std::cout << "Login successful\nWelcome User [" << Name << "]" << std::endl;
 
             if (userRole == roles::AdminRole)    return std::make_unique<Admin>();
             if (userRole == roles::ManagerRole)  return std::make_unique<Manager>();
             if (userRole == roles::StaffRole)    return std::make_unique<Staff>();
             if (userRole == roles::CustomerRole) return std::make_unique<Customer>();
+            if (userRole == roles::Host) return std::make_unique<Host>();
+            if (userRole == roles::Kitchen) return std::make_unique<Kitchen>();
+            if (userRole == roles::WaitStaff) return std::make_unique<WaitStaff>();
         }
     }
 

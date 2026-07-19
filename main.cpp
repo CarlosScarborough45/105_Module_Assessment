@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 
+#include "Customer.h"
 #include "Users.h"
 
 int main() {
