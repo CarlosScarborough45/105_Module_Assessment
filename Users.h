@@ -68,27 +68,6 @@ public:
     }
 };
 
-class Customer : public Users {
-public:
-    void rolesdashboard() override {
-        std::cout << "Welcome to Customer Dashboard" << std::endl;
-    }
-};
-
-class Staff : public Users {
-public:
-    void rolesdashboard() override {
-        std::cout << "Welcome to Staff Dashboard" << std::endl;
-    }
-};
-
-class Admin : public Users {
-public:
-    void rolesdashboard() override {
-        std::cout << "Welcome to Admin Dashboard" << std::endl;
-    }
-};
-
 std::unique_ptr<Users> signin();
 
 #endif

@@ -73,7 +73,7 @@ void Table() {
         case 1: {Available_Table(); break;}
         case 2: {Occupied_Table();  break;}
         case 3: {break;}
-        case 4: {break;}
+        case 4: {add_Table(); break;}
         case 5: {break;}
         case 6: {ViewAllTables(); break;}
         case 7: {std::cout << "Returning to menu, Thankyou.\n"; return;}

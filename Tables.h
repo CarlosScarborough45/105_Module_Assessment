@@ -15,4 +15,6 @@ struct Tables {
 void ViewAllTables();
 void Available_Table();
 void Occupied_Table();
+void add_Table();
+void Tablestatus();
 #endif //BACKEND_00P_TABLES_H
