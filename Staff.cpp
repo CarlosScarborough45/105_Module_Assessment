@@ -55,4 +55,3 @@ void Host::SaveTables() {
             << t.Capacity << "|" << t.Status << "|" << t.CurrentOrderID << "\n";
     }
 }
-
