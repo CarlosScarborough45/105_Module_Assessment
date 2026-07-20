@@ -68,12 +68,14 @@ class Kitchen : public Staff {
         }
 };
 
+
 class Host : public Staff  {
     public:
     std::vector<Tables> tables;
     std::string filepath = "../Table.csv";
     void Assign();
     void SaveTables();
+    void Available_Tables();
 
     void LoadTables() {
         tables.clear();
@@ -106,11 +108,11 @@ class Host : public Staff  {
             Tables t;
             try {
                 t.TableID        = std::stoi(fields[0]);
-                t.TableNumber    = fields[1];               // string, not stoi
+                t.TableNumber    = fields[1];
                 t.TableName      = fields[2];
                 t.Capacity       = std::stoi(fields[3]);
                 t.Status         = fields[4];
-                t.CurrentOrderID = (fields.size() >= 6) ? std::stoi(fields[5]) : -1; // default if missing
+                t.CurrentOrderID = (fields.size() >= 6) ? std::stoi(fields[5]) : -1;
             } catch (const std::exception& e) {
                 std::cout << "Line " << lineNum << " bad data, skipping: [" << line << "] (" << e.what() << ")\n";
                 continue;
@@ -121,6 +123,9 @@ class Host : public Staff  {
     }
 
     void View_Tables() {
+        std::cout << std::string(100, '-') << std::endl;
+        std::cout << std::left << std::setw(60) << "Available" << std::endl;
+        std::cout << std::string(100, '-') << std::endl;
         LoadTables();
         for (const Tables& t : tables) {
             if (t.Status == "Available") {
@@ -132,6 +137,10 @@ class Host : public Staff  {
             }
         }
 
+        std::cout << std::left << std::string(100, '-') << std::endl;
+        std::cout << "Occupied Tables" << std::left << std::setw(20) << std::endl;
+        std::cout << std::string (100, '-') << std::endl;
+
         for (const Tables& t : tables) {
             if (t.Status == "Occupied") {
                 std::cout << std::left << std::setw(20) << t.TableID
@@ -139,6 +148,20 @@ class Host : public Staff  {
                                        << std::setw(20) << t.TableName
                                        << std::setw(20) << t.Capacity
                                        << std::setw(20) << t.Status << "\n";
+            }
+        }
+
+        std::cout << std::string(100, '-') << std::endl;
+        std::cout << std::left << std::setw(60) << "Reserved" << std::endl;
+        std::cout << std::string(100, '-') << std::endl;
+        LoadTables();
+        for (const Tables& t : tables) {
+            if (t.Status == "Reserved") {
+                std::cout << std::left << std::setw(20) << t.TableID
+                                       <<std::setw(20) << t.TableNumber
+                                       <<std::setw(20) << t.TableName
+                                       <<std::setw(20) << t.Capacity
+                                       <<std::setw(20) << t.Status << "\n";
             }
         }
     }
@@ -157,7 +180,7 @@ class Host : public Staff  {
                             case 1:{View_Tables(); break;}
                             case 2:{Assign(); break;}
                             case 3:{break;}
-                            case 4:{break;}
+                            case 4:{Available_Tables(); break;}
                             case 5:{return;}
                             default:{std::cout << "Must choose between 1 - 5" << std::endl;}
                         }
