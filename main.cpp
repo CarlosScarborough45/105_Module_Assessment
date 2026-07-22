@@ -23,7 +23,7 @@ int main() {
             break;
         }
         case 2: {
-            Customer temp;   // just borrowing Customer to reach Signup()
+            Customer temp;
             temp.Signup();
             break;
         }

@@ -16,4 +16,6 @@ add_executable(backend_00P main.cpp
         Customer.h
         Staff.cpp
         Staff.h
+        Menu.cpp
+        Menu.h
 )

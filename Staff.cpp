@@ -1,7 +1,6 @@
 #include "Staff.h"
 #include <iomanip>
 #include <vector>
-
 #include "Tables.h"
 
 void Orders() {
@@ -46,7 +45,6 @@ void Host::Assign() {
 
 void Host::Available_Tables() {
     LoadTables();
-
     int ID;
     std::cout << "Enter Table ID: \n";
     std::cin >> ID;
