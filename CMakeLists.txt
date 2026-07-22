@@ -19,3 +19,5 @@ add_executable(backend_00P main.cpp
         Menu.cpp
         Menu.h
 )
+
+target_link_options(backend_00P PRIVATE -static-libgcc -static-libstdc++ -static)

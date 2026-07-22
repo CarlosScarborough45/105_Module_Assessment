@@ -1,3 +1,4 @@
+Table ID|Table Number|Table Name|Capacity|Status|CurrentOrderID
 1|Table 1|Table 1|4|Available|-1
 2|Table 2|Table 2|4|Available|-1
 3|Table 3|Table 3|4|Available|-1
@@ -6,6 +7,3 @@
 6|Table 6|Table 6|4|Available|-1
 7|Table 7|Table 7|4|Available|-1
 8|Table 8|Table 8|4|Available|-1
-9|Table9|Table9|4|Occupied|-1
-10|Table10|Table10|4|Occupied|-1
-11|Table11|Table11|4|Available|-1
