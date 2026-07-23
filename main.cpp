@@ -1,8 +1,9 @@
 #include <iostream>
 #include <memory>
-
 #include "Customer.h"
 #include "Users.h"
+#include "sqlite3.h"
+
 
 int main() {
     int login;

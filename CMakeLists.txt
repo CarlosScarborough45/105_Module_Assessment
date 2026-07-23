@@ -21,3 +21,6 @@ add_executable(backend_00P main.cpp
 )
 
 target_link_options(backend_00P PRIVATE -static-libgcc -static-libstdc++ -static)
+
+find_package(unofficial-sqlite3 CONFIG REQUIRED)
+target_link_libraries(backend_00P PRIVATE unofficial::sqlite3::sqlite3)
