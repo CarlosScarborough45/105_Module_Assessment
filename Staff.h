@@ -14,7 +14,7 @@ void View_Tables();
 
 class Staff : public Users {
 public:
-    void rolesdashboard() override {
+    void rolesdashboard()  {
         std::cout << "Welcome to Staff Dashboard" << std::endl;
 
     }
@@ -22,7 +22,7 @@ public:
 
 class WaitStaff : public Staff {
     public:
-        void rolesdashboard() override {
+        void rolesdashboard()  {
             int wait;
                 while (true){
                 std::cout << "WaitStaff Display\n";
@@ -49,7 +49,7 @@ class WaitStaff : public Staff {
 
 class Kitchen : public Staff {
     public:
-        void rolesdashboard() override {
+        void rolesdashboard()  {
             int Option;
             while (true){
             std::cout << "KitchenStaff Display\n";
@@ -166,7 +166,7 @@ class Host : public Staff  {
         }
     }
 
-            void rolesdashboard() override{
+            void rolesdashboard() {
                 int Host;
                     while (true){
                     std::cout << "This is Hosts Display\n";

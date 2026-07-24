@@ -4,7 +4,7 @@
 
 class Customer : public Users {
 public:
-    void rolesdashboard() override {
+    void rolesdashboard() {
         std::cout << "Welcome to Customer Dashboard" << std::endl;
     }
 };

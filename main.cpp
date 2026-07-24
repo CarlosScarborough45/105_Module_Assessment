@@ -17,9 +17,10 @@ int main() {
 
     switch (login) {
         case 1: {
-            std::unique_ptr<Users> currentUser = signin();
-            if (currentUser != nullptr) {
-                currentUser->rolesdashboard();
+            Users* user = &*signin();
+            if (user) {
+                user->rolesdashboard();
+                delete user;
             }
             break;
         }

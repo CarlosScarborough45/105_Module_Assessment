@@ -5,7 +5,7 @@
 
 class Admin : public Users {
 public:
-    void rolesdashboard() override {
+    void rolesdashboard() {
         std::cout << "Welcome to Admin Dashboard" << std::endl;
     }
 };

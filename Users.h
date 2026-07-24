@@ -35,7 +35,7 @@ private:
     std::string Number;
 
 public:
-    virtual void rolesdashboard() = 0;
+   void rolesdashboard();
     virtual ~Users() = default;
 
     void Signup() {
@@ -70,6 +70,6 @@ public:
     }
 };
 
-std::unique_ptr<Users> signin();
+Users* signin();
 
 #endif
