@@ -17,7 +17,7 @@ int main() {
 
     switch (login) {
         case 1: {
-            Users* user = &*signin();
+            Users* user = signin();
             if (user) {
                 user->rolesdashboard();
                 delete user;

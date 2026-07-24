@@ -35,9 +35,7 @@ private:
     std::string Number;
 
 public:
-   void rolesdashboard() {
-       std::cout << "666";
-   };
+    virtual void rolesdashboard() = 0;
     virtual ~Users() = default;
 
     void Signup() {
