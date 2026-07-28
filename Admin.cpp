@@ -13,12 +13,22 @@ void Admindisplay() {
     std::cin >> Admin;
 
     switch (Admin) {
-        case 1: {break;}
-        case 2: {break;}
-        case 3: {break;}
-        case 4: {break;}
-        case 5: {break;}
+        case 1: {StaffAccounts();   break;}
+        case 2: {MenuControl();     break;}
+        case 3: {TableControl();    break;}
+        case 4: {Reports();         break;}
+        case 5: {Orders();          break;}
         case 6: {break;}
         default: {std::cout << "Must choose between 1 - 6" << std::endl; break;}
     }
 }
+
+void StaffAccounts(){}
+
+void MenuControl(){}
+
+void TableControl(){}
+
+void Reports(){}
+
+void Orders(){}

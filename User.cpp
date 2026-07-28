@@ -47,7 +47,7 @@ bool checkPassword(const std::string& password) {
         if (csvPassword == password) {
             return true;
         }
-
+        return false;
     }
 }
 bool checkUsername(const std::string& username) {
@@ -68,6 +68,7 @@ bool checkUsername(const std::string& username) {
         if (csvUsername == username) {
             return true;
         }
+        return false;
     }
 }
 

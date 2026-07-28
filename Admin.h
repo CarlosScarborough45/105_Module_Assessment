@@ -1,8 +1,12 @@
 #ifndef BACKEND_00P_ADMIN_H
 #define BACKEND_00P_ADMIN_H
 #include "Users.h"
-
+void StaffAccounts();
 void Admindisplay();
+void MenuControl();
+void TableControl();
+void Reports();
+void Orders();
 
 class Admin : public Users {
 public:

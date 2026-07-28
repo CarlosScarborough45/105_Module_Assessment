@@ -64,19 +64,17 @@ public:
         std::cin >> Username;
         std::cout << "Enter your Password" << std::endl;
         std::cin >> Password;
+        std::cin.ignore();
 
-        do {
-            if (checkPassword(Password)) {
-                std::cout << "Password Already Assigned Please Register another user\n";
-                return;
-            }
-        }while (!checkPassword(Password));
-        do{
-            if (checkUsername(Username)) {
-                std::cout << "Username Already Assigned Please Register another user\n";
-                return;
-            }
-        }while (!checkUsername(Username));
+        if (checkPassword(Password)) {
+            std::cout << "Password Already Assigned Please Register another user\n";
+            return;
+        }
+
+        if (checkUsername(Username)) {
+            std::cout << "Username Already Assigned Please Register another user\n";
+            return;
+        }
 
         std::string roleinput;
 
@@ -84,11 +82,13 @@ public:
             std::cout << "Enter your role (Staff / Manager / Customer / Admin)" << std::endl;
             std::cin >> roleinput;
 
-            if (checkRole(stringtorole(roleinput))) {
-                std::cout << "User Already Assigned to Role Please Register another user\n";
-                return;
-            }
-        } while (!checkRole(stringtorole(roleinput)));
+            if (roleinput != "Staff" && roleinput != "Manager" &&
+                roleinput != "Customer" && roleinput != "Admin") {
+                std::cout << "Invalid role, please try again.\n";
+                }
+
+        } while (roleinput != "Staff" && roleinput != "Manager" &&
+                 roleinput != "Customer" && roleinput != "Admin");
 
         file << Name << "|" << Address << "|" << Number << "|"
              << Username << "|" << Password << "|" << roleinput << std::endl;
