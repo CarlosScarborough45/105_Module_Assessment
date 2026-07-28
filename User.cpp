@@ -7,7 +7,6 @@
 
 Users* buildUser(roles r);
 roles check(const std::string &roleString);
-bool readUserFile(const std::string& username, const std::string& password, roles& outRole, std::string& outName);
 std::string username, password;
 std::string line, Name, Address, Number, csvUsername, csvPassword, roleString;
 
@@ -27,6 +26,29 @@ Users* signin() {
 
     std::cout << "[X] Login has been unsuccessful Register!!" << std::endl;
     return nullptr;
+}
+
+bool checkPassword(const std::string& password) {
+    std::ifstream file("../Users.CSV");
+    if (!file.is_open()) return false;
+
+    std::string line;
+    while (std::getline(file, line)) {
+        if (line.empty()) continue;
+        std::stringstream ss(line);
+        std::string Name, Address, Number, csvUsername, csvPassword, roleString;
+        std::getline(ss, Name, '|');
+        std::getline(ss, Address, '|');
+        std::getline(ss, Number, '|');
+        std::getline(ss, csvUsername, '|');
+        std::getline(ss, csvPassword, '|');
+        std::getline(ss, roleString, '|');
+
+        if (csvPassword == password) {
+            return true;
+        }
+    }
+    return false;
 }
 
 

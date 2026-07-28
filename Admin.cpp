@@ -8,7 +8,7 @@ void Admindisplay() {
     std::cout << "2. Full menu control\n";
     std::cout << "3. Full table configuration\n";
     std::cout << "4. View all reports, all history\n";
-    std::cout << "5. Override/cancel any order or reservation\n"
+    std::cout << "5. Override/cancel any order or reservation\n";
     std::cout << "6. Return to menu\n";
     std::cin >> Admin;
 

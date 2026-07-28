@@ -8,7 +8,8 @@
 int main();
 
 enum class roles { StaffRole, ManagerRole, CustomerRole, AdminRole, WaitStaff, Kitchen, Host };
-
+bool readUserFile(const std::string& username, const std::string& password, roles& outRole, std::string& outName);
+bool checkPassword(const std::string& password);
 class Admin;
 class Manager;
 class Staff;
@@ -23,6 +24,8 @@ inline roles stringtorole(const std::string& roleString) {
     if (roleString == "Host") return roles::Host;
     return roles::CustomerRole;
 }
+
+bool operator==(char lhs, const std::string & rhs);
 
 class Users {
 protected:
@@ -58,6 +61,11 @@ public:
         std::cin >> Username;
         std::cout << "Enter your Password" << std::endl;
         std::cin >> Password;
+
+        if (checkPassword(Password)) {
+            std::cout << "Password Already used\n";
+            return;
+        }
 
         std::string roleinput;
         std::cout << "Enter your role (Staff / Manager / Customer / Admin)" << std::endl;
