@@ -10,6 +10,7 @@ int main();
 enum class roles { StaffRole, ManagerRole, CustomerRole, AdminRole, WaitStaff, Kitchen, Host };
 bool readUserFile(const std::string& username, const std::string& password, roles& outRole, std::string& outName);
 bool checkPassword(const std::string& password);
+bool checkUsername(const std::string& username);
 class Admin;
 class Manager;
 class Staff;
@@ -41,6 +42,8 @@ public:
     virtual void rolesdashboard() = 0;
     virtual ~Users() = default;
 
+    bool checkRole(roles role);
+
     void Signup() {
         std::cout << "Welcome To Register" << std::endl;
 
@@ -62,14 +65,30 @@ public:
         std::cout << "Enter your Password" << std::endl;
         std::cin >> Password;
 
-        if (checkPassword(Password)) {
-            std::cout << "Password Already used\n";
-            return;
-        }
+        do {
+            if (checkPassword(Password)) {
+                std::cout << "Password Already Assigned Please Register another user\n";
+                return;
+            }
+        }while (!checkPassword(Password));
+        do{
+            if (checkUsername(Username)) {
+                std::cout << "Username Already Assigned Please Register another user\n";
+                return;
+            }
+        }while (!checkUsername(Username));
 
         std::string roleinput;
-        std::cout << "Enter your role (Staff / Manager / Customer / Admin)" << std::endl;
-        std::cin >> roleinput;
+
+        do {
+            std::cout << "Enter your role (Staff / Manager / Customer / Admin)" << std::endl;
+            std::cin >> roleinput;
+
+            if (checkRole(stringtorole(roleinput))) {
+                std::cout << "User Already Assigned to Role Please Register another user\n";
+                return;
+            }
+        } while (!checkRole(stringtorole(roleinput)));
 
         file << Name << "|" << Address << "|" << Number << "|"
              << Username << "|" << Password << "|" << roleinput << std::endl;

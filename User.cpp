@@ -47,6 +47,51 @@ bool checkPassword(const std::string& password) {
         if (csvPassword == password) {
             return true;
         }
+
+    }
+}
+bool checkUsername(const std::string& username) {
+    std::ifstream file("../Users.CSV");
+    if (!file.is_open()) return false;
+
+    std::string line;
+    while (std::getline(file, line)) {
+        if (line.empty()) continue;
+        std::stringstream ss(line);
+        std::string Name, Address, Number, csvUsername, csvPassword, roleString;
+        std::getline(ss, Name, '|');
+        std::getline(ss, Address, '|');
+        std::getline(ss, Number, '|');
+        std::getline(ss, csvUsername, '|');
+        std::getline(ss, csvPassword, '|');
+        std::getline(ss, roleString, '|');
+        if (csvUsername == username) {
+            return true;
+        }
+    }
+}
+
+
+bool Users::checkRole(roles role) {
+    std::ifstream file("../Users.CSV");
+    if (!file.is_open()) return false;
+
+    std::string line;
+    while (std::getline(file, line)) {
+        if (line.empty()) continue;
+        std::stringstream ss(line);
+        std::string Name, Address, Number, csvUsername, csvPassword, roleString;
+        std::getline(ss, Name, '|');
+        std::getline(ss, Address, '|');
+        std::getline(ss, Number, '|');
+        std::getline(ss, csvUsername, '|');
+        std::getline(ss, csvPassword, '|');
+        std::getline(ss, roleString, '|');
+
+        if (stringtorole(roleString) == role) {
+            std::cout << "Role is already assigned\n";
+            return true;
+        }
     }
     return false;
 }
