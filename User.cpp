@@ -49,7 +49,9 @@ bool checkPassword(const std::string& password) {
         }
         return false;
     }
+    return true;
 }
+
 bool checkUsername(const std::string& username) {
     std::ifstream file("../Users.CSV");
     if (!file.is_open()) return false;
@@ -70,6 +72,7 @@ bool checkUsername(const std::string& username) {
         }
         return false;
     }
+    return true;
 }
 
 
