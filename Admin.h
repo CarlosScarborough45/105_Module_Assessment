@@ -7,6 +7,12 @@ void MenuControl();
 void TableControl();
 void Reports();
 void Orders();
+void ViewStaff();
+void AddStaff();
+void EditStaff();
+void DeleteStaff();
+void ManagerAccount();
+void ViewStaffAccounts();
 
 class Admin : public Users {
 public:

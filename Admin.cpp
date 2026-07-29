@@ -35,17 +35,44 @@ void StaffAccounts() {
         std::cin >> staff;
 
         switch (staff) {
-            case 1: {break;}
-            case 2: {break;}
-            case 3: {break;}
-            case 4: {break;}
+            case 1: {ViewStaff();   break;}
+            case 2: {AddStaff();    break;}
+            case 3: {EditStaff();   break;}
+            case 4: {DeleteStaff(); break;}
             case 5: {std::cout << "We are returning back to display\n"; return;}
             default:{std::cout << "Must choose between 1 - 5\n";    break;}
         }
     }
 }
 
+void ViewStaff() {
+    int staff;
+    while (true){
+        std::cout << "View All Staff Account Menu\n";
+        std::cout << "1. View Manager Accounts\n";
+        std::cout << "2. View Staff Accounts\n";
+        std::cout << "3. Return to Menu Display\n";
+        std::cin >> staff;
+
+        switch (staff) {
+            case 1: {ManagerAccount();    break;}
+            case 2: {ViewStaffAccounts(); break;}
+            case 3: {std::cout << "Returning to Menu\n"; return;}
+        }
+    }
+}
+
+void ManagerAccount(){}
+
+void ViewStaffAccounts(){}
+
+void AddStaff(){}
+
+void EditStaff(){}
+
 void MenuControl(){}
+
+void DeleteStaff(){}
 
 void TableControl(){}
 
