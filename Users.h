@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <memory>
+#include <sstream>
 
 int main();
 
@@ -25,6 +26,10 @@ inline roles stringtorole(const std::string& roleString) {
     if (roleString == "Host") return roles::Host;
     return roles::CustomerRole;
 }
+struct UserRecord {
+    std::string Name, Address, Number, Username, Password, Role;
+};
+
 
 bool operator==(char lhs, const std::string & rhs);
 
@@ -43,6 +48,28 @@ public:
     virtual ~Users() = default;
 
     bool checkRole(roles role);
+
+    static void UserFile() {
+        std::fstream file("../Users.CSV");
+        if (!file.is_open()) {
+            std::cout << "[X] File has not been created\n";
+        }
+        else if (file.is_open()) {
+            std::cout << "[ok] File has been created\n";
+        }
+        std::string line;
+        while (std::getline(file, line)) {
+            if (line.empty()) continue;
+            std::stringstream ss(line);
+            std::string Name, Address, Number, csvUsername, csvPassword, roleString;
+            std::getline(ss, Name, '|');
+            std::getline(ss, Address, '|');
+            std::getline(ss, Number, '|');
+            std::getline(ss, csvUsername, '|');
+            std::getline(ss, csvPassword, '|');
+            std::getline(ss, roleString, '|');
+        }
+    }
 
     void Signup() {
         std::cout << "Welcome To Register" << std::endl;

@@ -1,5 +1,7 @@
 #include "Admin.h"
 #include <iostream>
+#include <vector>
+#include <iomanip>
 
 void Admindisplay() {
 
@@ -64,7 +66,27 @@ void ViewStaff() {
     }
 }
 
-void ManagerAccount(){}
+void ManagerAccount() {
+    std::vector<UserRecord> users = Users::UserFile();
+
+    std::cout << std::string(65, '-');
+    std::cout << "Manager Accounts" << std::endl;
+    std::cout << std::string(65, '-');
+
+    bool found = false;
+
+    for (const auto& u : users) {
+        if (u.Role == "Manager") {
+            found = true;
+            std::cout << std::left << std::setw(15) << u.Name
+                       << std::setw(15) << u.Username
+                       << std::setw(15) << u.Number << std::endl;
+        }
+    }
+    if (!found) {
+        std::cout << "No Manager Accounts been Registered\n";
+    }
+}
 
 void ViewStaffAccounts(){}
 
