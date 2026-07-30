@@ -39,7 +39,7 @@ class Menulist {
                   {"007", "Sweet and Sour Fish", "Lunch", 25, true},
         };
 
-    void load_Menu() {
+   void load_Menu() {
         std::cout << "\n"
         <<std::left << std::setw(20)
         << "Name" << std::setw(20) << "Price" << std::endl;
@@ -51,5 +51,19 @@ class Menulist {
     }
 };
 
+void View_Specials() {
 
+}
+
+void View_Desserts() {
+
+}
+
+void View_Dinner() {
+
+}
+
+void View_Lunch() {
+
+}
 #endif //BACKEND_00P_MENU_H

@@ -1,9 +1,9 @@
 #include "Customer.h"
 #include "Users.h"
+#include "Menu.h"
 
 void customerView() {
-
-    int Customer;
+        int Customer;
         while (true) {
         std::cout << "Welcome To Customer View\n";
         std::cout << "1. View Menu\n";
@@ -23,6 +23,7 @@ void customerView() {
 }
 
 void View_Menu() {
+    static Menulist ml;
     int Menu;
     while (true){
     std::cout << "Welcome to Menu option\n";
@@ -35,12 +36,12 @@ void View_Menu() {
     std::cin >> Menu;
 
         switch (Menu) {
-            case 1: {break;}
-            case 2: {break;}
-            case 3: {break;}
-            case 4: {break;}
-            case 5: {break;}
-            case 6: {customerView(); break;}
+            case 1: {ml.load_Menu();  break;}
+            case 2: {View_Specials(); break;}
+            case 3: {View_Lunch();    break;}
+            case 4: {View_Dinner();   break;}
+            case 5: {View_Desserts(); break;}
+            case 6: {customerView();  break;}
             default: {std::cout << "Must Choose between 1 - 6\n"; break;}
         }
     }
