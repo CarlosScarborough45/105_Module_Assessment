@@ -108,7 +108,7 @@ void EditStaff() {
     std::vector<UserRecord> users = Users::UserFile();
 
     int index = -1;
-    for (int i = 0; i < static_cast<int>(users.size()); i++) {
+    for (int i = 0; i < users.size(); i++) {
         if (users[i].Name == Edit) {
             index = i;
             break;
@@ -118,7 +118,7 @@ void EditStaff() {
     if (index != -1) {
         std::cout << "Staff has been found" << std::endl;
         std::string Field;
-        std::cout << "Select which part you want to edit (Name/Address/Number/Username/Password/Role)\n";
+        std::cout << "Select which part you want to edit\n";
         std::cin >> Field;
 
         if (Field == "Name" || Field == "Address" || Field == "Number" ||
