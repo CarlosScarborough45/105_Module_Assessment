@@ -23,6 +23,8 @@ void Admindisplay() {
             case 5: {AdjustOrders();    break;}
             case 6: {std::cout << "We are Returning back to Login\n"; return;}
             default: {std::cout << "Must choose between 1 - 6" << std::endl; break;}
+
+
         }
     }
 }
@@ -67,22 +69,26 @@ void ViewStaff() {
 }
 
 void ManagerAccount() {
-    std::vector<UserRecord> users = Users::UserFile();
+    const std::vector<UserRecord> users = Users::UserFile();
 
-    std::cout << std::string(65, '-');
+    std::cout << std::string(65, '-') << std::endl;
     std::cout << "Manager Accounts" << std::endl;
-    std::cout << std::string(65, '-');
+    std::cout << std::string(65, '-') << std::endl;
 
     bool found = false;
 
+    std::cout << std::string(65, '-') << std::endl;
+    std::cout << "|" << std::left << std::setw(10) << "Name" << "|"
+    << std::setw(10) << "Username" << "|" << std::setw(10) << "Number" << "|" << std::endl;
     for (const auto& u : users) {
         if (u.Role == "Manager") {
             found = true;
-            std::cout << std::left << std::setw(15) << u.Name
-                       << std::setw(15) << u.Username
-                       << std::setw(15) << u.Number << std::endl;
+            std::cout << std::left << std::setw(10) << "|" << u.Name << "|"
+                       << std::setw(10) << u.Username << "|"
+                       << std::setw(10) << u.Number << "|" << std::endl;
         }
     }
+    std::cout << std::string(65, '-') << std::endl;
     if (!found) {
         std::cout << "No Manager Accounts been Registered\n";
     }
@@ -92,7 +98,52 @@ void ViewStaffAccounts(){}
 
 void AddStaff(){}
 
-void EditStaff(){}
+void EditStaff() {
+    std::cout << "Welcome to editing Staff Account display\n";
+
+    std::string Edit;
+    std::cout << "Enter a name to Edit: \n";
+    std::cin >> Edit;
+
+    std::vector<UserRecord> users = Users::UserFile();
+
+    int index = -1;
+    for (int i = 0; i < static_cast<int>(users.size()); i++) {
+        if (users[i].Name == Edit) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index != -1) {
+        std::cout << "Staff has been found" << std::endl;
+        std::string Field;
+        std::cout << "Select which part you want to edit (Name/Address/Number/Username/Password/Role)\n";
+        std::cin >> Field;
+
+        if (Field == "Name" || Field == "Address" || Field == "Number" ||
+            Field == "Username" || Field == "Password" || Field == "Role") {
+
+            std::string Value;
+            std::cout << "Enter a new Value\n";
+            std::cin >> Value;
+
+            if (Field == "Name") users[index].Name = Value;
+            else if (Field == "Address") users[index].Address = Value;
+            else if (Field == "Number") users[index].Number = Value;
+            else if (Field == "Username") users[index].Username = Value;
+            else if (Field == "Password") users[index].Password = Value;
+            else if (Field == "Role") users[index].Role = Value;
+
+            Users::SaveToFile(users);
+        } else {
+            std::cout << "Not a valid field to edit\n";
+        }
+    }
+    else {
+        std::cout << "No Staff has been found" << std::endl;
+    }
+}
 
 void MenuControl(){}
 

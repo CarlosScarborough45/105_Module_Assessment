@@ -2,6 +2,7 @@
 #include <memory>
 #include "Customer.h"
 #include "Users.h"
+#include <iomanip>
 #include "sqlite3.h"
 
 
@@ -15,28 +16,28 @@ int main() {
     std::cout << "3. Exit" << std::endl;
     std::cin >> login;
 
-    switch (login) {
-        case 1: {
-            Users* user = signin();
-            if (user) {
-                user->rolesdashboard();
-                delete user;
+        switch (login) {
+            case 1: {
+                Users* user = signin();
+                if (user) {
+                    user->rolesdashboard();
+                    delete user;
+                }
+                break;
             }
-            break;
+            case 2: {
+                Customer temp;
+                temp.Signup();
+                break;
+            }
+            case 3: {
+                std::cout << "You are Exiting the program" << std::endl;
+                exit(0);
+            }
+            default: {
+                std::cout << "Choose between 1 - 3" << std::endl;
+                break;
+            }
         }
-        case 2: {
-            Customer temp;
-            temp.Signup();
-            break;
-        }
-        case 3: {
-            std::cout << "You are Exiting the program" << std::endl;
-            exit(0);
-        }
-        default: {
-            std::cout << "Choose between 1 - 3" << std::endl;
-            break;
-        }
-    }
     }
 }

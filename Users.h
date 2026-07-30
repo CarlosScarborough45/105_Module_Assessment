@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <sstream>
+#include <vector>
 
 int main();
 
@@ -17,7 +18,7 @@ class Manager;
 class Staff;
 class Customer;
 
-inline roles stringtorole(const std::string& roleString) {
+static roles stringtorole(const std::string& roleString) {
     if (roleString == "Admin")   return roles::AdminRole;
     if (roleString == "Manager") return roles::ManagerRole;
     if (roleString == "Staff")   return roles::StaffRole;
@@ -26,49 +27,61 @@ inline roles stringtorole(const std::string& roleString) {
     if (roleString == "Host") return roles::Host;
     return roles::CustomerRole;
 }
+
 struct UserRecord {
     std::string Name, Address, Number, Username, Password, Role;
 };
 
-
-bool operator==(char lhs, const std::string & rhs);
-
 class Users {
-protected:
-    std::string Password, Username;
-    roles role;
-
-private:
+public:
     std::string Name;
     std::string Address;
     std::string Number;
+    std::string Password, Username;
+    roles role;
 
-public:
     virtual void rolesdashboard() = 0;
     virtual ~Users() = default;
 
     bool checkRole(roles role);
 
-    static void UserFile() {
-        std::fstream file("../Users.CSV");
+
+    static void SaveToFile(const std::vector<UserRecord>& records) {
+        std::ofstream file("../Users.CSV", std::ios::trunc);
+
+        UserRecord u;
+
+        for (const auto& r : records) {
+            file << r.Name << "|" << r.Address << "|" << r.Number << "|"
+                 << r.Username << "|" << r.Password << "|" << r.Role << std::endl;
+        }
+
+        file.close();
+
+        std::cout << "User has been saved" << std::endl;
+    }
+
+    static std::vector<UserRecord> UserFile() {
+        std::vector<UserRecord> records;
+        std::ifstream file("../Users.CSV");
         if (!file.is_open()) {
             std::cout << "[X] File has not been created\n";
-        }
-        else if (file.is_open()) {
-            std::cout << "[ok] File has been created\n";
+            return records;
         }
         std::string line;
         while (std::getline(file, line)) {
             if (line.empty()) continue;
             std::stringstream ss(line);
-            std::string Name, Address, Number, csvUsername, csvPassword, roleString;
-            std::getline(ss, Name, '|');
-            std::getline(ss, Address, '|');
-            std::getline(ss, Number, '|');
-            std::getline(ss, csvUsername, '|');
-            std::getline(ss, csvPassword, '|');
-            std::getline(ss, roleString, '|');
+            UserRecord r;
+            std::getline(ss, r.Name, '|');
+            std::getline(ss, r.Address, '|');
+            std::getline(ss, r.Number, '|');
+            std::getline(ss, r.Username, '|');
+            std::getline(ss, r.Password, '|');
+            std::getline(ss, r.Role, '|');
+            records.push_back(r);
         }
+        return records;
     }
 
     void Signup() {
@@ -93,15 +106,6 @@ public:
         std::cin >> Password;
         std::cin.ignore();
 
-        if (checkPassword(Password)) {
-            std::cout << "Password Already Assigned Please Register another user\n";
-            return;
-        }
-
-        if (checkUsername(Username)) {
-            std::cout << "Username Already Assigned Please Register another user\n";
-            return;
-        }
 
         std::string roleinput;
 
@@ -119,6 +123,7 @@ public:
 
         file << Name << "|" << Address << "|" << Number << "|"
              << Username << "|" << Password << "|" << roleinput << std::endl;
+
         file.close();
         std::cout << "[ok] User has been created!!" << std::endl;
     }
