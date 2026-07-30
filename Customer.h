@@ -11,7 +11,6 @@ void View_Order_Status();
 class Customer : public Users {
 public:
     void rolesdashboard() override {
-        std::cout << "Welcome to Customer Dashboard" << std::endl;
         customerView();
     }
 };
