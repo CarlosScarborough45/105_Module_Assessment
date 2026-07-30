@@ -16,7 +16,7 @@ void ViewStaffAccounts();
 
 class Admin : public Users {
 public:
-    void rolesdashboard() {
+    void rolesdashboard() override {
         std::cout << "Welcome to Admin Dashboard" << std::endl;
         Admindisplay();
     }

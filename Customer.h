@@ -2,10 +2,17 @@
 #define BACKEND_00P_CUSTOMER_H
 #include "Users.h"
 
+void customerView();
+void View_Menu();
+void Make_Order();
+void Make_Reservation();
+void View_Order_Status();
+
 class Customer : public Users {
 public:
-    void rolesdashboard() {
+    void rolesdashboard() override {
         std::cout << "Welcome to Customer Dashboard" << std::endl;
+        customerView();
     }
 };
 

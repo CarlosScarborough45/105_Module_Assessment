@@ -9,7 +9,7 @@ void Table();
 
 class Manager : public Users{
 public:
-    void rolesdashboard() {
+    void rolesdashboard() override {
         int choice;
             while (true){
             std::cout << "Welcome to Manager Dashboard" << std::endl;
