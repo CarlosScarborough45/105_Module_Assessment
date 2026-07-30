@@ -49,8 +49,6 @@ public:
     static void SaveToFile(const std::vector<UserRecord>& records) {
         std::ofstream file("../Users.CSV", std::ios::trunc);
 
-        UserRecord u;
-
         for (const auto& r : records) {
             file << r.Name << "|" << r.Address << "|" << r.Number << "|"
                  << r.Username << "|" << r.Password << "|" << r.Role << std::endl;
