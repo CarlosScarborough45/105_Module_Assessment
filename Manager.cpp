@@ -22,7 +22,7 @@ void orders() {
 
 void menu() {
         int menu;
-        static Menulist ml;
+
         std::cout << "Welcome to Menu Customisation\n";
         std::cout << "1. Full Menu Display\n";
         std::cout << "2. Edit the Menu Display\n";
@@ -31,7 +31,7 @@ void menu() {
         std::cin >> menu;
 
         switch (menu) {
-            case 1: {ml.load_Menu(); break;}
+            case 1: {Menulist::ml.load_Menu(); break;}
             case 2: {break;}
             case 3: {break;}
             case 4: {std::cout << "Returning to the menu display\n"; return;}

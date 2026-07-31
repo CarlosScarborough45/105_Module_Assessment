@@ -13,7 +13,7 @@ void customerView() {
         std::cin >> Customer;
 
         switch (Customer) {
-            case 1: {View_Menu();         break;}
+            case 1: {Menulist::ml.View_Menu();         break;}
             case 2: {Make_Order();        break;}
             case 3: {Make_Reservation();  break;}
             case 4: {main(); break;}
@@ -22,8 +22,7 @@ void customerView() {
     }
 }
 
-void View_Menu() {
-    static Menulist ml;
+inline void Menulist::View_Menu() {
     int Menu;
     while (true){
     std::cout << "Welcome to Menu option\n";
@@ -37,10 +36,10 @@ void View_Menu() {
 
         switch (Menu) {
             case 1: {ml.load_Menu();  break;}
-            case 2: {View_Specials(); break;}
-            case 3: {View_Lunch();    break;}
-            case 4: {View_Dinner();   break;}
-            case 5: {View_Desserts(); break;}
+            case 2: {ml.View_Specials(); break;}
+            case 3: {ml.View_Lunch();    break;}
+            case 4: {ml.View_Dinner();   break;}
+            case 5: {ml.View_Desserts(); break;}
             case 6: {customerView();  break;}
             default: {std::cout << "Must Choose between 1 - 6\n"; break;}
         }

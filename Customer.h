@@ -3,7 +3,6 @@
 #include "Users.h"
 
 void customerView();
-void View_Menu();
 void Make_Order();
 void Make_Reservation();
 void View_Order_Status();
