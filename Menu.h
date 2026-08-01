@@ -15,6 +15,8 @@ class Menu {
     double price = 0;
     bool available = false;
 
+    Menu() = default;
+
         Menu(std::string id, std::string name, std::string cat, double p, bool avail)
             : ITemID(std::move(id)), Name(std::move(name)), category(std::move(cat)),
             price(p), available(avail) {}
@@ -30,6 +32,7 @@ class Menu {
 
 class Menulist : public Menu{
 public:
+    static Menulist ml;
     std::vector<Menu> menulist = {
         Menu {"001", "Padthai", "Lunch", 15.00, true},
             {"002", "Crispy Shrimp Roll", "Appetizers", 12.50, true},
@@ -47,8 +50,6 @@ public:
     void View_Lunch();
 
     void View_Menu();
-
-    static Menulist ml;
 };
 
 inline void Menulist::load_Menu() {
