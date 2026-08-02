@@ -153,4 +153,3 @@ void TableControl(){}
 
 void Reports(){}
 
-void AdjustOrders(){}

@@ -13,6 +13,10 @@ void sales() {
 
 }
 
+void AdjustOrders() {
+
+}
+
 void Database_Check() {
     sqlite3 *db;
     int rc = sqlite3_open("Sales_And_Orders", &db);
