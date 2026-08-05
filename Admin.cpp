@@ -20,7 +20,7 @@ void Admindisplay() {
             case 2: {MenuControl();     break;}
             case 3: {TableControl();    break;}
             case 4: {Reports();         break;}
-            case 5: {AdjustOrders();    break;}
+            case 5: {    break;}
             case 6: {std::cout << "We are Returning back to Login\n"; return;}
             default: {std::cout << "Must choose between 1 - 6" << std::endl; break;}
 

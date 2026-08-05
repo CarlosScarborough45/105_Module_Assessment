@@ -8,7 +8,6 @@
 
 void LoadTables();
 void Order_Status();
-void Orders();
 void Menu_Display();
 void View_Tables();
 
@@ -59,7 +58,7 @@ class Kitchen : public Staff {
             std::cin >> Option;
 
             switch (Option) {
-                case 1:{Orders();       break;}
+                case 1:{       break;}
                 case 2:{Order_Status(); break;}
                 case 3:{return;}
                 default: {std::cout << "Must Choose between 1 - 3" << std::endl;}

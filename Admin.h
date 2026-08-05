@@ -6,7 +6,6 @@ void Admindisplay();
 void MenuControl();
 void TableControl();
 void Reports();
-void AdjustOrders();
 void ViewStaff();
 void AddStaff();
 void EditStaff();

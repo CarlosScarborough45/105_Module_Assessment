@@ -9,11 +9,13 @@
 
 class Menu {
     public:
+    static Menu M;
     std::string ITemID;
     std::string Name;
     std::string category;
     double price = 0;
     bool available = false;
+    std::string Status;
 
     Menu() = default;
 
@@ -35,8 +37,8 @@ public:
     static Menulist ml;
     std::vector<Menu> menulist = {
         Menu {"001", "Padthai", "Lunch", 15.00, true},
-            {"002", "Crispy Shrimp Roll", "Appetizers", 12.50, true},
-            {"003", "Onsen Prawn Dumpling", "Appetizers", 12.50, true},
+            {"002", "Shrimp Roll", "Appetizers", 12.50, true},
+            {"003", "Prawn Dumpling", "Appetizers", 12.50, true},
               {"004", "Fish Maw soup", "Desserts", 25, true},
               {"005", "Pork Dumpling", "Desserts", 25, true},
               {"006", "Claypot Chicken", "Lunch", 25, true},

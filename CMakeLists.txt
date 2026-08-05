@@ -18,8 +18,6 @@ add_executable(backend_00P main.cpp
         Staff.h
         Menu.cpp
         Menu.h
-        Orders_Sales.cpp
-        Orders_Sales.h
 )
 
 target_link_options(backend_00P PRIVATE -static-libgcc -static-libstdc++)
