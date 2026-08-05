@@ -2,10 +2,9 @@
 #include <iomanip>
 #include <vector>
 #include "Tables.h"
+#include "Orders_Sales.h"
 
-void Orders() {
 
-}
 
 void Order_Status() {
 

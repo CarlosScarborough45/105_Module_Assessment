@@ -18,9 +18,11 @@ add_executable(backend_00P main.cpp
         Staff.h
         Menu.cpp
         Menu.h
+        Orders_Sales.cpp
+        Orders_Sales.h
 )
 
-target_link_options(backend_00P PRIVATE -static-libgcc -static-libstdc++ -static)
+target_link_options(backend_00P PRIVATE -static-libgcc -static-libstdc++)
 
 find_package(unofficial-sqlite3 CONFIG REQUIRED)
 target_link_libraries(backend_00P PRIVATE unofficial::sqlite3::sqlite3)
