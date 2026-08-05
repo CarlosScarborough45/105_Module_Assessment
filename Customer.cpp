@@ -74,6 +74,7 @@ void Make_Order() {
             std::ofstream file("../Orders.csv", std::ios::app);
             file << item.ITemID << "|" << item.Name << "|" << item.price << "|"
                  << item.category << "|" << item.Status << std::endl;
+            file.close();
             break;
         }
     }
