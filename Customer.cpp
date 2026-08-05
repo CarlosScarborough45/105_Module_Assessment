@@ -13,7 +13,7 @@ void customerView() {
         std::cin >> Customer;
 
         switch (Customer) {
-            case 1: {Menulist::ml.View_Menu();         break;}
+            case 1: {Menulist::ml.View_Menu();  break;}
             case 2: {Make_Order();        break;}
             case 3: {Make_Reservation();  break;}
             case 4: {main(); break;}
