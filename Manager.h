@@ -25,7 +25,7 @@ public:
                 case 2:{menu(); break;}
                 case 3:{reports(); break;}
                 case 4:{Table(); break;}
-                case 5:{std::cout << "You are Logging out" << std::endl; return;}
+                case 5:{std::cout << "You are Logging out" << std::endl; main();}
                 default:{std::cout << "Choose between 1 - 6 thank you"; break;}
             }
         }

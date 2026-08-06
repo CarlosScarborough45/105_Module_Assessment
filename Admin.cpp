@@ -46,7 +46,7 @@ void StaffAccounts() {
             case 3: {EditStaff();   break;}
             case 4: {DeleteStaff(); break;}
             case 5: {std::cout << "We are returning back to Admin display\n"; Admindisplay(); break;}
-            default:{std::cout << "Must choose between 1 - 5\n";    break;}
+            default:{std::cout << "Must choose between 1 - 5\n"; break;}
         }
     }
 }

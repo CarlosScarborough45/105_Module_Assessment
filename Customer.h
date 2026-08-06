@@ -16,7 +16,7 @@ public:
         customerView();
     }
 
-    std::vector<Menu> check_file_Order() {
+    static std::vector<Menu> check_file_Order() {
         std::vector<Menu> menulists;
         std::fstream file("../Orders.csv");
         std::string line, field;
@@ -36,7 +36,7 @@ public:
                 continue;
             }
             std::getline(ss, m.category, '|');
-            std::getline(ss, m.Status, '|');   // <-- now actually reads Status
+            std::getline(ss, m.Status, '|');
 
             menulists.push_back(m);
         }

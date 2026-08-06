@@ -5,11 +5,17 @@
 #include <fstream>
 #include <vector>
 #include <iomanip>
+#include "Manager.h"
 
 void LoadTables();
 void Order_Status();
 void Menu_Display();
 void View_Tables();
+void Current_Menu_Display();
+void View_All_Tables();
+void Create_New_Orders();
+void Orders_Status();
+void Mark_Order_As_Served();
 
 class Staff : public Users {
 public:
@@ -24,7 +30,7 @@ class WaitStaff : public Staff {
         void rolesdashboard()  {
             int wait;
                 while (true){
-                std::cout << "WaitStaff Display\n";
+                std::cout << "\nWaitStaff Display\n";
                 std::cout << "1. Current Menu Display\n";
                 std::cout << "2. View all Tables\n";
                 std::cout << "3. Create new orders\n";
@@ -34,13 +40,13 @@ class WaitStaff : public Staff {
                 std::cin >> wait;
 
                 switch (wait) {
-                    case 1:{break;}
-                    case 2:{break;}
-                    case 3:{break;}
-                    case 4:{break;}
-                    case 5:{break;}
-                    case 6:{return;}
-                    default:{std::cout << "Must chose between 1 - 6" << std::endl;}
+                    case 1:{Current_Menu_Display(); break;}
+                    case 2:{View_All_Tables(); break;}
+                    case 3:{Create_New_Orders(); break;}
+                    case 4:{Orders_Status(); break;}
+                    case 5:{Mark_Order_As_Served(); break;}
+                    case 6:{main(); std::cout << "You are Returning to Menu" << std::endl;}
+                    default:{std::cout << "Must chose between 1 - 6" << std::endl; break;}
                 }
             }
         }

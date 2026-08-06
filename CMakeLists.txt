@@ -18,6 +18,7 @@ add_executable(backend_00P main.cpp
         Staff.h
         Menu.cpp
         Menu.h
+        WaitStaff.cpp
 )
 
 target_link_options(backend_00P PRIVATE -static-libgcc -static-libstdc++)

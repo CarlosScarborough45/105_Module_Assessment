@@ -104,20 +104,10 @@ public:
         std::cin >> Password;
         std::cin.ignore();
 
-
         std::string roleinput;
 
-        do {
-            std::cout << "Enter your role (Staff / Manager / Customer / Admin)" << std::endl;
-            std::cin >> roleinput;
-
-            if (roleinput != "Staff" && roleinput != "Manager" &&
-                roleinput != "Customer" && roleinput != "Admin") {
-                std::cout << "Invalid role, please try again.\n";
-                }
-
-        } while (roleinput != "Staff" && roleinput != "Manager" &&
-                 roleinput != "Customer" && roleinput != "Admin");
+        std::cout << "Enter your role (Staff / Manager / Customer / Admin)" << std::endl;
+        std::cin >> roleinput;
 
         file << Name << "|" << Address << "|" << Number << "|"
              << Username << "|" << Password << "|" << roleinput << std::endl;
