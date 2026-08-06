@@ -21,7 +21,7 @@ void Admindisplay() {
             case 3: {TableControl();    break;}
             case 4: {Reports();         break;}
             case 5: {    break;}
-            case 6: {std::cout << "We are Returning back to Login\n"; return;}
+            case 6: {std::cout << "We are Returning back to Login\n"; main();}
             default: {std::cout << "Must choose between 1 - 6" << std::endl; break;}
 
 
@@ -45,7 +45,7 @@ void StaffAccounts() {
             case 2: {AddStaff();    break;}
             case 3: {EditStaff();   break;}
             case 4: {DeleteStaff(); break;}
-            case 5: {std::cout << "We are returning back to Admin display\n"; Admindisplay();}
+            case 5: {std::cout << "We are returning back to Admin display\n"; Admindisplay(); break;}
             default:{std::cout << "Must choose between 1 - 5\n";    break;}
         }
     }

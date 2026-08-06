@@ -71,10 +71,22 @@ void Make_Order() {
             std::cout << "Enter status Order: ";
             std::cin >> item.Status;
 
+            std::string choice;
+            std::cout << "Would you like to proceed?\n";
+            std::cin >> choice;
+
+            if (choice == "Yes" || choice == "yes"){
+
             std::ofstream file("../Orders.csv", std::ios::app);
             file << item.ITemID << "|" << item.Name << "|" << item.price << "|"
                  << item.category << "|" << item.Status << std::endl;
             file.close();
+            }
+
+            if (choice == "No" || choice == "no") {
+                Order.clear();
+                item.Status.clear();
+            }
             break;
         }
     }
