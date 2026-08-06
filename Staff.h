@@ -168,6 +168,9 @@ class Host : public Staff  {
                                        <<std::setw(20) << t.Capacity
                                        <<std::setw(20) << t.Status << "\n";
             }
+            if (t.Status != "Reserved") {
+                std::cout << "Cannot find any tables in Reserved" << std::endl;
+            }
         }
     }
 
