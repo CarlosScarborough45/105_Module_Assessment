@@ -38,7 +38,7 @@ void Mark_Order_As_Served() {
                 menu[change].Status = "Served";
                 std::ofstream file("../Orders.csv", std::ios::trunc);
                 for (const auto& order : menu) {
-                    file << order.ITemID << "|" << order.Name << "|" << "|" << order.price << "|" << order.category
+                    file << order.ITemID << "|" << order.Name << "|" << order.price << "|" << order.category
                     << order.Status << "|" << std::endl;
                 }
                 file.close();
