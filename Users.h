@@ -82,26 +82,24 @@ public:
         return records;
     }
 
-    void Signup() {
+    static void Signup() {
         std::cout << "Welcome To Register" << std::endl;
 
-        std::ofstream file("../Users.CSV", std::ios::app);
-        if (!file.is_open()) {
-            std::cout << "[X] File cannot be created" << std::endl;
-            return;
-        }
+        std::vector<UserRecord> users = UserFile();
+        UserRecord U;
+
         std::cout << "[ok] File has been created" << std::endl;
 
         std::cout << "Enter your Name" << std::endl;
-        std::cin >> Name;
+        std::cin >> U.Name;
         std::cout << "Enter your Address" << std::endl;
-        std::cin >> Address;
+        std::cin >> U.Address;
         std::cout << "Enter your Number" << std::endl;
-        std::cin >> Number;
+        std::cin >> U.Number;
         std::cout << "Enter your Username" << std::endl;
-        std::cin >> Username;
+        std::cin >> U.Username;
         std::cout << "Enter your Password" << std::endl;
-        std::cin >> Password;
+        std::cin >> U.Password;
         std::cin.ignore();
 
         std::string roleinput;
@@ -109,10 +107,10 @@ public:
         std::cout << "Enter your role (Staff / Manager / Customer / Admin)" << std::endl;
         std::cin >> roleinput;
 
-        file << Name << "|" << Address << "|" << Number << "|"
-             << Username << "|" << Password << "|" << roleinput << std::endl;
+        users.push_back(U);
 
-        file.close();
+        SaveToFile(users);
+
         std::cout << "[ok] User has been created!!" << std::endl;
     }
 };

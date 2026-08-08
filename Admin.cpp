@@ -3,6 +3,15 @@
 #include <vector>
 #include <iomanip>
 
+bool Is_Admin(const UserRecord& target) {
+    if (target.Role == "Admin") {
+        std::cout << "Cannot change status for Admin users\n";
+        std::cout << "Must have Master Admin permission\n";
+        return true;
+    }
+    return false;
+}
+
 void Admindisplay() {
 
     int AdminDisplay;
@@ -96,7 +105,12 @@ void ManagerAccount() {
 
 void ViewStaffAccounts(){}
 
-void AddStaff(){}
+void AddStaff() {
+    std::cout << "Welcome Which Staff you want to add?\n";
+
+    Users::Signup();
+
+}
 
 void EditStaff() {
     std::cout << "Welcome to editing Staff Account display\n";
@@ -116,6 +130,9 @@ void EditStaff() {
     }
 
     if (index != -1) {
+        if (Is_Admin(users[index])) {
+            return;
+        }
         std::cout << "Staff has been found" << std::endl;
         std::string Field;
         std::cout << "Select which part you want to edit\n";
