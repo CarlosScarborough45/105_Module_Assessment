@@ -9,7 +9,10 @@ bool Is_Admin(const UserRecord& target) {
         std::cout << "Must have Master Admin permission\n";
         return true;
     }
-    return false;
+	else if (target.Role == "Manager" || target.Role == "Kitchen" || target.Role == "WaitStaff" || target.Role == "customer"){
+	std::cout << "You can proceed" << std::endl;
+    return false;git
+}
 }
 
 void Admindisplay() {
