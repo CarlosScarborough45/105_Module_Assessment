@@ -81,6 +81,10 @@ class Host : public Staff  {
     void Assign();
     void SaveTables();
     void Available_Tables();
+    void Reservations();
+    void Edit_Reservation();
+    void Cancel_Reservation();
+    void Create_Reservation();
 
     void LoadTables() {
         tables.clear();
@@ -187,9 +191,9 @@ class Host : public Staff  {
                         switch (Host) {
                             case 1:{View_Tables(); break;}
                             case 2:{Assign(); break;}
-                            case 3:{break;}
+                            case 3:{Reservations();  break;}
                             case 4:{Available_Tables(); break;}
-                            case 5:{return;}
+                            case 5:{std::cout << "Returning to Menu\n"; return;}
                             default:{std::cout << "Must choose between 1 - 5" << std::endl;}
                         }
 
@@ -197,10 +201,33 @@ class Host : public Staff  {
             }
 };
 
+void Host::Reservations() {
+    std::cout << "Welcome to Reservation Menu\n";
 
+    int reservation;
+        while (true){
+            std::cout << "1. Create Reservation\n";
+            std::cout << "2. Edit Selected Reservation\n";
+            std::cout << "3. Cancel Reservations\n";
+            std::cout << "4. Return to Host Display\n";
+            std::cin >> reservation;
+            switch (reservation) {
+                case 1: {Create_Reservation(); break;}
+                case 2: {Edit_Reservation(); break;}
+                case 3: {Cancel_Reservation(); break;}
+                case 4: {std::cout << "Returning to Host Display\n"; return;}
+                default:{std::cout << "Must Choose between 1 - 4\n"; break;}
+            }
+        }
+}
 
+void Host::Create_Reservation() {
 
+}
+void Host::Cancel_Reservation() {
 
+}
+void Host::Edit_Reservation() {
 
-
+}
 #endif //BACKEND_00P_STAFF_H

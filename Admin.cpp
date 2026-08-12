@@ -9,9 +9,9 @@ bool Is_Admin(const UserRecord& target) {
         std::cout << "Must have Master Admin permission\n";
         return true;
     }
-	else if (target.Role == "Manager" || target.Role == "Kitchen" || target.Role == "WaitStaff" || target.Role == "customer"){
+	 if (target.Role == "Manager" || target.Role == "Kitchen" || target.Role == "WaitStaff" || target.Role == "customer"){
 	std::cout << "You can proceed" << std::endl;
-    return false;git
+    return false;
 }
 }
 
@@ -165,11 +165,18 @@ void EditStaff() {
     }
 }
 
-void MenuControl(){}
+void MenuControl() {
 
-void DeleteStaff(){}
+}
 
-void TableControl(){}
+void DeleteStaff() {
 
-void Reports(){}
+}
 
+void TableControl() {
+
+}
+
+void Reports() {
+
+}

@@ -1,19 +1,14 @@
 #include "Tables.h"
 #include <vector>
 #include <iomanip>
+#include <iostream>
+#include "Manager.h"
 
 void add_Table() {
-    std::ifstream file("../Table.CSV");
-    if (!file.is_open()) {
-        std::cout << "[X] File has not been created or cannot be found" << std::endl;
-    }
-    else if (file.is_open()) {
-        std::cout << "[ok] File have been created or can be found" << std::endl;
-    }
+    std::vector<Tables> = Manager::Table_File();
+    std::vector<Tables> tables;
 
     std::string line, field;
-
-    std::vector<Tables> tables;
 
     std::getline(file, line);
 
@@ -23,20 +18,17 @@ void add_Table() {
         std::stringstream ss (line);
         Tables t;
 
-        std::getline(ss, field, '|');
-        t.TableID = std::stoi(field);
+        std::getline(ss, t.TableID, '|');
 
         std::getline(ss, t.TableNumber, '|');
 
         std::getline(ss, t.TableName, '|');
 
-        std::getline(ss, field, '|');
-        t.Capacity = std::stoi(field);
+        std::getline(ss,  t.Capacity, '|');
 
         std::getline(ss, t.Status, '|');
 
-        std::getline(ss, field, '|');
-        t.CurrentOrderID = std::stoi(field);
+        std::getline(ss,  t.CurrentOrderID , '|');
 
         tables.push_back(t);
     }

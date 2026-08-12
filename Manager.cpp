@@ -42,21 +42,69 @@ void menu() {
 void reports() {
     int reports;
     std::cout << "Welcome to Report display\n";
-    std::cout << "1. Have a daily sales report\n";
-    std::cout << "2. Have a weekly sales report\n";
+    std::cout << "1. Total Revenue\n";
+    std::cout << "2. Number of order processed\n";
     std::cout << "3. Most ordered items\n";
     std::cout << "4. View all Totals orders\n";
-    std::cout << "5. Return to menu\n";
+    std::cout << "5. Table occupancy\n";
+    std::cout << "6. Return to menu\n";
     std::cin >> reports;
 
     switch (reports) {
-        case 1: {break;}
-        case 2: {break;}
-        case 3: {break;}
-        case 4: {break;}
-        case 5: {std::cout << "User is returning to menu, Thank you." << std::endl; return;}
+        case 1: {Total_Revenue();           break;}
+        case 2: {Order_Process();           break;}
+        case 3: {Most_Order_Item();         break;}
+        case 4: {View_All_Total_Order();    break;}
+        case 5: {Table_Occupancy();         break;}
+        case 6: {std::cout << "User is returning to menu, Thank you." << std::endl; return;}
         default:{std::cout << "[X] Must choose between 1 - 5" << std::endl; break;}
     }
+}
+
+void Total_Revenue() {
+    std::cout << "Welcome to Total Sales for selected table\n";
+
+    std::string Table;
+    std::cout << "Select a Table\n";
+    std::cin >> Table;
+
+    std::vector<Tables> table = Manager::Table_File();
+    Tables t;
+
+    bool tablefound = false;
+
+    if (Table == t.TableID) {
+        std::cout << "[OK] Id has been matched\n" << "Hello" << "[" << t.TableName << "]\n";
+        tablefound = true;
+    }
+
+    if (tablefound == true) {
+        std::cout << "[Yay] Welcome to matched Table\n";
+
+    }
+    else {
+        std::cout << "[No] Id has not been matched\n";
+    }
+}
+
+void Order_Process() {
+    std::cout << "Welcome to Number of order process\n";
+
+}
+
+void Most_Order_Item() {
+    std::cout << "Welcome to Most order items\n";
+
+}
+
+void View_All_Total_Order() {
+    std::cout << "View all total orders\n";
+
+}
+
+void Table_Occupancy() {
+    std::cout << "Welcome to Table occupancy\n";
+
 }
 
 void Table() {

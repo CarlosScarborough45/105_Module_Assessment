@@ -1,15 +1,14 @@
 #ifndef BACKEND_00P_TABLES_H
 #define BACKEND_00P_TABLES_H
-#include "Manager.h"
-
+#include <string>
 
 struct Tables {
-    int TableID;
+    std::string TableID;
     std::string TableNumber;
     std::string TableName;
-    int Capacity;
+    std::string Capacity;
     std::string Status;
-    int CurrentOrderID;
+    std::string CurrentOrderID;
 };
 
 void ViewAllTables();
