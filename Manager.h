@@ -54,6 +54,7 @@ public:
                 std::getline(ss, t.CurrentOrderID, '|');
                 std::getline(ss, t.Status, '|');
                 std::getline(ss, t.TableNumber, '|');
+                tableList.push_back(t);
             }
         }
         else if (!file.is_open()) {
