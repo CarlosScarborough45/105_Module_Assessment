@@ -5,7 +5,7 @@
 #include "Manager.h"
 
 void add_Table() {
-    std::vector<Tables> = Manager::Table_File();
+    std::vector<Tables> b = Manager::Table_File();
     std::vector<Tables> tables;
 
     std::string line, field;
