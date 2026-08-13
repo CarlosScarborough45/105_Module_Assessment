@@ -81,10 +81,13 @@ class Host : public Staff  {
     void Assign();
     void SaveTables();
     void Available_Tables();
-    void Reservations();
-    void Edit_Reservation();
-    void Cancel_Reservation();
-    void Create_Reservation();
+    static void Reservations();
+
+    static void Edit_Reservation();
+
+    static void Cancel_Reservation();
+
+    static void Create_Reservation();
 
     void LoadTables() {
         tables.clear();
@@ -201,7 +204,7 @@ class Host : public Staff  {
             }
 };
 
-void Host::Reservations() {
+inline void Host::Reservations() {
     std::cout << "Welcome to Reservation Menu\n";
 
     int reservation;
@@ -221,13 +224,15 @@ void Host::Reservations() {
         }
 }
 
-void Host::Create_Reservation() {
+inline void Host::Create_Reservation() {
 
 }
-void Host::Cancel_Reservation() {
+
+inline void Host::Cancel_Reservation() {
 
 }
-void Host::Edit_Reservation() {
+
+inline void Host::Edit_Reservation() {
 
 }
 #endif //BACKEND_00P_STAFF_H

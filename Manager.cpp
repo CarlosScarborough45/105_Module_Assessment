@@ -73,7 +73,7 @@ void Total_Revenue() {
 
     bool tablefound = false;
 
-    if (Table == t.TableID) {
+    if (Table == t.TableNumber) {
         std::cout << "[OK] Id has been matched\n" << "Hello" << "[" << t.TableName << "]\n";
         tablefound = true;
     }

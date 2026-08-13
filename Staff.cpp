@@ -17,7 +17,7 @@ void Menu_Display() {
 void Host::Assign() {
     LoadTables();
 
-    int ID;
+    std::string ID;
     std::cout << "Enter Table ID: \n";
     std::cin >> ID;
 
@@ -44,7 +44,7 @@ void Host::Assign() {
 
 void Host::Available_Tables() {
     LoadTables();
-    int ID;
+    std::string ID;
     std::cout << "Enter Table ID: \n";
     std::cin >> ID;
 

@@ -8,31 +8,6 @@ void add_Table() {
     std::vector<Tables> b = Manager::Table_File();
     std::vector<Tables> tables;
 
-    std::string line, field;
-
-    std::getline(file, line);
-
-    while (std::getline(file, line)) {
-        if (line.empty()) continue;
-
-        std::stringstream ss (line);
-        Tables t;
-
-        std::getline(ss, t.TableID, '|');
-
-        std::getline(ss, t.TableNumber, '|');
-
-        std::getline(ss, t.TableName, '|');
-
-        std::getline(ss,  t.Capacity, '|');
-
-        std::getline(ss, t.Status, '|');
-
-        std::getline(ss,  t.CurrentOrderID , '|');
-
-        tables.push_back(t);
-    }
-
     std::cout << "\n"
           << std::left << std::setw(10) << "ID"
           << std::setw(15) << "Table Number"
@@ -51,7 +26,6 @@ void add_Table() {
         }
     }
     std::cout << std::string(65, '-') << std::endl;
-    file.close();
 
     Tables t;
 

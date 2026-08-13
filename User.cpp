@@ -132,7 +132,7 @@ bool readUserFile(const std::string& username, const std::string& password, role
 Users* buildUser(roles r) {
     switch (r) {
         case roles::AdminRole: return new Admin();
-        case roles::ManagerRole: return new Manager_constructor();
+        case roles::ManagerRole: return new Manager();
         case roles::StaffRole: return new Staff();
         case roles::CustomerRole: return new Customer();
         case roles::WaitStaff: return new WaitStaff();
