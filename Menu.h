@@ -7,28 +7,26 @@
 #include <iomanip>
 
 
-class Menu {
+ class Menu {
     public:
-    static Menu M;
     std::string ITemID;
     std::string Name;
     std::string category;
-    double price = 0;
+    double price{};
     bool available = false;
     std::string Status;
 
+     static Menu M;
+
     Menu() = default;
 
-        Menu(std::string id, std::string name, std::string cat, double p, bool avail)
-            : ITemID(std::move(id)), Name(std::move(name)), category(std::move(cat)),
-            price(p), available(avail) {}
+     Menu(const char* str, const char* text, const char* lunch, double x, bool cond);
 
-
-    std::string getId() const {return ITemID;}
-    std::string getName() const {return Name;}
-    std::string getCategory() const {return category;}
-    double getPrice() const {return price;}
-    bool getAvailable() const {return available;}
+     std::string getId() const {return ITemID;}
+     std::string getName() const {return Name;}
+     std::string getCategory() const {return category;}
+     double getPrice() const {return price;}
+     bool getAvailable() const {return available;}
 
 };
 
@@ -36,32 +34,33 @@ class Menulist : public Menu{
 public:
     static Menulist ml;
     std::vector<Menu> menulist = {
-        Menu {"001", "Padthai", "Lunch", 15.00, true},
-            {"002", "Shrimp Roll", "Appetizers", 12.50, true},
-            {"003", "Prawn Dumpling", "Appetizers", 12.50, true},
-              {"004", "Fish Maw soup", "Desserts", 25, true},
-              {"005", "Pork Dumpling", "Desserts", 25, true},
-              {"006", "Claypot Chicken", "Lunch", 25, true},
-              {"007", "Sweet and Sour Fish", "Lunch", 25, true},
+        Menu {"001", "padthai", "Lunch", 15.00, true},
+            {"002", "shrimp roll", "Appetizers", 12.50, true},
+            {"003", "prawn dumpling", "Appetizers", 12.50, true},
+              {"004", "fish maw soup", "Desserts", 25, true},
+              {"005", "pork dumpling", "Desserts", 25, true},
+              {"006", "claypot chicken", "Lunch", 25, true},
+              {"007", "sweet and sour fish", "Lunch", 25, true},
     };
 
-    void load_Menu();
-    void View_Specials();
-    void View_Desserts();
+    void load_Menu() const;
+
+    static void View_Specials();
+    static void View_Desserts();
     void View_Dinner();
     void View_Lunch();
 
     void View_Menu();
 };
 
-inline void Menulist::load_Menu() {
+inline void Menulist::load_Menu() const {
        std::cout << std::string (60, '-') << "\n";
         std::cout << "\n"
         <<std::left << std::setw(10)
         << "Name" << std::setw(10) << "Price" << "Category" << std::endl;
         std::cout << std::string (60, '-') << "\n";
         for (const auto& item : menulist) {
-            std::cout << std::left << std::setw(20) << item.getName() << " | " << " $" << item.getPrice() << " | " << item.getCategory() << std::endl;
+            std::cout << std::left << std::setw(20) << item.getName() << " | " << " $" << item.getPrice() << " | " << item.getCategory() << " xxx" << std::endl;
         }
        std::cout << std::string (60, '-') << "\n";
     }

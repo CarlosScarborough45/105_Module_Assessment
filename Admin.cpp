@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include "Menu.h"
+#include <limits>
 
 bool Is_Admin(const UserRecord& target) {
     if (target.Role == "Admin") {
@@ -9,10 +11,7 @@ bool Is_Admin(const UserRecord& target) {
         std::cout << "Must have Master Admin permission\n";
         return true;
     }
-	 if (target.Role == "Manager" || target.Role == "Kitchen" || target.Role == "WaitStaff" || target.Role == "customer"){
-	std::cout << "You can proceed" << std::endl;
     return false;
-}
 }
 
 void Admindisplay() {
@@ -165,9 +164,71 @@ void EditStaff() {
     }
 }
 
+void Add_Special();
+void Adjust_Price();
+void Toggle_Price();
+void Delete_Menu();
+
 void MenuControl() {
+    int Menu;
+    while (true){
+        std::cout << "Welcome to menu control\n";
+        std::cout << "1. Add special\n";
+        std::cout << "2. Adjust price\n";
+        std::cout << "3. Toggle Item Unavailable\n";
+        std::cout << "4. Delete Menu Item\n";
+        std::cout << "5. Return to menu option\n";
+        std::cin >> Menu;
+
+        switch (Menu) {
+            case 1: {Add_Special();     break;}
+            case 2: {Adjust_Price();    break;}
+            case 3: {Toggle_Price();    break;}
+            case 4: {Delete_Menu();     break;}
+            case 5: {break;}
+            default:{std::cout << "Must choose between 1 - 5\n"; break;}
+        }
+    }
 
 }
+
+void Add_Special() {
+    std::cout << "Welcome to Adding Specials\n";
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::string Price;
+    std::cout << "Enter which product you want to adjust\n";
+    std::getline(std::cin, Price);
+
+    bool found = false;
+    Menu Matched;
+
+    for (const auto& m : Menulist::ml.menulist) {
+        if (Price == m.getName()) {
+            found = true;
+            Matched = m;
+            std::cout << "[ok] You have found a match\n";
+            break;
+        }
+    }
+    if (!found) {
+            std::cout << "[X] You haven't found a match\n";
+    }
+
+    if (found) {
+        std::cout << std::left << std::setw(20) << "|" << Matched.ITemID <<
+                   std::setw(20) << "|" << Matched.Name
+                   << std::setw(20) << "|" << Matched.price
+                   << std::setw(20) << "|" << Matched.category << "|" << std::endl;
+    }
+
+}
+void Adjust_Price() {
+    std::cout << "Welcome to Adjust price\n";
+}
+void Toggle_Price(){}
+void Delete_Menu(){}
 
 void DeleteStaff() {
 
