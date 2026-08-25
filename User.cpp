@@ -4,6 +4,7 @@
 #include "Users.h"
 #include "Staff.h"
 
+bool readUserFile();
 Users* buildUser(roles r);
 roles check(const std::string &roleString);
 std::string username, password;
@@ -17,9 +18,9 @@ Users* signin() {
     std::cout << "Enter your Password" << std::endl;
     std::cin >> pass;
 
-    roles matchedRole;
     std::string name;
-    if (readUserFile(uname, pass, matchedRole, name)) {
+    if (readUserFile()) {
+        roles matchedRole = {};
         return buildUser(matchedRole);
     }
 
@@ -51,60 +52,29 @@ bool checkPassword(const std::string& password) {
     return true;
 }
 
-bool checkUsername(const std::string& username) {
-    std::ifstream file("../Users.CSV");
-    if (!file.is_open()) return false;
+bool Users::check_ExistingContact(const std::string& number, std::string& outName, roles& outRole) {
+    std::vector<Users> users1;
+    std::vector<Users> users = readUserFile();
 
-    std::string line;
-    while (std::getline(file, line)) {
-        if (line.empty()) continue;
-        std::stringstream ss(line);
-        std::string Name, Address, Number, csvUsername, csvPassword, roleString;
-        std::getline(ss, Name, '|');
-        std::getline(ss, Address, '|');
-        std::getline(ss, Number, '|');
-        std::getline(ss, csvUsername, '|');
-        std::getline(ss, csvPassword, '|');
-        std::getline(ss, roleString, '|');
-        if (csvUsername == username) {
+    for (const auto& u : users) {
+        if (u.Number == number) {
+            outName = u.Name;
+            outRole = u.role;
             return true;
-        }
-        return false;
-    }
-    return true;
-}
-
-
-bool Users::checkRole(roles role) {
-    std::ifstream file("../Users.CSV");
-    if (!file.is_open()) return false;
-
-    std::string line;
-    while (std::getline(file, line)) {
-        if (line.empty()) continue;
-        std::stringstream ss(line);
-        std::string Name, Address, Number, csvUsername, csvPassword, roleString;
-        std::getline(ss, Name, '|');
-        std::getline(ss, Address, '|');
-        std::getline(ss, Number, '|');
-        std::getline(ss, csvUsername, '|');
-        std::getline(ss, csvPassword, '|');
-        std::getline(ss, roleString, '|');
-
-        if (stringtorole(roleString) == role) {
-            std::cout << "Role is already assigned\n";
-            return true;
+            std::cout << "already assigned user and role already been assigned\n";
+            break;
         }
     }
     return false;
 }
 
 
-bool readUserFile(const std::string& username, const std::string& password, roles& outRole, std::string& outName) {
+    bool readUserFile() {
+    std::vector<Users> users;
+    const std::string username, password;
     std::ifstream file("../Users.CSV");
     if (!file.is_open()) {
         std::cout << "[X] File has not been created" << std::endl;
-        return false;
     }
 
     std::string line;
@@ -120,13 +90,11 @@ bool readUserFile(const std::string& username, const std::string& password, role
         std::getline(ss, roleString, '|');
 
         if (csvUsername == username && csvPassword == password) {
-            outRole = stringtorole(roleString);
-            outName = Name;
+            stringtorole(roleString);
             std::cout << "Login successful\nWelcome User [" << Name << "]" << std::endl;
-            return true;
         }
     }
-    return false;
+    return readUserFile();
 }
 
 Users* buildUser(roles r) {

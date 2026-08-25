@@ -80,7 +80,7 @@ void ViewStaff() {
 }
 
 void ManagerAccount() {
-    const std::vector<UserRecord> users = Users::UserFile();
+    const std::vector<UserRecord> users = readUserFile::UserFile();
 
     std::cout << std::string(65, '-') << std::endl;
     std::cout << "Manager Accounts" << std::endl;
@@ -110,7 +110,7 @@ void ViewStaffAccounts(){}
 void AddStaff() {
     std::cout << "Welcome Which Staff you want to add?\n";
 
-    Users::Signup();
+    readUserFile::Signup();
 
 }
 
@@ -121,7 +121,7 @@ void EditStaff() {
     std::cout << "Enter a name to Edit: \n";
     std::cin >> Edit;
 
-    std::vector<UserRecord> users = Users::UserFile();
+    std::vector<UserRecord> users = readUserFile::UserFile();
 
     int index = -1;
     for (int i = 0; i < users.size(); i++) {
@@ -154,7 +154,7 @@ void EditStaff() {
             else if (Field == "Password") users[index].Password = Value;
             else if (Field == "Role") users[index].Role = Value;
 
-            Users::SaveToFile(users);
+            readUserFile::SaveToFile(users);
         } else {
             std::cout << "Not a valid field to edit\n";
         }

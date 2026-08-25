@@ -10,9 +10,7 @@
 int main();
 
 enum class roles { StaffRole, ManagerRole, CustomerRole, AdminRole, WaitStaff, Kitchen, Host };
-bool readUserFile(const std::string& username, const std::string& password, roles& outRole, std::string& outName);
-bool checkPassword(const std::string& password);
-bool checkUsername(const std::string& username);
+
 class Admin;
 class Manager;
 class Staff;
@@ -44,6 +42,8 @@ public:
     virtual ~Users() = default;
 
     bool checkRole(roles role);
+
+    bool check_ExistingContact(const std::string& number, std::string& outName, roles& outRole);
 
 
     static void SaveToFile(const std::vector<UserRecord>& records) {
