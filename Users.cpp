@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <limits>
 
 #include "Headers/Admin.h"
 #include "Headers/Kitchen.h"
@@ -14,13 +15,23 @@ namespace
 {
     roles ParseRole(const std::string &roleName)
     {
-        if (roleName == "Admin")
+        // Normalise input: trim CR and make lowercase for robust comparisons
+        std::string r;
+        r.reserve(roleName.size());
+        for (char c : roleName)
+        {
+            if (c == '\r' || c == '\n' || c == ' ') // drop common whitespace
+                continue;
+            r.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(c))));
+        }
+
+        if (r == "admin")
             return roles::Admin;
-        if (roleName == "Manager")
+        if (r == "manager")
             return roles::Manager;
-        if (roleName == "Waitstaff")
+        if (r == "waitstaff" || r == "waitstaff" )
             return roles::WaitStaff;
-        if (roleName == "Kitchen")
+        if (r == "kitchen")
             return roles::Kitchen;
         return roles::Admin;
     }
@@ -81,6 +92,11 @@ void Users::Login()
         return;
     }
 
+    if (found)
+    {
+        std::cout << "You have successfully logged in\n";
+        std::cout << "Welcome, User: " << inputuser << "\n";
+        std::cout << "Resolved role: " << RoleToString(roleMatch) << "\n";
     switch (roleMatch)
     {
     case roles::Admin:
@@ -104,6 +120,11 @@ void Users::Login()
     default:
         break;
     }
+    }
+    // Pause so user can see role-specific output before returning to main menu
+    std::cout << "Press Enter to return to main menu...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.get();
 }
 
 void Users::registration()

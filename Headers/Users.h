@@ -1,5 +1,4 @@
 #pragma once
-
 #include <string>
 #include <vector>
 
@@ -26,6 +25,9 @@ public:
 
     static std::vector<UserRecord> check_File();
     static void Save(const UserRecord &user);
+
+    // Make Login/registration public so callers in `main.cpp` can invoke them
+public:
     static void Login();
     static void registration();
 };
