@@ -1,0 +1,70 @@
+{
+	"cmake" : 
+	{
+		"generator" : 
+		{
+			"multiConfig" : false,
+			"name" : "MinGW Makefiles"
+		},
+		"paths" : 
+		{
+			"cmake" : "D:/Users/932400098/scoop/apps/cmake/current/bin/cmake.exe",
+			"cpack" : "D:/Users/932400098/scoop/apps/cmake/current/bin/cpack.exe",
+			"ctest" : "D:/Users/932400098/scoop/apps/cmake/current/bin/ctest.exe",
+			"root" : "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4"
+		},
+		"version" : 
+		{
+			"isDirty" : false,
+			"major" : 4,
+			"minor" : 4,
+			"patch" : 3,
+			"string" : "4.4.3",
+			"suffix" : ""
+		}
+	},
+	"objects" : [],
+	"reply" : 
+	{
+		"client-vscode" : 
+		{
+			"query.json" : 
+			{
+				"requests" : 
+				[
+					{
+						"kind" : "cache",
+						"version" : 2
+					},
+					{
+						"kind" : "codemodel",
+						"version" : 2
+					},
+					{
+						"kind" : "toolchains",
+						"version" : 1
+					},
+					{
+						"kind" : "cmakeFiles",
+						"version" : 1
+					}
+				],
+				"responses" : 
+				[
+					{
+						"error" : "no buildsystem generated"
+					},
+					{
+						"error" : "no buildsystem generated"
+					},
+					{
+						"error" : "no buildsystem generated"
+					},
+					{
+						"error" : "no buildsystem generated"
+					}
+				]
+			}
+		}
+	}
+}

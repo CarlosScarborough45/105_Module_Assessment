@@ -1,0 +1,2366 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake:218 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26200 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/"
+    found: "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: D:/Users/932400098/scoop/apps/gcc/current/bin/g++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      MSBuild version 18.9.1+a81b43525 for .NET Framework
+      Build started 9/1/2026 10:14:57 AM.
+      
+      Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc145.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+      TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      Done Building Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets) -- FAILED.
+      
+      Build FAILED.
+      
+      "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default target) (1) ->
+      (ClCompile target) -> 
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+          0 Warning(s)
+          1 Error(s)
+      
+      Time Elapsed 00:00:00.26
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/"
+    found: "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: D:/Users/932400098/scoop/apps/gcc/current/bin/g++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      MSBuild version 18.9.1+a81b43525 for .NET Framework
+      Build started 9/1/2026 10:14:57 AM.
+      
+      Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc145.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+      TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      Done Building Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets) -- FAILED.
+      
+      Build FAILED.
+      
+      "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default target) (1) ->
+      (ClCompile target) -> 
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+          0 Warning(s)
+          1 Error(s)
+      
+      Time Elapsed 00:00:00.20
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:1341 (message)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:97 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+      g++.exe: fatal error: no input files
+      compilation terminated.
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:1341 (message)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:97 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+      g++.exe: fatal error: no input files
+      compilation terminated.
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:64 (__resolve_tool_path)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:102 (__resolve_linker_path)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/"
+      - "C:/Python310/Scripts/"
+      - "C:/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/"
+      - "C:/Python27/"
+      - "C:/Python27/Scripts/"
+      - "C:/Program Files/Common Files/Autodesk Shared/"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/"
+      - "C:/Program Files/3Delight/bin/"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/"
+      - "C:/Program Files/Microsoft VS Code/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files (x86)/Brackets/command/"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/"
+      - "C:/ProgramData/Redshift/bin/"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/"
+      - "C:/Program Files (x86)/IncrediBuild/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/TortoiseGit/bin/"
+      - "D:/Users/932400098/scoop/shims/"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Users/932400098/.local/bin/"
+    searched_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/link.com"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/link.exe"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/link"
+      - "C:/Python310/Scripts/link.com"
+      - "C:/Python310/Scripts/link.exe"
+      - "C:/Python310/Scripts/link"
+      - "C:/Python310/link.com"
+      - "C:/Python310/link.exe"
+      - "C:/Python310/link"
+      - "C:/Windows/System32/link.com"
+      - "C:/Windows/System32/link.exe"
+      - "C:/Windows/System32/link"
+      - "C:/Windows/link.com"
+      - "C:/Windows/link.exe"
+      - "C:/Windows/link"
+      - "C:/Windows/System32/wbem/link.com"
+      - "C:/Windows/System32/wbem/link.exe"
+      - "C:/Windows/System32/wbem/link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/link"
+      - "C:/Windows/System32/OpenSSH/link.com"
+      - "C:/Windows/System32/OpenSSH/link.exe"
+      - "C:/Windows/System32/OpenSSH/link"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/link"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/link"
+      - "C:/Program Files/dotnet/link.com"
+      - "C:/Program Files/dotnet/link.exe"
+      - "C:/Program Files/dotnet/link"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/link.com"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/link.exe"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/link"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/link.com"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/link.exe"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/link"
+      - "C:/Python27/link.com"
+      - "C:/Python27/link.exe"
+      - "C:/Python27/link"
+      - "C:/Python27/Scripts/link.com"
+      - "C:/Python27/Scripts/link.exe"
+      - "C:/Python27/Scripts/link"
+      - "C:/Program Files/Common Files/Autodesk Shared/link.com"
+      - "C:/Program Files/Common Files/Autodesk Shared/link.exe"
+      - "C:/Program Files/Common Files/Autodesk Shared/link"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/link.com"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/link.exe"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/link"
+      - "C:/Program Files/3Delight/bin/link.com"
+      - "C:/Program Files/3Delight/bin/link.exe"
+      - "C:/Program Files/3Delight/bin/link"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/link"
+      - "C:/Program Files/Microsoft VS Code/bin/link.com"
+      - "C:/Program Files/Microsoft VS Code/bin/link.exe"
+      - "C:/Program Files/Microsoft VS Code/bin/link"
+      - "C:/Program Files/nodejs/link.com"
+      - "C:/Program Files/nodejs/link.exe"
+      - "C:/Program Files/nodejs/link"
+      - "C:/Program Files/Git/cmd/link.com"
+      - "C:/Program Files/Git/cmd/link.exe"
+      - "C:/Program Files/Git/cmd/link"
+      - "C:/Program Files (x86)/Brackets/command/link.com"
+      - "C:/Program Files (x86)/Brackets/command/link.exe"
+      - "C:/Program Files (x86)/Brackets/command/link"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/link"
+      - "C:/ProgramData/Redshift/bin/link.com"
+      - "C:/ProgramData/Redshift/bin/link.exe"
+      - "C:/ProgramData/Redshift/bin/link"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/link.com"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/link.exe"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/link"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/link.com"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/link.exe"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/link"
+      - "C:/Program Files (x86)/IncrediBuild/link.com"
+      - "C:/Program Files (x86)/IncrediBuild/link.exe"
+      - "C:/Program Files (x86)/IncrediBuild/link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/link"
+      - "C:/Program Files/TortoiseGit/bin/link.com"
+      - "C:/Program Files/TortoiseGit/bin/link.exe"
+      - "C:/Program Files/TortoiseGit/bin/link"
+      - "D:/Users/932400098/scoop/shims/link.com"
+      - "D:/Users/932400098/scoop/shims/link.exe"
+      - "D:/Users/932400098/scoop/shims/link"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/link.com"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/link.exe"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/link"
+      - "D:/Users/932400098/.local/bin/link.com"
+      - "D:/Users/932400098/.local/bin/link.exe"
+      - "D:/Users/932400098/.local/bin/link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:64 (__resolve_tool_path)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/"
+      - "C:/Python310/Scripts/"
+      - "C:/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/"
+      - "C:/Python27/"
+      - "C:/Python27/Scripts/"
+      - "C:/Program Files/Common Files/Autodesk Shared/"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/"
+      - "C:/Program Files/3Delight/bin/"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/"
+      - "C:/Program Files/Microsoft VS Code/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files (x86)/Brackets/command/"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/"
+      - "C:/ProgramData/Redshift/bin/"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/"
+      - "C:/Program Files (x86)/IncrediBuild/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/TortoiseGit/bin/"
+      - "D:/Users/932400098/scoop/shims/"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Users/932400098/.local/bin/"
+    searched_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/lld-link.com"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/lld-link.exe"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/lld-link"
+      - "C:/Python310/Scripts/lld-link.com"
+      - "C:/Python310/Scripts/lld-link.exe"
+      - "C:/Python310/Scripts/lld-link"
+      - "C:/Python310/lld-link.com"
+      - "C:/Python310/lld-link.exe"
+      - "C:/Python310/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/lld-link.com"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/lld-link.exe"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/lld-link"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/lld-link.com"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/lld-link.exe"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/lld-link"
+      - "C:/Python27/lld-link.com"
+      - "C:/Python27/lld-link.exe"
+      - "C:/Python27/lld-link"
+      - "C:/Python27/Scripts/lld-link.com"
+      - "C:/Python27/Scripts/lld-link.exe"
+      - "C:/Python27/Scripts/lld-link"
+      - "C:/Program Files/Common Files/Autodesk Shared/lld-link.com"
+      - "C:/Program Files/Common Files/Autodesk Shared/lld-link.exe"
+      - "C:/Program Files/Common Files/Autodesk Shared/lld-link"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/lld-link.com"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/lld-link.exe"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/lld-link"
+      - "C:/Program Files/3Delight/bin/lld-link.com"
+      - "C:/Program Files/3Delight/bin/lld-link.exe"
+      - "C:/Program Files/3Delight/bin/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/lld-link"
+      - "C:/Program Files/Microsoft VS Code/bin/lld-link.com"
+      - "C:/Program Files/Microsoft VS Code/bin/lld-link.exe"
+      - "C:/Program Files/Microsoft VS Code/bin/lld-link"
+      - "C:/Program Files/nodejs/lld-link.com"
+      - "C:/Program Files/nodejs/lld-link.exe"
+      - "C:/Program Files/nodejs/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "C:/Program Files (x86)/Brackets/command/lld-link.com"
+      - "C:/Program Files (x86)/Brackets/command/lld-link.exe"
+      - "C:/Program Files (x86)/Brackets/command/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/lld-link"
+      - "C:/ProgramData/Redshift/bin/lld-link.com"
+      - "C:/ProgramData/Redshift/bin/lld-link.exe"
+      - "C:/ProgramData/Redshift/bin/lld-link"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/lld-link.com"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/lld-link.exe"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/lld-link"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/lld-link.com"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/lld-link.exe"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/lld-link"
+      - "C:/Program Files (x86)/IncrediBuild/lld-link.com"
+      - "C:/Program Files (x86)/IncrediBuild/lld-link.exe"
+      - "C:/Program Files (x86)/IncrediBuild/lld-link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Program Files/TortoiseGit/bin/lld-link.com"
+      - "C:/Program Files/TortoiseGit/bin/lld-link.exe"
+      - "C:/Program Files/TortoiseGit/bin/lld-link"
+      - "D:/Users/932400098/scoop/shims/lld-link.com"
+      - "D:/Users/932400098/scoop/shims/lld-link.exe"
+      - "D:/Users/932400098/scoop/shims/lld-link"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "D:/Users/932400098/.local/bin/lld-link.com"
+      - "D:/Users/932400098/.local/bin/lld-link.exe"
+      - "D:/Users/932400098/.local/bin/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/"
+      - "C:/Python310/Scripts/"
+      - "C:/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/"
+      - "C:/Python27/"
+      - "C:/Python27/Scripts/"
+      - "C:/Program Files/Common Files/Autodesk Shared/"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/"
+      - "C:/Program Files/3Delight/bin/"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/"
+      - "C:/Program Files/Microsoft VS Code/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files (x86)/Brackets/command/"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/"
+      - "C:/ProgramData/Redshift/bin/"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/"
+      - "C:/Program Files (x86)/IncrediBuild/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/TortoiseGit/bin/"
+      - "D:/Users/932400098/scoop/shims/"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Users/932400098/.local/bin/"
+    searched_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/link.com"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/link.exe"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/link"
+      - "C:/Python310/Scripts/link.com"
+      - "C:/Python310/Scripts/link.exe"
+      - "C:/Python310/Scripts/link"
+      - "C:/Python310/link.com"
+      - "C:/Python310/link.exe"
+      - "C:/Python310/link"
+      - "C:/Windows/System32/link.com"
+      - "C:/Windows/System32/link.exe"
+      - "C:/Windows/System32/link"
+      - "C:/Windows/link.com"
+      - "C:/Windows/link.exe"
+      - "C:/Windows/link"
+      - "C:/Windows/System32/wbem/link.com"
+      - "C:/Windows/System32/wbem/link.exe"
+      - "C:/Windows/System32/wbem/link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/link"
+      - "C:/Windows/System32/OpenSSH/link.com"
+      - "C:/Windows/System32/OpenSSH/link.exe"
+      - "C:/Windows/System32/OpenSSH/link"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/link"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/link"
+      - "C:/Program Files/dotnet/link.com"
+      - "C:/Program Files/dotnet/link.exe"
+      - "C:/Program Files/dotnet/link"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/link.com"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/link.exe"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/link"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/link.com"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/link.exe"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/link"
+      - "C:/Python27/link.com"
+      - "C:/Python27/link.exe"
+      - "C:/Python27/link"
+      - "C:/Python27/Scripts/link.com"
+      - "C:/Python27/Scripts/link.exe"
+      - "C:/Python27/Scripts/link"
+      - "C:/Program Files/Common Files/Autodesk Shared/link.com"
+      - "C:/Program Files/Common Files/Autodesk Shared/link.exe"
+      - "C:/Program Files/Common Files/Autodesk Shared/link"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/link.com"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/link.exe"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/link"
+      - "C:/Program Files/3Delight/bin/link.com"
+      - "C:/Program Files/3Delight/bin/link.exe"
+      - "C:/Program Files/3Delight/bin/link"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/link"
+      - "C:/Program Files/Microsoft VS Code/bin/link.com"
+      - "C:/Program Files/Microsoft VS Code/bin/link.exe"
+      - "C:/Program Files/Microsoft VS Code/bin/link"
+      - "C:/Program Files/nodejs/link.com"
+      - "C:/Program Files/nodejs/link.exe"
+      - "C:/Program Files/nodejs/link"
+      - "C:/Program Files/Git/cmd/link.com"
+      - "C:/Program Files/Git/cmd/link.exe"
+      - "C:/Program Files/Git/cmd/link"
+      - "C:/Program Files (x86)/Brackets/command/link.com"
+      - "C:/Program Files (x86)/Brackets/command/link.exe"
+      - "C:/Program Files (x86)/Brackets/command/link"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/link"
+      - "C:/ProgramData/Redshift/bin/link.com"
+      - "C:/ProgramData/Redshift/bin/link.exe"
+      - "C:/ProgramData/Redshift/bin/link"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/link.com"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/link.exe"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/link"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/link.com"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/link.exe"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/link"
+      - "C:/Program Files (x86)/IncrediBuild/link.com"
+      - "C:/Program Files (x86)/IncrediBuild/link.exe"
+      - "C:/Program Files (x86)/IncrediBuild/link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/link"
+      - "C:/Program Files/TortoiseGit/bin/link.com"
+      - "C:/Program Files/TortoiseGit/bin/link.exe"
+      - "C:/Program Files/TortoiseGit/bin/link"
+      - "D:/Users/932400098/scoop/shims/link.com"
+      - "D:/Users/932400098/scoop/shims/link.exe"
+      - "D:/Users/932400098/scoop/shims/link"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/link.com"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/link.exe"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/link"
+      - "D:/Users/932400098/.local/bin/link.com"
+      - "D:/Users/932400098/.local/bin/link.exe"
+      - "D:/Users/932400098/.local/bin/link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MT"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mt"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/"
+      - "C:/Python310/Scripts/"
+      - "C:/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/"
+      - "C:/Python27/"
+      - "C:/Python27/Scripts/"
+      - "C:/Program Files/Common Files/Autodesk Shared/"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/"
+      - "C:/Program Files/3Delight/bin/"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/"
+      - "C:/Program Files/Microsoft VS Code/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files (x86)/Brackets/command/"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/"
+      - "C:/ProgramData/Redshift/bin/"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/"
+      - "C:/Program Files (x86)/IncrediBuild/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/TortoiseGit/bin/"
+      - "D:/Users/932400098/scoop/shims/"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Users/932400098/.local/bin/"
+    searched_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/mt.com"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/mt.exe"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/mt"
+      - "C:/Python310/Scripts/mt.com"
+      - "C:/Python310/Scripts/mt.exe"
+      - "C:/Python310/Scripts/mt"
+      - "C:/Python310/mt.com"
+      - "C:/Python310/mt.exe"
+      - "C:/Python310/mt"
+      - "C:/Windows/System32/mt.com"
+      - "C:/Windows/System32/mt.exe"
+      - "C:/Windows/System32/mt"
+      - "C:/Windows/mt.com"
+      - "C:/Windows/mt.exe"
+      - "C:/Windows/mt"
+      - "C:/Windows/System32/wbem/mt.com"
+      - "C:/Windows/System32/wbem/mt.exe"
+      - "C:/Windows/System32/wbem/mt"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mt"
+      - "C:/Windows/System32/OpenSSH/mt.com"
+      - "C:/Windows/System32/OpenSSH/mt.exe"
+      - "C:/Windows/System32/OpenSSH/mt"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/mt.com"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/mt.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/mt"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/mt.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/mt.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/mt"
+      - "C:/Program Files/dotnet/mt.com"
+      - "C:/Program Files/dotnet/mt.exe"
+      - "C:/Program Files/dotnet/mt"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/mt.com"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/mt.exe"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/mt"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/mt.com"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/mt.exe"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/mt"
+      - "C:/Python27/mt.com"
+      - "C:/Python27/mt.exe"
+      - "C:/Python27/mt"
+      - "C:/Python27/Scripts/mt.com"
+      - "C:/Python27/Scripts/mt.exe"
+      - "C:/Python27/Scripts/mt"
+      - "C:/Program Files/Common Files/Autodesk Shared/mt.com"
+      - "C:/Program Files/Common Files/Autodesk Shared/mt.exe"
+      - "C:/Program Files/Common Files/Autodesk Shared/mt"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/mt.com"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/mt.exe"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/mt"
+      - "C:/Program Files/3Delight/bin/mt.com"
+      - "C:/Program Files/3Delight/bin/mt.exe"
+      - "C:/Program Files/3Delight/bin/mt"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/mt.com"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/mt.exe"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/mt"
+      - "C:/Program Files/Microsoft VS Code/bin/mt.com"
+      - "C:/Program Files/Microsoft VS Code/bin/mt.exe"
+      - "C:/Program Files/Microsoft VS Code/bin/mt"
+      - "C:/Program Files/nodejs/mt.com"
+      - "C:/Program Files/nodejs/mt.exe"
+      - "C:/Program Files/nodejs/mt"
+      - "C:/Program Files/Git/cmd/mt.com"
+      - "C:/Program Files/Git/cmd/mt.exe"
+      - "C:/Program Files/Git/cmd/mt"
+      - "C:/Program Files (x86)/Brackets/command/mt.com"
+      - "C:/Program Files (x86)/Brackets/command/mt.exe"
+      - "C:/Program Files (x86)/Brackets/command/mt"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/mt.com"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/mt.exe"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/mt"
+      - "C:/ProgramData/Redshift/bin/mt.com"
+      - "C:/ProgramData/Redshift/bin/mt.exe"
+      - "C:/ProgramData/Redshift/bin/mt"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/mt.com"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/mt.exe"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/mt"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/mt.com"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/mt.exe"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/mt"
+      - "C:/Program Files (x86)/IncrediBuild/mt.com"
+      - "C:/Program Files (x86)/IncrediBuild/mt.exe"
+      - "C:/Program Files (x86)/IncrediBuild/mt"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mt.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mt.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mt"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mt"
+      - "C:/Program Files/TortoiseGit/bin/mt.com"
+      - "C:/Program Files/TortoiseGit/bin/mt.exe"
+      - "C:/Program Files/TortoiseGit/bin/mt"
+      - "D:/Users/932400098/scoop/shims/mt.com"
+      - "D:/Users/932400098/scoop/shims/mt.exe"
+      - "D:/Users/932400098/scoop/shims/mt"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/mt.com"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/mt.exe"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/mt"
+      - "D:/Users/932400098/.local/bin/mt.com"
+      - "D:/Users/932400098/.local/bin/mt.exe"
+      - "D:/Users/932400098/.local/bin/mt"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:247 (find_program)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_AR"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lib"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/"
+      - "C:/Python310/Scripts/"
+      - "C:/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/"
+      - "C:/Python27/"
+      - "C:/Python27/Scripts/"
+      - "C:/Program Files/Common Files/Autodesk Shared/"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/"
+      - "C:/Program Files/3Delight/bin/"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/"
+      - "C:/Program Files/Microsoft VS Code/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files (x86)/Brackets/command/"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/"
+      - "C:/ProgramData/Redshift/bin/"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/"
+      - "C:/Program Files (x86)/IncrediBuild/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/TortoiseGit/bin/"
+      - "D:/Users/932400098/scoop/shims/"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Users/932400098/.local/bin/"
+    searched_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/lib.com"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/lib.exe"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/lib"
+      - "C:/Python310/Scripts/lib.com"
+      - "C:/Python310/Scripts/lib.exe"
+      - "C:/Python310/Scripts/lib"
+      - "C:/Python310/lib.com"
+      - "C:/Python310/lib.exe"
+      - "C:/Python310/lib"
+      - "C:/Windows/System32/lib.com"
+      - "C:/Windows/System32/lib.exe"
+      - "C:/Windows/System32/lib"
+      - "C:/Windows/lib.com"
+      - "C:/Windows/lib.exe"
+      - "C:/Windows/lib"
+      - "C:/Windows/System32/wbem/lib.com"
+      - "C:/Windows/System32/wbem/lib.exe"
+      - "C:/Windows/System32/wbem/lib"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lib.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lib.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lib"
+      - "C:/Windows/System32/OpenSSH/lib.com"
+      - "C:/Windows/System32/OpenSSH/lib.exe"
+      - "C:/Windows/System32/OpenSSH/lib"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/lib.com"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/lib.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/lib"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lib.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lib.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lib"
+      - "C:/Program Files/dotnet/lib.com"
+      - "C:/Program Files/dotnet/lib.exe"
+      - "C:/Program Files/dotnet/lib"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/lib.com"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/lib.exe"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/lib"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/lib.com"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/lib.exe"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/lib"
+      - "C:/Python27/lib.com"
+      - "C:/Python27/lib.exe"
+      - "C:/Python27/lib"
+      - "C:/Python27/Scripts/lib.com"
+      - "C:/Python27/Scripts/lib.exe"
+      - "C:/Python27/Scripts/lib"
+      - "C:/Program Files/Common Files/Autodesk Shared/lib.com"
+      - "C:/Program Files/Common Files/Autodesk Shared/lib.exe"
+      - "C:/Program Files/Common Files/Autodesk Shared/lib"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/lib.com"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/lib.exe"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/lib"
+      - "C:/Program Files/3Delight/bin/lib.com"
+      - "C:/Program Files/3Delight/bin/lib.exe"
+      - "C:/Program Files/3Delight/bin/lib"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/lib.com"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/lib.exe"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/lib"
+      - "C:/Program Files/Microsoft VS Code/bin/lib.com"
+      - "C:/Program Files/Microsoft VS Code/bin/lib.exe"
+      - "C:/Program Files/Microsoft VS Code/bin/lib"
+      - "C:/Program Files/nodejs/lib.com"
+      - "C:/Program Files/nodejs/lib.exe"
+      - "C:/Program Files/nodejs/lib"
+      - "C:/Program Files/Git/cmd/lib.com"
+      - "C:/Program Files/Git/cmd/lib.exe"
+      - "C:/Program Files/Git/cmd/lib"
+      - "C:/Program Files (x86)/Brackets/command/lib.com"
+      - "C:/Program Files (x86)/Brackets/command/lib.exe"
+      - "C:/Program Files (x86)/Brackets/command/lib"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/lib.com"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/lib.exe"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/lib"
+      - "C:/ProgramData/Redshift/bin/lib.com"
+      - "C:/ProgramData/Redshift/bin/lib.exe"
+      - "C:/ProgramData/Redshift/bin/lib"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/lib.com"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/lib.exe"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/lib"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/lib.com"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/lib.exe"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/lib"
+      - "C:/Program Files (x86)/IncrediBuild/lib.com"
+      - "C:/Program Files (x86)/IncrediBuild/lib.exe"
+      - "C:/Program Files (x86)/IncrediBuild/lib"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lib.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lib.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lib"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lib.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lib.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lib"
+      - "C:/Program Files/TortoiseGit/bin/lib.com"
+      - "C:/Program Files/TortoiseGit/bin/lib.exe"
+      - "C:/Program Files/TortoiseGit/bin/lib"
+      - "D:/Users/932400098/scoop/shims/lib.com"
+      - "D:/Users/932400098/scoop/shims/lib.exe"
+      - "D:/Users/932400098/scoop/shims/lib"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/lib.com"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/lib.exe"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/lib"
+      - "D:/Users/932400098/.local/bin/lib.com"
+      - "D:/Users/932400098/.local/bin/lib.exe"
+      - "D:/Users/932400098/.local/bin/lib"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:123 (try_compile)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-9euuh7"
+      binary: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-9euuh7"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: ""
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: false
+      stdout: |
+        Change Dir: 'D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-9euuh7'
+        
+        Run Build Command(s): "D:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f4a64.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        MSBuild version 18.9.1+a81b43525 for .NET Framework
+        Build started 9/1/2026 10:14:58 AM.
+        
+        Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-9euuh7\\cmTC_f4a64.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-9euuh7\\Debug\\".
+          Creating directory "cmTC_f4a64.dir\\Debug\\cmTC_f4a64.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_f4a64.dir\\Debug\\cmTC_f4a64.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_f4a64.dir\\Debug\\cmTC_f4a64.tlog\\unsuccessfulbuild".
+        ClCompile:
+          CL.exe /c /W1 /WX- /diagnostics:column /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /Fo"cmTC_f4a64.dir\\Debug\\\\" /Fd"cmTC_f4a64.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "D:\\Users\\932400098\\scoop\\apps\\cmake\\current\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp"
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-9euuh7\\cmTC_f4a64.vcxproj]
+        Done Building Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-9euuh7\\cmTC_f4a64.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-9euuh7\\cmTC_f4a64.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-9euuh7\\cmTC_f4a64.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.21
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Check for working CXX compiler: D:/Users/932400098/scoop/apps/gcc/current/bin/g++.exe"
+    directories:
+      source: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-94w0fp"
+      binary: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-94w0fp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: ""
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_COMPILER_WORKS"
+      cached: false
+      stdout: |
+        Change Dir: 'D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-94w0fp'
+        
+        Run Build Command(s): "D:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_29d27.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        MSBuild version 18.9.1+a81b43525 for .NET Framework
+        Build started 9/1/2026 10:14:58 AM.
+        
+        Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-94w0fp\\cmTC_29d27.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-94w0fp\\Debug\\".
+          Creating directory "cmTC_29d27.dir\\Debug\\cmTC_29d27.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_29d27.dir\\Debug\\cmTC_29d27.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_29d27.dir\\Debug\\cmTC_29d27.tlog\\unsuccessfulbuild".
+        ClCompile:
+          CL.exe /c /W1 /WX- /diagnostics:column /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /Fo"cmTC_29d27.dir\\Debug\\\\" /Fd"cmTC_29d27.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-94w0fp\\testCXXCompiler.cxx"
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-94w0fp\\cmTC_29d27.vcxproj]
+        Done Building Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-94w0fp\\cmTC_29d27.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-94w0fp\\cmTC_29d27.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-94w0fp\\cmTC_29d27.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.21
+        
+      exitCode: 1
+...
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/"
+    found: "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: D:/Users/932400098/scoop/apps/gcc/current/bin/g++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      MSBuild version 18.9.1+a81b43525 for .NET Framework
+      Build started 9/1/2026 10:15:04 AM.
+      
+      Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc145.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+      TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      Done Building Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets) -- FAILED.
+      
+      Build FAILED.
+      
+      "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default target) (1) ->
+      (ClCompile target) -> 
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+          0 Warning(s)
+          1 Error(s)
+      
+      Time Elapsed 00:00:00.24
+      
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:501 (find_file)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:538 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/"
+    found: "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+      Compiler: D:/Users/932400098/scoop/apps/gcc/current/bin/g++.exe 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      1
+      MSBuild version 18.9.1+a81b43525 for .NET Framework
+      Build started 9/1/2026 10:15:04 AM.
+      
+      Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc145.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+      TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      Done Building Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets) -- FAILED.
+      
+      Build FAILED.
+      
+      "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default target) (1) ->
+      (ClCompile target) -> 
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\4.4.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj]
+      
+          0 Warning(s)
+          1 Error(s)
+      
+      Time Elapsed 00:00:00.21
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:1341 (message)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:97 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+      g++.exe: fatal error: no input files
+      compilation terminated.
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:1341 (message)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerId.cmake:97 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+      g++.exe: fatal error: no input files
+      compilation terminated.
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:64 (__resolve_tool_path)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:102 (__resolve_linker_path)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "link"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/"
+      - "C:/Python310/Scripts/"
+      - "C:/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/"
+      - "C:/Python27/"
+      - "C:/Python27/Scripts/"
+      - "C:/Program Files/Common Files/Autodesk Shared/"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/"
+      - "C:/Program Files/3Delight/bin/"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/"
+      - "C:/Program Files/Microsoft VS Code/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files (x86)/Brackets/command/"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/"
+      - "C:/ProgramData/Redshift/bin/"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/"
+      - "C:/Program Files (x86)/IncrediBuild/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/TortoiseGit/bin/"
+      - "D:/Users/932400098/scoop/shims/"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Users/932400098/.local/bin/"
+    searched_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/link.com"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/link.exe"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/link"
+      - "C:/Python310/Scripts/link.com"
+      - "C:/Python310/Scripts/link.exe"
+      - "C:/Python310/Scripts/link"
+      - "C:/Python310/link.com"
+      - "C:/Python310/link.exe"
+      - "C:/Python310/link"
+      - "C:/Windows/System32/link.com"
+      - "C:/Windows/System32/link.exe"
+      - "C:/Windows/System32/link"
+      - "C:/Windows/link.com"
+      - "C:/Windows/link.exe"
+      - "C:/Windows/link"
+      - "C:/Windows/System32/wbem/link.com"
+      - "C:/Windows/System32/wbem/link.exe"
+      - "C:/Windows/System32/wbem/link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/link"
+      - "C:/Windows/System32/OpenSSH/link.com"
+      - "C:/Windows/System32/OpenSSH/link.exe"
+      - "C:/Windows/System32/OpenSSH/link"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/link"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/link"
+      - "C:/Program Files/dotnet/link.com"
+      - "C:/Program Files/dotnet/link.exe"
+      - "C:/Program Files/dotnet/link"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/link.com"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/link.exe"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/link"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/link.com"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/link.exe"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/link"
+      - "C:/Python27/link.com"
+      - "C:/Python27/link.exe"
+      - "C:/Python27/link"
+      - "C:/Python27/Scripts/link.com"
+      - "C:/Python27/Scripts/link.exe"
+      - "C:/Python27/Scripts/link"
+      - "C:/Program Files/Common Files/Autodesk Shared/link.com"
+      - "C:/Program Files/Common Files/Autodesk Shared/link.exe"
+      - "C:/Program Files/Common Files/Autodesk Shared/link"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/link.com"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/link.exe"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/link"
+      - "C:/Program Files/3Delight/bin/link.com"
+      - "C:/Program Files/3Delight/bin/link.exe"
+      - "C:/Program Files/3Delight/bin/link"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/link"
+      - "C:/Program Files/Microsoft VS Code/bin/link.com"
+      - "C:/Program Files/Microsoft VS Code/bin/link.exe"
+      - "C:/Program Files/Microsoft VS Code/bin/link"
+      - "C:/Program Files/nodejs/link.com"
+      - "C:/Program Files/nodejs/link.exe"
+      - "C:/Program Files/nodejs/link"
+      - "C:/Program Files/Git/cmd/link.com"
+      - "C:/Program Files/Git/cmd/link.exe"
+      - "C:/Program Files/Git/cmd/link"
+      - "C:/Program Files (x86)/Brackets/command/link.com"
+      - "C:/Program Files (x86)/Brackets/command/link.exe"
+      - "C:/Program Files (x86)/Brackets/command/link"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/link.com"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/link.exe"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/link"
+      - "C:/ProgramData/Redshift/bin/link.com"
+      - "C:/ProgramData/Redshift/bin/link.exe"
+      - "C:/ProgramData/Redshift/bin/link"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/link.com"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/link.exe"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/link"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/link.com"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/link.exe"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/link"
+      - "C:/Program Files (x86)/IncrediBuild/link.com"
+      - "C:/Program Files (x86)/IncrediBuild/link.exe"
+      - "C:/Program Files (x86)/IncrediBuild/link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/link"
+      - "C:/Program Files/TortoiseGit/bin/link.com"
+      - "C:/Program Files/TortoiseGit/bin/link.exe"
+      - "C:/Program Files/TortoiseGit/bin/link"
+      - "D:/Users/932400098/scoop/shims/link.com"
+      - "D:/Users/932400098/scoop/shims/link.exe"
+      - "D:/Users/932400098/scoop/shims/link"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/link.com"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/link.exe"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/link"
+      - "D:/Users/932400098/.local/bin/link.com"
+      - "D:/Users/932400098/.local/bin/link.exe"
+      - "D:/Users/932400098/.local/bin/link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:37 (find_program)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:64 (__resolve_tool_path)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeFindBinUtils.cmake:103 (__resolve_linker_path)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "_CMAKE_TOOL_WITH_PATH"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "lld-link"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/"
+      - "C:/Python310/Scripts/"
+      - "C:/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/"
+      - "C:/Python27/"
+      - "C:/Python27/Scripts/"
+      - "C:/Program Files/Common Files/Autodesk Shared/"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/"
+      - "C:/Program Files/3Delight/bin/"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/"
+      - "C:/Program Files/Microsoft VS Code/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files (x86)/Brackets/command/"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/"
+      - "C:/ProgramData/Redshift/bin/"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/"
+      - "C:/Program Files (x86)/IncrediBuild/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/TortoiseGit/bin/"
+      - "D:/Users/932400098/scoop/shims/"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Users/932400098/.local/bin/"
+    searched_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/lld-link.com"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/lld-link.exe"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/lld-link"
+      - "C:/Python310/Scripts/lld-link.com"
+      - "C:/Python310/Scripts/lld-link.exe"
+      - "C:/Python310/Scripts/lld-link"
+      - "C:/Python310/lld-link.com"
+      - "C:/Python310/lld-link.exe"
+      - "C:/Python310/lld-link"
+      - "C:/Windows/System32/lld-link.com"
+      - "C:/Windows/System32/lld-link.exe"
+      - "C:/Windows/System32/lld-link"
+      - "C:/Windows/lld-link.com"
+      - "C:/Windows/lld-link.exe"
+      - "C:/Windows/lld-link"
+      - "C:/Windows/System32/wbem/lld-link.com"
+      - "C:/Windows/System32/wbem/lld-link.exe"
+      - "C:/Windows/System32/wbem/lld-link"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/lld-link"
+      - "C:/Windows/System32/OpenSSH/lld-link.com"
+      - "C:/Windows/System32/OpenSSH/lld-link.exe"
+      - "C:/Windows/System32/OpenSSH/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/lld-link"
+      - "C:/Program Files/dotnet/lld-link.com"
+      - "C:/Program Files/dotnet/lld-link.exe"
+      - "C:/Program Files/dotnet/lld-link"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/lld-link.com"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/lld-link.exe"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/%INTEL_DEV_REDIST%redist/intel64/compiler/lld-link"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/lld-link.com"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/lld-link.exe"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/lld-link"
+      - "C:/Python27/lld-link.com"
+      - "C:/Python27/lld-link.exe"
+      - "C:/Python27/lld-link"
+      - "C:/Python27/Scripts/lld-link.com"
+      - "C:/Python27/Scripts/lld-link.exe"
+      - "C:/Python27/Scripts/lld-link"
+      - "C:/Program Files/Common Files/Autodesk Shared/lld-link.com"
+      - "C:/Program Files/Common Files/Autodesk Shared/lld-link.exe"
+      - "C:/Program Files/Common Files/Autodesk Shared/lld-link"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/lld-link.com"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/lld-link.exe"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/lld-link"
+      - "C:/Program Files/3Delight/bin/lld-link.com"
+      - "C:/Program Files/3Delight/bin/lld-link.exe"
+      - "C:/Program Files/3Delight/bin/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/lld-link"
+      - "C:/Program Files/Microsoft VS Code/bin/lld-link.com"
+      - "C:/Program Files/Microsoft VS Code/bin/lld-link.exe"
+      - "C:/Program Files/Microsoft VS Code/bin/lld-link"
+      - "C:/Program Files/nodejs/lld-link.com"
+      - "C:/Program Files/nodejs/lld-link.exe"
+      - "C:/Program Files/nodejs/lld-link"
+      - "C:/Program Files/Git/cmd/lld-link.com"
+      - "C:/Program Files/Git/cmd/lld-link.exe"
+      - "C:/Program Files/Git/cmd/lld-link"
+      - "C:/Program Files (x86)/Brackets/command/lld-link.com"
+      - "C:/Program Files (x86)/Brackets/command/lld-link.exe"
+      - "C:/Program Files (x86)/Brackets/command/lld-link"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/lld-link.com"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/lld-link.exe"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/lld-link"
+      - "C:/ProgramData/Redshift/bin/lld-link.com"
+      - "C:/ProgramData/Redshift/bin/lld-link.exe"
+      - "C:/ProgramData/Redshift/bin/lld-link"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/lld-link.com"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/lld-link.exe"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/lld-link"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/lld-link.com"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/lld-link.exe"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/lld-link"
+      - "C:/Program Files (x86)/IncrediBuild/lld-link.com"
+      - "C:/Program Files (x86)/IncrediBuild/lld-link.exe"
+      - "C:/Program Files (x86)/IncrediBuild/lld-link"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/lld-link"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/lld-link"
+      - "C:/Program Files/TortoiseGit/bin/lld-link.com"
+      - "C:/Program Files/TortoiseGit/bin/lld-link.exe"
+      - "C:/Program Files/TortoiseGit/bin/lld-link"
+      - "D:/Users/932400098/scoop/shims/lld-link.com"
+      - "D:/Users/932400098/scoop/shims/lld-link.exe"
+      - "D:/Users/932400098/scoop/shims/lld-link"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/lld-link.com"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/lld-link.exe"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/lld-link"
+      - "D:/Users/932400098/.local/bin/lld-link.com"
+      - "D:/Users/932400098/.local/bin/lld-link.exe"
+      - "D:/Users/932400098/.local/bin/lld-link"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "C:\\Python310\\Scripts\\"
+        - "C:\\Python310\\"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\Program Files\\dotnet\\"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27\\"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\"
+        - "C:\\WINDOWS\\System32\\OpenSSH\\"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared\\"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem\\"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs\\"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+      CMAKE_INSTALL_PREFIX: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/install/GCC 15.2.0 x86_64-w64-mingw32"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineCompilerABI.cmake:123 (try_compile)"
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-e01lih"
+      binary: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-e01lih"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: ""
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: false
+      stdout: |
+        Change Dir: 'D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-e01lih'
+        
+        Run Build Command(s): "D:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_38756.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        MSBuild version 18.9.1+a81b43525 for .NET Framework
+        Build started 9/1/2026 10:15:04 AM.
+        
+        Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-e01lih\\cmTC_38756.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-e01lih\\Debug\\".
+          Creating directory "cmTC_38756.dir\\Debug\\cmTC_38756.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_38756.dir\\Debug\\cmTC_38756.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_38756.dir\\Debug\\cmTC_38756.tlog\\unsuccessfulbuild".
+        ClCompile:
+          CL.exe /c /W1 /WX- /diagnostics:column /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /Fo"cmTC_38756.dir\\Debug\\\\" /Fd"cmTC_38756.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "D:\\Users\\932400098\\scoop\\apps\\cmake\\current\\share\\cmake-4.4\\Modules\\CMakeCXXCompilerABI.cpp"
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-e01lih\\cmTC_38756.vcxproj]
+        Done Building Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-e01lih\\cmTC_38756.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-e01lih\\cmTC_38756.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-e01lih\\cmTC_38756.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.19
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeTestCXXCompiler.cmake:56 (try_compile)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Check for working CXX compiler: D:/Users/932400098/scoop/apps/gcc/current/bin/g++.exe"
+    directories:
+      source: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-bke7fb"
+      binary: "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-bke7fb"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: ""
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_CXX_STDLIB_MODULES_JSON: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_COMPILER_WORKS"
+      cached: false
+      stdout: |
+        Change Dir: 'D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/out/build/GCC 15.2.0 x86_64-w64-mingw32/CMakeFiles/CMakeScratch/TryCompile-bke7fb'
+        
+        Run Build Command(s): "D:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6126a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        MSBuild version 18.9.1+a81b43525 for .NET Framework
+        Build started 9/1/2026 10:15:05 AM.
+        
+        Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-bke7fb\\cmTC_6126a.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-bke7fb\\Debug\\".
+          Creating directory "cmTC_6126a.dir\\Debug\\cmTC_6126a.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_6126a.dir\\Debug\\cmTC_6126a.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_6126a.dir\\Debug\\cmTC_6126a.tlog\\unsuccessfulbuild".
+        ClCompile:
+          CL.exe /c /W1 /WX- /diagnostics:column /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /Fo"cmTC_6126a.dir\\Debug\\\\" /Fd"cmTC_6126a.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-bke7fb\\testCXXCompiler.cxx"
+        TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-bke7fb\\cmTC_6126a.vcxproj]
+        Done Building Project "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeDetermineSystem.cmake:218 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26200 - AMD64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "D:/Users/932400098/scoop/apps/cmake/current/share/cmake-4.4/Modules/CMakeMinGWFindMake.cmake:5 (find_program)"
+      - "CMakeLists.txt:2 (project)"
+    mode: "program"
+    variable: "CMAKE_MAKE_PROGRAM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "mingw32-make.exe"
+    candidate_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/"
+      - "D:/Users/932400098/scoop/apps/cmake/current/bin/"
+      - "D:/Users/932400098/bin/"
+      - "C:/Program Files/Git/mingw64/bin/"
+      - "C:/Program Files/Git/usr/local/bin/"
+      - "C:/Program Files/Git/usr/bin/"
+      - "D:/Users/932400098/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "D:/Users/932400098/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/"
+      - "C:/Python310/Scripts/"
+      - "C:/Python310/"
+      - "C:/Windows/System32/"
+      - "C:/Windows/"
+      - "C:/Windows/System32/wbem/"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/"
+      - "C:/Windows/System32/OpenSSH/"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/"
+      - "C:/Program Files/dotnet/"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/%INTEL_DEV_REDIST%redist/intel64/compiler/"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/"
+      - "C:/Python27/"
+      - "C:/Python27/Scripts/"
+      - "C:/Program Files/Common Files/Autodesk Shared/"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/"
+      - "C:/Program Files/3Delight/bin/"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/"
+      - "C:/Program Files/Microsoft VS Code/bin/"
+      - "C:/Program Files/nodejs/"
+      - "C:/Program Files/Git/cmd/"
+      - "C:/Program Files (x86)/Brackets/command/"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/"
+      - "C:/ProgramData/Redshift/bin/"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/"
+      - "C:/Program Files (x86)/IncrediBuild/"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/"
+      - "C:/Program Files/TortoiseGit/bin/"
+      - "D:/Users/932400098/scoop/shims/"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/"
+      - "D:/Users/932400098/.local/bin/"
+      - "C:/Program Files/Git/usr/bin/vendor_perl/"
+      - "C:/Program Files/Git/usr/bin/core_perl/"
+      - "/REGISTRY-NOTFOUND/bin/"
+      - "c:/MinGW/bin/"
+      - "/MinGW/bin/"
+      - "/REGISTRY-NOTFOUND/MinGW/bin/"
+    searched_directories:
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/mingw32-make.exe.com"
+      - "D:/Users/932400098/scoop/apps/gcc/current/bin/mingw32-make.exe"
+      - "D:/Users/932400098/scoop/apps/cmake/current/bin/mingw32-make.exe.com"
+      - "D:/Users/932400098/scoop/apps/cmake/current/bin/mingw32-make.exe"
+      - "D:/Users/932400098/bin/mingw32-make.exe.com"
+      - "D:/Users/932400098/bin/mingw32-make.exe"
+      - "C:/Program Files/Git/mingw64/bin/mingw32-make.exe.com"
+      - "C:/Program Files/Git/mingw64/bin/mingw32-make.exe"
+      - "C:/Program Files/Git/usr/local/bin/mingw32-make.exe.com"
+      - "C:/Program Files/Git/usr/local/bin/mingw32-make.exe"
+      - "C:/Program Files/Git/usr/bin/mingw32-make.exe.com"
+      - "C:/Program Files/Git/usr/bin/mingw32-make.exe"
+      - "D:/Users/932400098/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/mingw32-make.exe.com"
+      - "D:/Users/932400098/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand/mingw32-make.exe"
+      - "D:/Users/932400098/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/mingw32-make.exe.com"
+      - "D:/Users/932400098/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli/mingw32-make.exe"
+      - "C:/Python310/Scripts/mingw32-make.exe.com"
+      - "C:/Python310/Scripts/mingw32-make.exe"
+      - "C:/Python310/mingw32-make.exe.com"
+      - "C:/Python310/mingw32-make.exe"
+      - "C:/Windows/System32/mingw32-make.exe.com"
+      - "C:/Windows/System32/mingw32-make.exe"
+      - "C:/Windows/mingw32-make.exe.com"
+      - "C:/Windows/mingw32-make.exe"
+      - "C:/Windows/System32/wbem/mingw32-make.exe.com"
+      - "C:/Windows/System32/wbem/mingw32-make.exe"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mingw32-make.exe.com"
+      - "C:/Windows/System32/WindowsPowerShell/v1.0/mingw32-make.exe"
+      - "C:/Windows/System32/OpenSSH/mingw32-make.exe.com"
+      - "C:/Windows/System32/OpenSSH/mingw32-make.exe"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/mingw32-make.exe.com"
+      - "C:/Program Files/Microsoft SQL Server/170/Tools/Binn/mingw32-make.exe"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/mingw32-make.exe.com"
+      - "C:/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/mingw32-make.exe"
+      - "C:/Program Files/dotnet/mingw32-make.exe.com"
+      - "C:/Program Files/dotnet/mingw32-make.exe"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/%INTEL_DEV_REDIST%redist/intel64/compiler/mingw32-make.exe.com"
+      - "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/%INTEL_DEV_REDIST%redist/intel64/compiler/mingw32-make.exe"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/mingw32-make.exe.com"
+      - "C:/Program Files/AdoptOpenJDK/jdk-13.0.1.9-openj9/bin/mingw32-make.exe"
+      - "C:/Python27/mingw32-make.exe.com"
+      - "C:/Python27/mingw32-make.exe"
+      - "C:/Python27/Scripts/mingw32-make.exe.com"
+      - "C:/Python27/Scripts/mingw32-make.exe"
+      - "C:/Program Files/Common Files/Autodesk Shared/mingw32-make.exe.com"
+      - "C:/Program Files/Common Files/Autodesk Shared/mingw32-make.exe"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/mingw32-make.exe.com"
+      - "C:/Program Files (x86)/QuickTime/QTSystem/mingw32-make.exe"
+      - "C:/Program Files/3Delight/bin/mingw32-make.exe.com"
+      - "C:/Program Files/3Delight/bin/mingw32-make.exe"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/mingw32-make.exe.com"
+      - "C:/Program Files/Microsoft SQL Server/120/Tools/Binn/mingw32-make.exe"
+      - "C:/Program Files/Microsoft VS Code/bin/mingw32-make.exe.com"
+      - "C:/Program Files/Microsoft VS Code/bin/mingw32-make.exe"
+      - "C:/Program Files/nodejs/mingw32-make.exe.com"
+      - "C:/Program Files/nodejs/mingw32-make.exe"
+      - "C:/Program Files/Git/cmd/mingw32-make.exe.com"
+      - "C:/Program Files/Git/cmd/mingw32-make.exe"
+      - "C:/Program Files (x86)/Brackets/command/mingw32-make.exe.com"
+      - "C:/Program Files (x86)/Brackets/command/mingw32-make.exe"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/mingw32-make.exe.com"
+      - "C:/Program Files/Microsoft SQL Server/130/Tools/Binn/mingw32-make.exe"
+      - "C:/ProgramData/Redshift/bin/mingw32-make.exe.com"
+      - "C:/ProgramData/Redshift/bin/mingw32-make.exe"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/mingw32-make.exe.com"
+      - "C:/Program Files/Arnold for Houdini/htoa-5.6.0.2_rbd4662c_houdini-18.5.499/mingw32-make.exe"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/mingw32-make.exe.com"
+      - "D:/Program Files/Microsoft Visual Studio/18/Community/Common7/mingw32-make.exe"
+      - "C:/Program Files (x86)/IncrediBuild/mingw32-make.exe.com"
+      - "C:/Program Files (x86)/IncrediBuild/mingw32-make.exe"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mingw32-make.exe.com"
+      - "C:/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR/mingw32-make.exe"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mingw32-make.exe.com"
+      - "C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common/mingw32-make.exe"
+      - "C:/Program Files/TortoiseGit/bin/mingw32-make.exe.com"
+      - "C:/Program Files/TortoiseGit/bin/mingw32-make.exe"
+      - "D:/Users/932400098/scoop/shims/mingw32-make.exe.com"
+      - "D:/Users/932400098/scoop/shims/mingw32-make.exe"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/mingw32-make.exe.com"
+      - "D:/Users/932400098/AppData/Local/Microsoft/WindowsApps/mingw32-make.exe"
+      - "D:/Users/932400098/.local/bin/mingw32-make.exe.com"
+      - "D:/Users/932400098/.local/bin/mingw32-make.exe"
+      - "C:/Program Files/Git/usr/bin/vendor_perl/mingw32-make.exe.com"
+      - "C:/Program Files/Git/usr/bin/vendor_perl/mingw32-make.exe"
+      - "C:/Program Files/Git/usr/bin/core_perl/mingw32-make.exe.com"
+      - "C:/Program Files/Git/usr/bin/core_perl/mingw32-make.exe"
+      - "/REGISTRY-NOTFOUND/bin/mingw32-make.exe.com"
+      - "/REGISTRY-NOTFOUND/bin/mingw32-make.exe"
+      - "c:/MinGW/bin/mingw32-make.exe.com"
+      - "c:/MinGW/bin/mingw32-make.exe"
+      - "/MinGW/bin/mingw32-make.exe.com"
+      - "/MinGW/bin/mingw32-make.exe"
+      - "/REGISTRY-NOTFOUND/MinGW/bin/mingw32-make.exe.com"
+      - "/REGISTRY-NOTFOUND/MinGW/bin/mingw32-make.exe"
+    found: false
+    search_context:
+      ENV{PATH}:
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\cmake\\current\\bin"
+        - "D:\\Users\\932400098\\bin"
+        - "C:\\Program Files\\Git\\mingw64\\bin"
+        - "C:\\Program Files\\Git\\usr\\local\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin"
+        - "C:\\Program Files\\Git\\mingw64\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin"
+        - "D:\\Users\\932400098\\bin"
+        - "D:\\Users\\932400098\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "D:\\Users\\932400098\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\copilotCli"
+        - "C:\\Python310\\Scripts"
+        - "C:\\Python310"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\WINDOWS\\System32\\OpenSSH"
+        - "C:\\Program Files\\Microsoft SQL Server\\170\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\Program Files\\dotnet"
+        - "%INTEL_DEV_REDIST%redist\\intel64\\compiler"
+        - "C:\\Program Files\\AdoptOpenJDK\\jdk-13.0.1.9-openj9\\bin"
+        - "C:\\Python27"
+        - "C:\\Python27\\Scripts"
+        - "C:\\WINDOWS\\system32"
+        - "C:\\WINDOWS"
+        - "C:\\WINDOWS\\System32\\Wbem"
+        - "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0"
+        - "C:\\WINDOWS\\System32\\OpenSSH"
+        - "C:\\Program Files\\Common Files\\Autodesk Shared"
+        - "C:\\Program Files (x86)\\QuickTime\\QTSystem"
+        - "C:\\Program Files\\3Delight\\bin"
+        - "C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft VS Code\\bin"
+        - "C:\\Program Files\\nodejs"
+        - "C:\\Program Files\\Git\\cmd"
+        - "C:\\Program Files (x86)\\Brackets\\command"
+        - "C:\\Program Files\\dotnet"
+        - "C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn"
+        - "C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn"
+        - "C:\\ProgramData\\Redshift\\bin"
+        - "C:\\Program Files\\Arnold for Houdini\\htoa-5.6.0.2_rbd4662c_houdini-18.5.499"
+        - "D:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7"
+        - "C:\\Program Files (x86)\\IncrediBuild"
+        - "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR"
+        - "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common"
+        - "C:\\Program Files\\TortoiseGit\\bin"
+        - "D:\\Users\\932400098\\scoop\\apps\\gcc\\current\\bin"
+        - "D:\\Users\\932400098\\scoop\\shims"
+        - "D:\\Users\\932400098\\AppData\\Local\\Microsoft\\WindowsApps"
+        - "D:\\Users\\932400098\\.local\\bin"
+        - "C:\\Program Files\\Git\\usr\\bin\\vendor_perl"
+        - "C:\\Program Files\\Git\\usr\\bin\\core_perl"
+        - "D:\\Users\\932400098\\.local\\bin"
+...
+64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-bke7fb\\cmTC_6126a.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-bke7fb\\cmTC_6126a.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          TRACKER : error TRK0005: Failed to locate: "CL.exe". The system cannot find the file specified. [D:\\Users\\932400098\\OneDrive - UP Education\\Desktop\\Projects\\105\\Visual\\out\\build\\GCC 15.2.0 x86_64-w64-mingw32\\CMakeFiles\\CMakeScratch\\TryCompile-bke7fb\\cmTC_6126a.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.20
+        
+      exitCode: 1
+...
