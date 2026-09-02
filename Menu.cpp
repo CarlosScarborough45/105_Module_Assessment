@@ -5,8 +5,6 @@
 #include <vector>
 #include <sstream>
 
-using std::cin;
-
 #include <limits>
 
 // worth putting in a utils header — you'll want this in every input function
