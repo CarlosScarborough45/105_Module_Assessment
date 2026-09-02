@@ -1,17 +1,21 @@
+#pragma once
 #include "Manager.h"
 #include <string>
+#include <vector>
 
 class Menu{
 
     private:
-        std::string menuID;
+        int menuID;                // numeric id
         std::string Name;
         double price;
-        bool avalability = false;
+        std::string avalability;
         
     public:
-    void AddItem();
-    void ViewItem();
-    void EditItem();
-    void RemoveItem();
+   static void AddItem();
+   static void ViewItem();
+   static void EditItem();
+   static void RemoveItem();
+   static void SpecialItem();
+   static std::vector<Menu> check_Menu(); // Declaration of check_Menu
 };

@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <string>
 #include <vector>
 #include <limits>
 
@@ -52,6 +53,37 @@ namespace
             return "Admin";
         }
     }
+}
+
+// Overload to check whether an email already exists in the users file.
+bool checkEmail(const std::string &email)
+{
+    if (email.empty()){
+        return false;
+        }
+    std::vector<Users::UserRecord> users = Users::check_File();
+    for (const auto &u : users)
+    {
+        if (u.Email == email)
+            return false;
+            std::cout << "there is an already existing email\n";
+    }
+    return true;
+}
+
+bool checkPassword(const std::string &Password)
+{
+    if (Password.empty()){
+        return false;
+        }
+    std::vector<Users::UserRecord> users = Users::check_File();
+    for (const auto &u : users)
+    {
+        if (u.Password == Password)
+            return false;
+            std::cout << "there is an already existing Password\n";
+    }
+    return true;
 }
 
 void Users::Login()
@@ -142,11 +174,14 @@ void Users::registration()
     std::cout << "Enter your Name\n";
     std::cin >> u.Name;
 
+    
     std::cout << "Enter your Email\n";
     std::cin >> u.Email;
+    checkEmail(u.Email);
 
     std::cout << "Enter Your Password\n";
     std::cin >> u.Password;
+    checkPassword(u.Password);
 
     std::cout << "Enter your Username\n";
     std::cin >> u.Username;
