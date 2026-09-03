@@ -3,6 +3,13 @@
 #include <fstream>
 #include "./Headers/Tables.h"
 #include "./Headers/Order.h"
+#include "./Headers/Menu.h"
+
+std::string Orders::OrderID;
+std::string Orders::TableID;
+std::string Orders::Product;
+std::string Orders::people;
+std::string Orders::status;
 
 std::vector<Orders> Orders::checkOrderFile()
 {
@@ -86,6 +93,8 @@ void Manager::AddOrders()
     std::cout << "+                                                            +\n";
     std::cout << "+============================================================+\n";
 
+    std::vector<Menu> menu = Menu::check_Menu();
+
     std::string OrderID, Table, product, people;
     std::cout << "Enter Table Number\n";
     std::cin >> Table;
@@ -106,6 +115,31 @@ void Manager::AddOrders()
 
     std::cout << "Enter product\n";
     std::cin >> product;
+
+    bool found = false;
+    std::cout << "+=========================================+\n";
+    std::cout << "+             Selected Product            +\n";
+    std::cout << "+=========================================+\n";
+    for (const auto &M : menu)
+    {
+        if (product == M.Name)
+        {
+            std::cout << "Product has been found\n";
+            found = true;
+        }
+
+        if (found)
+        {
+            std::cout << "Name: " << M.Name << "\n"
+                      << "Price: " << "$" << M.price << "\n";
+        }
+    }
+    std::cout << "+=========================================+\n";
+    if (!found)
+    {
+        std::cout << "Cannot Find product\n";
+        return;
+    }
 
     std::cout << "Enter how many People\n";
     std::cin >> people;
@@ -159,7 +193,6 @@ void Manager::RemoveOrders()
     {
         if (table == t.TableID)
         {
-            std::cout << "Table is Occupied\n";
             found = true;
         }
     }
@@ -199,8 +232,19 @@ void Manager::RemoveOrders()
 
         if (order)
         {
-            std::cout << "Order ID:" << selectedOrder.OrderID << " Products: "
-                      << selectedOrder.Product << " Price: " << selectedOrder.price << "\n";
+            std::cout << "+=========================================+\n";
+            std::cout << "+             Selected Order              +\n";
+            std::cout << "+=========================================+\n";
+            std::vector<Orders> order = Orders::checkOrderFile();
+            std::vector<Menu> menu = Menu::check_Menu();
+            for (const auto &m : menu)
+            {
+                std::cout << "Order ID:" << Orders::OrderID << "\n"
+                          << " Products: "
+                          << Orders::Product << "\n"
+                          << " Price: " << "$" << m.price << "\n";
+            }
+            std::cout << "+=========================================+\n";
 
             std::string status;
             std::cout << "enter status\n";
@@ -248,6 +292,6 @@ void Manager::RemoveOrders()
     }
 }
 
-void Manager::EditOrders(){
-
+void Manager::EditOrders()
+{
 }
