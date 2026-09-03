@@ -20,7 +20,13 @@ std::vector<Orders> Orders::checkOrderFile()
 
     while (std::getline(file, line))
     {
-        if (line.empty() || line == "|TableNumber|OrderID|Product|People")
+        if (line.empty())
+        {
+            continue;
+        }
+
+        // Skip any header line (support headers with or without Status)
+        if (line.find("TableNumber") != std::string::npos && line.find("OrderID") != std::string::npos)
         {
             continue;
         }
@@ -37,6 +43,7 @@ std::vector<Orders> Orders::checkOrderFile()
         std::getline(ss, o.status, '|');
         orders.push_back(o);
     }
+    file.close();
 
     return orders;
 }
@@ -103,16 +110,39 @@ void Manager::AddOrders()
     std::cout << "Enter how many People\n";
     std::cin >> people;
 
+    // Only write header when the file is empty or doesn't exist
+    bool writeHeader = false;
+    {
+        std::ifstream checkIn("Data/Order.csv");
+        if (!checkIn.is_open())
+        {
+            writeHeader = true;
+        }
+        else
+        {
+            // If file exists but is empty, write header
+            if (checkIn.peek() == std::ifstream::traits_type::eof())
+            {
+                writeHeader = true;
+            }
+        }
+    }
+
     std::ofstream file("Data/Order.csv", std::ios::app);
     if (!file.is_open())
     {
         std::cout << "File has not been created\n";
-        Tables::SetAvailability(Table, "Avalible");
         return;
     }
 
-    file << "|" << "TableNumber" << "|" << "OrderID" << "|" << "Product" << "|" << "People" << "\n";
-    file << "|" << Table << "|" << OrderID << "|" << product << "|" << people << "\n";
+    if (writeHeader)
+    {
+        file << "|TableNumber|OrderID|Product|People|Status\n";
+    }
+
+    // Write a status field (empty) to keep columns consistent
+    file << "|" << Table << "|" << OrderID << "|" << product << "|" << people << "|" << "" << "\n";
+    file.close();
     std::cout << "New order has been issued go to kitchen for processing\n";
 };
 
@@ -218,6 +248,6 @@ void Manager::RemoveOrders()
     }
 }
 
-void Manager::EditOrders()
-{
+void Manager::EditOrders(){
+
 }
