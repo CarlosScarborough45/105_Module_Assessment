@@ -16,4 +16,14 @@ public:
     static void EditOrders();
     static void AddOrders();
     static void RemoveOrders();
+    static void selectedprofile();
+    static void Loggedprofile();
+    static void AllProfile();
+    static void StockManage();
+
+public:
+    static void ViewStock();
+    static void SelectStock();
+    static void Refill();
 };
+void Profile();

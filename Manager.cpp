@@ -2,6 +2,223 @@
 #include "Headers/Menu.h"
 #include "./Headers/Tables.h"
 
+bool blockAmin(roles role)
+{
+    return role == roles::Admin;
+}
+
+namespace
+{
+    std::string RoleToString(roles role)
+    {
+        switch (role)
+        {
+        case roles::WaitStaff:
+            return "WaitStaff";
+        case roles::Kitchen:
+            return "Kitchen";
+        case roles::Manager:
+            return "Manager";
+        case roles::Admin:
+            return "Admin";
+        default:
+            return "Unknown";
+        }
+    }
+}
+
+void Manager::ViewStock()
+{
+    std::vector<Menu> menu = Menu::check_Menu();
+
+    std::cout << "+==========================================================+\n";
+    std::cout << "+                      View all Stock                      +\n";
+    std::cout << "+==========================================================+\n";
+    for (const auto &M : menu)
+    {
+        std::cout << "Name:" << M.Name << "\n"
+                  << "ID:" << M.menuID << "\n"
+                  << "Price:" << M.price << "\n"
+                  << "Avalability:" << M.avalability << "\n";
+        std::cout << "+==========================================================+\n";
+    }
+    return;
+}
+
+void Manager::SelectStock()
+{
+    std::cout << "+=========================================================+\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                 View Selected Stock                     +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+=========================================================+\n";
+}
+
+void Manager::Refill()
+{
+    std::cout << "+=========================================================+\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                    Stock To Refill                      +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+=========================================================+\n";
+}
+
+void Manager::StockManage()
+{
+    std::cout << "+=========================================================+\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+             Welcome to Stock Management                 +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+=========================================================+\n";
+
+    int Stock;
+    std::cout << "+==========================================================+\n";
+    std::cout << "+                           *                              +\n";
+    std::cout << "+     1. View Stock         *     2. Select Stock          +\n";
+    std::cout << "+                           *                              +\n";
+    std::cout << "+     3. Refill Stock       *     4. Return to menu        +\n";
+    std::cout << "+                           *                              +\n";
+    std::cout << "+==========================================================+\n";
+    std::cin >> Stock;
+
+    switch (Stock)
+    {
+    case 1:
+    {
+        Manager::ViewStock();
+        break;
+    }
+    case 2:
+    {
+        Manager::SelectStock();
+        break;
+    }
+    case 3:
+    {
+        Manager::Refill();
+        break;
+    }
+    case 4:
+    {
+        return;
+    }
+    }
+}
+
+void Manager::AllProfile()
+{
+    std::vector<Users::UserRecord> users = Users::check_File();
+    for (const auto &u : users)
+    {
+        if (u.role == roles::Admin)
+        {
+            std::cout << "You Cannot View Admin roles\n";
+            continue;
+        }
+        std::cout << "+=========================================+\n";
+        std::cout << "+             Selected User               +\n";
+        std::cout << "+=========================================+\n";
+        std::cout << "Name:" << u.Name << "\n"
+                  << "Email:" << u.Email << "\n"
+                  << "Password:" << u.Password << "\n"
+                  << "Username:" << u.Username << "\n"
+                  << "role:" << RoleToString(u.role) << "\n";
+        std::cout << "+=========================================+\n";
+    }
+}
+
+void Manager::Loggedprofile()
+{
+}
+
+void Manager::selectedprofile()
+{
+    std::cout << "Enter the selected profile you want to see\n";
+
+    std::vector<Users::UserRecord> users = Users::check_File();
+
+    std::string person;
+    std::cout << "Enter the person\n";
+    std::cin >> person;
+
+    for (const auto &u : users)
+    {
+        if (person == u.Name)
+        {
+            if (blockAmin(u.role))
+            {
+                std::cout << "You Cannot View Admin roles\n";
+                return;
+            }
+
+            std::cout << "+=========================================+\n";
+            std::cout << "+             Selected User               +\n";
+            std::cout << "+=========================================+\n";
+            std::cout << "Selected user has been found\n";
+            std::cout << "Name:" << u.Name << "\n"
+                      << "Email:" << u.Email << "\n"
+                      << "Password:" << u.Password << "\n"
+                      << "Username:" << u.Username << "\n"
+                      << "role:" << RoleToString(u.role) << "\n";
+            std::cout << "+=========================================+\n";
+            return;
+        }
+    }
+
+    std::cout << "cannot find selected user\n";
+}
+
+void Profile()
+{
+    std::cout << "+=========================================================+\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+             Welcome to Profile display                  +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+                                                         +\n";
+    std::cout << "+=========================================================+\n";
+
+    int profile;
+
+    std::cout << "+==========================================================+\n";
+    std::cout << "+                           *                              +\n";
+    std::cout << "+ 1. View selected profile  *   2. view all profiles       +\n";
+    std::cout << "+                           *                              +\n";
+    std::cout << "+ 3. view Logged profile    *   4. Return to menu          +\n";
+    std::cout << "+                           *                              +\n";
+    std::cout << "+==========================================================+\n";
+    std::cin >> profile;
+
+    switch (profile)
+    {
+    case 1:
+    {
+        Manager::selectedprofile();
+        break;
+    }
+    case 2:
+    {
+        Manager::AllProfile();
+        break;
+    }
+    case 3:
+    {
+        Manager::Loggedprofile();
+        break;
+    }
+    case 4:
+    {
+        return;
+    }
+    }
+}
+
 void Manager::Boss()
 {
     std::cout << "+=========================================================+\n";
@@ -18,7 +235,7 @@ void Manager::Boss()
         std::cout << "+============================================================+\n";
         std::cout << "+                                                            +\n";
         std::cout << "+                                                            +\n";
-        std::cout << "+              Welcome to then Manager View                  +\n";
+        std::cout << "+              Welcome to the Manager View                   +\n";
         std::cout << "+                                                            +\n";
         std::cout << "+============================================================+\n";
         std::cout << "+                         *                                  +\n";
@@ -28,7 +245,7 @@ void Manager::Boss()
         std::cout << "+                         *                                  +\n";
         std::cout << "+         5. Logout       *       6. Profile                 +\n";
         std::cout << "+                         *                                  +\n";
-        std::cout << "+         7. Orders       *                                  +\n";
+        std::cout << "+         7. Orders       *       8. StockManagement         +\n";
         std::cout << "+                         *                                  +\n";
         std::cout << "+============================================================+\n";
 
@@ -59,15 +276,27 @@ void Manager::Boss()
         }
         case 5:
         {
+            std::cout << "+============================================================+\n";
+            std::cout << "+                                                            +\n";
+            std::cout << "+                                                            +\n";
+            std::cout << "+                 You Are logging out                        +\n";
+            std::cout << "+                                                            +\n";
+            std::cout << "+============================================================+\n";
             return;
         }
         case 6:
         {
+            Profile();
             break;
         }
         case 7:
         {
             Manager::OrderMenu();
+            break;
+        }
+        case 8:
+        {
+            Manager::StockManage();
             break;
         }
         default:
