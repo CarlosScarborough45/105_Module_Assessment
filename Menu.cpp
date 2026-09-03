@@ -4,30 +4,35 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <iomanip>
 
 #include <limits>
 
 // worth putting in a utils header — you'll want this in every input function
-static void clearLine() {
-    std::cin.clear();  // wake cin back up if it failed
+static void clearLine()
+{
+    std::cin.clear(); // wake cin back up if it failed
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-void Menu::AddItem() {
+void Menu::AddItem()
+{
     Menu m;
 
     std::cout << "Enter the Id\n";
-    while (!(std::cin >> m.menuID)) {
+    while (!(std::cin >> m.menuID))
+    {
         std::cout << "Numbers only. Try again\n";
         clearLine();
     }
-    clearLine();  // eat the newline so getline doesn't grab it
+    clearLine(); // eat the newline so getline doesn't grab it
 
     std::cout << "Enter the Name\n";
     std::getline(std::cin, m.Name);
 
     std::cout << "Enter the Price\n";
-    while (!(std::cin >> m.price)) {
+    while (!(std::cin >> m.price))
+    {
         std::cout << "Numbers only. Try again\n";
         clearLine();
     }
@@ -37,7 +42,8 @@ void Menu::AddItem() {
     std::getline(std::cin, m.avalability);
 
     std::ofstream file("Data/Menu.CSV", std::ios::app);
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         std::cout << "Could not open Data/Menu.CSV\n";
         return;
     }
@@ -48,16 +54,19 @@ void Menu::AddItem() {
     std::cout << "New menu item has been added\n";
 }
 
-std::vector<Menu> Menu::check_Menu() {
+std::vector<Menu> Menu::check_Menu()
+{
     std::vector<Menu> menus;
     std::ifstream file("Data/Menu.CSV");
 
-    if (!file.is_open()) {
+    if (!file.is_open())
+    {
         return menus;
     }
 
     std::string line;
-    while (std::getline(file, line)) {
+    while (std::getline(file, line))
+    {
         if (line.empty())
             continue;
 
@@ -70,15 +79,21 @@ std::vector<Menu> Menu::check_Menu() {
         std::getline(ss, priceStr, '|');
         std::getline(ss, avail, '|');
 
-        try {
+        try
+        {
             m.menuID = std::stoi(idStr);
-        } catch (...) {
+        }
+        catch (...)
+        {
             m.menuID = 0;
         }
         m.Name = name;
-        try {
+        try
+        {
             m.price = std::stod(priceStr);
-        } catch (...) {
+        }
+        catch (...)
+        {
             m.price = 0.0;
         }
         m.avalability = avail;
@@ -89,58 +104,39 @@ std::vector<Menu> Menu::check_Menu() {
     return menus;
 }
 
-void Menu::EditItem() {
-
+void Menu::EditItem()
+{
 }
 
-void Menu::RemoveItem() {
-
+void Menu::RemoveItem()
+{
 }
 
-void Menu::ViewItem() {
+void Menu::ViewItem()
+{
     auto menus = check_Menu();
 
-    if (menus.empty()) {
+    if (menus.empty())
+    {
         std::cout << "No menu items found\n";
         return;
     }
 
-            std::cout <<"+==========================================================+\n";
-            std::cout << "+                            Avalable Status              +\n";
-            std::cout <<"+==========================================================+\n";
-        for (const auto &m : menus) {
-            if (m.avalability == "Available") {
-                std::cout << "ID: " << m.menuID << " | Name: " << m.Name
-                << " | Price: " << m.price << " | Availability: " << m.avalability << "\n";
-            }
-
-            std::cout <<"+=========================================================+\n";
-            std::cout << "+                            Pending Status              +\n";
-            std::cout <<"+=========================================================+\n";
-            if (m.avalability == "Pending"){
-                std::cout << "ID: " << m.menuID << " | Name: " << m.Name
-                << " | Price: " << m.price << " | Availability: " << m.avalability << "\n";
-            }
-
-            std::cout << "+==========================================================+\n";
-            std::cout << "+                         Out of Stock Status              +\n";
-            std::cout << "+==========================================================+\n";
-            if (m.avalability == "Out of Stock Status"){
-                std::cout << "ID: " << m.menuID << " | Name: " << m.Name
-                << " | Price: " << m.price << " | Availability: " << m.avalability << "\n";
-            }
-
-            std::cout << "+==========================================================+\n";
-            std::cout << "+                                Special Status            +\n";
-            std::cout << "+==========================================================+\n";
-            if (m.avalability == "Special Status"){
-                std::cout << "ID: " << m.menuID << " | Name: " << m.Name
-                << " | Price: " << m.price << " | Availability: " << m.avalability << "\n";
-            }
-        }
-
+    std::cout << "+------+------------------------------+--------+---------------------+\n";
+    std::cout << "| ID   | Name                         | Price  | Availability         |\n";
+    std::cout << "+------+------------------------------+--------+---------------------+\n";
+    for (const auto &m : menus)
+    {
+        std::cout << "| " << std::left << std::setw(4) << m.menuID
+                  << " | " << std::setw(28) << m.Name
+                  << " | " << std::right << std::fixed << std::setprecision(2)
+                  << std::setw(6) << m.price
+                  << " | " << std::left << std::setw(19) << m.avalability
+                  << " |\n";
     }
+    std::cout << "+------+------------------------------+--------+---------------------+\n";
+}
 
-void Menu::SpecialItem(){
-
+void Menu::SpecialItem()
+{
 }

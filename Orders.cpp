@@ -1,0 +1,223 @@
+#include "./Headers/Manager.h"
+#include <sstream>
+#include <fstream>
+#include "./Headers/Tables.h"
+#include "./Headers/Order.h"
+
+std::vector<Orders> Orders::checkOrderFile()
+{
+    std::ifstream file("Data/Order.csv");
+    if (!file.is_open())
+    {
+        std::cout << "File has not been created\n";
+        return {};
+    }
+
+    std::vector<Orders> orders;
+
+    std::string line;
+    std::stringstream ss;
+
+    while (std::getline(file, line))
+    {
+        if (line.empty() || line == "|TableNumber|OrderID|Product|People")
+        {
+            continue;
+        }
+
+        Orders o;
+        ss.clear();
+        ss.str(line);
+        std::string separator;
+        std::getline(ss, separator, '|');
+        std::getline(ss, o.TableID, '|');
+        std::getline(ss, o.OrderID, '|');
+        std::getline(ss, o.Product, '|');
+        std::getline(ss, o.people, '|');
+        std::getline(ss, o.status, '|');
+        orders.push_back(o);
+    }
+
+    return orders;
+}
+
+bool Tables::CheckTable(const std::string &tableNumber)
+{
+    const std::vector<Tables> tables = checkTableFile();
+    bool found = false;
+
+    for (const Tables &table : tables)
+    {
+        if (table.TableID == tableNumber)
+        {
+            found = true;
+            if (table.avalible == "Occupied")
+            {
+                std::cout << "This Table is Occupied. Please select one that is Avalible\n";
+                return false;
+            }
+
+            return true;
+        }
+    }
+
+    if (!found)
+    {
+        std::cout << "Table " << tableNumber << " was not found\n";
+        return false;
+    }
+
+    return false;
+}
+
+void Manager::AddOrders()
+{
+    std::cout << "+============================================================+\n";
+    std::cout << "+                                                            +\n";
+    std::cout << "+                                                            +\n";
+    std::cout << "+                     Want to Order                          +\n";
+    std::cout << "+                                                            +\n";
+    std::cout << "+============================================================+\n";
+
+    std::string OrderID, Table, product, people;
+    std::cout << "Enter Table Number\n";
+    std::cin >> Table;
+
+    if (!Tables::CheckTable(Table))
+    {
+        return;
+    }
+
+    if (!Tables::SetAvailability(Table, "Occupied"))
+    {
+        std::cout << "Unable to mark table as Occupied\n";
+        return;
+    }
+
+    std::cout << "Enter OrderID\n";
+    std::cin >> OrderID;
+
+    std::cout << "Enter product\n";
+    std::cin >> product;
+
+    std::cout << "Enter how many People\n";
+    std::cin >> people;
+
+    std::ofstream file("Data/Order.csv", std::ios::app);
+    if (!file.is_open())
+    {
+        std::cout << "File has not been created\n";
+        Tables::SetAvailability(Table, "Avalible");
+        return;
+    }
+
+    file << "|" << "TableNumber" << "|" << "OrderID" << "|" << "Product" << "|" << "People" << "\n";
+    file << "|" << Table << "|" << OrderID << "|" << product << "|" << people << "\n";
+    std::cout << "New order has been issued go to kitchen for processing\n";
+};
+
+void Manager::RemoveOrders()
+{
+    std::string table;
+    std::cout << "Enter the finished table number\n";
+    std::cin >> table;
+
+    auto tables = Tables::checkTableFile();
+
+    bool found = false;
+    for (const auto &t : tables)
+    {
+        if (table == t.TableID)
+        {
+            std::cout << "Table is Occupied\n";
+            found = true;
+        }
+    }
+    if (!found)
+    {
+        std::cout << "Table has not been found\n";
+        return;
+    }
+    else if (found)
+    {
+        std::cout << "Table has been found\n";
+
+        std::string ID;
+        std::cout << "select OrderID\n";
+        std::cin >> ID;
+
+        bool order = false;
+        Orders selectedOrder;
+        std::vector<Orders> orders = Orders::checkOrderFile();
+
+        for (const auto &o : orders)
+        {
+            if (ID == o.OrderID)
+            {
+                std::cout << "Order has been found\n";
+                order = true;
+                selectedOrder = o;
+                break;
+            }
+        }
+
+        if (!order)
+        {
+            std::cout << "Order Cannot be found\n";
+            return;
+        }
+
+        if (order)
+        {
+            std::cout << "Order ID:" << selectedOrder.OrderID << " Products: "
+                      << selectedOrder.Product << " Price: " << selectedOrder.price << "\n";
+
+            std::string status;
+            std::cout << "enter status\n";
+            std::cin >> status;
+
+            if (status == "Completed" || status == "completed" || status == "complete")
+            {
+                for (auto &currentOrder : orders)
+                {
+                    if (currentOrder.OrderID == ID && currentOrder.TableID == table)
+                    {
+                        currentOrder.status = "Completed";
+                    }
+                }
+
+                std::ofstream file("Data/Order.csv");
+                if (!file.is_open())
+                {
+                    std::cout << "file has not been created\n";
+                    return;
+                }
+                file << "|TableNumber|OrderID|Product|People|Status\n";
+                for (const auto &currentOrder : orders)
+                {
+                    file << "|" << currentOrder.TableID << "|" << currentOrder.OrderID << "|"
+                         << currentOrder.Product << "|" << currentOrder.people << "|"
+                         << currentOrder.status << "\n";
+                }
+                std::cout << "Order has been updated\n";
+
+                if (Tables::SetAvailability(table, "Avalible"))
+                {
+                    std::cout << "Table " << table << " is now Avalible\n";
+                }
+                else
+                {
+                    std::cout << "Unable to update table status\n";
+                }
+            }
+            else
+            {
+                std::cout << "Enter complete, completed, or Completed to finish the order\n";
+            }
+        }
+    }
+}
+
+void Manager::EditOrders()
+{
+}
