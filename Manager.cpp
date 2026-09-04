@@ -38,7 +38,7 @@ void Manager::ViewStock()
     {
         std::cout << "Name:" << M.Name << "\n"
                   << "ID:" << M.menuID << "\n"
-                  << "Price:" << M.price << "\n"
+                  << "Price:" << "$"<< M.price << "\n"
                   << "Avalability:" << M.avalability << "\n";
         std::cout << "+==========================================================+\n";
     }
@@ -54,6 +54,8 @@ void Manager::SelectStock()
     std::cout << "+                                                         +\n";
     std::cout << "+                                                         +\n";
     std::cout << "+=========================================================+\n";
+
+    std::cout << "Enter the required stock\n";
 }
 
 void Manager::Refill()
@@ -385,8 +387,59 @@ void Manager::OverRide()
 {
 }
 
+void Manager::sales(){
+
+}
+
+void Manager::selected_sales(){
+
+}
+
+void Manager::BestSales(){
+
+}
+
+void Manager::WorstSales(){
+
+}
+
+void Manager::TableUsage(){
+
+}
+
 void Manager::Reports()
 {
+        int choice;
+        std::cout << "+============================================================+\n";
+        std::cout << "+                                                            +\n";
+        std::cout << "+                                                            +\n";
+        std::cout << "+              Welcome to the Report Menu                    +\n";
+        std::cout << "+                                                            +\n";
+        std::cout << "+============================================================+\n";
+        std::cout << "1. View All Sales\n";
+        std::cout << "2. VIew Selected Total Sales\n";
+        std::cout << "3. View Best sales\n";
+        std::cout << "4. View Worst sales\n";
+        std::cout << "5. View Table usage\n";
+        std::cout << "6. Return to menu\n";
+        std::cout << "+============================================================+\n";
+        std::cout << "Enter the choice\n";
+        std::cin >> choice;
+
+        switch(choice){
+            case 1: {Manager::sales();              break;}
+            case 2: {Manager::selected_sales();     break;}
+            case 3: {Manager::BestSales();          break;}
+            case 4: {Manager::WorstSales();         break;}
+            case 5: {Manager::TableUsage();         break;}
+            case 6: { std::cout << "+============================================================+\n";
+                      std::cout << "+                                                            +\n";
+                      std::cout << "+                                                            +\n";
+                      std::cout << "+              Returning to Manager Menu                     +\n";
+                      std::cout << "+                                                            +\n";
+                      std::cout << "+============================================================+\n";return;}
+        }
+
 }
 
 void Manager::OrderMenu()

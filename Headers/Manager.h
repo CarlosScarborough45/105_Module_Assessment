@@ -25,5 +25,12 @@ public:
     static void ViewStock();
     static void SelectStock();
     static void Refill();
+
+    public:
+    static void sales();
+    static void selected_sales();
+    static void BestSales();
+    static void WorstSales();
+    static void TableUsage();
 };
 void Profile();
