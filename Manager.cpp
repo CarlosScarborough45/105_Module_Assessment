@@ -2,6 +2,7 @@
 #include "Headers/Menu.h"
 #include "./Headers/Tables.h"
 #include "./Headers/Order.h"
+#include <fstream>
 
 bool blockAmin(roles role)
 {
@@ -372,7 +373,51 @@ void Staff::Add_Staff(){
 
 void Staff::Remove_Staff()
 {
-    std::cout << "Remove Staff is not implemented yet.\n";
+    std::cout << "+=====================================+\n";
+    std::cout << "+     Welcome staff for removal       +\n";
+    std::cout << "+=====================================+\n";
+
+    std::vector<Users::UserRecord>users = Users::check_File();
+
+    std::string remove;
+    std::cout << "+=================================+\n";
+    std::cout << "+     Enter Staff for Removal     +\n";
+    std::cin >> remove;
+
+    auto userToRemove = users.end();
+    for (auto it = users.begin(); it != users.end(); ++it)
+    {
+        if (remove == it->Name)
+        {
+            userToRemove = it;
+            break;
+        }
+    }
+
+    if (userToRemove == users.end())
+    {
+        std::cout << "Cannot Found Staff for firing\n";
+        return;
+    }
+
+    std::cout << "Found Staff for firing\n";
+    users.erase(userToRemove);
+
+    std::ofstream file("Data/Users.csv");
+    if (!file)
+    {
+        std::cout << "Could not update the users file\n";
+        return;
+    }
+
+    for (const auto &user : users)
+    {
+        file << user.Name << "|" << user.Email << "|" << user.Password << "|"
+             << user.Username << "|" << RoleToString(user.role) << "|\n";
+    }
+    std::cout << "Staff has been fired\n";
+    return;
+
 }
 
 void Manager::MenuCustomization()
