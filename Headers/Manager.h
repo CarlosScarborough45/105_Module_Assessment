@@ -35,7 +35,7 @@ public:
 };
 void Profile();
 
-class Staff : public Users, public Manager{
+class Staff : public Manager{
     private:
 
     public:
