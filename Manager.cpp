@@ -1,6 +1,7 @@
 #include "Headers/Manager.h"
 #include "Headers/Menu.h"
 #include "./Headers/Tables.h"
+#include "./Headers/Order.h"
 
 bool blockAmin(roles role)
 {
@@ -388,6 +389,50 @@ void Manager::OverRide()
 }
 
 void Manager::sales(){
+    std::vector<Menu> menu = Menu::check_Menu();
+    std::vector<Orders> orders = Orders::checkOrderFile();
+    Menu m;
+
+    std::string choice;
+
+    std::cout << "Which sale you want to enter?\n";
+    std::cin >> choice;
+
+    bool found = false;
+    if (choice == Orders::TableID){
+        found = true;    
+    }
+
+    if (!found){
+        std::cout << "Cannot find order\n";
+        return;
+    }
+
+    bool Order = false;
+    if (found){
+        std::cout << "Table has been found\n";
+        std::string ID;
+        std::cout << "Enter Order ID\n";
+        std::cin >> ID;
+
+        std::cout << "+=================================================================+\n";
+        std::cout << "+                         Sale Orders                             +\n";
+        std::cout << "+=================================================================+\n";
+        if (ID == Orders::OrderID){
+            Order = true;
+            std::cout << "Order has been found\n";
+            for (const auto o : orders){
+            std::cout << "ID: "  <<o.OrderID << "\n"
+            << "Product: " << o.Product << "\n" << "Price: " << "$"<<m.price << "\n";
+        }
+        }
+        std::cout << "+=================================================================+\n";
+    }
+
+    if (!Order){
+        std::cout << "Order cannot be found\n";
+        return;
+    }
 
 }
 
