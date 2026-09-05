@@ -40,6 +40,18 @@ roles Users::ParseRole(const std::string &roleName)
 
 namespace
 {
+    std::string TrimField(const std::string &value)
+    {
+        const auto first = value.find_first_not_of(" \t\r\n");
+        if (first == std::string::npos)
+        {
+            return {};
+        }
+
+        const auto last = value.find_last_not_of(" \t\r\n");
+        return value.substr(first, last - first + 1);
+    }
+
     std::string NormaliseUsername(const std::string &username)
     {
         std::string normalised;
@@ -237,10 +249,10 @@ std::vector<Users::UserRecord> Users::check_File()
         std::getline(ss, username, '|');
         std::getline(ss, role, '|');
 
-        u.Name = name;
-        u.Email = email;
-        u.Password = password;
-        u.Username = username;
+        u.Name = TrimField(name);
+        u.Email = TrimField(email);
+        u.Password = TrimField(password);
+        u.Username = TrimField(username);
         u.role = ParseRole(role);
 
         users.push_back(u);
