@@ -380,8 +380,8 @@ void Staff::Remove_Staff()
     std::vector<Users::UserRecord>users = Users::check_File();
 
     std::string remove;
-    std::cout << "+=================================+\n";
-    std::cout << "+     Enter Staff for Removal     +\n";
+    std::cout << "+======================================================+\n";
+    std::cout << "+                 Enter Staff for Removal              +\n";
     std::cin >> remove;
 
     auto userToRemove = users.end();
@@ -417,7 +417,7 @@ void Staff::Remove_Staff()
     }
     std::cout << "Staff has been fired\n";
     return;
-
+    std::cout << "+======================================================+\n";
 }
 
 void Manager::MenuCustomization()
