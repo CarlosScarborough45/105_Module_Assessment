@@ -39,7 +39,12 @@ void Menu::AddItem()
     clearLine();
 
     std::cout << "Enter the Quantity\n";
-    std::getline(std::cin, m.Quantity);
+    while (!(std::cin >> m.Quantity) || m.Quantity < 0)
+    {
+        std::cout << "Enter a whole number that is zero or greater\n";
+        clearLine();
+    }
+    clearLine();
 
     std::cout << "Enter Status (Available, Out of stock, Pending)\n";
     std::getline(std::cin, m.avalability);
@@ -128,12 +133,19 @@ std::vector<Menu> Menu::check_Menu()
         if (field5.empty())
         {
             // Support rows written before Quantity was added.
-            m.Quantity.clear();
+            m.Quantity = 0;
             m.avalability = field4;
         }
         else
         {
-            m.Quantity = field4;
+            try
+            {
+                m.Quantity = std::stoi(field4);
+            }
+            catch (...)
+            {
+                m.Quantity = 0;
+            }
             m.avalability = field5;
         }
 
@@ -141,6 +153,23 @@ std::vector<Menu> Menu::check_Menu()
     }
 
     return menus;
+}
+
+void Menu::save_Menu(const std::vector<Menu> &menus)
+{
+    std::ofstream file("Data/Menu.CSV");
+    if (!file.is_open())
+    {
+        std::cout << "Could not update Data/Menu.CSV\n";
+        return;
+    }
+
+    file << "ID|Name|Price|Quantity|Availability\n";
+    for (const auto &menu : menus)
+    {
+        file << menu.menuID << "|" << menu.Name << "|" << menu.price << "|"
+             << menu.Quantity << "|" << menu.avalability << "\n";
+    }
 }
 
 void Menu::EditItem()

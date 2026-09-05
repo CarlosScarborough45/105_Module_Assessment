@@ -4,6 +4,7 @@
 #include "./Headers/Order.h"
 #include <cctype>
 #include <fstream>
+#include <limits>
 
 bool blockAmin(roles role)
 {
@@ -48,21 +49,29 @@ void Manager::ViewStock()
 
 void Manager::SelectStock()
 {
-    std::cout << "\nSelected Stock\n";
+    std::cout << "+============================================+\n";
+    std::cout << "+             Selected Stock                 +\n";
+    std::cout << "+============================================+\n";
 
     std::string stock;
-    std::cout << "Enter the required stock\n";
+    std::cout << "+============================================+\n";
+    std::cout << "+           Enter the required stock         +\n";
+    std::cout << "+============================================+\n";
     std::cin >> stock;
 
     std::vector<Menu> menu = Menu::check_Menu();
 
     bool found = false;
-    std::cout << "\nStock Details\n";
+    std::cout << "+============================================+\n";
+    std::cout << "+             Stock Details                  +\n";
+    std::cout << "+============================================+\n";
     for (const auto &M : menu)
     {
         if (stock == M.Name)
         {
-            std::cout << "Stock has been found\n";
+            std::cout << "+============================================+\n";
+            std::cout << "+             Stock has been found           +\n";
+            std::cout << "+============================================+\n";
             found = true;
             std::cout << "Name:" << M.Name << "\n"
                       << "ID:" << M.menuID << "\n"
@@ -71,16 +80,89 @@ void Manager::SelectStock()
                       << "Avalability:" << M.avalability << "\n";
         }
     }
+    std::cout << "+====================================================+\n";
     if (!found)
     {
-        std::cout << "Stock not found\n";
+        std::cout << "+============================================+\n";
+        std::cout << "+             Stock not found                +\n";
+        std::cout << "+============================================+\n";
         return;
     }
 }
 
 void Manager::Refill()
 {
-    std::cout << "\nStock Refill\n";
+    std::cout << "+============================================+\n";
+    std::cout << "+         Welcome to Stock Refill            +\n";
+    std::cout << "+============================================+\n";
+
+    std::vector<Menu> menus = Menu::check_Menu();
+
+    std::string Stock;
+
+    std::cout << "+============================================+\n";
+    std::cout << "+     Enter What Stock you want to Refill    +\n";
+    std::cout << "+============================================+\n";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, Stock);
+
+    bool found = false;
+    int index = -1;
+    for (int i = 0; i < menus.size(); i++){
+        if (Stock == menus[i].Name){
+            found = true;
+            index = i;
+            break;
+        }
+    }
+
+    if (!found){
+        std::cout << "Cannot find current Stock\n";
+        return;
+    }
+
+    std::cout << "Current Stock Found\n";
+    std::cout << "+============================================+\n";
+    std::cout << "+             Chosen Stock Avalibility       +\n";
+    std::cout << "+============================================+\n";
+    std::cout << "ID: " << menus[index].menuID << "\n"
+              << "Name: " << menus[index].Name << "\n"
+              << "Price: " << "$" << menus[index].price << "\n"
+              << "Avalible Stock: " << menus[index].Quantity << std::endl;
+
+    std::cout << "+============================================+\n";
+    std::cout << "+     How much stock do you want to Refil    +\n";
+    std::cout << "+============================================+\n";
+
+    int Amount = 0;
+    std::cin >> Amount;
+
+    if (std::cin.fail() || Amount <= 0){
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "+============================================+\n";
+        std::cout << "+     Invalid amount. Nothing changed.       +\n";
+        std::cout << "+============================================+\n";
+        return;
+    }
+
+    std::string status;
+    std::cout << "Change Stock Status: \n";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, status);
+
+    menus[index].Quantity += Amount;
+    if (!status.empty())
+    {
+        menus[index].avalability = status;
+    }
+    Menu::save_Menu(menus);
+
+    std::cout << menus[index].Name << " restocked to "
+              << menus[index].Quantity << " Changes Status "
+              << menus[index].avalability << "\n";
+    return;          
+
 }
 
 void Manager::StockManage()

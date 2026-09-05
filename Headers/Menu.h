@@ -11,7 +11,7 @@ class Menu
     std::string Name;
     double price;
     std::string avalability;
-    std::string Quantity;
+    int Quantity = 0;
 
 public:
     static void AddItem();
@@ -20,4 +20,5 @@ public:
     static void RemoveItem();
     static void SpecialItem();
     static std::vector<Menu> check_Menu(); // Declaration of check_Menu
+    static void save_Menu(const std::vector<Menu> &menus);
 };
