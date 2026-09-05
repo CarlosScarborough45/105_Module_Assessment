@@ -34,3 +34,12 @@ public:
     static void TableUsage();
 };
 void Profile();
+
+class Staff : public Users, public Manager{
+    private:
+
+    public:
+    static void Add_Staff();
+    static void Remove_Staff();
+    static void Staff_View();
+};

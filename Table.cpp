@@ -142,14 +142,12 @@ void Tables::ViewTable()
         return;
     }
 
-    std::cout << "+===================================+\n";
-    std::cout << "+ Table Id| Table Avalible | Capacity\n";
-    std::cout << "+===================================+\n";
+    std::cout << "\nTables\n";
+    std::cout << "Table ID | Available | Capacity\n";
     for (const Tables &table : tables)
     {
         std::cout << "|" << table.TableID << " | "
                   << table.avalible << " | "
                   << table.capacity << "\n";
     }
-    std::cout << "+===================================+\n";
 }

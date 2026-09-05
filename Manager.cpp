@@ -32,62 +32,65 @@ void Manager::ViewStock()
 {
     std::vector<Menu> menu = Menu::check_Menu();
 
-    std::cout << "+==========================================================+\n";
-    std::cout << "+                      View all Stock                      +\n";
-    std::cout << "+==========================================================+\n";
+    std::cout << "\nAll Stock\n";
     for (const auto &M : menu)
     {
         std::cout << "Name:" << M.Name << "\n"
                   << "ID:" << M.menuID << "\n"
                   << "Price:" << "$"<< M.price << "\n"
+                  << "Quantity: " << M.Quantity << "\n"
                   << "Avalability:" << M.avalability << "\n";
-        std::cout << "+==========================================================+\n";
     }
     return;
 }
 
 void Manager::SelectStock()
 {
-    std::cout << "+=========================================================+\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                 View Selected Stock                     +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+=========================================================+\n";
+    std::cout << "\nSelected Stock\n";
 
+    std::string stock;
     std::cout << "Enter the required stock\n";
+    std::cin >> stock;
+
+    std::vector<Menu> menu = Menu::check_Menu();
+
+    bool found = false;
+    std::cout << "\nStock Details\n";
+    for (const auto &M : menu)
+    {
+        if (stock == M.Name)
+        {
+            std::cout << "Stock has been found\n";
+            found = true;
+            std::cout << "Name:" << M.Name << "\n"
+                      << "ID:" << M.menuID << "\n"
+                      << "Price:" << "$"<< M.price << "\n"
+                      << "Quantity: " << M.Quantity << "\n"
+                      << "Avalability:" << M.avalability << "\n";
+        }
+    }
+    if (!found)
+    {
+        std::cout << "Stock not found\n";
+        return;
+    }
 }
 
 void Manager::Refill()
 {
-    std::cout << "+=========================================================+\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                    Stock To Refill                      +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+=========================================================+\n";
+    std::cout << "\nStock Refill\n";
 }
 
 void Manager::StockManage()
 {
-    std::cout << "+=========================================================+\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+             Welcome to Stock Management                 +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+=========================================================+\n";
+    std::cout << "\nStock Management\n";
 
     int Stock;
-    std::cout << "+==========================================================+\n";
-    std::cout << "+                           *                              +\n";
-    std::cout << "+     1. View Stock         *     2. Select Stock          +\n";
-    std::cout << "+                           *                              +\n";
-    std::cout << "+     3. Refill Stock       *     4. Return to menu        +\n";
-    std::cout << "+                           *                              +\n";
-    std::cout << "+==========================================================+\n";
+    std::cout << "\n--- Stock Options ---\n";
+    std::cout << "[1] View Stock\n";
+    std::cout << "[2] Select Stock\n";
+    std::cout << "[3] Refill Stock\n";
+    std::cout << "[4] Return to menu\n";
     std::cin >> Stock;
 
     switch (Stock)
@@ -124,15 +127,12 @@ void Manager::AllProfile()
             std::cout << "You Cannot View Admin roles\n";
             continue;
         }
-        std::cout << "+=========================================+\n";
-        std::cout << "+             Selected User               +\n";
-        std::cout << "+=========================================+\n";
+        std::cout << "\nSelected User\n";
         std::cout << "Name:" << u.Name << "\n"
                   << "Email:" << u.Email << "\n"
                   << "Password:" << u.Password << "\n"
                   << "Username:" << u.Username << "\n"
                   << "role:" << RoleToString(u.role) << "\n";
-        std::cout << "+=========================================+\n";
     }
 }
 
@@ -160,16 +160,13 @@ void Manager::selectedprofile()
                 return;
             }
 
-            std::cout << "+=========================================+\n";
-            std::cout << "+             Selected User               +\n";
-            std::cout << "+=========================================+\n";
+            std::cout << "\nSelected User\n";
             std::cout << "Selected user has been found\n";
             std::cout << "Name:" << u.Name << "\n"
                       << "Email:" << u.Email << "\n"
                       << "Password:" << u.Password << "\n"
                       << "Username:" << u.Username << "\n"
                       << "role:" << RoleToString(u.role) << "\n";
-            std::cout << "+=========================================+\n";
             return;
         }
     }
@@ -179,23 +176,15 @@ void Manager::selectedprofile()
 
 void Profile()
 {
-    std::cout << "+=========================================================+\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+             Welcome to Profile display                  +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+=========================================================+\n";
+    std::cout << "\nProfiles\n";
 
     int profile;
 
-    std::cout << "+==========================================================+\n";
-    std::cout << "+                           *                              +\n";
-    std::cout << "+ 1. View selected profile  *   2. view all profiles       +\n";
-    std::cout << "+                           *                              +\n";
-    std::cout << "+ 3. view Logged profile    *   4. Return to menu          +\n";
-    std::cout << "+                           *                              +\n";
-    std::cout << "+==========================================================+\n";
+    std::cout << "\n--- Profile Options ---\n";
+    std::cout << "[1] View selected profile\n";
+    std::cout << "[2] View all profiles\n";
+    std::cout << "[3] View logged profile\n";
+    std::cout << "[4] Return to menu\n";
     std::cin >> profile;
 
     switch (profile)
@@ -235,22 +224,16 @@ void Manager::Boss()
     int choice;
     while (true)
     {
-        std::cout << "+============================================================+\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+              Welcome to the Manager View                   +\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+============================================================+\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         1. Menu         *       2. Reporting               +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         3. Table        *       4. OverRides               +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         5. Logout       *       6. Profile                 +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         7. Orders       *       8. StockManagement         +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+============================================================+\n";
+        std::cout << "\n--- Manager Menu ---\n";
+        std::cout << "[1] Menu\n";
+        std::cout << "[2] Reporting\n";
+        std::cout << "[3] Table\n";
+        std::cout << "[4] Overrides\n";
+        std::cout << "[5] Logout\n";
+        std::cout << "[6] Profile\n";
+        std::cout << "[7] Orders\n";
+        std::cout << "[8] Stock Management\n";
+        std::cout << "[9] Staff\n";
 
         std::cout << "Please Enter your choice\n";
         std::cin >> choice;
@@ -302,6 +285,10 @@ void Manager::Boss()
             Manager::StockManage();
             break;
         }
+        case 9: {
+            Staff::Staff_View();
+            break;
+        }
         default:
         {
             std::cout << "Invalid choice\n";
@@ -309,6 +296,83 @@ void Manager::Boss()
         }
         }
     }
+}
+
+void Staff::Staff_View(){
+    std::cout << "+=========================================+\n";
+    std::cout << "+  Welcome to Eats and Treats Hiring Page +\n";
+    std::cout << "+=========================================+\n";
+
+    int Staff;
+    std::cout << "+========================================+\n";
+    std::cout << "[1] Add Staff\n";
+    std::cout << "[2] Remove Staff\n";
+    std::cout << "[3] Return to Manager View\n";
+    std::cout << "+=======================================+\n";
+    std::cout << "Enter a choice: \n";
+    std::cin >> Staff;
+
+    switch(Staff){
+       case 1: {Staff::Add_Staff();     break;}
+       case 2: {Staff::Remove_Staff();  break;}
+       case 3: {std::cout << "You are Returning back to Manager view no more Hires\n";  return;}
+       default: {std::cout << "Must Make a choice between 1 - 3\n"; return;}
+    }
+}
+
+void Staff::Add_Staff(){
+    std::cout << "+==============================================+\n";
+    std::cout << "+         Welcome to Eat and Treats            +\n";
+    std::cout << "+==============================================+\n";
+
+    UserRecord u;
+
+    std::cout << "Enter your name\n";
+    std::cin >> u.Name;
+
+    std::cout << "Enter your Email\n";
+    std::cin >> u.Email;
+    
+    std::cout << "Enter your Password\n";
+    std::cin >> u.Password;
+
+    std::cout << "Enter your Username\n";
+    std::cin >> u.Username;
+
+    std::string roleinput;
+    std::cout << "Enter your Role (Kitchen, Waitstaff)\n";
+    std::cin >> roleinput;
+
+    if (roleinput == "Admin" || roleinput == "admin"){
+        std::cout << "Manager cannot Hire Admin only Master Admin have that command\n";
+        return;
+    }
+    else if (roleinput == "Manager" || roleinput == "manager"){
+        std::cout << "Must Hire Waiter or Kitchen staff cannot hire another Manager only Admin have that access\n";
+        return;
+    }
+
+    std::string hire;
+    std::cout << "Do you want to be hired Yes or No\n";
+    std::cin >> hire;
+
+    if (hire == "N" || hire == "n" || hire == "No" || hire == "no"){
+        std::cout << "You have not been hired\n";
+        return;
+    }
+
+    if (hire == "Y" || hire == "y" || hire == "Yes" || hire == "yes"){
+        std::cout << "You have been hired\n";
+        u.role = Users::ParseRole(roleinput);
+        Users::Save(u);
+
+    }
+
+}
+
+void Staff::Remove_Staff()
+{
+    std::cout << "Remove Staff is not implemented yet.\n";
 }
 
 void Manager::MenuCustomization()
@@ -325,21 +389,13 @@ void Manager::MenuCustomization()
 
     while (true)
     {
-        std::cout << "+============================================================+\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+              Welcome to the Menu View                      +\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+============================================================+\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         1. Add Item     *       2. Remove Item             +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         3 Special       *       4. Edit Item               +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         5. Return       *       6.  View Menu              +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+============================================================+\n";
+        std::cout << "\n--- Menu Options ---\n";
+        std::cout << "[1] Add Item\n";
+        std::cout << "[2] Remove Item\n";
+        std::cout << "[3] Special Item\n";
+        std::cout << "[4] Edit Item\n";
+        std::cout << "[5] Return\n";
+        std::cout << "[6] View Menu\n";
         std::cin >> choice;
 
         switch (choice)
@@ -461,12 +517,13 @@ void Manager::Reports()
         std::cout << "+              Welcome to the Report Menu                    +\n";
         std::cout << "+                                                            +\n";
         std::cout << "+============================================================+\n";
-        std::cout << "1. View All Sales\n";
-        std::cout << "2. VIew Selected Total Sales\n";
-        std::cout << "3. View Best sales\n";
-        std::cout << "4. View Worst sales\n";
-        std::cout << "5. View Table usage\n";
-        std::cout << "6. Return to menu\n";
+        std::cout << "\n--- Report Options ---\n";
+        std::cout << "[1] View All Sales\n";
+        std::cout << "[2] View Selected Total Sales\n";
+        std::cout << "[3] View Best Sales\n";
+        std::cout << "[4] View Worst Sales\n";
+        std::cout << "[5] View Table Usage\n";
+        std::cout << "[6] Return to menu\n";
         std::cout << "+============================================================+\n";
         std::cout << "Enter the choice\n";
         std::cin >> choice;
@@ -492,18 +549,11 @@ void Manager::OrderMenu()
     int Order;
     while (true)
     {
-        std::cout << "+============================================================+\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+              Welcome to the Order View                     +\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+============================================================+\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         1. Add Order    *       2. Remove Order            +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         3. Edit Order   *       4. Return                  +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+============================================================+\n";
+        std::cout << "\n--- Order Options ---\n";
+        std::cout << "[1] Add Order\n";
+        std::cout << "[2] Remove Order\n";
+        std::cout << "[3] Edit Order\n";
+        std::cout << "[4] Return\n";
         std::cin >> Order;
 
         switch (Order)
@@ -539,20 +589,12 @@ void Manager::Tables()
 
     while (true)
     {
-        std::cout << "+============================================================+\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+              Welcome to the Table Menu                     +\n";
-        std::cout << "+                                                            +\n";
-        std::cout << "+============================================================+\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         1. Add Table    *       2. Remove Table            +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         3. EditTable    *       4. Return                  +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+         5. ViewTable    *                                  +\n";
-        std::cout << "+                         *                                  +\n";
-        std::cout << "+============================================================+\n";
+        std::cout << "\n--- Table Options ---\n";
+        std::cout << "[1] Add Table\n";
+        std::cout << "[2] Remove Table\n";
+        std::cout << "[3] Edit Table\n";
+        std::cout << "[4] Return\n";
+        std::cout << "[5] View Table\n";
         std::cin >> choice;
 
         switch (choice)

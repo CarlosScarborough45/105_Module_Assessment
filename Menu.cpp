@@ -38,8 +38,23 @@ void Menu::AddItem()
     }
     clearLine();
 
+    std::cout << "Enter the Quantity\n";
+    std::getline(std::cin, m.Quantity);
+
     std::cout << "Enter Status (Available, Out of stock, Pending)\n";
     std::getline(std::cin, m.avalability);
+
+    bool needsNewline = false;
+    std::ifstream existingFile("Data/Menu.CSV", std::ios::binary);
+    if (existingFile)
+    {
+        existingFile.seekg(0, std::ios::end);
+        if (existingFile.tellg() > 0)
+        {
+            existingFile.seekg(-1, std::ios::end);
+            needsNewline = existingFile.peek() != '\n';
+        }
+    }
 
     std::ofstream file("Data/Menu.CSV", std::ios::app);
     if (!file.is_open())
@@ -48,7 +63,17 @@ void Menu::AddItem()
         return;
     }
 
-    file << m.menuID << "|" << m.Name << "|" << m.price << "|"
+    file.seekp(0, std::ios::end);
+    if (file.tellp() == 0)
+    {
+        file << "ID|Name|Price|Quantity|Availability\n";
+    }
+    else if (needsNewline)
+    {
+        file << '\n';
+    }
+
+    file << m.menuID << "|" << m.Name << "|" << m.price << "|" << m.Quantity << "|"
          << m.avalability << "\n";
 
     std::cout << "New menu item has been added\n";
@@ -72,12 +97,11 @@ std::vector<Menu> Menu::check_Menu()
 
         std::stringstream ss(line);
         Menu m;
-        std::string idStr, name, priceStr, avail;
+        std::string idStr, name, priceStr, field4, field5;
 
         std::getline(ss, idStr, '|');
         std::getline(ss, name, '|');
         std::getline(ss, priceStr, '|');
-        std::getline(ss, avail, '|');
 
         try
         {
@@ -85,8 +109,12 @@ std::vector<Menu> Menu::check_Menu()
         }
         catch (...)
         {
-            m.menuID = 0;
+            continue;
         }
+
+        std::getline(ss, field4, '|');
+        std::getline(ss, field5, '|');
+
         m.Name = name;
         try
         {
@@ -96,7 +124,18 @@ std::vector<Menu> Menu::check_Menu()
         {
             m.price = 0.0;
         }
-        m.avalability = avail;
+
+        if (field5.empty())
+        {
+            // Support rows written before Quantity was added.
+            m.Quantity.clear();
+            m.avalability = field4;
+        }
+        else
+        {
+            m.Quantity = field4;
+            m.avalability = field5;
+        }
 
         menus.push_back(m);
     }

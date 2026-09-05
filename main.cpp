@@ -7,16 +7,10 @@ int main()
     int choice;
     while (true)
     {
-        std::cout << "+=========================================================+\n";
-        std::cout << "+                     *                                   +\n";
-        std::cout << "+                     *                                   +\n";
-        std::cout << "+                     *                                   +\n";
-        std::cout << "+    1. Login         *       2. Registration             +\n";
-        std::cout << "+                     *                                   +\n";
-        std::cout << "+                     *                                   +\n";
-        std::cout << "+    3. Exit          *                                   +\n";
-        std::cout << "+                     *                                   +\n";
-        std::cout << "+=========================================================+\n";
+        std::cout << "\nMain Menu\n";
+        std::cout << "1. Login\n";
+        std::cout << "2. Registration\n";
+        std::cout << "3. Exit\n";
         std::cin >> choice;
 
         switch (choice)
@@ -36,13 +30,7 @@ int main()
 
         case 3:
         {
-            std::cout << "+=========================================================+\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+            You are Exiting the Program                  +\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+=========================================================+\n";
+            std::cout << "Exiting the program.\n";
             exit(0);
         }
 

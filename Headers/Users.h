@@ -25,6 +25,7 @@ public:
 
     static std::vector<UserRecord> check_File();
     static void Save(const UserRecord &user);
+    static roles ParseRole(const std::string &roleName);
 
 public:
     static void Login();

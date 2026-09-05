@@ -6,35 +6,47 @@
 #include <string>
 #include <vector>
 #include <limits>
+#include <cctype>
 
 #include "Headers/Admin.h"
 #include "Headers/Kitchen.h"
 #include "Headers/Manager.h"
 #include "Headers/Waitstaff.h"
 
+roles Users::ParseRole(const std::string &roleName)
+{
+    // Normalise input: trim CR and make lowercase for robust comparisons
+    std::string r;
+    r.reserve(roleName.size());
+    for (char c : roleName)
+    {
+        if (c == '\r' || c == '\n' || c == ' ')
+            continue;
+        r.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(c))));
+    }
+
+    if (r == "admin")
+        return roles::Admin;
+    if (r == "manager")
+        return roles::Manager;
+    if (r == "waitstaff")
+        return roles::WaitStaff;
+    if (r == "kitchen")
+        return roles::Kitchen;
+    return roles::Admin;
+}
+
 namespace
 {
-    roles ParseRole(const std::string &roleName)
+    std::string NormaliseUsername(const std::string &username)
     {
-        // Normalise input: trim CR and make lowercase for robust comparisons
-        std::string r;
-        r.reserve(roleName.size());
-        for (char c : roleName)
+        std::string normalised;
+        normalised.reserve(username.size());
+        for (char c : username)
         {
-            if (c == '\r' || c == '\n' || c == ' ') // drop common whitespace
-                continue;
-            r.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(c))));
+            normalised.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(c))));
         }
-
-        if (r == "admin")
-            return roles::Admin;
-        if (r == "manager")
-            return roles::Manager;
-        if (r == "waitstaff" || r == "waitstaff" )
-            return roles::WaitStaff;
-        if (r == "kitchen")
-            return roles::Kitchen;
-        return roles::Admin;
+        return normalised;
     }
 
     std::string RoleToString(roles role)
@@ -88,13 +100,7 @@ bool checkPassword(const std::string &Password)
 
 void Users::Login()
 {
-    std::cout << "+=========================================================+\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+            You are Entering Your Login                  +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+=========================================================+\n";
+    std::cout << "\nLogin\n";
 
     std::string inputuser, inputPass;
     std::cout << "Enter your Username\n";
@@ -110,7 +116,7 @@ void Users::Login()
 
     for (const auto &u : users)
     {
-        if (inputuser == u.Username && inputPass == u.Password)
+        if (NormaliseUsername(inputuser) == NormaliseUsername(u.Username) && inputPass == u.Password)
         {
             roleMatch = u.role;
             found = true;
@@ -161,13 +167,7 @@ void Users::Login()
 
 void Users::registration()
 {
-    std::cout << "+=========================================================+\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+            You are Entering Your Registration           +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+=========================================================+\n";
+    std::cout << "\nRegistration\n";
 
     UserRecord u;
 
