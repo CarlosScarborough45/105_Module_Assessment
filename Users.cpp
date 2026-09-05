@@ -31,6 +31,8 @@ roles Users::ParseRole(const std::string &roleName)
         return roles::Manager;
     if (r == "waitstaff")
         return roles::WaitStaff;
+    if (r == "waiter")
+        return roles::WaitStaff;
     if (r == "kitchen")
         return roles::Kitchen;
     return roles::Admin;

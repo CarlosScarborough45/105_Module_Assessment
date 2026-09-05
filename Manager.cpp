@@ -2,6 +2,7 @@
 #include "Headers/Menu.h"
 #include "./Headers/Tables.h"
 #include "./Headers/Order.h"
+#include <cctype>
 #include <fstream>
 
 bool blockAmin(roles role)
@@ -344,12 +345,15 @@ void Staff::Add_Staff(){
     std::cout << "Enter your Role (Kitchen, Waitstaff)\n";
     std::cin >> roleinput;
 
-    if (roleinput == "Admin" || roleinput == "admin"){
-        std::cout << "Manager cannot Hire Admin only Master Admin have that command\n";
-        return;
+    std::string normalisedRole = roleinput;
+    for (char &character : normalisedRole)
+    {
+        character = static_cast<char>(std::tolower(static_cast<unsigned char>(character)));
     }
-    else if (roleinput == "Manager" || roleinput == "manager"){
-        std::cout << "Must Hire Waiter or Kitchen staff cannot hire another Manager only Admin have that access\n";
+
+    if (normalisedRole != "kitchen" && normalisedRole != "waitstaff" && normalisedRole != "waiter")
+    {
+        std::cout << "Managers can only hire Kitchen or Waitstaff employees\n";
         return;
     }
 
@@ -362,12 +366,15 @@ void Staff::Add_Staff(){
         return;
     }
 
-    if (hire == "Y" || hire == "y" || hire == "Yes" || hire == "yes"){
-        std::cout << "You have been hired\n";
-        u.role = Users::ParseRole(roleinput);
+    if (hire == "Y" || hire == "y" || hire == "Yes" || hire == "yes")
+    {
+        u.role = Users::ParseRole(normalisedRole);
         Users::Save(u);
-
+        std::cout << "You have been hired and saved to the users file\n";
+        return;
     }
+
+    std::cout << "Please answer Yes or No\n";
 
 }
 
