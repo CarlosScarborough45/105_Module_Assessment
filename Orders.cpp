@@ -5,12 +5,6 @@
 #include "./Headers/Order.h"
 #include "./Headers/Menu.h"
 
-std::string Orders::OrderID;
-std::string Orders::TableID;
-std::string Orders::Product;
-std::string Orders::people;
-std::string Orders::status;
-
 std::vector<Orders> Orders::checkOrderFile()
 {
     std::ifstream file("Data/Order.csv");
@@ -32,19 +26,12 @@ std::vector<Orders> Orders::checkOrderFile()
             continue;
         }
 
-        // Skip any header line (support headers with or without Status)
-        if (line.find("TableNumber") != std::string::npos && line.find("OrderID") != std::string::npos)
-        {
-            continue;
-        }
-
         Orders o;
         ss.clear();
         ss.str(line);
-        std::string separator;
-        std::getline(ss, separator, '|');
         std::getline(ss, o.TableID, '|');
         std::getline(ss, o.OrderID, '|');
+        std::getline(ss, o.Customer, '|');
         std::getline(ss, o.Product, '|');
         std::getline(ss, o.people, '|');
         std::getline(ss, o.status, '|');
@@ -235,14 +222,16 @@ void Manager::RemoveOrders()
             std::cout << "+=========================================+\n";
             std::cout << "+             Selected Order              +\n";
             std::cout << "+=========================================+\n";
-            std::vector<Orders> order = Orders::checkOrderFile();
             std::vector<Menu> menu = Menu::check_Menu();
+            std::cout << "Order ID:" << selectedOrder.OrderID << "\n"
+                      << " Products: " << selectedOrder.Product << "\n";
             for (const auto &m : menu)
             {
-                std::cout << "Order ID:" << Orders::OrderID << "\n"
-                          << " Products: "
-                          << Orders::Product << "\n"
-                          << " Price: " << "$" << m.price << "\n";
+                if (m.Name == selectedOrder.Product)
+                {
+                    std::cout << " Price: $" << m.price << "\n";
+                    break;
+                }
             }
             std::cout << "+=========================================+\n";
 

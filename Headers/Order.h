@@ -5,12 +5,13 @@
 class Orders
 {
 public:
-    static std::string OrderID;
-    static std::string TableID;
+    std::string OrderID;
+    std::string TableID;
+    std::string Customer;
     double price;
-    static std::string Product;
-    static std::string people;
-    static std::string status;
+    std::string Product;
+    std::string people;
+    std::string status;
 
     static std::vector<Orders> checkOrderFile();
 };

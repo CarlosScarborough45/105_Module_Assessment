@@ -1,9 +1,3 @@
-|TableNumber|OrderID|Product|People|Status
-|004|004|Noodles|5|Completed
-|004|004|Noodles|5|Completed
-|004|004|Noodles|5|Completed
-|004|004|Noodles|5|Completed
-|004|004|Noodles|5|Completed
-|004|004|Noodles|5|Completed
-|001|003|Fries|4|
-|002|001|Fries|5|
+001|002|Carlos|Padthai|5|Pending|
+004|002|Charlie|Padthai|5|Pending|
+004|002|Carol|Eggs|5|Pending|
