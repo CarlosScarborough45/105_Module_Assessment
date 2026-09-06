@@ -1,5 +1,7 @@
 #include "Headers/Waitstaff.h"
+#include "Headers/Tables.h"
 #include <iostream>
+#include <iomanip>
 
 void WaitStaff::Waiter() {
 
@@ -22,7 +24,7 @@ void WaitStaff::Waiter() {
     switch(choice){
         case 1: {WaitStaff::table();        break;}
         case 2: {WaitStaff::menu();         break;}
-        case 3: {WaitStaff::Order;          break;}
+        case 3: {WaitStaff::Order();        break;}
         case 4: { 
                   std::cout << "+===================================================+\n";
                   std::cout << "+            You are Returning to Menu              +\n";
@@ -30,4 +32,43 @@ void WaitStaff::Waiter() {
                   return;
                 }
     }
+}
+
+void WaitStaff::table(){
+
+    std::cout << "+====================================================+\n";
+    std::cout << "+             Welcome to Table View                  +\n";
+    std::cout << "+====================================================+\n";
+
+    std::vector<Tables> table = Tables::checkTableFile();   
+    
+    std::cout << "+==================================================================================================================================+\n";
+    std::cout << "+                                          View all Avalible Tables                                                                +\n";
+    std::cout << "+==================================================================================================================================+\n";
+
+    for (const auto &t : table){
+        if (t.avalible == "Avalible"){
+            std::cout << std::left << std::setw(20) << "ID" << "|" << std::setw(20) << "Avalibility" << "|" << std::setw(20) << "Capacity" << "|" << "\n";
+            std::cout << std::left << std::setw(20) << t.TableID << "|" << std::setw(20) << t.avalible << "|" << std::setw(20) << t.capacity << "|" << "\n";
+        }
+    }
+    std::cout << "+======================================================================================================================================+\n";
+    
+
+}
+
+void WaitStaff::menu(){
+
+    std::cout << "+====================================================+\n";
+    std::cout << "+             Welcome to Menu View                   +\n";
+    std::cout << "+====================================================+\n";
+
+}
+
+void WaitStaff::Order(){
+
+    std::cout << "+====================================================+\n";
+    std::cout << "+                 Welcome to Order                   +\n";
+    std::cout << "+====================================================+\n";
+
 }
