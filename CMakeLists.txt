@@ -1,24 +1,25 @@
 cmake_minimum_required(VERSION 3.10)
+
 if(NOT DEFINED CMAKE_CXX_COMPILER OR CMAKE_CXX_COMPILER STREQUAL "")
-    if(WIN32)
-        set(_candidate_compilers
-            "C:/Program Files/LLVM/bin/clang++.exe"
-            "C:/msys64/ucrt64/bin/g++.exe"
-            "C:/msys64/mingw64/bin/g++.exe"
-            "C:/mingw64/bin/g++.exe"
-            "C:/MinGW/bin/g++.exe"
-            "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.3*/bin/Hostx64/x64/cl.exe"
-            "C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.3*/bin/Hostx64/x64/cl.exe"
-            "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.3*/bin/Hostx64/x64/cl.exe"
-            "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.3*/bin/Hostx64/x64/cl.exe"
-        )
-        foreach(_compiler IN LISTS _candidate_compilers)
-            if(EXISTS "${_compiler}")
-                set(CMAKE_CXX_COMPILER "${_compiler}" CACHE FILEPATH "C++ compiler" FORCE)
-                break()
-            endif()
-        endforeach()
-    endif()
+    set(_candidate_compilers
+        "D:/Users/932400098/scoop/apps/gcc/current/bin/g++.exe"
+        "C:/Program Files/LLVM/bin/clang++.exe"
+        "C:/msys64/ucrt64/bin/g++.exe"
+        "C:/msys64/mingw64/bin/g++.exe"
+        "C:/mingw64/bin/g++.exe"
+        "C:/MinGW/bin/g++.exe"
+        "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.3*/bin/Hostx64/x64/cl.exe"
+        "C:/Program Files/Microsoft Visual Studio/2022/Professional/VC/Tools/MSVC/14.3*/bin/Hostx64/x64/cl.exe"
+        "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.3*/bin/Hostx64/x64/cl.exe"
+        "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.3*/bin/Hostx64/x64/cl.exe"
+    )
+
+    foreach(_compiler IN LISTS _candidate_compilers)
+        if(EXISTS "${_compiler}")
+            set(CMAKE_CXX_COMPILER "${_compiler}" CACHE FILEPATH "C++ compiler" FORCE)
+            break()
+        endif()
+    endforeach()
 endif()
 
 if(NOT DEFINED CMAKE_CXX_COMPILER OR CMAKE_CXX_COMPILER STREQUAL "")

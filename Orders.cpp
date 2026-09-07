@@ -15,6 +15,7 @@ std::vector<Orders> Orders::checkOrderFile()
     }
 
     std::vector<Orders> orders;
+    const std::vector<Menu> menu = Menu::check_Menu();
 
     std::string line;
     std::stringstream ss;
@@ -27,6 +28,7 @@ std::vector<Orders> Orders::checkOrderFile()
         }
 
         Orders o;
+        o.price = 0.0;
         ss.clear();
         ss.str(line);
         std::getline(ss, o.TableID, '|');
@@ -35,6 +37,16 @@ std::vector<Orders> Orders::checkOrderFile()
         std::getline(ss, o.Product, '|');
         std::getline(ss, o.people, '|');
         std::getline(ss, o.status, '|');
+
+        for (const auto &menuItem : menu)
+        {
+            if (menuItem.Name == o.Product)
+            {
+                o.price = menuItem.price;
+                break;
+            }
+        }
+
         orders.push_back(o);
     }
     file.close();

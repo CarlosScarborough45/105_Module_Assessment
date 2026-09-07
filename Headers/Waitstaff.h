@@ -13,6 +13,6 @@ public:
     void View_Order();
     void View_Kitchen_Status();
     void View_Selected_TableOrder();
-    void View_CustomerID_Order();
     void ViewCustomerOrder();
+    void PendingOrder();
 };

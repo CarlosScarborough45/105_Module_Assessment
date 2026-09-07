@@ -250,9 +250,30 @@ void WaitStaff::Add_Order()
     std::cout << "Enter how many People\n";
     std::cin >> o.people;
 
+    int peopleCount = std::stoi(o.people);
+    for (const auto &Status : tables)
+    {
+        if (Status.TableID != o.TableID)
+        {
+            continue;
+        }
+
+        int capacity = std::stoi(Status.capacity);
+        if (peopleCount > capacity)
+        {
+            std::cout << "Table is maxed out please go to another table\n"
+                      << "Table: " << o.TableID << "\n";
+            return;
+        }
+        else if (peopleCount == 0)
+        {
+            std::cout << "Table has not been filled out yet\n";
+        }
+        break;
+    }
+
     std::cout << "Enter current Status\n";
     std::cin >> o.status;
-
     order.push_back(o);
 
     std::ofstream file("Data/Order.csv", std::ios::app);
@@ -287,17 +308,98 @@ void WaitStaff::Add_Order()
 
 void WaitStaff::View_Order()
 {
+    int order;
+    std::cout << "+====================================================+\n";
+    std::cout << "+                 Welcome to View Order              +\n";
+    std::cout << "+====================================================+\n";
+    std::cout << "[1] View All Orders\n";
+    std::cout << "[2] View Table Orders\n";
+    std::cout << "[3] View Customer Order\n";
+    std::cout << "[4] Return to Menu\n";
+    std::cout << "+====================================================+\n";
+    std::cin >> order;
+
+    switch (order)
+    {
+    case 1:
+    {
+        WaitStaff::View_Order();
+        break;
+    }
+    case 2:
+    {
+        WaitStaff::View_Selected_TableOrder();
+        break;
+    }
+    case 3:
+    {
+        WaitStaff::ViewCustomerOrder();
+        break;
+    }
+    case 4:
+    {
+        std::cout << "+====================================================+\n";
+        std::cout << "+                  Returning to Menu                 +\n";
+        std::cout << "+====================================================+\n";
+        WaitStaff::Waiter();
+    }
+    }
 }
 
 void WaitStaff::View_Kitchen_Status()
 {
+    int kitchen;
+    std::cout << "+====================================================+\n";
+    std::cout << "+              Welcome to Kitchen Status             +\n";
+    std::cout << "+====================================================+\n";
+    std::cout << "[1] check Order Status\n";
+    std::cout << "[2] Return to menu\n";
+    std::cout << "+====================================================+\n";
+    std::cin >> kitchen;
+
+    switch (kitchen)
+    {
+    case 1:
+    {
+        WaitStaff::PendingOrder();
+        break;
+    }
+    case 2:
+    {
+        std::cout << "+====================================================+\n";
+        std::cout << "+                 Return To Waiter Menu              +\n";
+        std::cout << "+====================================================+\n";
+        WaitStaff::Waiter();
+    }
+    }
+}
+
+void WaitStaff::PendingOrder()
+{
+    std::cout << "+====================================================+\n";
+    std::cout << "+                Welcome to Pending Status           +\n";
+    std::cout << "+====================================================+\n";
+
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    std::cout << "+====================================================+\n";
+    std::cout << "+                     Pending Orders                 +\n";
+    std::cout << "+====================================================+\n";
+    for (const auto &o : orders)
+    {
+        if (o.status == "Pending")
+        {
+            std::cout << std::left << std::setw(10) << "Order ID: " << o.OrderID << "|" << "\n"
+                      << std::setw(10) << "Table: " << o.TableID << "|" << "\n"
+                      << std::setw(10) << "Product: " << o.Product << "|" << "\n"
+                      << std::setw(10) << "Price: " << "$" << std::fixed << std::setprecision(2) << o.price << "|" << "\n"
+                      << std::setw(10) << "Status: " << o.status << "\n";
+        }
+    }
+    std::cout << "+====================================================+\n";
 }
 
 void WaitStaff::View_Selected_TableOrder()
-{
-}
-
-void WaitStaff::View_CustomerID_Order()
 {
 }
 
