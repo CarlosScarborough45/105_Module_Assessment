@@ -1,0 +1,10 @@
+# ninja log v7
+18	433	8105253910096490	CMakeFiles/program.dir/main.cpp.obj	cb71cf8c756a67f9
+24	490	8105253910202511	CMakeFiles/program.dir/Admin.cpp.obj	274ac8b056c9778d
+49	621	8105253910374222	CMakeFiles/program.dir/Table.cpp.obj	fd848c8d16a33c7f
+30	627	8105253910264756	CMakeFiles/program.dir/Kitchen.cpp.obj	2254487336f5a3e4
+44	661	8105253910374222	CMakeFiles/program.dir/Orders.cpp.obj	d44a913ff28ecf56
+39	665	8105253910332814	CMakeFiles/program.dir/Menu.cpp.obj	a007ccab80232143
+59	702	8105253910543639	CMakeFiles/program.dir/Waitstaff.cpp.obj	1e7ba30a145120d4
+54	726	8105253910479757	CMakeFiles/program.dir/Users.cpp.obj	5eec13d7ec24e286
+35	727	8105253910264756	CMakeFiles/program.dir/Manager.cpp.obj	ce281cd31afa1919
