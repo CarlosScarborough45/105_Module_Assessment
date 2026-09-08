@@ -459,16 +459,11 @@ void Staff::Add_Staff()
     std::cout << "Enter your Role (Kitchen, Waitstaff)\n";
     std::cin >> roleinput;
 
-    std::string normalisedRole = roleinput;
-    for (char &character : normalisedRole)
-    {
-        character = static_cast<char>(std::tolower(static_cast<unsigned char>(character)));
-    }
 
-    if (normalisedRole != "kitchen" && normalisedRole != "waitstaff" && normalisedRole != "waiter")
-    {
-        std::cout << "Managers can only hire Kitchen or Waitstaff employees\n";
-        return;
+    if (roleinput == "Manager" || roleinput == "Admin" || roleinput == "manager" || roleinput == "admin"){
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "Cannot Hire Manager or Admin\n";        
+        std::cout << std::string(50, '=') << "\n";
     }
 
     std::string hire;
@@ -477,20 +472,29 @@ void Staff::Add_Staff()
 
     if (hire == "N" || hire == "n" || hire == "No" || hire == "no")
     {
-        std::cout << "You have not been hired\n";
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "You cannot be hired\n";
+        std::cout << std::string(50, '=') << "\n";
         return;
     }
 
     if (hire == "Y" || hire == "y" || hire == "Yes" || hire == "yes")
     {
-        u.role = Users::ParseRole(normalisedRole);
+        std::cout << std::string(50, '=') << "\n";
         Users::Save(u);
         std::cout << "You have been hired and saved to the users file\n";
-        return;
+        std::cout << std::string(50, '=') << "\n";
     }
 
-    std::cout << "Please answer Yes or No\n";
+    else {
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "Please answer Yes or No\n";
+        std::cout << std::string(50, '=') << "\n";
+    }
+    return;
 }
+
+//======================Staff Removal====================//
 
 void Staff::Remove_Staff()
 {

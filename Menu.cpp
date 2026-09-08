@@ -1,5 +1,6 @@
 #include "Headers/Menu.h"
 #include <fstream>
+#include <ios>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -207,4 +208,67 @@ void Menu::ViewItem()
 
 void Menu::SpecialItem()
 {
+    std::cout << std::string(50, '=') << "\n";
+    std::cout << "Welcome to Special Item\n";
+    std::cout << std::string(50, '=') << "\n";
+    
+    std::vector<Menu> menu = Menu::check_Menu();
+    
+    Menu m;
+    
+    std::string item;
+    int NewPrice;
+    std::cout << std::string(50, '=') << "\n";
+    std::cout << "Which Menu you want to update?\n";
+    std::cout << std::string(50, '=') << "\n";
+    std::cin >> item;
+
+    bool found = false;
+
+    for (auto& menuItem : menu){
+        if (menuItem.Name == item){
+            found = true;
+            break;
+        }
+    }
+
+    if (!found){
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "Cannot Find Item\n";
+        std::cout << std::string(50, '=') << "\n";
+    }
+    else if (found) {
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "Item found\n";
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << std::left << std::setw(20) << "Item: " << m.Name << "|" << std::setw(20) << "Price: " << m.price << "\n";
+        std::cout << std::string(50, '=') << "\n";
+    }
+
+    std::cout << "Enter new Price: \n";
+    std::cin >> NewPrice;
+
+    std::ofstream file("Data/Menu.CSV");
+    if (!file){
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "File has not been created\n";
+        std::cout << std::string(50, '=') << "\n";
+        return;
+    }
+    else if (file){
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "file has been created\n";
+        std::cout << std::string(50, '=') << "\n";
+    }
+
+    file << "ID" << "|" << "Name" << "|" << "Price" << "|" << "Quantity" << "|" << "Avalibility" << "|" << "\n";
+
+    for (const auto& menuItem : menu){
+        file << menuItem.menuID << "|" << menuItem.Name << "|" << menuItem.price << "|" << menuItem.Quantity << "|"
+        << menuItem.avalability << "|" << "\n";
+    }
+
+    std::cout << "Menu Item has been changed\n";
+    std::cout << m.Name << m.price << "\n";
+    return;
 }
