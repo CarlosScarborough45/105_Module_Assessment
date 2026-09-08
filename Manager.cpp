@@ -151,6 +151,14 @@ void Manager::Refill()
         return;
     }
 
+    else if (Amount >= 20)
+    {
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "Cannot Change stock that is higher\n";
+        std::cout << std::string(50, '=') << "\n";
+        return;
+    }
+
     std::string status;
     std::cout << "Change Stock Status: \n";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
