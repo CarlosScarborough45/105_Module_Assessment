@@ -8,3 +8,11 @@
 59	702	8105253910543639	CMakeFiles/program.dir/Waitstaff.cpp.obj	1e7ba30a145120d4
 54	726	8105253910479757	CMakeFiles/program.dir/Users.cpp.obj	5eec13d7ec24e286
 35	727	8105253910264756	CMakeFiles/program.dir/Manager.cpp.obj	ce281cd31afa1919
+185	2455	8106882207415628	CMakeFiles/program.dir/Orders.cpp.obj	d44a913ff28ecf56
+181	2456	8106882207375441	CMakeFiles/program.dir/Menu.cpp.obj	a007ccab80232143
+87	2457	8106882206440581	CMakeFiles/program.dir/Kitchen.cpp.obj	2254487336f5a3e4
+174	2457	8106882207306072	CMakeFiles/program.dir/Manager.cpp.obj	ce281cd31afa1919
+190	2457	8106882207455447	CMakeFiles/program.dir/Waitstaff.cpp.obj	1e7ba30a145120d4
+2457	3018	8106882230139287	program.exe	654bfbddbea4f9ee
+5	828	8106887362970743	CMakeFiles/program.dir/Manager.cpp.obj	ce281cd31afa1919
+829	1020	8106887371201233	program.exe	654bfbddbea4f9ee

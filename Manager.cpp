@@ -2,6 +2,7 @@
 #include "Headers/Menu.h"
 #include "./Headers/Tables.h"
 #include "./Headers/Order.h"
+#include "Headers/Stock.h"
 #include <cctype>
 #include <fstream>
 #include <iomanip>
@@ -39,11 +40,13 @@ void Manager::ViewStock()
     std::cout << "\nAll Stock\n";
     for (const auto &M : menu)
     {
+        bool available = stock::CheckStock(M.Quantity);
         std::cout << "Name:" << M.Name << "\n"
                   << "ID:" << M.menuID << "\n"
                   << "Price:" << "$" << M.price << "\n"
                   << "Quantity: " << M.Quantity << "\n"
-                  << "Avalability:" << M.avalability << "\n";
+                  << "Stock Check: " << std::boolalpha << available << "\n"
+                  << "Availability: " << stock::status << "\n";
     }
     return;
 }
@@ -459,10 +462,10 @@ void Staff::Add_Staff()
     std::cout << "Enter your Role (Kitchen, Waitstaff)\n";
     std::cin >> roleinput;
 
-
-    if (roleinput == "Manager" || roleinput == "Admin" || roleinput == "manager" || roleinput == "admin"){
+    if (roleinput == "Manager" || roleinput == "Admin" || roleinput == "manager" || roleinput == "admin")
+    {
         std::cout << std::string(50, '=') << "\n";
-        std::cout << "Cannot Hire Manager or Admin\n";        
+        std::cout << "Cannot Hire Manager or Admin\n";
         std::cout << std::string(50, '=') << "\n";
     }
 
@@ -486,7 +489,8 @@ void Staff::Add_Staff()
         std::cout << std::string(50, '=') << "\n";
     }
 
-    else {
+    else
+    {
         std::cout << std::string(50, '=') << "\n";
         std::cout << "Please answer Yes or No\n";
         std::cout << std::string(50, '=') << "\n";
