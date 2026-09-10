@@ -10,7 +10,7 @@
 
 #include <limits>
 
-int Menu::price = 0.0;
+double Menu::price = 0.0;
 
 // worth putting in a utils header — you'll want this in every input function
 static void clearLine()

@@ -6,7 +6,7 @@
 class stock
 {
 public:
-    int price;
+    double price;
     inline static int Quantity = 0;
     inline static std::string status; // Available, Out of Stock, Need to Order
     std::string Product;

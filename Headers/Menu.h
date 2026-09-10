@@ -9,7 +9,7 @@ class Menu
 public:
     int menuID; // numeric id
     std::string Name;
-    static int price;
+    static double price;
     std::string avalability = "Avalible";
     int Quantity = 45;
 

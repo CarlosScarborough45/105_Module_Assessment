@@ -10,7 +10,7 @@ public:
     static std::string OrderID;
     std::string TableID;
     std::string Customer;
-    int price;
+    double price;
     std::string Product;
     int people = 0;
     std::string status;

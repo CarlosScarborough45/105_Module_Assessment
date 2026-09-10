@@ -689,59 +689,63 @@ void Manager::sales()
 
 void Manager::selected_sales()
 {
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Which Order you want to add\n";
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-
+    // Load both files
     std::vector<Orders> orders = Orders::checkOrderFile();
+    std::vector<Menu> menu = Menu::check_Menu();
 
+    // Ask which order
     std::string ID;
     std::cout << "Enter your Order Id\n";
     std::cin >> ID;
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    if (ID == Orders::OrderID)
+
+    double TotalSales = 0.0;   // the empty jar
+    int found = 0;
+
+    // Look at every order, one at a time
+    for (int i = 0; i < orders.size(); i++)
     {
-        for (const auto o : orders)
+        // Skip it unless the ID matches
+        if (orders[i].OrderID == ID)
         {
-            std::cout << "Id:" << o.OrderID << "\n"
-                      << "Name: " << o.Customer << "\n"
-                      << "Product: " << o.Product << "\n"
-                      << "Price: " << "$" << Menu::price << "\n";
+            // Now find this product's price in the menu
+            double price = 0.0;
+            for (int j = 0; j < menu.size(); j++)
+            {
+                if (menu[j].Name == orders[i].Product)
+                {
+                    price = menu[j].price;
+                }
+            }
+
+            std::cout << "Id: " << orders[i].OrderID << "\n";
+            std::cout << "Name: " << orders[i].Customer << "\n";
+            std::cout << "Product: " << orders[i].Product << "\n";
+            std::cout << "Price: $" << price << "\n";
+
+            TotalSales += price;   // drop the coin in the jar
+            found++;
         }
     }
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    int TotalSales = 0.0;
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    TotalSales += Menu::price;
-    std::cout << "Total Sales: " << TotalSales << "\n";
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    if (found == 0)
+    {
+        std::cout << "No orders found for that ID\n";
+        return;
+    }
 
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Total Price" << "\n";
-    Menu::price += Menu::price;
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Total Sales: $" << TotalSales << "\n";
 
+    // Save it
     std::ofstream file("Data/Sales.csv", std::ios::app);
     if (file.is_open())
     {
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        std::cout << "File has been open\n";
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        file << ID << "|" << found << "|" << TotalSales << "\n";
+        std::cout << "Sales have been saved\n";
     }
-    else if (!file.is_open())
+    else
     {
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        std::cout << "File has not been created\n";
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Could not open the file\n";
     }
-
-    Orders o;
-    Menu m;
-
-    file << "OrderID" << "|" << "price" << "|" << "Total Price" << "|" << "Total Sales" << "|" << "\n";
-    file << o.OrderID << "|" << m.price << "|" << Menu::price += Menu::price << TotalSales << std::endl;
-    file.close();
 }
 
 void Manager::BestSales()
