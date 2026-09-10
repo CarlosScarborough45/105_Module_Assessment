@@ -711,7 +711,7 @@ void Manager::selected_sales()
     }
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    double TotalSales = 0.0;
+    int TotalSales = 0.0;
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     TotalSales += Menu::price;
     std::cout << "Total Sales: " << TotalSales << "\n";
@@ -740,7 +740,7 @@ void Manager::selected_sales()
     Menu m;
 
     file << "OrderID" << "|" << "price" << "|" << "Total Price" << "|" << "Total Sales" << "|" << "\n";
-    file << o.OrderID << "|" << m.price << "|" << Menu::price += Menu::price << TotalSales << "|" << "\n";
+    file << o.OrderID << "|" << m.price << "|" << Menu::price += Menu::price << TotalSales << std::endl;
     file.close();
 }
 
