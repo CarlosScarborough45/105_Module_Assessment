@@ -16,7 +16,7 @@ public:
     static std::vector<stock> OrderFile();
 };
 
-bool stock::CheckStock(int quantity)
+inline bool stock::CheckStock(int quantity)
 {
     if (quantity <= 0)
     {
@@ -33,7 +33,11 @@ bool stock::CheckStock(int quantity)
         stock::status = "Available but still low";
         return true;
     }
-    
-    stock::status = "Available and ready for purchase";
+
+    else if (quantity >= 25)
+    {
+        stock::status = "Available and ready for purchase";
+        return true;
+    }
     return true;
 };

@@ -20,7 +20,7 @@ CMAKE_AR:FILEPATH=CMAKE_AR-NOTFOUND
 //Build type for single-configuration generators (Makefile Generators,
 // Ninja, etc.). Typical values: Debug, Release, RelWithDebInfo,
 // MinSizeRel; custom build types may also be defined.
-CMAKE_BUILD_TYPE:STRING=Debug
+CMAKE_BUILD_TYPE:UNINITIALIZED=Release
 
 //Semicolon separated list of supported configuration types, only
 // supports Debug, Release, MinSizeRel, and RelWithDebInfo, anything
@@ -72,7 +72,7 @@ CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=D:/Users/932400098/OneDrive - UP Educati
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/VisualApp
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=CMAKE_LINKER-NOTFOUND
+CMAKE_LINKER:FILEPATH=C:/Program Files/Git/usr/bin/link.exe
 
 //Flags used by the linker during the creation of modules during
 // all build types.

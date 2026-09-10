@@ -7,6 +7,7 @@
 #include <fstream>
 #include <iomanip>
 #include <limits>
+#include <stdexcept>
 
 bool blockAmin(roles role)
 {
@@ -44,11 +45,11 @@ void Manager::ViewStock()
         std::cout << "Name:" << M.Name << "\n"
                   << "ID:" << M.menuID << "\n"
                   << "Price:" << "$" << M.price << "\n"
-                  << "Quantity: " << M.Quantity << "\n"
-                  << "Stock Check: " << std::boolalpha << available << "\n"
+                  << "Quantity: " << stock::CheckStock(M.Quantity) << "\n"
                   << "Availability: " << stock::status << "\n";
     }
     return;
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Manager::SelectStock()
@@ -80,7 +81,7 @@ void Manager::SelectStock()
             std::cout << "Name:" << M.Name << "\n"
                       << "ID:" << M.menuID << "\n"
                       << "Price:" << "$" << M.price << "\n"
-                      << "Quantity: " << M.Quantity << "\n"
+                      << "Quantity: " << stock::CheckStock(M.Quantity) << "\n"
                       << "Avalability:" << M.avalability << "\n";
         }
     }
@@ -185,11 +186,15 @@ void Manager::StockManage()
     std::cout << "\nStock Management\n";
 
     int Stock;
-    std::cout << "\n--- Stock Options ---\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Stock Options\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "[1] View Stock\n";
     std::cout << "[2] Select Stock\n";
     std::cout << "[3] Refill Stock\n";
     std::cout << "[4] Return to menu\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Enter your choice\n";
     std::cin >> Stock;
 
     switch (Stock)
@@ -312,18 +317,16 @@ void Profile()
 
 void Manager::Boss()
 {
-    std::cout << "+=========================================================+\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+            You are Logged in As Manager                 +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+=========================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "You are Logged in As Manager\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
     int choice;
     while (true)
     {
-        std::cout << "\n--- Manager Menu ---\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Manager Menu\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "[1] Menu\n";
         std::cout << "[2] Reporting\n";
         std::cout << "[3] Table\n";
@@ -333,7 +336,7 @@ void Manager::Boss()
         std::cout << "[7] Orders\n";
         std::cout << "[8] Stock Management\n";
         std::cout << "[9] Staff\n";
-
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Please Enter your choice\n";
         std::cin >> choice;
 
@@ -361,12 +364,9 @@ void Manager::Boss()
         }
         case 5:
         {
-            std::cout << "+============================================================+\n";
-            std::cout << "+                                                            +\n";
-            std::cout << "+                                                            +\n";
-            std::cout << "+                 You Are logging out                        +\n";
-            std::cout << "+                                                            +\n";
-            std::cout << "+============================================================+\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "You Are logging out\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
             return;
         }
         case 6:
@@ -400,16 +400,16 @@ void Manager::Boss()
 
 void Staff::Staff_View()
 {
-    std::cout << "+=========================================+\n";
-    std::cout << "+  Welcome to Eats and Treats Hiring Page +\n";
-    std::cout << "+=========================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to Eats and Treats Hiring Page\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
     int Staff;
-    std::cout << "+========================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "[1] Add Staff\n";
     std::cout << "[2] Remove Staff\n";
     std::cout << "[3] Return to Manager View\n";
-    std::cout << "+=======================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "Enter a choice: \n";
     std::cin >> Staff;
 
@@ -427,12 +427,16 @@ void Staff::Staff_View()
     }
     case 3:
     {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "You are Returning back to Manager view no more Hires\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
     default:
     {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Must Make a choice between 1 - 3\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
     }
@@ -440,9 +444,9 @@ void Staff::Staff_View()
 
 void Staff::Add_Staff()
 {
-    std::cout << "+==============================================+\n";
-    std::cout << "+         Welcome to Eat and Treats            +\n";
-    std::cout << "+==============================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to Add Staff Display\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
     UserRecord u;
 
@@ -470,7 +474,9 @@ void Staff::Add_Staff()
     }
 
     std::string hire;
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "Do you want to be hired Yes or No\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cin >> hire;
 
     if (hire == "N" || hire == "n" || hire == "No" || hire == "no")
@@ -483,17 +489,17 @@ void Staff::Add_Staff()
 
     if (hire == "Y" || hire == "y" || hire == "Yes" || hire == "yes")
     {
-        std::cout << std::string(50, '=') << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         Users::Save(u);
         std::cout << "You have been hired and saved to the users file\n";
-        std::cout << std::string(50, '=') << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
 
     else
     {
-        std::cout << std::string(50, '=') << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Please answer Yes or No\n";
-        std::cout << std::string(50, '=') << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
     return;
 }
@@ -551,25 +557,24 @@ void Staff::Remove_Staff()
 
 void Manager::MenuCustomization()
 {
-    std::cout << "+=========================================================+\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+            Welcome to the Menu Manager                  +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+                                                         +\n";
-    std::cout << "+=========================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to the Menu Manager\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
     int choice;
 
     while (true)
     {
-        std::cout << "\n--- Menu Options ---\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Menu Options\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "[1] Add Item\n";
         std::cout << "[2] Remove Item\n";
         std::cout << "[3] Special Item\n";
         std::cout << "[4] Edit Item\n";
         std::cout << "[5] Return\n";
         std::cout << "[6] View Menu\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cin >> choice;
 
         switch (choice)
@@ -596,13 +601,9 @@ void Manager::MenuCustomization()
         }
         case 5:
         {
-            std::cout << "+=========================================================+\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+            you are returning to Menu Display            +\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+=========================================================+\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "you are returning to Menu Display\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
             return;
         }
         case 6:
@@ -688,6 +689,59 @@ void Manager::sales()
 
 void Manager::selected_sales()
 {
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Which Order you want to add\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    std::string ID;
+    std::cout << "Enter your Order Id\n";
+    std::cin >> ID;
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    if (ID == Orders::OrderID)
+    {
+        for (const auto o : orders)
+        {
+            std::cout << "Id:" << o.OrderID << "\n"
+                      << "Name: " << o.Customer << "\n"
+                      << "Product: " << o.Product << "\n"
+                      << "Price: " << "$" << Menu::price << "\n";
+        }
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    double TotalSales = 0.0;
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    TotalSales += Menu::price;
+    std::cout << "Total Sales: " << TotalSales << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Total Price" << "\n";
+    Menu::price += Menu::price;
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::ofstream file("Data/Sales.csv", std::ios::app);
+    if (file.is_open())
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "File has been open\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    }
+    else if (!file.is_open())
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "File has not been created\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    }
+
+    Orders o;
+    Menu m;
+
+    file << "OrderID" << "|" << "price" << "|" << "Total Price" << "|" << "Total Sales" << "|" << "\n";
+    file << o.OrderID << "|" << m.price << "|" << Menu::price += Menu::price << TotalSales << "|" << "\n";
+    file.close();
 }
 
 void Manager::BestSales()
@@ -767,11 +821,15 @@ void Manager::OrderMenu()
     int Order;
     while (true)
     {
-        std::cout << "\n--- Order Options ---\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Order Options\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "[1] Add Order\n";
         std::cout << "[2] Remove Order\n";
         std::cout << "[3] Edit Order\n";
         std::cout << "[4] Return\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Enter your choice\n";
         std::cin >> Order;
 
         switch (Order)
@@ -793,7 +851,9 @@ void Manager::OrderMenu()
         }
         default:
         {
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
             std::cout << "Must choose between 1 - 4\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
             return;
         }
         }
@@ -807,12 +867,16 @@ void Manager::Tables()
 
     while (true)
     {
-        std::cout << "\n--- Table Options ---\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Table Options\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "[1] Add Table\n";
         std::cout << "[2] Remove Table\n";
         std::cout << "[3] Edit Table\n";
         std::cout << "[4] Return\n";
         std::cout << "[5] View Table\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Enter Choice\n";
         std::cin >> choice;
 
         switch (choice)
@@ -834,13 +898,9 @@ void Manager::Tables()
         }
         case 4:
         {
-            std::cout << "+=========================================================+\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+            You are returning to Manager Display         +\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+                                                         +\n";
-            std::cout << "+=========================================================+\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "You are returning to Manager Display\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
             return;
         }
         case 5:

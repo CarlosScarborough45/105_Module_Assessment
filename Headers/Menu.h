@@ -6,12 +6,12 @@
 class Menu
 {
 
-    public:
+public:
     int menuID; // numeric id
     std::string Name;
-    double price;
-    std::string avalability;
-    int Quantity = 0;
+    static double price;
+    std::string avalability = "Avalible";
+    int Quantity = 45;
 
 public:
     static void AddItem();

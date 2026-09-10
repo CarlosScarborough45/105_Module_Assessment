@@ -4,7 +4,7 @@
 class Tables
 {
 public:
-    std::string avalible;
+    static std::string avalible;
     std::string TableID;
     std::string capacity;
 

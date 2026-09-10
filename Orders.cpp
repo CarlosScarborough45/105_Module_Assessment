@@ -2,8 +2,10 @@
 #include <sstream>
 #include <fstream>
 #include "./Headers/Tables.h"
-#include "./Headers/Order.h"
+#include "Headers/Order.h"
 #include "./Headers/Menu.h"
+
+std::string Orders::OrderID;
 
 std::vector<Orders> Orders::checkOrderFile()
 {
@@ -35,7 +37,9 @@ std::vector<Orders> Orders::checkOrderFile()
         std::getline(ss, o.OrderID, '|');
         std::getline(ss, o.Customer, '|');
         std::getline(ss, o.Product, '|');
-        std::getline(ss, o.people, '|');
+        std::string people;
+        std::getline(ss, people, '|');
+        o.people = std::stoi(people);
         std::getline(ss, o.status, '|');
 
         for (const auto &menuItem : menu)
@@ -66,7 +70,9 @@ bool Tables::CheckTable(const std::string &tableNumber)
             found = true;
             if (table.avalible == "Occupied")
             {
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
                 std::cout << "This Table is Occupied. Please select one that is Avalible\n";
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
                 return false;
             }
 
@@ -85,16 +91,13 @@ bool Tables::CheckTable(const std::string &tableNumber)
 
 void Manager::AddOrders()
 {
-    std::cout << "+============================================================+\n";
-    std::cout << "+                                                            +\n";
-    std::cout << "+                                                            +\n";
-    std::cout << "+                     Want to Order                          +\n";
-    std::cout << "+                                                            +\n";
-    std::cout << "+============================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Want to Order\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
     std::vector<Menu> menu = Menu::check_Menu();
 
-    std::string OrderID, Table, product, people;
+    std::string OrderID, Table, product;
     std::cout << "Enter Table Number\n";
     std::cin >> Table;
 
@@ -105,7 +108,9 @@ void Manager::AddOrders()
 
     if (!Tables::SetAvailability(Table, "Occupied"))
     {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Unable to mark table as Occupied\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
 
@@ -116,14 +121,16 @@ void Manager::AddOrders()
     std::cin >> product;
 
     bool found = false;
-    std::cout << "+=========================================+\n";
-    std::cout << "+             Selected Product            +\n";
-    std::cout << "+=========================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Selected Product\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     for (const auto &M : menu)
     {
         if (product == M.Name)
         {
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
             std::cout << "Product has been found\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
             found = true;
         }
 
@@ -133,15 +140,23 @@ void Manager::AddOrders()
                       << "Price: " << "$" << M.price << "\n";
         }
     }
-    std::cout << "+=========================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     if (!found)
     {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Cannot Find product\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
 
-    std::cout << "Enter how many People\n";
+    int people = 0;
+    std::cout << "Enter number of people\n";
     std::cin >> people;
+    if (!Orders::automate_people(people))
+    {
+        std::cout << "The number of people must be between 1 and 10\n";
+        return;
+    }
 
     // Only write header when the file is empty or doesn't exist
     bool writeHeader = false;
@@ -176,7 +191,9 @@ void Manager::AddOrders()
     // Write a status field (empty) to keep columns consistent
     file << "|" << Table << "|" << OrderID << "|" << product << "|" << people << "|" << "" << "\n";
     file.close();
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "New order has been issued go to kitchen for processing\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 };
 
 void Manager::RemoveOrders()

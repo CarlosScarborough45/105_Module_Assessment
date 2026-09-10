@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+std::string Tables::avalible;
+
 std::vector<Tables> Tables::checkTableFile()
 {
     std::ifstream file("Data/Tables.csv");

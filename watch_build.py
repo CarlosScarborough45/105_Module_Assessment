@@ -6,7 +6,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 GCC_DIR = Path(r"D:\Users\932400098\scoop\apps\gcc\current\bin")
-OUTPUT = PROJECT_ROOT / "program.exe"
+OUTPUT = PROJECT_ROOT / "105project.exe"
 
 
 def make_env():
@@ -21,8 +21,7 @@ def build():
 
     cmd = [
         str(GCC_DIR / "g++.exe"),
-        "main.cpp",
-        "Users.cpp",
+        *[str(path.name) for path in sorted(PROJECT_ROOT.glob("*.cpp"))],
         "-I",
         str(PROJECT_ROOT / "Headers"),
         "-o",

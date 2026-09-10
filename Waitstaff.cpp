@@ -110,9 +110,9 @@ void WaitStaff::menu()
 void WaitStaff::Order()
 {
 
-    std::cout << "+====================================================+\n";
-    std::cout << "+                 Welcome to Order Menu              +\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to Order Menu\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
     int order;
     std::cout << "[1] Add New Order\n";
@@ -142,9 +142,9 @@ void WaitStaff::Order()
     }
     case 4:
     {
-        std::cout << "+====================================================+\n";
-        std::cout << "+         Returning back to Waiter Menu              +\n";
-        std::cout << "+====================================================+\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Returning back to Waiter Menu\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         WaitStaff::Waiter();
     }
     }
@@ -152,9 +152,9 @@ void WaitStaff::Order()
 
 void WaitStaff::Add_Order()
 {
-    std::cout << "+====================================================+\n";
-    std::cout << "+             Welcome to Order Menu                  +\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to Order Menu \n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
     std::vector<Orders> order = Orders::checkOrderFile();
     Orders o;
@@ -230,9 +230,9 @@ void WaitStaff::Add_Order()
         if (o.Product == menuItem.Name)
         {
             productFound = true;
-            std::cout << "+====================================================+\n";
-            std::cout << "+             Product has been found                 +\n";
-            std::cout << "+====================================================+\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "Product has been found\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
             std::cout << std::left << std::setw(10) << "Product: " << o.Product << "|"
                       << std::setw(10) << "Price: " << "$" << std::fixed << std::setprecision(2)
@@ -250,7 +250,7 @@ void WaitStaff::Add_Order()
     std::cout << "Enter how many People\n";
     std::cin >> o.people;
 
-    int peopleCount = std::stoi(o.people);
+    int peopleCount = o.people;
     for (const auto &Status : tables)
     {
         if (Status.TableID != o.TableID)
@@ -279,16 +279,16 @@ void WaitStaff::Add_Order()
     std::ofstream file("Data/Order.csv", std::ios::app);
     if (!file.is_open())
     {
-        std::cout << "+====================================================+\n";
-        std::cout << "+             File has not been Created              +\n";
-        std::cout << "+====================================================+\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "File has not been Created\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
     else if (file.is_open())
     {
-        std::cout << "+====================================================+\n";
-        std::cout << "+             File has been Created                  +\n";
-        std::cout << "+====================================================+\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "File has been Created\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
 
     file << o.TableID << "|" << o.OrderID << "|" << o.Customer << "|" << o.Product << "|"
@@ -296,27 +296,28 @@ void WaitStaff::Add_Order()
 
     file.close();
 
-    std::cout << "+====================================================+\n";
-    std::cout << "+             Order has been Created                 +\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << " Order has been Created\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    std::cout << "+====================================================+\n";
-    std::cout << "+             Returning to Waiter Menu               +\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Returning to Waiter Menu\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     WaitStaff::Waiter();
 }
 
 void WaitStaff::View_Order()
 {
     int order;
-    std::cout << "+====================================================+\n";
-    std::cout << "+                 Welcome to View Order              +\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to View Order\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "[1] View All Orders\n";
     std::cout << "[2] View Table Orders\n";
     std::cout << "[3] View Customer Order\n";
     std::cout << "[4] Return to Menu\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Enter your Choice\n";
     std::cin >> order;
 
     switch (order)
@@ -338,9 +339,9 @@ void WaitStaff::View_Order()
     }
     case 4:
     {
-        std::cout << "+====================================================+\n";
-        std::cout << "+                  Returning to Menu                 +\n";
-        std::cout << "+====================================================+\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Returning to Menu\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         WaitStaff::Waiter();
     }
     }
@@ -349,12 +350,13 @@ void WaitStaff::View_Order()
 void WaitStaff::View_Kitchen_Status()
 {
     int kitchen;
-    std::cout << "+====================================================+\n";
-    std::cout << "+              Welcome to Kitchen Status             +\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to Kitchen Status\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "[1] check Order Status\n";
     std::cout << "[2] Return to menu\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Enter Your choice\n";
     std::cin >> kitchen;
 
     switch (kitchen)
@@ -366,9 +368,9 @@ void WaitStaff::View_Kitchen_Status()
     }
     case 2:
     {
-        std::cout << "+====================================================+\n";
-        std::cout << "+                 Return To Waiter Menu              +\n";
-        std::cout << "+====================================================+\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Return To Waiter Menu\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         WaitStaff::Waiter();
     }
     }
@@ -376,15 +378,15 @@ void WaitStaff::View_Kitchen_Status()
 
 void WaitStaff::PendingOrder()
 {
-    std::cout << "+====================================================+\n";
-    std::cout << "+                Welcome to Pending Status           +\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to Pending Status\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
     std::vector<Orders> orders = Orders::checkOrderFile();
 
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "+                     Pending Orders                 +\n";
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     for (const auto &o : orders)
     {
         if (o.status == "Pending")
@@ -396,7 +398,7 @@ void WaitStaff::PendingOrder()
                       << std::setw(10) << "Status: " << o.status << "\n";
         }
     }
-    std::cout << "+====================================================+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void WaitStaff::View_Selected_TableOrder()

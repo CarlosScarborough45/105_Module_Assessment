@@ -1,4 +1,5 @@
 #include "Headers/Menu.h"
+#include "Headers/Stock.h"
 #include <fstream>
 #include <ios>
 #include <iostream>
@@ -8,6 +9,8 @@
 #include <iomanip>
 
 #include <limits>
+
+int Menu::price = 0.0;
 
 // worth putting in a utils header — you'll want this in every input function
 static void clearLine()
@@ -34,21 +37,14 @@ void Menu::AddItem()
     std::cout << "Enter the Price\n";
     while (!(std::cin >> m.price))
     {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Numbers only. Try again\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         clearLine();
     }
     clearLine();
 
-    std::cout << "Enter the Quantity\n";
-    while (!(std::cin >> m.Quantity) || m.Quantity < 0)
-    {
-        std::cout << "Enter a whole number that is zero or greater\n";
-        clearLine();
-    }
-    clearLine();
-
-    std::cout << "Enter Status (Available, Out of stock, Pending)\n";
-    std::getline(std::cin, m.avalability);
+    std::cout << "Quantity: " << stock::CheckStock(m.Quantity) << "\n";
 
     bool needsNewline = false;
     std::ifstream existingFile("Data/Menu.CSV", std::ios::binary);
@@ -187,60 +183,67 @@ void Menu::ViewItem()
 
     if (menus.empty())
     {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "No menu items found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
 
-    std::cout << "+------+------------------------------+--------+---------------------+\n";
-    std::cout << "| ID   | Name                         | Price  | Availability         |\n";
-    std::cout << "+------+------------------------------+--------+---------------------+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "|" << "ID" << "|" << "Name" << "|" << "Price" << "|" << "Availability" << "|\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     for (const auto &m : menus)
     {
+        stock::CheckStock(m.Quantity);
         std::cout << "| " << std::left << std::setw(4) << m.menuID
                   << " | " << std::setw(28) << m.Name
-                  << " | " << std::right << std::fixed << std::setprecision(2)
-                  << std::setw(6) << m.price
-                  << " | " << std::left << std::setw(19) << m.avalability
+                  << " | " << std::right
+                  << std::setw(6) << "$" << m.price
+                  << " | " << std::left << std::setw(19) << stock::status
                   << " |\n";
     }
-    std::cout << "+------+------------------------------+--------+---------------------+\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Menu::SpecialItem()
 {
-    std::cout << std::string(50, '=') << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "Welcome to Special Item\n";
-    std::cout << std::string(50, '=') << "\n";
-    
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
     std::vector<Menu> menu = Menu::check_Menu();
-    
+
     Menu m;
-    
+
     std::string item;
     int NewPrice;
-    std::cout << std::string(50, '=') << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "Which Menu you want to update?\n";
-    std::cout << std::string(50, '=') << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cin >> item;
 
     bool found = false;
 
-    for (auto& menuItem : menu){
-        if (menuItem.Name == item){
+    for (auto &menuItem : menu)
+    {
+        if (menuItem.Name == item)
+        {
             found = true;
             break;
         }
     }
 
-    if (!found){
-        std::cout << std::string(50, '=') << "\n";
+    if (!found)
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Cannot Find Item\n";
-        std::cout << std::string(50, '=') << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
-    else if (found) {
-        std::cout << std::string(50, '=') << "\n";
+    else if (found)
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Item found\n";
-        std::cout << std::string(50, '=') << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << std::left << std::setw(20) << "Item: " << m.Name << "|" << std::setw(20) << "Price: " << m.price << "\n";
         std::cout << std::string(50, '=') << "\n";
     }
@@ -249,23 +252,26 @@ void Menu::SpecialItem()
     std::cin >> NewPrice;
 
     std::ofstream file("Data/Menu.CSV");
-    if (!file){
-        std::cout << std::string(50, '=') << "\n";
+    if (!file)
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "File has not been created\n";
-        std::cout << std::string(50, '=') << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
-    else if (file){
-        std::cout << std::string(50, '=') << "\n";
+    else if (file)
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "file has been created\n";
-        std::cout << std::string(50, '=') << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
 
     file << "ID" << "|" << "Name" << "|" << "Price" << "|" << "Quantity" << "|" << "Avalibility" << "|" << "\n";
 
-    for (const auto& menuItem : menu){
+    for (const auto &menuItem : menu)
+    {
         file << menuItem.menuID << "|" << menuItem.Name << "|" << menuItem.price << "|" << menuItem.Quantity << "|"
-        << menuItem.avalability << "|" << "\n";
+             << menuItem.avalability << "|" << "\n";
     }
 
     std::cout << "Menu Item has been changed\n";

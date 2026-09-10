@@ -32,7 +32,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_executable(program
+add_executable(105project
     main.cpp
     Admin.cpp
     Kitchen.cpp
@@ -44,7 +44,7 @@ add_executable(program
     Waitstaff.cpp
 )
 
-target_include_directories(program PRIVATE
+target_include_directories(105project PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/Headers
 )

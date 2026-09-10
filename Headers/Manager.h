@@ -26,7 +26,7 @@ public:
     static void SelectStock();
     static void Refill();
 
-    public:
+public:
     static void sales();
     static void selected_sales();
     static void BestSales();
@@ -35,10 +35,9 @@ public:
 };
 void Profile();
 
-class Staff : public Manager{
-    private:
-
-    public:
+class Staff : public Manager
+{
+public:
     static void Add_Staff();
     static void Remove_Staff();
     static void Staff_View();

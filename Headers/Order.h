@@ -7,12 +7,12 @@
 class Orders
 {
 public:
-    std::string OrderID;
+    static std::string OrderID;
     std::string TableID;
     std::string Customer;
     int price;
     std::string Product;
-    std::string people;
+    int people = 0;
     std::string status;
 
     static std::vector<Orders> checkOrderFile();
@@ -34,5 +34,10 @@ public:
         std::cout << std::string(50, '=') << "\n";
         std::cout << "Order Saved\n";
         std::cout << std::string(50, '=') << "\n";
+    }
+
+    inline static bool automate_people(int peopleCount)
+    {
+        return peopleCount >= 1 && peopleCount <= 10;
     }
 };
