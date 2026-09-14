@@ -9,7 +9,7 @@ class Orders
     public:
     std::string OrderID;
     double      price;
-    std::string customer;
+    std::string Customer;
     std::string TableID;
     std::string Product;
     int         people = 0;

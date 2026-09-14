@@ -490,7 +490,8 @@ void Staff::Add_Staff()
     if (hire == "Y" || hire == "y" || hire == "Yes" || hire == "yes")
     {
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        Users::Save(u);
+        std::vector<Users::UserRecord> users = {u};
+        Users::Save(users);
         std::cout << "You have been hired and saved to the users file\n";
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
