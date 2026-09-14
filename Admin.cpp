@@ -12,23 +12,21 @@ void Admin::TopBoss()
     int choice = 0;
         while (choice != 5){
             std::cout << "+======================================+\n";
-            std::cout << "+ Welcome to Eats and Treats Management+\n";
+            std::cout << "+  Welcome to Eats and Treats Admin    +\n";
             std::cout << "+======================================+\n";
             std::cout << "[1] Account Management\n";
-            std::cout << "[2] Role Assignment\n";
-            std::cout << "[3] System Configuration\n";
-            std::cout << "[4] Recovery\n";
-            std::cout << "[5] Return to Main Menu\n";
+            std::cout << "[2] Sales\n";
+            std::cout << "[3] Reports\n";
+            std::cout << "[4] Return to Main Menu\n";
             std::cout << "+======================================+\n";
             std::cout << "Enter your Choice\n";
             std::cin >> choice;
 
             switch (choice){
                 case 1: {Admin::AccountManagement(); break;}
-                case 2: {break;}
-                case 3: {break;}
-                case 4: {break;}
-                case 5: {
+                case 2: {Admin::Sales();             break;}
+                case 3: {Admin::reports();           break;}
+                case 4: {
                         std::cout << "+======================================+\n";
                         std::cout << "+        Returning to Main menu        +\n";
                         std::cout << "+======================================+\n";
@@ -186,7 +184,97 @@ void Admin::AddStaff(){
 }
 
 void Admin::EditStaff(){
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Staffing to Edit\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    std::string name;
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Enter the staff\n";
+    std::cin >> name;
+
+    std::vector<Users::UserRecord> users = Users::check_File();
+
+    bool found = false;
+        for (const auto &u : users){
+            if (name == u.Name){
+                found = true;
+                break;
+            }
+        }
+
+        if (!found){
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "No Staff has been found\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            return;
+        }
+
+        if (found){
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "Staff has been found\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        }
+
+        std::string part;
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Which Part you want to change\n";
+        std::cin >> part;
+
+        int i = -1;
+        int index;
+        for (i = 0; i < users.size(); i++){
+            if (users[i].Email, users[i].Name, users[i].Password, users[i].Username == part ){
+            i = index;
+            break;
+            }
+        }
+
+        if (index == -1){
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "No staff in system\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            return;
+        }
+
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Staff\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        
+        bool check = false;         
+        for (const auto &u :users){
+            if (part == "Name" || part == "Email" || part == "Password" || part == "Username"){
+                check = true;
+                break;
+            }
+        }
+        if (!check){
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "Staff Part cannot be found\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            return;
+        }
+        if (check){
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "Staff Part been found\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        }
+        
+            std::string newvalue;
+            std::cout << "Enter the new" << part << std::endl;
+            std::getline(std::cin, newvalue);
+
+            if (part == "Name" || part == "name") users[index].Name = newvalue;
+            else if (part == "Email" || part == "email") users[index].Email = newvalue;
+            else if (part == "password" || part == "Password") users[index].Password = newvalue;
+            else if (part == "Username" || part == "username") users[index].Username = newvalue;
+
+        std::cout << "Updated Staff" << users[index].Name << "|"
+                  << users[index].Email << "|"
+                  << users[index].Password << "|"
+                  << users[index].Username << std::endl;
+
+        Users::Save(users);
 }
 
 void Admin::RemoveStaff(){

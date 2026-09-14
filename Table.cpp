@@ -68,6 +68,9 @@ bool Tables::SetAvailability(const std::string &tableNumber, const std::string &
     std::ofstream file("Data/Tables.csv");
     if (!file.is_open())
     {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "File cannot be created\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return false;
     }
 
@@ -87,13 +90,17 @@ bool checkcapacity(const std::string &capacity)
     {
         if (std::stoi(capacity) > 10)
         {
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
             std::cout << "Current table capacity cannot be more than 10 people\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
             return false;
         }
     }
     catch (const std::invalid_argument &)
     {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Table capacity must be a number\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return false;
     }
 

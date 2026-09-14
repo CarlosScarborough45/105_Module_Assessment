@@ -6,14 +6,16 @@
 
 class Orders
 {
-public:
-    static std::string OrderID;
+    public:
+    std::string OrderID;
+    double      price;
+    std::string customer;
     std::string TableID;
-    std::string Customer;
-    double price;
     std::string Product;
-    int people = 0;
+    int         people = 0;
     std::string status;
+
+public:
 
     static std::vector<Orders> checkOrderFile();
 

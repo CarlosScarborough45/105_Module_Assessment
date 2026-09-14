@@ -5,8 +5,6 @@
 #include "Headers/Order.h"
 #include "./Headers/Menu.h"
 
-std::string Orders::OrderID;
-
 std::vector<Orders> Orders::checkOrderFile()
 {
     std::ifstream file("Data/Order.csv");
@@ -35,7 +33,7 @@ std::vector<Orders> Orders::checkOrderFile()
         ss.str(line);
         std::getline(ss, o.TableID, '|');
         std::getline(ss, o.OrderID, '|');
-        std::getline(ss, o.Customer, '|');
+        std::getline(ss, o.customer, '|');
         std::getline(ss, o.Product, '|');
         std::string people;
         std::getline(ss, people, '|');

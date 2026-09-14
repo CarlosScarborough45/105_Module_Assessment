@@ -183,6 +183,7 @@ void Users::registration()
 {
     std::cout << "\nRegistration\n";
 
+    std::vector<Users::UserRecord> users;
     UserRecord u;
 
     std::cout << "Enter your Name\n";
@@ -205,11 +206,15 @@ void Users::registration()
     std::cin >> roleInput;
 
     u.role = ParseRole(roleInput);
-    Users::Save(u);
+
+    users.push_back(u);
+
+    Users::Save(users);
+    
     std::cout << "User has been created\n";
 }
 
-void Users::Save(const UserRecord &user)
+void Users::Save(std::vector<Users::UserRecord> &users)
 {
     std::ofstream file("Data/Users.csv", std::ios::app);
     if (!file)
@@ -218,8 +223,10 @@ void Users::Save(const UserRecord &user)
         return;
     }
 
-    file << user.Name << "|" << user.Email << "|" << user.Password << "|" << user.Username << "|"
-         << RoleToString(user.role) << "|\n";
+    for (const auto &u : users){
+    file << u.Name << "|" << u.Email << "|" << u.Password << "|" << u.Username << "|"
+         << RoleToString(u.role) << "|\n";
+         }
 }
 
 std::vector<Users::UserRecord> Users::check_File()
