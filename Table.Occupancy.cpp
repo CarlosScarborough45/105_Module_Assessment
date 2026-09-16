@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "Headers/Order.h"
 #include "Headers/Admin.h"
 #include "Headers/Tables.h"
 
@@ -45,10 +46,13 @@ void Admin::TableOccupancy() {
 
     std::vector<Tables> tables = Tables::checkTableFile();
 
+    Tables foundTable;
+    
     bool found = false;
     for (const auto &t : tables){
         if (ID == t.TableID){
             found = true;
+            foundTable = t;
             break;
         }
     }
@@ -61,33 +65,57 @@ void Admin::TableOccupancy() {
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Id found\n";
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        
+
+        std::vector<Orders> orders = Orders::checkOrderFile();
 
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << std::left << std::setw(20) << "ID" << "|" << std::setw(20) << "Avalability" << "|" << std::setw(20) << "Capacity" << "|" << "\n";
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
             for (const auto &t : tables){
             std::cout << std::left << std::setw(20) << t.TableID << "|" << std::setw(20) << t.avalible << "|" << std::setw(20) << t.capacity << "|" << "\n";
-
-        std::ofstream file("Data/Table.occupancy.csv", std::ios::app);
-    if (!file.is_open()){
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        std::cout << "File cannot be opened or created\n";
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
+
+    std::string order;
+    std::cout << "Select which Order\n";
+    std::cin >> order;
+
+    bool isorder = false;
+
+    for (const auto &o : orders){
+        if (order == o.OrderID){
+            isorder = true;
+            break;
+        }
+    }
+
+    if (!isorder){
+        std::cout << "Order Id not found\n";
+        return;
+    }
+
     else {
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        std::cout << "File has been opened and created\n";
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    }
+        std::cout << "Order ID has been found\n";
+        std::cout << std::left << std::setw(20) << "Order ID" << "|" << std::setw(20) << "Customer" << "|" << std::setw(20) << "Product" << "|" << std::setw(20) << "price" << "|" << "\n";
+        for (const auto &o : orders){
+            if (o.OrderID != order) continue;
 
-    file << "TableID" << "|" << "Capacity" << "|" << "Sales" << "|" << "\n";
-    file << t.TableID << "|" << t.capacity << "|" << "|" << "\n";
-    file.close();
+            std::cout << std::left << std::setw(20) << o.OrderID << "|" << std::setw(20) << o.Customer << "|" << o.Product << "|" << std::setw(20) << o.price << "|" << "\n";
 
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Table Occupancy has been saved\n";
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::ofstream file("Data/Table.occupancy.csv", std::ios::app);
+            if (!file.is_open()){
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                std::cout << "File cannot be opened or created\n";
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            }
+            else {
+                file << foundTable.TableID << "|" << foundTable.capacity << "|" << o.OrderID << "|" << "\n";
+                file.close();
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                std::cout << "Table Occupancy has been saved\n";
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            }
+            break;
+        }
     }
 }
 Admin::TopBoss();

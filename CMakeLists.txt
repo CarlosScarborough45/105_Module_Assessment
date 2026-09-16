@@ -40,6 +40,8 @@ add_executable(105project
     Menu.cpp
     Orders.cpp
     Table.cpp
+    Table.Occupancy.cpp
+    reports.cpp
     Users.cpp
     Waitstaff.cpp
 )
