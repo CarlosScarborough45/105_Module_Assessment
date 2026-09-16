@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmake -S . -B build-ninja -G Ninja)",
+      "Bash(cmake --build build-ninja)",
+      "Bash(where g++)",
+      "Bash(where clang++)",
+      "Bash(where cl *)",
+      "Read(//c/msys64/ucrt64/bin/**)",
+      "Read(//c/msys64/mingw64/bin/**)",
+      "Bash(cmake -S . -B build-ninja -G Ninja -DCMAKE_CXX_COMPILER=\"C:/Qt/Tools/mingw1310_64/bin/g++.exe\")",
+      "Bash(where ninja *)",
+      "Bash(where mingw32-make *)",
+      "Read(//c/Qt/Tools/mingw1310_64/bin/**)",
+      "Bash(cmake -S . -B build-ninja -G \"MinGW Makefiles\" -DCMAKE_CXX_COMPILER=\"C:/Qt/Tools/mingw1310_64/bin/g++.exe\" -DCMAKE_MAKE_PROGRAM=\"C:/Qt/Tools/mingw1310_64/bin/mingw32-make.exe\")",
+      "Bash(./105project.exe)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "PowerShell($salesBefore = \\(Get-Content \"C:\\\\Users\\\\OEM\\\\OneDrive - UP Education\\\\Desktop\\\\Projects\\\\105 Aseessment\\\\Data\\\\Sales.csv\"\\).Count; $occupancyBefore = \\(Get-Content \"C:\\\\Users\\\\OEM\\\\OneDrive - UP Education\\\\Desktop\\\\Projects\\\\105 Aseessment\\\\Data\\\\Table.occupancy.csv\"\\).Count; Write-Host \"Sales.csv lines before: $salesBefore\"; Write-Host \"Table.occupancy.csv lines before: $occupancyBefore\")",
+      "Bash(./build-ninja/105project.exe)",
+      "PowerShell(Stop-Process *)",
+      "Bash(printf '1\\\\nSam\\\\nDavid\\\\n3\\\\n1\\\\n001\\\\n001\\\\n5\\\\n4\\\\n3\\\\n')",
+      "Bash(echo \"EXIT: $?\")"
+    ]
+  }
+}

@@ -30,7 +30,7 @@ public:
             return;
         }
 
-        file << "|" << order.TableID << "|" << order.OrderID << "|" << order.Product << "|" << order.people << "|" << "" << "\n";
+        file << order.TableID << "|" << order.OrderID << "|" << order.Customer << "|" << order.Product << "|" << order.people << "|" << "" << "\n";
         file.close();
 
         std::cout << std::string(50, '=') << "\n";

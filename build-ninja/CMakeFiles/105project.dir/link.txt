@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\105project.dir/objects.a
+C:\Qt\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\105project.dir/objects.a @CMakeFiles\105project.dir\objects1.rsp
+C:\Qt\Tools\mingw1310_64\bin\g++.exe  -static -static-libgcc -static-libstdc++ -Wl,--whole-archive CMakeFiles\105project.dir/objects.a -Wl,--no-whole-archive -o 105project.exe -Wl,--out-implib,lib105project.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\105project.dir\linkLibs.rsp

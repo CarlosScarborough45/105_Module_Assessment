@@ -29,7 +29,7 @@ void Admin::reports(){
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
             std::cout << "Returning to Admin Menu\n";
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
-            Admin::TopBoss();
+            break;
         }
     }
     }
@@ -114,9 +114,9 @@ void Admin::TableOccupancy() {
                 std::cout << "Table Occupancy has been saved\n";
                 std::cout << "+" << std::string(60, '=') << "+" << "\n";
             }
+
             break;
         }
     }
 }
-Admin::TopBoss();
 }

@@ -95,7 +95,7 @@ void Manager::AddOrders()
 
     std::vector<Menu> menu = Menu::check_Menu();
 
-    std::string OrderID, Table, product;
+    std::string OrderID, Table, product, customer;
     std::cout << "Enter Table Number\n";
     std::cin >> Table;
 
@@ -114,6 +114,9 @@ void Manager::AddOrders()
 
     std::cout << "Enter OrderID\n";
     std::cin >> OrderID;
+
+    std::cout << "Enter Customer Name\n";
+    std::cin >> customer;
 
     std::cout << "Enter product\n";
     std::cin >> product;
@@ -183,11 +186,10 @@ void Manager::AddOrders()
 
     if (writeHeader)
     {
-        file << "|TableNumber|OrderID|Product|People|Status\n";
+        file << "TableNumber|OrderID|Customer|Product|People|Status\n";
     }
 
-    // Write a status field (empty) to keep columns consistent
-    file << "|" << Table << "|" << OrderID << "|" << product << "|" << people << "|" << "" << "\n";
+    file << Table << "|" << OrderID << "|" << customer << "|" << product << "|" << people << "|" << "" << "\n";
     file.close();
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "New order has been issued go to kitchen for processing\n";
