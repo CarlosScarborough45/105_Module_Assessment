@@ -1,3 +1,6 @@
+#ifndef TABLES_H
+#define TABLES_H
+
 #include <string>
 #include <vector>
 
@@ -16,3 +19,5 @@ public:
     static void EditTable();
     static void ViewTable();
 };
+
+#endif
