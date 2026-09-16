@@ -68,11 +68,8 @@ void Admin::TableOccupancy() {
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
             for (const auto &t : tables){
             std::cout << std::left << std::setw(20) << t.TableID << "|" << std::setw(20) << t.avalible << "|" << std::setw(20) << t.capacity << "|" << "\n";
-        }
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    }
 
-    std::ofstream file("Data/Table.occupancy.csv", std::ios::app);
+        std::ofstream file("Data/Table.occupancy.csv", std::ios::app);
     if (!file.is_open()){
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "File cannot be opened or created\n";
@@ -84,10 +81,6 @@ void Admin::TableOccupancy() {
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
 
-    Tables t;
-
-    tables.push_back(t);
-
     file << "TableID" << "|" << "Capacity" << "|" << "Sales" << "|" << "\n";
     file << t.TableID << "|" << t.capacity << "|" << "|" << "\n";
     file.close();
@@ -95,4 +88,7 @@ void Admin::TableOccupancy() {
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "Table Occupancy has been saved\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    }
+}
+Admin::TopBoss();
 }
