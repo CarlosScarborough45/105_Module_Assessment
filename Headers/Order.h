@@ -15,6 +15,8 @@ class Orders
     int         people = 0;
     std::string status;
 
+    static bool automaticID(std::string &OrderID);
+
 public:
 
     static std::vector<Orders> checkOrderFile();

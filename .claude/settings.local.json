@@ -21,7 +21,8 @@
       "Bash(./build-ninja/105project.exe)",
       "PowerShell(Stop-Process *)",
       "Bash(printf '1\\\\nSam\\\\nDavid\\\\n3\\\\n1\\\\n001\\\\n001\\\\n5\\\\n4\\\\n3\\\\n')",
-      "Bash(echo \"EXIT: $?\")"
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(g++ *.cpp -o 105project.exe)"
     ]
   }
 }

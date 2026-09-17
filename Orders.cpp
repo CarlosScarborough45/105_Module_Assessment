@@ -56,6 +56,26 @@ std::vector<Orders> Orders::checkOrderFile()
     return orders;
 }
 
+bool Orders::automaticID(std::string &OrderID)
+{
+    std::vector<Orders> existing = checkOrderFile();
+    int maxID = 0;
+    for (const auto &o : existing)
+    {
+        try
+        {
+            int id = std::stoi(o.OrderID);
+            if (id > maxID) maxID = id;
+        }
+        catch (...) {}
+    }
+    int nextID = maxID + 1;
+    std::string idStr = std::to_string(nextID);
+    while (idStr.size() < 3) idStr = "0" + idStr;
+    OrderID = idStr;
+    return true;
+}
+
 bool Tables::CheckTable(const std::string &tableNumber)
 {
     const std::vector<Tables> tables = checkTableFile();
@@ -95,7 +115,8 @@ void Manager::AddOrders()
 
     std::vector<Menu> menu = Menu::check_Menu();
 
-    std::string OrderID, Table, product, customer;
+    std::string Table, product, customer;
+    std::string OrderID;
     std::cout << "Enter Table Number\n";
     std::cin >> Table;
 
@@ -111,9 +132,8 @@ void Manager::AddOrders()
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
-
-    std::cout << "Enter OrderID\n";
-    std::cin >> OrderID;
+    
+    Orders::automaticID(OrderID);
 
     std::cout << "Enter Customer Name\n";
     std::cin >> customer;
