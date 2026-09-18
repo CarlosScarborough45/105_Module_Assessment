@@ -6,11 +6,11 @@ class Manager : public Users
 {
 
 public:
-    void Boss();
-    void MenuCustomization();
-    void Reports();
-    void Tables();
-    void OverRide();
+    static void Boss();
+    static void MenuCustomization();
+    static void Reports();
+    static void Tables();
+    static void OverRide();
 
     static void OrderMenu();
     static void EditOrders();

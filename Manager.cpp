@@ -615,11 +615,6 @@ void Manager::MenuCustomization()
         }
     }
 }
-
-void Manager::OverRide()
-{
-}
-
 void Manager::sales()
 {
     std::vector<Menu> menu = Menu::check_Menu();

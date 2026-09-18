@@ -62,6 +62,9 @@ bool Tables::SetAvailability(const std::string &tableNumber, const std::string &
 
     if (!found)
     {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Table cannot be found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";     
         return false;
     }
 
