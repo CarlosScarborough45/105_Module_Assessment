@@ -104,7 +104,6 @@ bool Tables::CheckTable(const std::string &tableNumber)
         return false;
     }
 
-    return false;
 }
 
 void Manager::AddOrders()

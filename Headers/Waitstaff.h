@@ -9,10 +9,10 @@ public:
     void menu();
 
 public:
-    void Add_Order();
-    void View_Order();
-    void View_Kitchen_Status();
-    void View_Selected_TableOrder();
-    void ViewCustomerOrder();
-    void PendingOrder();
+    static void Add_Order();
+    static void View_Order();
+    static void View_Kitchen_Status();
+    static void View_Selected_TableOrder();
+    static void ViewCustomerOrder();
+    static void PendingOrder();
 };

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <filesystem>
 #include <iomanip>
+#include <limits>
 #include <string>
 #include <vector>
 
@@ -38,7 +39,47 @@ void CheckFolders() {
 }
 
 void CheckFileSize() {
+	std::cout << "+" << std::string(60, '=') << "+" << "\n";
+	std::cout << "Check File Size\n";
+	std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+	std::string file;
+	std::cout << "Enter the File name: ";
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::getline(std::cin, file);
+	std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+	fs::path base = "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment";
+
+	std::pair<std::string, fs::path> dirs[2] = {
+		{"Header Files", base / "Headers"},
+		{"Data Files", base / "Data"},
+	};
+
+	std::cout << std::left << std::setw(30) << "File Name" << "| " << std::setw(20) << "Size (bytes)" << "\n";
+	std::cout << "+" << std::string(60, '-') << "+" << "\n";
+
+	bool found = false;
+	for (const auto& [label, dir] : dirs) {
+		std::error_code ec;
+		if (!fs::exists(dir, ec) || ec) continue;
+
+		for (auto it = fs::directory_iterator(dir, ec); !ec && it != fs::directory_iterator(); it.increment(ec)) {
+			if (it->path().filename().string() == file) {
+				uintmax_t size = fs::file_size(it->path(), ec);
+				if (!ec) {
+					std::cout << std::left << std::setw(30) << file << "| " << std::setw(20) << size << "\n";
+					found = true;
+				}
+			}
+		}
+	}
+
+	if (!found) {
+		std::cout << "File \"" << file << "\" not found in Headers or Data folders.\n";
+	}
+	std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void CheckFiles() {
@@ -50,6 +91,47 @@ void DeleteFiles() {
 	std::cout << "Welcome To Delete Files\n";
 	std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+	std::string file;
+	std::cout << "Enter File Name\n";
+	std::cin.clear();
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::getline(std::cin, file);
+
+	fs::path base = "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment";
+
+	std::pair<std::string, fs::path> dirs[2] = {
+		{"Header Files", base / "Headers"},
+		{"Data Files", base / "Data"},
+	};
+
+	bool deleted = false;
+	for (const auto& [label, dir] : dirs) {
+		std::cout << "+" << std::string(60, '-') << "+" << "\n";
+		std::cout << "[" << label << "]\n";
+
+		std::error_code ec;
+		if (!fs::exists(dir, ec) || ec) {
+			std::cout << "Directory not found: " << dir.string() << "\n";
+			continue;
+		}
+
+		fs::path target = dir / file;
+		if (fs::exists(target, ec) && !ec) {
+			fs::remove(target, ec);
+			if (!ec) {
+				std::cout << "File deleted: " << file << "\n";
+				deleted = true;
+			} else {
+				std::cout << "Failed to delete: " << file << "\n";
+			}
+			break;
+		}
+	}
+
+	if (!deleted) {
+		std::cout << "File \"" << file << "\" not found in Headers or Data folders.\n";
+	}
+	std::cout << "+" << std::string(60, '-') << "+" << "\n";
 }
 
 void ViewFiles() {

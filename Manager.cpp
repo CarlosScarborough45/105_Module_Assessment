@@ -3,18 +3,18 @@
 #include "./Headers/Tables.h"
 #include "./Headers/Order.h"
 #include "Headers/Stock.h"
+#include "Headers/Sales.h"
 #include <cctype>
 #include <fstream>
 #include <iomanip>
 #include <limits>
-#include <stdexcept>
 
 bool blockAmin(roles role)
 {
     return role == roles::Admin;
 }
 
-namespace
+namespace role
 {
     std::string RoleToString(roles role)
     {
@@ -136,7 +136,7 @@ void Manager::Refill()
     std::cout << "ID: " << menus[index].menuID << "\n"
               << "Name: " << menus[index].Name << "\n"
               << "Price: " << "$" << menus[index].price << "\n"
-              << "Avalible Stock: " << menus[index].Quantity << std::endl;
+              << "Available Stock: " << menus[index].Quantity << std::endl;
 
     std::cout << "+============================================+\n";
     std::cout << "+     How much stock do you want to Refil    +\n";
@@ -145,40 +145,18 @@ void Manager::Refill()
     int Amount = 0;
     std::cin >> Amount;
 
-    if (std::cin.fail() || Amount <= 0)
-    {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "+============================================+\n";
-        std::cout << "+     Invalid amount. Nothing changed.       +\n";
-        std::cout << "+============================================+\n";
+    if (Amount >= menus[index].Quantity) {
+        std::cout << "Stock is a level cannot refile any more\n";
         return;
     }
-
-    else if (Amount >= 20)
-    {
-        std::cout << std::string(50, '=') << "\n";
-        std::cout << "Cannot Change stock that is higher\n";
-        std::cout << std::string(50, '=') << "\n";
-        return;
-    }
-
-    std::string status;
-    std::cout << "Change Stock Status: \n";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::getline(std::cin, status);
 
     menus[index].Quantity += Amount;
-    if (!status.empty())
-    {
-        menus[index].avalability = status;
-    }
+
     Menu::save_Menu(menus);
 
     std::cout << menus[index].Name << " restocked to "
               << menus[index].Quantity << " Changes Status "
               << menus[index].avalability << "\n";
-    return;
 }
 
 void Manager::StockManage()
@@ -201,29 +179,32 @@ void Manager::StockManage()
     {
     case 1:
     {
-        Manager::ViewStock();
+        ViewStock();
         break;
     }
     case 2:
     {
-        Manager::SelectStock();
+        SelectStock();
         break;
     }
     case 3:
     {
-        Manager::Refill();
+        Refill();
         break;
     }
     case 4:
     {
-        return;
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Return to Menu\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
+        default: ;
     }
 }
 
 void Manager::AllProfile()
 {
-    std::vector<Users::UserRecord> users = Users::check_File();
+    std::vector<UserRecord> users = check_File();
     for (const auto &u : users)
     {
         if (u.role == roles::Admin)
@@ -236,7 +217,7 @@ void Manager::AllProfile()
                   << "Email:" << u.Email << "\n"
                   << "Password:" << u.Password << "\n"
                   << "Username:" << u.Username << "\n"
-                  << "role:" << RoleToString(u.role) << "\n";
+                  << "role:" << role::RoleToString(u.role) << "\n";
     }
 }
 
@@ -248,7 +229,7 @@ void Manager::selectedprofile()
 {
     std::cout << "Enter the selected profile you want to see\n";
 
-    std::vector<Users::UserRecord> users = Users::check_File();
+    std::vector<UserRecord> users = Users::check_File();
 
     std::string person;
     std::cout << "Enter the person\n";
@@ -270,7 +251,7 @@ void Manager::selectedprofile()
                       << "Email:" << u.Email << "\n"
                       << "Password:" << u.Password << "\n"
                       << "Username:" << u.Username << "\n"
-                      << "role:" << RoleToString(u.role) << "\n";
+                      << "role:" << role::RoleToString(u.role) << "\n";
             return;
         }
     }
@@ -310,8 +291,14 @@ void Profile()
     }
     case 4:
     {
-        return;
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Returning to Menu\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        Manager::Boss();
     }
+        default: std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                 std::cout << "Must Choose between 1 - 4\n";
+                 std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
 }
 
@@ -344,22 +331,22 @@ void Manager::Boss()
         {
         case 1:
         {
-            Manager::MenuCustomization();
+            MenuCustomization();
             break;
         }
         case 2:
         {
-            Manager::Reports();
+            Reports();
             break;
         }
         case 3:
         {
-            Manager::Tables();
+            Tables();
             break;
         }
         case 4:
         {
-            Manager::OverRide();
+            OverRide();
             break;
         }
         case 5:
@@ -376,12 +363,12 @@ void Manager::Boss()
         }
         case 7:
         {
-            Manager::OrderMenu();
+            OrderMenu();
             break;
         }
         case 8:
         {
-            Manager::StockManage();
+            StockManage();
             break;
         }
         case 9:
@@ -417,12 +404,12 @@ void Staff::Staff_View()
     {
     case 1:
     {
-        Staff::Add_Staff();
+        Add_Staff();
         break;
     }
     case 2:
     {
-        Staff::Remove_Staff();
+        Remove_Staff();
         break;
     }
     case 3:
@@ -549,10 +536,9 @@ void Staff::Remove_Staff()
     for (const auto &user : users)
     {
         file << user.Name << "|" << user.Email << "|" << user.Password << "|"
-             << user.Username << "|" << RoleToString(user.role) << "|\n";
+             << user.Username << "|" << role::RoleToString(user.role) << "|\n";
     }
     std::cout << "Staff has been fired\n";
-    return;
     std::cout << "+======================================================+\n";
 }
 
@@ -685,40 +671,40 @@ void Manager::sales()
 
 void Manager::selected_sales()
 {
-    // Load both files
+
     std::vector<Orders> orders = Orders::checkOrderFile();
     std::vector<Menu> menu = Menu::check_Menu();
 
-    // Ask which order
+
     std::string ID;
     std::cout << "Enter your Order Id\n";
     std::cin >> ID;
 
-    double TotalSales = 0.0;   // the empty jar
+    double TotalSales = 0.0;
     int found = 0;
 
-    // Look at every order, one at a time
-    for (int i = 0; i < orders.size(); i++)
+
+    for (auto & order : orders)
     {
-        // Skip it unless the ID matches
-        if (orders[i].OrderID == ID)
+
+        if (order.OrderID == ID)
         {
-            // Now find this product's price in the menu
+
             double price = 0.0;
-            for (int j = 0; j < menu.size(); j++)
+            for (auto & j : menu)
             {
-                if (menu[j].Name == orders[i].Product)
+                if (j.Name == order.Product)
                 {
-                    price = menu[j].price;
+                    price = Menu::price;
                 }
             }
 
-            std::cout << "Id: " << orders[i].OrderID << "\n";
-            std::cout << "Name: " << orders[i].Customer << "\n";
-            std::cout << "Product: " << orders[i].Product << "\n";
+            std::cout << "Id: " << order.OrderID << "\n";
+            std::cout << "Name: " << order.Customer << "\n";
+            std::cout << "Product: " << order.Product << "\n";
             std::cout << "Price: $" << price << "\n";
 
-            TotalSales += price;   // drop the coin in the jar
+            TotalSales += price;
             found++;
         }
     }
@@ -731,7 +717,6 @@ void Manager::selected_sales()
 
     std::cout << "Total Sales: $" << TotalSales << "\n";
 
-    // Save it
     std::ofstream file("Data/Sales.csv", std::ios::app);
     if (file.is_open())
     {
@@ -746,10 +731,52 @@ void Manager::selected_sales()
 
 void Manager::BestSales()
 {
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to Best Sales\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::vector<struct sales> sale = sales::checkSaleFile();
+
+    std::cout << std::left << std::setw(15) << "ID"
+              << std::setw(15) << "Price"
+              << std::setw(15) << "Total Sales" << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+
+    for (const auto& s : sale) {
+        try {
+            if (std::stod(s.TotalSales) >= 50) {
+                std::cout << std::left << std::setw(15) << s.ID
+                          << std::setw(15) << s.Price
+                          << std::setw(15) << s.TotalSales << "\n";
+            }
+        } catch (...) {}
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Manager::WorstSales()
 {
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to Worst Sales\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::vector<struct sales> sale = sales::checkSaleFile();
+
+    std::cout << std::left << std::setw(15) << "ID"
+              << std::setw(15) << "Price"
+              << std::setw(15) << "Total Sales" << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+
+    for (const auto& s : sale) {
+        try {
+            if (std::stod(s.TotalSales) <= 20) {
+                std::cout << std::left << std::setw(15) << s.ID
+                          << std::setw(15) << s.Price
+                          << std::setw(15) << s.TotalSales << "\n";
+            }
+        } catch (...) {}
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Manager::TableUsage()

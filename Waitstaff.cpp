@@ -15,43 +15,50 @@ void WaitStaff::Waiter()
     std::cout << "+====================================================+\n";
 
     int choice;
-    std::cout << "+====================================================+\n";
-    std::cout << "+      Welcome to Eats and Treats Waiter System      +\n";
-    std::cout << "+====================================================+\n";
-    std::cout << "[1] View All Tables\n";
-    std::cout << "[2] View Avalible Menu\n";
-    std::cout << "[3] Order Customization\n";
-    std::cout << "[4] Return to menu\n";
-    std::cout << "+====================================================+\n";
-    std::cout << "Enter your Choice\n";
-    std::cin >> choice;
+    while (true) {
+        std::cout << "+====================================================+\n";
+        std::cout << "+      Welcome to Eats and Treats Waiter System      +\n";
+        std::cout << "+====================================================+\n";
+        std::cout << "[1] View All Tables\n";
+        std::cout << "[2] View Available Menu\n";
+        std::cout << "[3] Order Customization\n";
+        std::cout << "[4] Return to menu\n";
+        std::cout << "+====================================================+\n";
+        std::cout << "Enter your Choice\n";
+        std::cin >> choice;
 
-    WaitStaff w;
+        WaitStaff w;
 
-    switch (choice)
-    {
-    case 1:
-    {
-        w.table();
-        break;
-    }
-    case 2:
-    {
-        w.menu();
-        break;
-    }
-    case 3:
-    {
-        w.Order();
-        break;
-    }
-    case 4:
-    {
-        std::cout << "+===================================================+\n";
-        std::cout << "+            You are Returning to Menu              +\n";
-        std::cout << "+===================================================+\n";
-        Waiter();
-    }
+        switch (choice)
+        {
+            case 1:
+            {
+                w.table();
+                break;
+            }
+            case 2:
+            {
+                w.menu();
+                break;
+            }
+            case 3:
+            {
+                w.Order();
+                break;
+            }
+            case 4:
+            {
+                std::cout << "+===================================================+\n";
+                std::cout << "+            You are Returning to Menu              +\n";
+                std::cout << "+===================================================+\n";
+                Waiter();
+            }
+            default: {
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                std::cout << "Must Choose between 1 - 4\n";
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            }
+        }
     }
 }
 
@@ -74,7 +81,7 @@ void WaitStaff::table()
 
     for (const auto &t : table)
     {
-        if (t.avalible == "Avalible")
+        if (t.avalible == "Available")
         {
             std::cout << std::left << std::setw(20) << t.TableID << "|" << std::setw(20) << t.avalible << "|" << std::setw(20) << t.capacity << "|" << "\n";
         }
@@ -97,7 +104,7 @@ void WaitStaff::menu()
     std::vector<Menu> menus = Menu::check_Menu();
 
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "+         View Avalable Menu   +" << "\n";
+    std::cout << "+         View Available Menu   +" << "\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     for (const auto &m : menus)
     {
@@ -129,17 +136,17 @@ void WaitStaff::Order()
     {
     case 1:
     {
-        WaitStaff::Add_Order();
+        Add_Order();
         break;
     }
     case 2:
     {
-        WaitStaff::View_Order();
+        View_Order();
         break;
     }
     case 3:
     {
-        WaitStaff::View_Kitchen_Status();
+        View_Kitchen_Status();
         break;
     }
     case 4:
@@ -147,7 +154,7 @@ void WaitStaff::Order()
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Returning back to Waiter Menu\n";
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        WaitStaff::Waiter();
+        Waiter();
     }
     }
 }

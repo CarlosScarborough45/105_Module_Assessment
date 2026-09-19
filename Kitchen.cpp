@@ -28,17 +28,17 @@ void kitchen::Cook()
     {
     case 1:
     {
-        kitchen::Pending();
+        Pending();
         break;
     }
     case 2:
     {
-        kitchen::Completed();
+        Completed();
         break;
     }
     case 3:
     {
-        kitchen::TurnPending();
+       TurnPending();
         break;
     }
     case 4:
@@ -77,7 +77,7 @@ void kitchen::Pending()
     }
     std::cout << std::string(50, '=') << "\n";
 
-    kitchen::Cook();
+    Cook();
 }
 
 void kitchen::Completed()
@@ -100,7 +100,7 @@ void kitchen::Completed()
         }
     }
     std::cout << std::string(50, '=') << "\n";
-    kitchen::Cook();
+    Cook();
 }
 
 void kitchen::TurnPending()
@@ -248,5 +248,5 @@ void kitchen::TurnPending()
             return;
         }
     }
-    kitchen::Cook();
+    Cook();
 }

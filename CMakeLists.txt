@@ -49,6 +49,7 @@ add_executable(105project
     Filesystem.cpp
         FileManagement.cpp
         Headers/Filemanagement.h
+        Headers/Sales.h
 )
 
 target_include_directories(105project PRIVATE
