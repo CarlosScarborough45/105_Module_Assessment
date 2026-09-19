@@ -152,6 +152,30 @@ Admin.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\105project.dir\build.make CMakeFiles/105project.dir/Admin.cpp.s
 .PHONY : Admin.cpp.s
 
+FileManagement.obj: FileManagement.cpp.obj
+.PHONY : FileManagement.obj
+
+# target to build an object file
+FileManagement.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\105project.dir\build.make CMakeFiles/105project.dir/FileManagement.cpp.obj
+.PHONY : FileManagement.cpp.obj
+
+FileManagement.i: FileManagement.cpp.i
+.PHONY : FileManagement.i
+
+# target to preprocess a source file
+FileManagement.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\105project.dir\build.make CMakeFiles/105project.dir/FileManagement.cpp.i
+.PHONY : FileManagement.cpp.i
+
+FileManagement.s: FileManagement.cpp.s
+.PHONY : FileManagement.s
+
+# target to generate assembly for a file
+FileManagement.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\105project.dir\build.make CMakeFiles/105project.dir/FileManagement.cpp.s
+.PHONY : FileManagement.cpp.s
+
 Filesystem.obj: Filesystem.cpp.obj
 .PHONY : Filesystem.obj
 
@@ -452,6 +476,9 @@ help:
 	@echo ... Admin.obj
 	@echo ... Admin.i
 	@echo ... Admin.s
+	@echo ... FileManagement.obj
+	@echo ... FileManagement.i
+	@echo ... FileManagement.s
 	@echo ... Filesystem.obj
 	@echo ... Filesystem.i
 	@echo ... Filesystem.s

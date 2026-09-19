@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment/Admin.cpp" "CMakeFiles/105project.dir/Admin.cpp.obj" "gcc" "CMakeFiles/105project.dir/Admin.cpp.obj.d"
+  "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment/FileManagement.cpp" "CMakeFiles/105project.dir/FileManagement.cpp.obj" "gcc" "CMakeFiles/105project.dir/FileManagement.cpp.obj.d"
   "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment/Filesystem.cpp" "CMakeFiles/105project.dir/Filesystem.cpp.obj" "gcc" "CMakeFiles/105project.dir/Filesystem.cpp.obj.d"
   "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment/Kitchen.cpp" "CMakeFiles/105project.dir/Kitchen.cpp.obj" "gcc" "CMakeFiles/105project.dir/Kitchen.cpp.obj.d"
   "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment/Manager.cpp" "CMakeFiles/105project.dir/Manager.cpp.obj" "gcc" "CMakeFiles/105project.dir/Manager.cpp.obj.d"

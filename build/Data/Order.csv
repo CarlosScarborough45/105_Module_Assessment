@@ -1,0 +1,7 @@
+TableNumber|OrderID|Customer|Product|People|Status
+001|002|Carlos|Padthai|5|Completed
+004|002|Charlie|Padthai|5|Completed
+004|002|Carol|Eggs|5|Completed
+004|002|Char|Eggs|1|Completed
+001|001|Carlos|Flour|5|
+001|003|Charles|Fries|5|Complete

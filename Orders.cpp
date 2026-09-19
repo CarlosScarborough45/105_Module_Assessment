@@ -100,12 +100,8 @@ bool Tables::CheckTable(const std::string &tableNumber)
         }
     }
 
-    if (!found)
-    {
-        std::cout << "Table " << tableNumber << " was not found\n";
-        return false;
-    }
-
+    std::cout << "Table " << tableNumber << " was not found\n";
+    return false;
 }
 
 void Manager::AddOrders()
@@ -212,6 +208,20 @@ void Manager::AddOrders()
 
     file << Table << "|" << OrderID << "|" << customer << "|" << product << "|" << people << "|" << "" << "\n";
     file.close();
+
+    {
+        std::vector<Menu> menus = Menu::check_Menu();
+        for (auto &m : menus)
+        {
+            if (m.Name == product)
+            {
+                if (m.Quantity > 0) m.Quantity--;
+                break;
+            }
+        }
+        Menu::save_Menu(menus);
+    }
+
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "New order has been issued go to kitchen for processing\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";

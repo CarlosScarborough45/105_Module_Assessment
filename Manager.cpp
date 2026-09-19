@@ -142,11 +142,31 @@ void Manager::Refill()
     std::cout << "+     How much stock do you want to Refil    +\n";
     std::cout << "+============================================+\n";
 
+    const int MAX_QUANTITY = 45;
     int Amount = 0;
     std::cin >> Amount;
 
-    if (Amount >= menus[index].Quantity) {
-        std::cout << "Stock is a level cannot refile any more\n";
+    if (Amount <= 0)
+    {
+        std::cout << "+============================================+\n";
+        std::cout << "Amount must be greater than 0\n";
+        std::cout << "+============================================+\n";
+        return;
+    }
+    if (menus[index].Quantity >= MAX_QUANTITY)
+    {
+        std::cout << "+============================================+\n";
+        std::cout << "Stock is already at maximum capacity (" << MAX_QUANTITY << ")\n";
+        std::cout << "+============================================+\n";
+        return;
+    }
+    if (menus[index].Quantity + Amount > MAX_QUANTITY)
+    {
+        std::cout << "+============================================+\n";
+        std::cout << "Cannot add " << Amount << ". Only "
+                  << (MAX_QUANTITY - menus[index].Quantity)
+                  << " can be added before hitting the cap of " << MAX_QUANTITY << "\n";
+        std::cout << "+============================================+\n";
         return;
     }
 
@@ -775,7 +795,7 @@ void Manager::TableUsage()
     std::cout << "Table Usage\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    std::vector<Tables> tables = Tables::checkTableFile();
+    auto tables = Tables::checkTableFile();
 
     int occupied = 0, available = 0, reserved = 0;
     std::cout << std::left << std::setw(12) << "Table ID" << "|"

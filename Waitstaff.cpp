@@ -305,6 +305,19 @@ void WaitStaff::Add_Order()
 
     file.close();
 
+    {
+        std::vector<Menu> menus = Menu::check_Menu();
+        for (auto &m : menus)
+        {
+            if (m.Name == o.Product)
+            {
+                if (m.Quantity > 0) m.Quantity--;
+                break;
+            }
+        }
+        Menu::save_Menu(menus);
+    }
+
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << " Order has been Created\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";

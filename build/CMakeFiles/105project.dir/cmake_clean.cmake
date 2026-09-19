@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "105project.pdb"
   "CMakeFiles/105project.dir/Admin.cpp.obj"
   "CMakeFiles/105project.dir/Admin.cpp.obj.d"
+  "CMakeFiles/105project.dir/FileManagement.cpp.obj"
+  "CMakeFiles/105project.dir/FileManagement.cpp.obj.d"
   "CMakeFiles/105project.dir/Filesystem.cpp.obj"
   "CMakeFiles/105project.dir/Filesystem.cpp.obj.d"
   "CMakeFiles/105project.dir/Kitchen.cpp.obj"

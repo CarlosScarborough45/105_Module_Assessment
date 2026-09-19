@@ -157,14 +157,6 @@ CMakeFiles/105project.dir/reports.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Admin.h \
- C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Users.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
- C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Tables.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
@@ -174,6 +166,15 @@ CMakeFiles/105project.dir/reports.cpp.obj: \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
+ C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Admin.h \
+ C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Users.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
+ C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Tables.h \
  C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Order.h \
  C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Menu.h \
- C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Manager.h
+ C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Manager.h \
+ C:\Users\OEM\OneDrive\ -\ UP\ Education\Desktop\Projects\105\ Aseessment\Headers/Sales.h

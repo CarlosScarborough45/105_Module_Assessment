@@ -45,7 +45,14 @@ void Menu::AddItem()
     }
     clearLine();
 
-    std::cout << "Quantity: " << stock::CheckStock(m.Quantity) << "\n";
+    std::cout << "Enter Quantity (1-45)\n";
+    while (!(std::cin >> m.Quantity) || m.Quantity < 1 || m.Quantity > 45)
+    {
+        clearLine();
+        std::cout << "Must be between 1 and 45. Try again\n";
+    }
+    stock::CheckStock(m.Quantity);
+    std::cout << "Stock status: " << stock::status << "\n";
 
     bool needsNewline = false;
     std::ifstream existingFile("../Data/Menu.CSV", std::ios::binary);
