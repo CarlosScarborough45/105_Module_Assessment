@@ -3,7 +3,7 @@
 #include "Headers/Admin.h"
 
 void FileManagement() {
-	int choice;
+	int choice = 0;
 	while (choice != 5) {
 		std::cout << "+" << std::string(60, '=') << "+" << "\n";
 		std::cout << "Welcome to File Management\n";
@@ -18,10 +18,10 @@ void FileManagement() {
 		std::cin >> choice;
 
 		switch (choice) {
-			case 1: {break;}
-			case 2: {break;}
-			case 3: {break;}
-			case 4: {break;}
+			case 1: {CheckFile();	break;}
+			case 2: {ViewFiles();	break;}
+			case 3: {DeleteFiles();	break;}
+			case 4: {CheckFile();	break;}
 			case 5: {
 				std::cout << "+" << std::string(60, '=') << "+" << "\n";
 				std::cout << "Returning to Menu Display\n";
