@@ -3,10 +3,11 @@
 #include "Headers/Order.h"
 #include "Headers/Admin.h"
 #include "Headers/Tables.h"
+#include "Headers/Filesystem.h"
 
 void Admin::reports(){
-    int report;
-    while(report != 5){
+    int report = 0;
+    while(report != 6){
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "Welcome to Report menu\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
@@ -14,17 +15,19 @@ void Admin::reports(){
     std::cout << "[2] Order Count\n";
     std::cout << "[3] Item Order\n";
     std::cout << "[4] Sales Total\n";
-    std::cout << "[5] Return Admin menu\n";
+    std::cout << "[5] File Sizes\n";
+    std::cout << "[6] Return Admin menu\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "Enter the choice\n";
     std::cin >> report;
 
     switch (report){
-        case 1: {Admin::TableOccupancy();   break;}
-        case 2: {Admin::OrderCount();       break;}
-        case 3: {Admin::ItemOrder();        break;}
-        case 4: {Admin::TotalSales();       break;}
-        case 5:
+        case 1: {Admin::TableOccupancy();        break;}
+        case 2: {Admin::OrderCount();            break;}
+        case 3: {Admin::ItemOrder();             break;}
+        case 4: {Admin::TotalSales();            break;}
+        case 5: {FileSystem::ReportFileSizes();  break;}
+        case 6:
         {
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
             std::cout << "Returning to Admin Menu\n";

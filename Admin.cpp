@@ -1,8 +1,10 @@
 #include "Headers/Admin.h"
 #include "Headers/Users.h"
+#include "Headers/Filemanagement.h"
 #include <iostream>
 #include <fstream>
 #include <limits>
+#include <algorithm>
 
 namespace
 {
@@ -33,16 +35,18 @@ void Admin::TopBoss()
             std::cout << "[1] Account Management\n";
             std::cout << "[2] Sales\n";
             std::cout << "[3] Reports\n";
-            std::cout << "[4] Return to Main Menu\n";
+            std::cout << "[4] File Management\n";
+            std::cout << "[5] Return to Main Menu\n";
             std::cout << "+======================================+\n";
             std::cout << "Enter your Choice\n";
             std::cin >> choice;
 
             switch (choice){
-                case 1: {Admin::AccountManagement(); break;}
-                case 2: {Admin::Sales();             break;}
-                case 3: {Admin::reports();           break;}
-                case 4: {
+                case 1: {AccountManagement(); break;}
+                case 2: {Sales();             break;}
+                case 3: {reports();           break;}
+                case 4: {FileManagement();       break;}
+                case 5: {
                         std::cout << "+======================================+\n";
                         std::cout << "+        Returning to Main menu        +\n";
                         std::cout << "+======================================+\n";
@@ -56,7 +60,7 @@ void Admin::AccountManagement(){
     int choice;
     while(true){
             std::cout << "+====================================================+\n";
-            std::cout << "+             Welcome to Account Mamagement          +\n";
+            std::cout << "+             Welcome to Account Management          +\n";
             std::cout << "+====================================================+\n";
             std::cout << "[1] Add Staff Account\n";
             std::cout << "[2] Remove Staff Account\n";
@@ -68,10 +72,10 @@ void Admin::AccountManagement(){
             std::cin >> choice;
 
             switch(choice){
-                case 1: {Admin::AddStaff();         break;}
-                case 2: {Admin::RemoveStaff();      break;}
-                case 3: {Admin::EditStaff();        break;}
-                case 4: {Admin::RaiseStaff();       break;}
+                case 1: {AddStaff();         break;}
+                case 2: {RemoveStaff();      break;}
+                case 3: {EditStaff();        break;}
+                case 4: {RaiseStaff();       break;}
                 case 5: {
                         std::cout << "+====================================================+\n";
                         std::cout << "+                 Returning to Menu                  +\n ";
@@ -86,118 +90,71 @@ void Admin::AddStaff(){
     std::cout << "+========================================================+\n";
     std::cout << "+                 Add new Staff                          +\n";
     std::cout << "+========================================================+\n";
-    
-    std::vector<UserRecord> users = Users::check_File();
 
+    std::vector<UserRecord> users = Users::check_File();
     UserRecord u;
 
-    std::cout << "Enter your Name\n";
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << "Enter Name\n";
     std::getline(std::cin, u.Name);
-
-    bool found = false;
-    for (const auto &existingUser : users)
-    {
-        if (u.Name == existingUser.Name)
-        {
-            found = true;
-            break;
+    for (const auto &existing : users) {
+        if (u.Name == existing.Name) {
+            std::cout << "A staff member with that name already exists\n";
+            return;
         }
     }
-    if (found){
-        std::cout << "Name is already created\n";
-        return;
-    }
 
-    if (!found){
-        std::cout << "No Name is Assigned\n";
-    }
-
-    std::cout << "Enter your Email\n";
+    std::cout << "Enter Email\n";
     std::getline(std::cin, u.Email);
-
-    bool email = false;
-    for (const auto &Email : users){
-        if (u.Email == Email.Email){
-        email = true;
-        break;
+    for (const auto &existing : users) {
+        if (u.Email == existing.Email) {
+            std::cout << "A staff member with that email already exists\n";
+            return;
         }
     }
 
-    if (!email){
-        std::cout << "No Email is created\n";
-    }
-
-    if (email){
-        std::cout << "Email has been created\n";
-        return; 
-    }
-
-    std::cout << "Enter your Password\n";
+    std::cout << "Enter Password\n";
     std::getline(std::cin, u.Password);
 
-    bool password = false;
-    for (const auto &Password : users){
-        if (u.Password == Password.Password){
-            password = true;
-            break;
-        }
-    }
-
-    if (password){
-        std::cout << "Password has been created\n";
-        return;
-    }
-    
-    if (!password){
-        std::cout << "Password has not been created\n";
-    }
-
-    std::cout << "Enter your Username\n";
+    std::cout << "Enter Username\n";
     std::getline(std::cin, u.Username);
-
-    bool username = false;
-    for (const auto &User : users){
-        if (User.Username == u.Username){
-            username = true;
-            break;
+    for (const auto &existing : users) {
+        if (u.Username == existing.Username) {
+            std::cout << "A staff member with that username already exists\n";
+            return;
         }
     }
 
-    if (!username){
-        std::cout << "No Username has been created\n";
-    }
-
-    if (username){
-        std::cout << "Username has been found\n";
-        return;
-    }
     std::string roleinput;
-    std::cout << "Enter your Role\n";
+    std::cout << "Enter Role (Waitstaff, Manager, Kitchen)\n";
     std::cin >> roleinput;
 
-    if (roleinput == "Admin" || roleinput == "admin"){
-        std::cout << "Cannot Create Admin Roll\n";
+    if (roleinput == "Admin" || roleinput == "admin") {
+        std::cout << "Cannot create an Admin role\n";
+        return;
+    }
+    if (roleinput == "Manager")        u.role = roles::Manager;
+    else if (roleinput == "Waitstaff") u.role = roles::WaitStaff;
+    else if (roleinput == "Kitchen")   u.role = roles::Kitchen;
+    else {
+        std::cout << "Invalid role. Must be Waitstaff, Manager, or Kitchen\n";
         return;
     }
 
-    std::string choice;
-    std::cout << "Do you want to continue\n";
-    std::cin >> choice;
+    std::string confirm;
+    std::cout << "Do you want to continue? (Yes/No)\n";
+    std::cin >> confirm;
 
-    
-
-    if (choice == "Yes" || "yes" || "Y" || "y"){
-        std::vector<Users::UserRecord> users = {u};
-        Users::Save(users);
+    if (confirm == "Yes" || confirm == "yes" || confirm == "Y" || confirm == "y") {
+        std::vector<Users::UserRecord> newUser = {u};
+        Users::Save(newUser);
         std::cout << "Staff Hired\n";
-        std::cout << "Welcome New Staff to Eats and Treats" << u.Name << "\n";
+        std::cout << "Welcome New Staff to Eats and Treats: " << u.Name << "\n";
     }
-    else if (choice == "no" || "No" || "N" || "n"){
+    else {
         std::cout << "Staff has not been hired\n";
-        return;
     }
-
 }
 
 void Admin::EditStaff(){
@@ -283,7 +240,89 @@ void Admin::EditStaff(){
 }
 
 void Admin::RemoveStaff(){
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Welcome to staff Firing\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    std::string staff;
+    std::cout << "Enter the staff you want to be fired\n";
+    std::cin >> staff;
+
+    std::vector<UserRecord> users = Users::check_File();
+
+    bool found = false;
+    UserRecord fired;
+    for (const auto &u : users) {
+        if (staff == u.Name) {
+            if (u.role == roles::Admin) {
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                std::cout << "Cannot Remove Admin Profiles\n";
+                std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                return;
+            }
+            std::cout << "User has been found\n";
+            fired = u;
+            found = true;
+            break;
+        }
+    }
+
+    if (found) {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "staff found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << std::left << std::setw(20) << "Name" << "|" << std::setw(20) << "Email"
+                  << "|" << std::setw(20) << "Password" << "|" << "roles" << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << std::left << std::setw(20) << fired.Name << "|" << std::setw(20) << fired.Email << "|"
+                  << std::setw(20) << fired.Password << "|" << RoleToString(fired.role) << "\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    }
+
+    else {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "User cannot be found\n";
+        std::cout << "Must be a registered users\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    std::string Fire;
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Do you want to Fire this person?\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cin >> Fire;
+
+    if (Fire == "Yes" || Fire == "yes") {
+        users.erase(std::remove_if(users.begin(), users.end(),
+            [&staff](const UserRecord &u) { return u.Name == staff; }), users.end());
+
+        std::ofstream file("Data/Users.csv");
+        if (!file) {
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "Could not open file for saving\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            return;
+        }
+        if (file) {
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "File has been opened\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        }
+        for (const auto &u : users) {
+            file << u.Name << "|" << u.Email << "|" << u.Password << "|"
+                 << u.Username << "|" << RoleToString(u.role) << "|\n";
+        }
+        file.close();
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "User has been fired\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    }
+    else if (Fire == "No" || Fire == "no") {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "User has not been fired\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    }
 }
 
 void Admin::RaiseStaff(){

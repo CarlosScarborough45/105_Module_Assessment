@@ -14,7 +14,7 @@ class Users
 {
 private:
     std::string Name, Email, Password, Username;
-    roles role;
+    roles role = roles::Admin;
 
 public:
     struct UserRecord
@@ -25,7 +25,6 @@ public:
 
     static std::vector<UserRecord> check_File();
     static void Save(std::vector<Users::UserRecord> &users);
-    static roles ParseRole(const std::string &roleName);
 
 public:
     static void Login();

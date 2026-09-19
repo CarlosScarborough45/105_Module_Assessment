@@ -47,11 +47,19 @@ add_executable(105project
     Users.cpp
     Waitstaff.cpp
     Filesystem.cpp
+        FileManagement.cpp
+        Headers/Filemanagement.h
 )
 
 target_include_directories(105project PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/Headers
+)
+
+add_custom_command(TARGET 105project POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_SOURCE_DIR}/Data"
+        "$<TARGET_FILE_DIR:105project>/Data"
 )
 
 # For MinGW / GCC compilers

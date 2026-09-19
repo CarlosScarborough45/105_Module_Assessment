@@ -26,21 +26,23 @@ void WaitStaff::Waiter()
     std::cout << "Enter your Choice\n";
     std::cin >> choice;
 
+    WaitStaff w;
+
     switch (choice)
     {
     case 1:
     {
-        WaitStaff::table();
+        w.table();
         break;
     }
     case 2:
     {
-        WaitStaff::menu();
+        w.menu();
         break;
     }
     case 3:
     {
-        WaitStaff::Order();
+        w.Order();
         break;
     }
     case 4:
@@ -48,7 +50,7 @@ void WaitStaff::Waiter()
         std::cout << "+===================================================+\n";
         std::cout << "+            You are Returning to Menu              +\n";
         std::cout << "+===================================================+\n";
-        return;
+        Waiter();
     }
     }
 }

@@ -3,7 +3,7 @@
 class WaitStaff : public Users
 {
 public:
-    void Waiter();
+    static void Waiter();
     void Order();
     void table();
     void menu();

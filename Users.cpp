@@ -5,63 +5,12 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <limits>
-#include <cctype>
 
 #include "Headers/Admin.h"
 #include "Headers/Kitchen.h"
 #include "Headers/Manager.h"
 #include "Headers/Waitstaff.h"
 
-roles Users::ParseRole(const std::string &roleName)
-{
-    // Normalise input: trim CR and make lowercase for robust comparisons
-    std::string r;
-    r.reserve(roleName.size());
-    for (char c : roleName)
-    {
-        if (c == '\r' || c == '\n' || c == ' ')
-            continue;
-        r.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(c))));
-    }
-
-    if (r == "admin")
-        return roles::Admin;
-    if (r == "manager")
-        return roles::Manager;
-    if (r == "waitstaff")
-        return roles::WaitStaff;
-    if (r == "waiter")
-        return roles::WaitStaff;
-    if (r == "kitchen")
-        return roles::Kitchen;
-    return roles::Admin;
-}
-
-namespace
-{
-    std::string TrimField(const std::string &value)
-    {
-        const auto first = value.find_first_not_of(" \t\r\n");
-        if (first == std::string::npos)
-        {
-            return {};
-        }
-
-        const auto last = value.find_last_not_of(" \t\r\n");
-        return value.substr(first, last - first + 1);
-    }
-
-    std::string NormaliseUsername(const std::string &username)
-    {
-        std::string normalised;
-        normalised.reserve(username.size());
-        for (char c : username)
-        {
-            normalised.push_back(static_cast<char>(std::tolower(static_cast<unsigned char>(c))));
-        }
-        return normalised;
-    }
 
     std::string RoleToString(roles role)
     {
@@ -79,7 +28,6 @@ namespace
             return "Admin";
         }
     }
-}
 
 // Overload to check whether an email already exists in the users file.
 bool checkEmail(const std::string &email)
@@ -112,72 +60,72 @@ bool checkPassword(const std::string &Password)
     return true;
 }
 
-void Users::Login()
-{
-    std::cout << "\nLogin\n";
+void Users::Login() {
+        std::cout << "\nLogin\n";
 
-    std::string inputuser, inputPass;
-    std::cout << "Enter your Username\n";
-    std::cin >> inputuser;
+        std::string inputuser, inputPass;
+        std::cout << "Enter your Username\n";
+        std::cin >> inputuser;
 
-    std::cout << "Enter your password\n";
-    std::cin >> inputPass;
+        std::cout << "Enter your password\n";
+        std::cin >> inputPass;
 
-    std::vector<Users::UserRecord> users = Users::check_File();
+        std::vector<UserRecord> users = Users::check_File();
 
-    bool found = false;
-    roles roleMatch = roles::Admin;
+        bool found = false;
+        roles roleMatch;
 
-    for (const auto &u : users)
-    {
-        if (NormaliseUsername(inputuser) == NormaliseUsername(u.Username) && inputPass == u.Password)
+        for (const auto &u : users)
         {
-            roleMatch = u.role;
-            found = true;
-            break;
+            if (inputuser == u.Username && inputPass == u.Password)
+            {
+                roleMatch = u.role;
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            std::cout << "User has not been created. You must register.\n";
+            return;
+        }
+
+        if (found)
+        {
+            std::cout << "You have successfully logged in\n";
+            std::cout << "Welcome, User: " << inputuser << "\n";
+            std::cout << "Resolved role: " << RoleToString(roleMatch) << "\n";
+
+            switch (roleMatch)
+            {
+                case roles::Admin:
+                    Admin::TopBoss();
+                    break;
+                case roles::Manager:
+                {
+                    Manager manager;
+                    manager.Boss();
+                    break;
+                }
+                case roles::WaitStaff:
+                {
+                    WaitStaff staff;
+                    staff.Waiter();
+                    break;
+                }
+                case roles::Kitchen:
+                    kitchen::Cook();
+                    break;
+                default: {
+                    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                    std::cout << "Must have a registered role\n";
+                    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                    break;
+                }
+            }
         }
     }
-
-    if (!found)
-    {
-        std::cout << "User has not been created. You must register.\n";
-        return;
-    }
-
-    if (found)
-    {
-        std::cout << "You have successfully logged in\n";
-        std::cout << "Welcome, User: " << inputuser << "\n";
-        std::cout << "Resolved role: " << RoleToString(roleMatch) << "\n";
-    switch (roleMatch)
-    {
-    case roles::Admin:
-        Admin::TopBoss();
-        break;
-    case roles::Manager:
-    {
-        Manager manager;
-        manager.Boss();
-        break;
-    }
-    case roles::WaitStaff:
-    {
-        WaitStaff staff;
-        staff.Waiter();
-        break;
-    }
-    case roles::Kitchen:
-        kitchen::Cook();
-        break;
-    default:
-        break;
-    }
-    }
-    // Pause so user can see role-specific output before returning to main menu
-    std::cout << "Press Enter to return to main menu...";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cin.get();
-}
 
 void Users::registration()
 {
@@ -201,11 +149,20 @@ void Users::registration()
     std::cout << "Enter your Username\n";
     std::cin >> u.Username;
 
-    std::string roleInput;
+    std::string roleStr;
     std::cout << "Enter your Role (Waitstaff, Manager, Admin, Kitchen)\n";
-    std::cin >> roleInput;
+    std::cin >> roleStr;
 
-    u.role = ParseRole(roleInput);
+    if (roleStr == "Admin")           u.role = roles::Admin;
+    else if (roleStr == "Manager")    u.role = roles::Manager;
+    else if (roleStr == "Waitstaff")  u.role = roles::WaitStaff;
+    else if (roleStr == "Kitchen")    u.role = roles::Kitchen;
+    else {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Invalid role. Must be Waitstaff, Manager, Admin, or Kitchen.\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
 
     users.push_back(u);
 
@@ -256,14 +213,18 @@ std::vector<Users::UserRecord> Users::check_File()
         std::getline(ss, username, '|');
         std::getline(ss, role, '|');
 
-        u.Name = TrimField(name);
-        u.Email = TrimField(email);
-        u.Password = TrimField(password);
-        u.Username = TrimField(username);
-        u.role = ParseRole(role);
+        u.Name     = name;
+        u.Email    = email;
+        u.Password = password;
+        u.Username = username;
+
+        if (role == "Admin")          u.role = roles::Admin;
+        else if (role == "Manager")   u.role = roles::Manager;
+        else if (role == "Waitstaff") u.role = roles::WaitStaff;
+        else if (role == "Kitchen")   u.role = roles::Kitchen;
+        else                          u.role = roles::Admin;
 
         users.push_back(u);
     }
-
     return users;
 }
