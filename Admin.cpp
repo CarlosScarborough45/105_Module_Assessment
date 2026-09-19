@@ -50,15 +50,21 @@ void Admin::TopBoss()
                         std::cout << "+======================================+\n";
                         std::cout << "+        Returning to Main menu        +\n";
                         std::cout << "+======================================+\n";
-                        return;
+                        TopBoss();
                     }
+                default: {
+                    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                    std::cout << "Must Choose between 1 - 5\n";
+                    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                    return;
+                }
         }
     }
 }
 
 void Admin::AccountManagement(){
-    int choice;
-    while(true){
+    int choice = 0;
+    while(choice != 5){
             std::cout << "+====================================================+\n";
             std::cout << "+             Welcome to Account Management          +\n";
             std::cout << "+====================================================+\n";
@@ -80,8 +86,13 @@ void Admin::AccountManagement(){
                         std::cout << "+====================================================+\n";
                         std::cout << "+                 Returning to Menu                  +\n ";
                         std::cout << "+====================================================+\n";
-                        return;
+                        TopBoss();
                     }
+                default: {
+                    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                    std::cout << "Must choose between 1 - 5\n";
+                    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                }
             }
     }
 }
@@ -148,7 +159,7 @@ void Admin::AddStaff(){
 
     if (confirm == "Yes" || confirm == "yes" || confirm == "Y" || confirm == "y") {
         std::vector<Users::UserRecord> newUser = {u};
-        Users::Save(newUser);
+        Save(newUser);
         std::cout << "Staff Hired\n";
         std::cout << "Welcome New Staff to Eats and Treats: " << u.Name << "\n";
     }
