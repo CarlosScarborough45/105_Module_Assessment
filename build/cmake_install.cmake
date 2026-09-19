@@ -1,4 +1,4 @@
-# Install script for directory: D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual
+# Install script for directory: C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,13 +34,13 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "D:/Users/932400098/scoop/apps/gcc/current/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Qt/Tools/mingw1310_64/bin/objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/build/install_local_manifest.txt"
+  file(WRITE "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment/build/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -56,6 +56,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "D:/Users/932400098/OneDrive - UP Education/Desktop/Projects/105/Visual/build/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

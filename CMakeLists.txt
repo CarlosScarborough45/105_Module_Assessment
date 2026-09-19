@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 if(NOT DEFINED CMAKE_CXX_COMPILER OR CMAKE_CXX_COMPILER STREQUAL "")
     set(_candidate_compilers
+        "C:/Qt/Tools/mingw1310_64/bin/g++.exe"
         "D:/Users/932400098/scoop/apps/gcc/current/bin/g++.exe"
         "C:/Program Files/LLVM/bin/clang++.exe"
         "C:/msys64/ucrt64/bin/g++.exe"
@@ -39,11 +40,13 @@ add_executable(105project
     Manager.cpp
     Menu.cpp
     Orders.cpp
+    Overides.cpp
     Table.cpp
     Table.Occupancy.cpp
     reports.cpp
     Users.cpp
     Waitstaff.cpp
+    Filesystem.cpp
 )
 
 target_include_directories(105project PRIVATE
