@@ -25,6 +25,7 @@ public:
 
     static std::vector<UserRecord> check_File();
     static void Save(std::vector<Users::UserRecord> &users);
+    static int main();
 
 public:
     static void Login();

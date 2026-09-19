@@ -50,13 +50,13 @@ void Admin::TopBoss()
                         std::cout << "+======================================+\n";
                         std::cout << "+        Returning to Main menu        +\n";
                         std::cout << "+======================================+\n";
-                        TopBoss();
+                        return;
                     }
                 default: {
                     std::cout << "+" << std::string(60, '=') << "+" << "\n";
                     std::cout << "Must Choose between 1 - 5\n";
                     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-                    return;
+                    break;
                 }
         }
     }
@@ -84,14 +84,15 @@ void Admin::AccountManagement(){
                 case 4: {RaiseStaff();       break;}
                 case 5: {
                         std::cout << "+====================================================+\n";
-                        std::cout << "+                 Returning to Menu                  +\n ";
+                        std::cout << "+                 Returning to Menu                  +\n";
                         std::cout << "+====================================================+\n";
-                        TopBoss();
+                        return;
                     }
                 default: {
                     std::cout << "+" << std::string(60, '=') << "+" << "\n";
                     std::cout << "Must choose between 1 - 5\n";
                     std::cout << "+" << std::string(60, '=') << "+" << "\n";
+                    break;
                 }
             }
     }
@@ -180,27 +181,23 @@ void Admin::EditStaff(){
     std::vector<Users::UserRecord> users = Users::check_File();
 
     int index = -1;
-    for (int i = 0; i < (int)users.size(); i++){
+    for (int i = 0; i < static_cast<int>(users.size()); i++){
         if (name == users[i].Name){
             index = i;
             break;
-        }
-    }
-    
-    for (const auto &u : users){
-        if (name == u.Name){
-            if (users[index].role == roles::Admin){
-                std::cout << "+" << std::string(60, '=') << "+" << "\n";
-                std::cout << "Admin cannot change another Admin role\n";
-                std::cout << "+" << std::string(60, '=') << "+" << "\n";
-                return;
-            }
         }
     }
 
     if (index == -1){
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "No Staff has been found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    if (users[index].role == roles::Admin){
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Admin cannot change another Admin role\n";
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
@@ -348,7 +345,7 @@ void Admin::RaiseStaff(){
     std::cin >> name;
 
     int index = -1;
-    for (int i = 0; i < (int)users.size(); i++){
+    for (int i = 0; i < static_cast<int>(users.size()); i++){
         if (users[i].Name == name){ index = i; break; }
     }
 

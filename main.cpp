@@ -7,7 +7,9 @@ int main()
     int choice;
     while (true)
     {
-        std::cout << "\nMain Menu\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "\nWelcome to Eats And Treats Management System\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "1. Login\n";
         std::cout << "2. Registration\n";
         std::cout << "3. Exit\n";

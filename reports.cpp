@@ -2,6 +2,9 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
+#include <map>
+#include <vector>
+#include <algorithm>
 #include "Headers/Admin.h"
 #include "Headers/Order.h"
 #include "Headers/Menu.h"
@@ -33,7 +36,7 @@ void Admin::Sales(){
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
             std::cout << "Returning to Admin Menu\n";
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
-            Admin::TopBoss();
+            break;
     }
     
     default: {
@@ -51,23 +54,22 @@ void Admin::BestSales(){
     std::cout << "Best Sales (Total >= $50)\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    std::vector<struct sales> sale = sales::checkSaleFile();
+    std::vector<Orders> orders = Orders::checkOrderFile();
+    std::map<std::string, double> orderTotals;
+    for (const auto &o : orders)
+        orderTotals[o.OrderID] += o.price;
 
-    std::cout << std::left << std::setw(15) << "ID"
-              << std::setw(15) << "Price"
+    std::cout << std::left << std::setw(15) << "Order ID"
               << std::setw(15) << "Total Sales" << "\n";
     std::cout << "+" << std::string(60, '-') << "+" << "\n";
 
     bool any = false;
-    for (const auto &s : sale){
-        try {
-            if (std::stod(s.TotalSales) >= 50){
-                std::cout << std::left << std::setw(15) << s.ID
-                          << std::setw(15) << s.Price
-                          << std::setw(15) << s.TotalSales << "\n";
-                any = true;
-            }
-        } catch (...) {}
+    for (const auto &entry : orderTotals){
+        if (entry.second >= 50.0){
+            std::cout << std::left << std::setw(15) << entry.first
+                      << "$" << std::fixed << std::setprecision(2) << entry.second << "\n";
+            any = true;
+        }
     }
     if (!any) std::cout << "No sales at or above $50\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
@@ -78,23 +80,22 @@ void Admin::WorstSales(){
     std::cout << "Worst Sales (Total <= $20)\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    std::vector<struct sales> sale = sales::checkSaleFile();
+    std::vector<Orders> orders = Orders::checkOrderFile();
+    std::map<std::string, double> orderTotals;
+    for (const auto &o : orders)
+        orderTotals[o.OrderID] += o.price;
 
-    std::cout << std::left << std::setw(15) << "ID"
-              << std::setw(15) << "Price"
+    std::cout << std::left << std::setw(15) << "Order ID"
               << std::setw(15) << "Total Sales" << "\n";
     std::cout << "+" << std::string(60, '-') << "+" << "\n";
 
     bool any = false;
-    for (const auto &s : sale){
-        try {
-            if (std::stod(s.TotalSales) <= 20){
-                std::cout << std::left << std::setw(15) << s.ID
-                          << std::setw(15) << s.Price
-                          << std::setw(15) << s.TotalSales << "\n";
-                any = true;
-            }
-        } catch (...) {}
+    for (const auto &entry : orderTotals){
+        if (entry.second <= 20.0){
+            std::cout << std::left << std::setw(15) << entry.first
+                      << "$" << std::fixed << std::setprecision(2) << entry.second << "\n";
+            any = true;
+        }
     }
     if (!any) std::cout << "No sales at or below $20\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
@@ -105,13 +106,81 @@ void Admin::SalesCategory(){
     std::cout << "Sales By Category\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    std::vector<Orders> orders = Orders::checkOrderFile();
+    std::vector<Menu>   menu   = Menu::check_Menu();
+
+    if (orders.empty()){
+        std::cout << "No orders found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    std::map<std::string, int>    categoryCount;
+    std::map<std::string, double> categoryRevenue;
+
+    for (const auto &o : orders){
+        categoryCount[o.Product]++;
+        for (const auto &m : menu){
+            if (m.Name == o.Product){
+                categoryRevenue[o.Product] += m.price;
+                break;
+            }
+        }
+    }
+
+    std::cout << std::left << std::setw(20) << "Product"
+              << std::setw(10) << "Orders"
+              << std::setw(15) << "Revenue" << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+
+    for (const auto &entry : categoryCount){
+        std::cout << std::left << std::setw(20) << entry.first
+                  << std::setw(10) << entry.second
+                  << "$" << std::fixed << std::setprecision(2)
+                  << categoryRevenue[entry.first] << "\n";
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Admin::OrderCount(){
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "What Order you want to count\n";
+    std::cout << "Order Count\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    if (orders.empty()){
+        std::cout << "No orders found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    int total     = (int)orders.size();
+    int completed = 0;
+    int pending   = 0;
+
+    std::map<std::string, int> perTable;
+
+    for (const auto &o : orders){
+        if (o.status == "Completed" || o.status == "completed" || o.status == "Complete")
+            completed++;
+        else
+            pending++;
+        perTable[o.TableID]++;
+    }
+
+    std::cout << "Total Orders  : " << total     << "\n";
+    std::cout << "Completed     : " << completed << "\n";
+    std::cout << "Pending       : " << pending   << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+    std::cout << std::left << std::setw(15) << "Table ID" << std::setw(10) << "Orders" << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+
+    for (const auto &entry : perTable){
+        std::cout << std::left << std::setw(15) << entry.first
+                  << std::setw(10) << entry.second << "\n";
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Admin::ItemOrder(){
@@ -119,6 +188,46 @@ void Admin::ItemOrder(){
     std::cout << "Items Ordered\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    std::vector<Orders> orders = Orders::checkOrderFile();
+    std::vector<Menu>   menu   = Menu::check_Menu();
+
+    if (orders.empty()){
+        std::cout << "No orders found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    std::map<std::string, int>    itemCount;
+    std::map<std::string, double> itemRevenue;
+
+    for (const auto &o : orders){
+        itemCount[o.Product]++;
+        for (const auto &m : menu){
+            if (m.Name == o.Product){
+                itemRevenue[o.Product] += m.price;
+                break;
+            }
+        }
+    }
+
+    std::vector<std::pair<std::string, int>> sorted(itemCount.begin(), itemCount.end());
+    std::sort(sorted.begin(), sorted.end(),
+              [](const std::pair<std::string,int> &a, const std::pair<std::string,int> &b){
+                  return a.second > b.second;
+              });
+
+    std::cout << std::left << std::setw(20) << "Item"
+              << std::setw(10) << "Times Ordered"
+              << std::setw(15) << "Total Revenue" << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+
+    for (const auto &entry : sorted){
+        std::cout << std::left << std::setw(20) << entry.first
+                  << std::setw(10) << entry.second
+                  << "$" << std::fixed << std::setprecision(2)
+                  << itemRevenue[entry.first] << "\n";
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Admin::TotalSales(){
@@ -126,57 +235,40 @@ void Admin::TotalSales(){
     std::cout << "Total Sales\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    std::ifstream occFile("../Data/Table.occupancy.csv");
-    if (!occFile.is_open()){
-        std::cout << "Table occupancy file cannot be opened\n";
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    if (orders.empty()){
+        std::cout << "No orders found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
 
-    std::vector<Orders> orders = Orders::checkOrderFile();
-    std::vector<Menu>   menu   = Menu::check_Menu();
+    // Sum all item prices per order
+    std::map<std::string, double> orderTotals;
+    for (const auto &o : orders)
+        orderTotals[o.OrderID] += o.price;
+
+    std::cout << std::left << std::setw(15) << "Order ID"
+              << std::setw(15) << "Total" << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
 
     double grandTotal = 0.0;
-    std::ofstream salesFile("../Data/Sales.csv", std::ios::app);
-
-    std::string line;
-    while (std::getline(occFile, line)){
-        if (line.empty()) continue;
-
-        std::stringstream ss(line);
-        std::string tableID, capacity, orderID;
-        std::getline(ss, tableID,  '|');
-        std::getline(ss, capacity, '|');
-        std::getline(ss, orderID,  '|');
-
-        if (orderID.empty()) continue;
-
-        double price = 0.0;
-        for (const auto &o : orders){
-            if (o.OrderID == orderID){
-                for (const auto &m : menu){
-                    if (m.Name == o.Product){
-                        price = m.price;
-                        break;
-                    }
-                }
-                break;
-            }
-        }
-
-        grandTotal += price;
-
-        std::cout << std::left << std::setw(15) << "Order ID:" << orderID
-                  << "  Table: " << tableID
-                  << "  Price: $" << price << "\n";
-
-        if (salesFile.is_open())
-            salesFile << orderID << "|" << price << "|" << price << "\n";
+    for (const auto &entry : orderTotals){
+        std::cout << std::left << std::setw(15) << entry.first
+                  << "$" << std::fixed << std::setprecision(2) << entry.second << "\n";
+        grandTotal += entry.second;
     }
 
-    occFile.close();
-    if (salesFile.is_open()) salesFile.close();
+    // Overwrite Sales.csv with correct per-order totals
+    std::ofstream salesFile("../Data/Sales.csv");
+    if (salesFile.is_open()){
+        salesFile << "OrderID|price|Total Sales|\n";
+        for (const auto &entry : orderTotals)
+            salesFile << entry.first << "|" << std::fixed << std::setprecision(2)
+                      << entry.second << "|" << entry.second << "|\n";
+    }
 
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Grand Total: $" << grandTotal << "\n";
+    std::cout << "Grand Total: $" << std::fixed << std::setprecision(2) << grandTotal << "\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }

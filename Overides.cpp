@@ -55,7 +55,7 @@ void Manager::OverRide()
                 std::cout << "+" << std::string(60, '=') << "+" << "\n";
                 std::cout << "Returning to Manager Menu\n";
                 std::cout << "+" << std::string(60, '=') << "+" << "\n";
-                Manager::Boss();
+                break;
             }
 
             default: 
@@ -120,9 +120,9 @@ void OverRide::MakeTableAvalible(){
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cin >> avalible;
 
-    if (avalible == "Avalible" || avalible == "avalible"){
-        if (Tables::SetAvailability(TableFound.TableID, "Avalible")){
-            std::cout << "Table Changed to Avalible\n";
+    if (avalible == "Available" || avalible == "available"){
+        if (Tables::SetAvailability(TableFound.TableID, "Available")){
+            std::cout << "Table Changed to Available\n";
         }
         else{
             std::cout << "Could not update table availability\n";
@@ -180,12 +180,18 @@ void OverRide::CompanItem(){
             OverRide::DiscountAnItem();
             break;
         }
-        case 4: 
+        case 4:
         {
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
             std::cout << "Returning to Manager Menu\n";
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
-            Manager::Boss();
+            break;
+        }
+        default:
+        {
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "Must choose between 1 - 4\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
         }
     }
     }while(comp != 4);

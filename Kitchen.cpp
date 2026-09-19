@@ -13,44 +13,40 @@ void kitchen::Cook()
     std::cout << "You are Logged into Kitchen Dashboard\n";
     std::cout << std::string(50, '=') << "\n";
 
-    std::cout << std::string(50, '=') << "\n";
-    std::cout << "Welcome user\n";
-    std::cout << std::string(50, '=') << "\n";
-    std::cout << "[1] View all Pending orders\n";
-    std::cout << "[2] View Completed Orders\n";
-    std::cout << "[3] Make Pending Orders completed\n";
-    std::cout << "[4] Return to menu\n";
-    std::cout << std::string(50, '=') << "\n";
-    std::cout << "Enter your Choice\n";
-    std::cin >> cook;
+    while (true)
+    {
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "Welcome user\n";
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "[1] View all Pending orders\n";
+        std::cout << "[2] View Completed Orders\n";
+        std::cout << "[3] Make Pending Orders completed\n";
+        std::cout << "[4] Return to menu\n";
+        std::cout << std::string(50, '=') << "\n";
+        std::cout << "Enter your Choice\n";
+        std::cin >> cook;
 
-    switch (cook)
-    {
-    case 1:
-    {
-        Pending();
-        break;
+        switch (cook)
+        {
+        case 1: Pending();     break;
+        case 2: Completed();   break;
+        case 3: TurnPending(); break;
+        case 4:
+        {
+            std::cout << std::string(50, '=') << "\n";
+            std::cout << "You are Logging out\n";
+            std::cout << std::string(50, '=') << "\n";
+            return;
+        }
+        default:
+        {
+            std::cout << std::string(50, '=') << "\n";
+            std::cout << "Must choose between 1 - 4\n";
+            std::cout << std::string(50, '=') << "\n";
+        }
+        }
     }
-    case 2:
-    {
-        Completed();
-        break;
-    }
-    case 3:
-    {
-       TurnPending();
-        break;
-    }
-    case 4:
-    {
-        std::cout << std::string(50, '=') << "\n";
-        std::cout << "You are Logging out\n";
-        std::cout << "You are Exiting the program\n";
-        std::cout << std::string(50, '=') << "\n";
-        return;
-    }
-    }
-};
+}
 
 void kitchen::Pending()
 {
@@ -59,13 +55,7 @@ void kitchen::Pending()
     std::cout << std::string(50, '=') << "\n";
 
     std::vector<Orders> orders = Orders::checkOrderFile();
-    Menu m;
 
-    std::cout << std::string(50, '=') << "\n";
-    std::cout << "Pending Orders\n";
-    std::cout << std::string(50, '=') << "\n";
-
-    std::cout << std::string(50, '=') << "\n";
     std::cout << std::left << std::setw(10) << "Id" << "|" << std::setw(10) << "Price" << "|" << std::setw(10) << "Status" << "|" << "\n";
     std::cout << std::string(50, '=') << "\n";
     for (const auto &O : orders)
@@ -76,31 +66,26 @@ void kitchen::Pending()
         }
     }
     std::cout << std::string(50, '=') << "\n";
-
-    Cook();
 }
 
 void kitchen::Completed()
 {
     std::vector<Orders> orders = Orders::checkOrderFile();
-    Menu m;
 
     std::cout << std::string(50, '=') << "\n";
     std::cout << "Completed Orders\n";
     std::cout << std::string(50, '=') << "\n";
 
-    std::cout << std::string(50, '=') << "\n";
     std::cout << std::left << std::setw(10) << "Id" << "|" << std::setw(10) << "Price" << "|" << std::setw(10) << "Status" << "|" << "\n";
     std::cout << std::string(50, '=') << "\n";
     for (const auto &O : orders)
     {
         if (O.status == "Completed")
         {
-            std::cout << std::left << std::setw(6) << O.OrderID << "|" << std::setw(6) << "$" << m.price << "|" << std::setw(6) << O.status << "|" << "\n";
+            std::cout << std::left << std::setw(6) << O.OrderID << "|" << std::setw(6) << "$" << O.price << "|" << std::setw(6) << O.status << "|" << "\n";
         }
     }
     std::cout << std::string(50, '=') << "\n";
-    Cook();
 }
 
 void kitchen::TurnPending()
@@ -114,7 +99,6 @@ void kitchen::TurnPending()
     std::cin >> choice;
 
     std::vector<Orders> orders = Orders::checkOrderFile();
-    Menu m;
 
     bool order = false;
     Orders selectedOrder;
@@ -147,7 +131,7 @@ void kitchen::TurnPending()
 
         for (const auto &O : orders)
         {
-            std::cout << std::left << std::setw(6) << O.OrderID << "|" << std::setw(6) << "$" << m.price << "|" << std::setw(6) << O.status << "|" << "\n";
+            std::cout << std::left << std::setw(6) << O.OrderID << "|" << std::setw(6) << "$" << O.price << "|" << std::setw(6) << O.status << "|" << "\n";
         }
         std::cout << std::string(50, '=') << "\n";
 
@@ -245,8 +229,6 @@ void kitchen::TurnPending()
             std::cout << std::string(50, '=') << "\n";
             std::cout << "Cannot find current status\n";
             std::cout << std::string(50, '=') << "\n";
-            return;
         }
     }
-    Cook();
 }

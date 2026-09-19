@@ -8,6 +8,7 @@
 #include <fstream>
 #include <iomanip>
 #include <limits>
+#include <map>
 
 bool blockAmin(roles role)
 {
@@ -38,17 +39,27 @@ void Manager::ViewStock()
 {
     std::vector<Menu> menu = Menu::check_Menu();
 
+    if (menu.empty())
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "No stock items found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "\nAll Stock\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     for (const auto &M : menu)
     {
-        bool available = stock::CheckStock(M.Quantity);
-        std::cout << "Name:" << M.Name << "\n"
-                  << "ID:" << M.menuID << "\n"
-                  << "Price:" << "$" << M.price << "\n"
-                  << "Quantity: " << stock::CheckStock(M.Quantity) << "\n"
+        stock::CheckStock(M.Quantity);
+        std::cout << "Name: " << M.Name << "\n"
+                  << "ID: " << M.menuID << "\n"
+                  << "Price: $" << M.price << "\n"
+                  << "Quantity: " << M.Quantity << "\n"
                   << "Availability: " << stock::status << "\n";
+        std::cout << "+" << std::string(60, '-') << "+" << "\n";
     }
-    return;
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
@@ -58,40 +69,39 @@ void Manager::SelectStock()
     std::cout << "+             Selected Stock                 +\n";
     std::cout << "+============================================+\n";
 
-    std::string stock;
+    std::string stockName;
     std::cout << "+============================================+\n";
     std::cout << "+           Enter the required stock         +\n";
     std::cout << "+============================================+\n";
-    std::cin >> stock;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::getline(std::cin, stockName);
 
     std::vector<Menu> menu = Menu::check_Menu();
 
     bool found = false;
-    std::cout << "+============================================+\n";
-    std::cout << "+             Stock Details                  +\n";
-    std::cout << "+============================================+\n";
     for (const auto &M : menu)
     {
-        if (stock == M.Name)
+        if (stockName == M.Name)
         {
             std::cout << "+============================================+\n";
             std::cout << "+             Stock has been found           +\n";
             std::cout << "+============================================+\n";
             found = true;
-            std::cout << "Name:" << M.Name << "\n"
-                      << "ID:" << M.menuID << "\n"
-                      << "Price:" << "$" << M.price << "\n"
-                      << "Quantity: " << stock::CheckStock(M.Quantity) << "\n"
-                      << "Avalability:" << M.avalability << "\n";
+            stock::CheckStock(M.Quantity);
+            std::cout << "Name: " << M.Name << "\n"
+                      << "ID: " << M.menuID << "\n"
+                      << "Price: $" << M.price << "\n"
+                      << "Quantity: " << M.Quantity << "\n"
+                      << "Availability: " << stock::status << "\n";
+            std::cout << "+============================================+\n";
+            break;
         }
     }
-    std::cout << "+====================================================+\n";
     if (!found)
     {
         std::cout << "+============================================+\n";
         std::cout << "+             Stock not found                +\n";
         std::cout << "+============================================+\n";
-        return;
     }
 }
 
@@ -181,44 +191,50 @@ void Manager::Refill()
 
 void Manager::StockManage()
 {
-    std::cout << "\nStock Management\n";
-
     int Stock;
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Stock Options\n";
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "[1] View Stock\n";
-    std::cout << "[2] Select Stock\n";
-    std::cout << "[3] Refill Stock\n";
-    std::cout << "[4] Return to menu\n";
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Enter your choice\n";
-    std::cin >> Stock;
+    while (true)
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Stock Management\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "[1] View Stock\n";
+        std::cout << "[2] Select Stock\n";
+        std::cout << "[3] Refill Stock\n";
+        std::cout << "[4] Return to menu\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Enter your choice\n";
+        std::cin >> Stock;
 
-    switch (Stock)
-    {
-    case 1:
-    {
-        ViewStock();
-        break;
-    }
-    case 2:
-    {
-        SelectStock();
-        break;
-    }
-    case 3:
-    {
-        Refill();
-        break;
-    }
-    case 4:
-    {
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        std::cout << "Return to Menu\n";
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    }
-        default: ;
+        switch (Stock)
+        {
+        case 1:
+        {
+            ViewStock();
+            break;
+        }
+        case 2:
+        {
+            SelectStock();
+            break;
+        }
+        case 3:
+        {
+            Refill();
+            break;
+        }
+        case 4:
+        {
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "Return to Menu\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            return;
+        }
+        default:
+        {
+            std::cout << "Must choose between 1 - 4\n";
+            break;
+        }
+        }
     }
 }
 
@@ -705,7 +721,8 @@ void Manager::selected_sales()
             {
                 if (j.Name == order.Product)
                 {
-                    price = Menu::price;
+                    price = j.price;
+                    break;
                 }
             }
 
@@ -725,67 +742,60 @@ void Manager::selected_sales()
         return;
     }
 
-    std::cout << "Total Sales: $" << TotalSales << "\n";
-
-    std::ofstream file("../Data/Sales.csv", std::ios::app);
-    if (file.is_open())
-    {
-        file << ID << "|" << found << "|" << TotalSales << "\n";
-        std::cout << "Sales have been saved\n";
-    }
-    else
-    {
-        std::cout << "Could not open the file\n";
-    }
+    std::cout << "Total Sales: $" << std::fixed << std::setprecision(2) << TotalSales << "\n";
 }
 
 void Manager::BestSales()
 {
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Welcome to Best Sales\n";
+    std::cout << "Best Sales (Total >= $50)\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    std::vector<struct sales> sale = sales::checkSaleFile();
+    std::vector<Orders> orders = Orders::checkOrderFile();
+    std::map<std::string, double> orderTotals;
+    for (const auto &o : orders)
+        orderTotals[o.OrderID] += o.price;
 
-    std::cout << std::left << std::setw(15) << "ID"
-              << std::setw(15) << "Price"
+    std::cout << std::left << std::setw(15) << "Order ID"
               << std::setw(15) << "Total Sales" << "\n";
     std::cout << "+" << std::string(60, '-') << "+" << "\n";
 
-    for (const auto& s : sale) {
-        try {
-            if (std::stod(s.TotalSales) >= 50) {
-                std::cout << std::left << std::setw(15) << s.ID
-                          << std::setw(15) << s.Price
-                          << std::setw(15) << s.TotalSales << "\n";
-            }
-        } catch (...) {}
+    bool any = false;
+    for (const auto &entry : orderTotals) {
+        if (entry.second >= 50.0) {
+            std::cout << std::left << std::setw(15) << entry.first
+                      << "$" << std::fixed << std::setprecision(2) << entry.second << "\n";
+            any = true;
+        }
     }
+    if (!any) std::cout << "No sales at or above $50\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Manager::WorstSales()
 {
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Welcome to Worst Sales\n";
+    std::cout << "Worst Sales (Total <= $20)\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    std::vector<struct sales> sale = sales::checkSaleFile();
+    std::vector<Orders> orders = Orders::checkOrderFile();
+    std::map<std::string, double> orderTotals;
+    for (const auto &o : orders)
+        orderTotals[o.OrderID] += o.price;
 
-    std::cout << std::left << std::setw(15) << "ID"
-              << std::setw(15) << "Price"
+    std::cout << std::left << std::setw(15) << "Order ID"
               << std::setw(15) << "Total Sales" << "\n";
     std::cout << "+" << std::string(60, '-') << "+" << "\n";
 
-    for (const auto& s : sale) {
-        try {
-            if (std::stod(s.TotalSales) <= 20) {
-                std::cout << std::left << std::setw(15) << s.ID
-                          << std::setw(15) << s.Price
-                          << std::setw(15) << s.TotalSales << "\n";
-            }
-        } catch (...) {}
+    bool any = false;
+    for (const auto &entry : orderTotals) {
+        if (entry.second <= 20.0) {
+            std::cout << std::left << std::setw(15) << entry.first
+                      << "$" << std::fixed << std::setprecision(2) << entry.second << "\n";
+            any = true;
+        }
     }
+    if (!any) std::cout << "No sales at or below $20\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 

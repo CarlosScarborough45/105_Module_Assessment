@@ -11,8 +11,6 @@
 #include <limits>
 #include <algorithm>
 
-double Menu::price = 0.0;
-
 // worth putting in a utils header — you'll want this in every input function
 static void clearLine()
 {
@@ -354,68 +352,52 @@ void Menu::SpecialItem()
 
     std::vector<Menu> menu = Menu::check_Menu();
 
-    Menu m;
-
     std::string item;
-    int NewPrice;
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Which Menu you want to update?\n";
+    std::cout << "Which Menu item you want to update?\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cin >> item;
 
-    bool found = false;
-
-    for (auto &menuItem : menu)
+    int foundIndex = -1;
+    for (int i = 0; i < (int)menu.size(); i++)
     {
-        if (menuItem.Name == item)
+        if (menu[i].Name == item)
         {
-            found = true;
+            foundIndex = i;
             break;
         }
     }
 
-    if (!found)
+    if (foundIndex == -1)
     {
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Cannot Find Item\n";
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    }
-    else if (found)
-    {
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        std::cout << "Item found\n";
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        std::cout << std::left << std::setw(20) << "Item: " << m.Name << "|" << std::setw(20) << "Price: " << m.price << "\n";
-        std::cout << std::string(50, '=') << "\n";
-    }
-
-    std::cout << "Enter new Price: \n";
-    std::cin >> NewPrice;
-
-    std::ofstream file("../Data/Menu.CSV");
-    if (!file)
-    {
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        std::cout << "File has not been created\n";
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         return;
     }
-    else if (file)
+
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Item found\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << std::left << std::setw(20) << "Item: " << menu[foundIndex].Name
+              << "|" << std::setw(20) << "Price: $" << menu[foundIndex].price << "\n";
+    std::cout << std::string(50, '=') << "\n";
+
+    double NewPrice;
+    std::cout << "Enter new Price: \n";
+    while (!(std::cin >> NewPrice) || NewPrice < 0)
     {
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        std::cout << "file has been created\n";
-        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Enter a valid positive price: \n";
     }
 
-    file << "ID" << "|" << "Name" << "|" << "Price" << "|" << "Quantity" << "|" << "Avalibility" << "|" << "\n";
+    menu[foundIndex].price = NewPrice;
 
-    for (const auto &menuItem : menu)
-    {
-        file << menuItem.menuID << "|" << menuItem.Name << "|" << menuItem.price << "|" << menuItem.Quantity << "|"
-             << menuItem.avalability << "|" << "\n";
-    }
+    Menu::save_Menu(menu);
 
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "Menu Item has been changed\n";
-    std::cout << m.Name << m.price << "\n";
-    return;
+    std::cout << menu[foundIndex].Name << " new price: $" << menu[foundIndex].price << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }

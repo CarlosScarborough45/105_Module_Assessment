@@ -32,36 +32,36 @@
 
 bool checkEmail(const std::string &email)
 {
-    if (email.empty()){
-        return false;
-        }
+    if (email.empty()) return false;
     std::vector<Users::UserRecord> users = Users::check_File();
     for (const auto &u : users)
     {
-        if (u.Email == email)
+        if (u.Email == email) {
+            std::cout << "There is already an existing email\n";
             return false;
-            std::cout << "there is an already existing email\n";
+        }
     }
     return true;
 }
 
 bool checkPassword(const std::string &Password)
 {
-    if (Password.empty()){
-        return false;
-        }
+    if (Password.empty()) return false;
     std::vector<Users::UserRecord> users = Users::check_File();
     for (const auto &u : users)
     {
-        if (u.Password == Password)
+        if (u.Password == Password) {
+            std::cout << "There is already an existing password\n";
             return false;
-            std::cout << "there is an already existing Password\n";
+        }
     }
     return true;
 }
 
 void Users::Login() {
-        std::cout << "\nLogin\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "\nWelcome to Login\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
         std::string inputuser, inputPass;
         std::cout << "Enter your Username\n";
@@ -129,7 +129,9 @@ void Users::Login() {
 
 void Users::registration()
 {
-    std::cout << "\nRegistration\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "\nWelcome to Registration\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
     std::vector<Users::UserRecord> users;
     UserRecord u;
@@ -140,11 +142,11 @@ void Users::registration()
     
     std::cout << "Enter your Email\n";
     std::cin >> u.Email;
-    checkEmail(u.Email);
+    if (!checkEmail(u.Email)) return;
 
     std::cout << "Enter Your Password\n";
     std::cin >> u.Password;
-    checkPassword(u.Password);
+    if (!checkPassword(u.Password)) return;
 
     std::cout << "Enter your Username\n";
     std::cin >> u.Username;

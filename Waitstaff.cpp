@@ -51,7 +51,7 @@ void WaitStaff::Waiter()
                 std::cout << "+===================================================+\n";
                 std::cout << "+            You are Returning to Menu              +\n";
                 std::cout << "+===================================================+\n";
-                Waiter();
+                return;
             }
             default: {
                 std::cout << "+" << std::string(60, '=') << "+" << "\n";
@@ -91,7 +91,6 @@ void WaitStaff::table()
         }
     }
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    WaitStaff::Waiter();
 }
 
 void WaitStaff::menu()
@@ -113,7 +112,6 @@ void WaitStaff::menu()
                   << std::setw(10) << " Availability:" << m.avalability << "|" << "\n";
     }
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    WaitStaff::Waiter();
 }
 
 void WaitStaff::Order()
@@ -154,7 +152,13 @@ void WaitStaff::Order()
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Returning back to Waiter Menu\n";
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        Waiter();
+        return;
+    }
+    default:
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Must Choose between 1 - 4\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
     }
 }
@@ -201,15 +205,14 @@ void WaitStaff::Add_Order()
     std::cout << "Enter Order ID: \n";
     std::cin >> o.OrderID;
 
-    for (const auto &Orders : order)
+    for (const auto &existing : order)
     {
-        if (o.OrderID == Orders.OrderID)
+        if (o.OrderID == existing.OrderID)
         {
             std::cout << "Order ID already exists\n";
-            continue;
+            return;
         }
     }
-    std::cout << "Order ID cannot be found\n";
 
     std::cout << "Enter Customer Name: \n";
     std::cin >> o.Customer;
@@ -321,11 +324,6 @@ void WaitStaff::Add_Order()
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << " Order has been Created\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
-
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    std::cout << "Returning to Waiter Menu\n";
-    std::cout << "+" << std::string(60, '=') << "+" << "\n";
-    WaitStaff::Waiter();
 }
 
 void WaitStaff::View_Order()
@@ -346,7 +344,30 @@ void WaitStaff::View_Order()
     {
     case 1:
     {
-        WaitStaff::View_Order();
+        std::vector<Orders> allOrders = Orders::checkOrderFile();
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        if (allOrders.empty())
+        {
+            std::cout << "No orders found\n";
+        }
+        else
+        {
+            std::cout << std::left << std::setw(12) << "Order ID"
+                      << std::setw(12) << "Table"
+                      << std::setw(18) << "Product"
+                      << std::setw(10) << "Price"
+                      << "Status\n";
+            std::cout << "+" << std::string(60, '-') << "+" << "\n";
+            for (const auto &o : allOrders)
+            {
+                std::cout << std::left << std::setw(12) << o.OrderID
+                          << std::setw(12) << o.TableID
+                          << std::setw(18) << o.Product
+                          << "$" << std::setw(9) << std::fixed << std::setprecision(2) << o.price
+                          << o.status << "\n";
+            }
+        }
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
         break;
     }
     case 2:
@@ -364,7 +385,13 @@ void WaitStaff::View_Order()
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Returning to Menu\n";
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        WaitStaff::Waiter();
+        return;
+    }
+    default:
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Must Choose between 1 - 4\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
     }
 }
@@ -393,7 +420,13 @@ void WaitStaff::View_Kitchen_Status()
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Return To Waiter Menu\n";
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
-        WaitStaff::Waiter();
+        return;
+    }
+    default:
+    {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Must Choose between 1 - 2\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
     }
     }
 }
