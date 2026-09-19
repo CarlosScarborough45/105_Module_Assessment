@@ -107,7 +107,7 @@ void Admin::TableOccupancy() {
 
             std::cout << std::left << std::setw(20) << o.OrderID << "|" << std::setw(20) << o.Customer << "|" << o.Product << "|" << std::setw(20) << o.price << "|" << "\n";
 
-            std::ofstream file("Data/Table.occupancy.csv", std::ios::app);
+            std::ofstream file("../Data/Table.occupancy.csv", std::ios::app);
             if (!file.is_open()){
                 std::cout << "+" << std::string(60, '=') << "+" << "\n";
                 std::cout << "File cannot be opened or created\n";

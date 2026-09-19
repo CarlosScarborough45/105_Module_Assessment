@@ -221,7 +221,7 @@ void kitchen::TurnPending()
                 }
             }
 
-            std::ofstream file("Data/Order.csv");
+            std::ofstream file("../Data/Order.csv");
             if (!file.is_open())
             {
                 std::cout << "Unable to update Data/Order.csv\n";

@@ -29,7 +29,7 @@
         }
     }
 
-// Overload to check whether an email already exists in the users file.
+
 bool checkEmail(const std::string &email)
 {
     if (email.empty()){
@@ -173,7 +173,7 @@ void Users::registration()
 
 void Users::Save(std::vector<Users::UserRecord> &users)
 {
-    std::ofstream file("Data/Users.csv", std::ios::app);
+    std::ofstream file("../Data/Users.csv", std::ios::app);
     if (!file)
     {
         std::cout << "File has not been created\n";
@@ -189,7 +189,7 @@ void Users::Save(std::vector<Users::UserRecord> &users)
 std::vector<Users::UserRecord> Users::check_File()
 {
     std::vector<UserRecord> users;
-    std::ifstream file("Data/Users.csv");
+    std::ifstream file("../Data/Users.csv");
 
     if (!file)
     {

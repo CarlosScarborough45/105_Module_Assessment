@@ -1,9 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <iomanip>
 #include "Headers/Admin.h"
 #include "Headers/Order.h"
 #include "Headers/Menu.h"
+#include "Headers/Sales.h"
 
 void Admin::Sales(){
     int sales = 0;
@@ -45,11 +47,57 @@ void Admin::Sales(){
 }
 
 void Admin::BestSales(){
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Best Sales (Total >= $50)\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    std::vector<struct sales> sale = sales::checkSaleFile();
+
+    std::cout << std::left << std::setw(15) << "ID"
+              << std::setw(15) << "Price"
+              << std::setw(15) << "Total Sales" << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+
+    bool any = false;
+    for (const auto &s : sale){
+        try {
+            if (std::stod(s.TotalSales) >= 50){
+                std::cout << std::left << std::setw(15) << s.ID
+                          << std::setw(15) << s.Price
+                          << std::setw(15) << s.TotalSales << "\n";
+                any = true;
+            }
+        } catch (...) {}
+    }
+    if (!any) std::cout << "No sales at or above $50\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Admin::WorstSales(){
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Worst Sales (Total <= $20)\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    std::vector<struct sales> sale = sales::checkSaleFile();
+
+    std::cout << std::left << std::setw(15) << "ID"
+              << std::setw(15) << "Price"
+              << std::setw(15) << "Total Sales" << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+
+    bool any = false;
+    for (const auto &s : sale){
+        try {
+            if (std::stod(s.TotalSales) <= 20){
+                std::cout << std::left << std::setw(15) << s.ID
+                          << std::setw(15) << s.Price
+                          << std::setw(15) << s.TotalSales << "\n";
+                any = true;
+            }
+        } catch (...) {}
+    }
+    if (!any) std::cout << "No sales at or below $20\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Admin::SalesCategory(){
@@ -78,7 +126,7 @@ void Admin::TotalSales(){
     std::cout << "Total Sales\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
-    std::ifstream occFile("Data/Table.occupancy.csv");
+    std::ifstream occFile("../Data/Table.occupancy.csv");
     if (!occFile.is_open()){
         std::cout << "Table occupancy file cannot be opened\n";
         return;
@@ -88,7 +136,7 @@ void Admin::TotalSales(){
     std::vector<Menu>   menu   = Menu::check_Menu();
 
     double grandTotal = 0.0;
-    std::ofstream salesFile("Data/Sales.csv", std::ios::app);
+    std::ofstream salesFile("../Data/Sales.csv", std::ios::app);
 
     std::string line;
     while (std::getline(occFile, line)){

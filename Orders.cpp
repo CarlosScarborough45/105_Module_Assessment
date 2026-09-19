@@ -1,13 +1,15 @@
 #include "./Headers/Manager.h"
 #include <sstream>
 #include <fstream>
+#include <iomanip>
+
 #include "./Headers/Tables.h"
 #include "Headers/Order.h"
 #include "./Headers/Menu.h"
 
 std::vector<Orders> Orders::checkOrderFile()
 {
-    std::ifstream file("Data/Order.csv");
+    std::ifstream file("../Data/Order.csv");
     if (!file.is_open())
     {
         std::cout << "File has not been created\n";
@@ -22,7 +24,7 @@ std::vector<Orders> Orders::checkOrderFile()
 
     while (std::getline(file, line))
     {
-        if (line.empty())
+        if (line.empty() || line.find("TableNumber") == 0)
         {
             continue;
         }
@@ -37,7 +39,7 @@ std::vector<Orders> Orders::checkOrderFile()
         std::getline(ss, o.Product, '|');
         std::string people;
         std::getline(ss, people, '|');
-        o.people = std::stoi(people);
+        try { o.people = std::stoi(people); } catch (...) { continue; }
         std::getline(ss, o.status, '|');
 
         for (const auto &menuItem : menu)
@@ -181,7 +183,7 @@ void Manager::AddOrders()
     // Only write header when the file is empty or doesn't exist
     bool writeHeader = false;
     {
-        std::ifstream checkIn("Data/Order.csv");
+        std::ifstream checkIn("../Data/Order.csv");
         if (!checkIn.is_open())
         {
             writeHeader = true;
@@ -196,7 +198,7 @@ void Manager::AddOrders()
         }
     }
 
-    std::ofstream file("Data/Order.csv", std::ios::app);
+    std::ofstream file("../Data/Order.csv", std::ios::app);
     if (!file.is_open())
     {
         std::cout << "File has not been created\n";
@@ -236,7 +238,7 @@ void Manager::RemoveOrders()
         std::cout << "Table has not been found\n";
         return;
     }
-    else if (found)
+    if (found)
     {
         std::cout << "Table has been found\n";
 
@@ -297,7 +299,7 @@ void Manager::RemoveOrders()
                     }
                 }
 
-                std::ofstream file("Data/Order.csv");
+                std::ofstream file("../Data/Order.csv");
                 if (!file.is_open())
                 {
                     std::cout << "file has not been created\n";
@@ -312,9 +314,9 @@ void Manager::RemoveOrders()
                 }
                 std::cout << "Order has been updated\n";
 
-                if (Tables::SetAvailability(table, "Avalible"))
+                if (Tables::SetAvailability(table, "Available"))
                 {
-                    std::cout << "Table " << table << " is now Avalible\n";
+                    std::cout << "Table " << table << " is now Available\n";
                 }
                 else
                 {
@@ -331,4 +333,93 @@ void Manager::RemoveOrders()
 
 void Manager::EditOrders()
 {
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Which order you like to edit\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << std::left << std::setw(20) << "Order ID" << "|" << std::setw(20) << "Product" << "|"
+                           << std::setw(20) << "Table ID" << "|" << std::setw(20) << "Customer" << "|" <<"\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    for (const auto& o : orders) {
+        std::cout << std::left << std::setw(20) << o.OrderID << "|" << std::setw(20) << o.Product << "|"
+        << o.TableID << "|" << std::setw(20) << o.Customer << "|" << "\n";
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::string id;
+    std::cout << "select Order for Edit\n";
+    std::cin >> id;
+
+    bool found = false;
+    Orders Welcome;
+    for (const auto& o : orders) {
+        if (id == o.OrderID) {
+            found = true;
+            Welcome = o;
+            break;
+        }
+    }
+
+    if (found) {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Order Found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << std::left << std::setw(20) << "ID" << "|" << std::setw(15) << "Customer" << "|" << std::setw(20) << "Products" << "|" << "\n";
+        std::cout << std::left << std::setw(20) << Welcome.OrderID << "|" << std::setw(15) << Welcome.Customer << "|" << std::setw(20) << Welcome.Product << "|" << "\n";
+    }
+    else if (!found) {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Order not found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+    std::string cha;
+    std::cout << "Enter Which Part of Order You want to Change\n";
+    std::cout << "(OrderID, Customer, Product, TableID, status, people)\n";
+    std::cin >> cha;
+
+    if (cha != "OrderID" && cha != "Customer" && cha != "Product" && cha != "TableID" &&
+        cha != "status" && cha != "people") {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Invalid field name\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    std::string newValue;
+    std::cout << "Enter New Value\n";
+    std::cin >> newValue;
+
+    for (auto &o : orders) {
+        if (o.OrderID == id) {
+            if (cha == "OrderID")  o.OrderID  = newValue;
+            else if (cha == "Customer") o.Customer = newValue;
+            else if (cha == "Product")  o.Product  = newValue;
+            else if (cha == "TableID")  o.TableID  = newValue;
+            else if (cha == "status")   o.status   = newValue;
+            else if (cha == "people")   o.people   = std::stoi(newValue);
+            break;
+        }
+    }
+
+    std::ofstream file("../Data/Order.csv");
+    if (!file.is_open()) {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "File is not open\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    file << "TableNumber|OrderID|Customer|Product|People|Status\n";
+    for (const auto &o : orders) {
+        file << o.TableID << "|" << o.OrderID << "|" << o.Customer << "|"
+             << o.Product << "|" << o.people << "|" << o.status << "\n";
+    }
+    file.close();
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Order Updated" << "\n" << newValue << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }

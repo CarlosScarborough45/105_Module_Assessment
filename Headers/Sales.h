@@ -17,7 +17,7 @@ inline std::vector<sales> sales::checkSaleFile() {
 	std::vector<sales> sale;
 	std::stringstream ss;
 	std::string line;
-	std::ifstream file("Data/Sales.csv");
+	std::ifstream file("../Data/Sales.csv");
 
 	while (std::getline(file, line)) {
 		sales s;

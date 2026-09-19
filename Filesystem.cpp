@@ -83,7 +83,26 @@ void CheckFileSize() {
 }
 
 void CheckFiles() {
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Data Files\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    fs::path dataDir = "C:/Users/OEM/OneDrive - UP Education/Desktop/Projects/105 Aseessment/Data";
+
+    std::error_code ec;
+    if (!fs::exists(dataDir, ec) || ec){
+        std::cout << "Data folder not found\n";
+        return;
+    }
+
+    std::cout << std::left << std::setw(30) << "File" << "| " << std::setw(15) << "Size (bytes)" << "\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+    for (auto it = fs::directory_iterator(dataDir, ec); !ec && it != fs::directory_iterator(); it.increment(ec)){
+        uintmax_t size = fs::file_size(it->path(), ec);
+        std::cout << std::left << std::setw(30) << it->path().filename().string()
+                  << "| " << (!ec ? std::to_string(size) : "?") << "\n";
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void DeleteFiles() {

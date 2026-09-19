@@ -285,7 +285,7 @@ void WaitStaff::Add_Order()
     std::cin >> o.status;
     order.push_back(o);
 
-    std::ofstream file("Data/Order.csv", std::ios::app);
+    std::ofstream file("../Data/Order.csv", std::ios::app);
     if (!file.is_open())
     {
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
@@ -412,8 +412,64 @@ void WaitStaff::PendingOrder()
 
 void WaitStaff::View_Selected_TableOrder()
 {
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "View Orders by Table\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::string tableID;
+    std::cout << "Enter Table ID\n";
+    std::cin >> tableID;
+
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    bool any = false;
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    for (const auto &o : orders)
+    {
+        if (o.TableID == tableID)
+        {
+            std::cout << std::left << std::setw(12) << "Order ID:"  << o.OrderID  << "\n"
+                      << std::setw(12) << "Customer:" << o.Customer << "\n"
+                      << std::setw(12) << "Product:"  << o.Product  << "\n"
+                      << std::setw(12) << "Price:"    << "$" << std::fixed << std::setprecision(2) << o.price << "\n"
+                      << std::setw(12) << "Status:"   << o.status   << "\n";
+            std::cout << "+" << std::string(60, '-') << "+" << "\n";
+            any = true;
+        }
+    }
+    if (!any)
+        std::cout << "No orders found for table " << tableID << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void WaitStaff::ViewCustomerOrder()
 {
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "View Orders by Customer\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::string customer;
+    std::cout << "Enter Customer Name\n";
+    std::cin >> customer;
+
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    bool any = false;
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    for (const auto &o : orders)
+    {
+        if (o.Customer == customer)
+        {
+            std::cout << std::left << std::setw(12) << "Order ID:" << o.OrderID  << "\n"
+                      << std::setw(12) << "Table:"    << o.TableID  << "\n"
+                      << std::setw(12) << "Product:"  << o.Product  << "\n"
+                      << std::setw(12) << "Price:"    << "$" << std::fixed << std::setprecision(2) << o.price << "\n"
+                      << std::setw(12) << "Status:"   << o.status   << "\n";
+            std::cout << "+" << std::string(60, '-') << "+" << "\n";
+            any = true;
+        }
+    }
+    if (!any)
+        std::cout << "No orders found for customer " << customer << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }

@@ -238,7 +238,7 @@ void Admin::EditStaff(){
               << users[index].Password << "|"
               << users[index].Username << "\n";
 
-    std::ofstream file("Data/Users.csv");
+    std::ofstream file("../Data/Users.csv");
     if (!file){
         std::cout << "Could not open file for saving\n";
         return;
@@ -308,7 +308,7 @@ void Admin::RemoveStaff(){
         users.erase(std::remove_if(users.begin(), users.end(),
             [&staff](const UserRecord &u) { return u.Name == staff; }), users.end());
 
-        std::ofstream file("Data/Users.csv");
+        std::ofstream file("../Data/Users.csv");
         if (!file) {
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
             std::cout << "Could not open file for saving\n";
@@ -337,5 +337,60 @@ void Admin::RemoveStaff(){
 }
 
 void Admin::RaiseStaff(){
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Raise / Change Staff Role\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    std::vector<Users::UserRecord> users = Users::check_File();
+
+    std::string name;
+    std::cout << "Enter staff name\n";
+    std::cin >> name;
+
+    int index = -1;
+    for (int i = 0; i < (int)users.size(); i++){
+        if (users[i].Name == name){ index = i; break; }
+    }
+
+    if (index == -1){
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Staff not found\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    if (users[index].role == roles::Admin){
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Cannot change Admin role\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    std::cout << "Current role: " << RoleToString(users[index].role) << "\n";
+    std::cout << "Enter new role (Waitstaff, Kitchen, Manager)\n";
+    std::string newRole;
+    std::cin >> newRole;
+
+    if (newRole == "Manager")        users[index].role = roles::Manager;
+    else if (newRole == "Waitstaff") users[index].role = roles::WaitStaff;
+    else if (newRole == "Kitchen")   users[index].role = roles::Kitchen;
+    else {
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        std::cout << "Invalid role\n";
+        std::cout << "+" << std::string(60, '=') << "+" << "\n";
+        return;
+    }
+
+    std::ofstream file("../Data/Users.csv");
+    if (!file){
+        std::cout << "Could not open file for saving\n";
+        return;
+    }
+    for (const auto &u : users){
+        file << u.Name << "|" << u.Email << "|" << u.Password << "|"
+             << u.Username << "|" << RoleToString(u.role) << "|\n";
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << name << " is now " << newRole << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }

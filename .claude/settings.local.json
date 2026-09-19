@@ -26,7 +26,9 @@
       "Bash(where mingw32-g++)",
       "Read(//c/Program Files/Microsoft Visual Studio/**)",
       "Bash(cmake .. -G \"MinGW Makefiles\" -DCMAKE_CXX_COMPILER=\"C:/Qt/Tools/mingw1310_64/bin/g++.exe\" -DCMAKE_MAKE_PROGRAM=\"C:/Qt/Tools/mingw1310_64/bin/mingw32-make.exe\")",
-      "Bash(\"C:/Qt/Tools/mingw1310_64/bin/mingw32-make.exe\" -j4)"
+      "Bash(\"C:/Qt/Tools/mingw1310_64/bin/mingw32-make.exe\" -j4)",
+      "Bash(git *)",
+      "Bash(Get-Content *)"
     ]
   }
 }

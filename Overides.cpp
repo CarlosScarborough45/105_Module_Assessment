@@ -1,9 +1,11 @@
 #include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <algorithm>
 #include "Headers/Manager.h"
 #include "Headers/OverRides.h"
 #include "Headers/Tables.h"
-#include <iomanip>
-#include <fstream>
+#include "Headers/Order.h"
 
 void Manager::OverRide()
 {
@@ -189,14 +191,107 @@ void OverRide::CompanItem(){
     }while(comp != 4);
 }
 
-void OverRide::DiscountAnItem(){
-
-}
-
-void OverRide::CompAnItem(){
-
+static void saveOrders(const std::vector<Orders> &orders)
+{
+    std::ofstream file("../Data/Order.csv");
+    if (!file.is_open()) { std::cout << "Could not open order file\n"; return; }
+    file << "TableNumber|OrderID|Customer|Product|People|Status\n";
+    for (const auto &o : orders)
+        file << o.TableID << "|" << o.OrderID << "|" << o.Customer << "|"
+             << o.Product << "|" << o.people << "|" << o.status << "\n";
 }
 
 void OverRide::VoidAnOrder(){
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Void an Order\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    std::string id;
+    std::cout << "Enter Order ID to void\n";
+    std::cin >> id;
+
+    bool found = false;
+    for (const auto &o : orders) { if (o.OrderID == id) { found = true; break; } }
+
+    if (!found){
+        std::cout << "Order not found\n";
+        return;
+    }
+
+    std::string confirm;
+    std::cout << "Void order " << id << "? (Yes/No)\n";
+    std::cin >> confirm;
+    if (confirm != "Yes" && confirm != "yes"){ std::cout << "Cancelled\n"; return; }
+
+    orders.erase(std::remove_if(orders.begin(), orders.end(),
+        [&id](const Orders &o){ return o.OrderID == id; }), orders.end());
+
+    saveOrders(orders);
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Order " << id << " has been voided\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+}
+
+void OverRide::CompAnItem(){
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Comp an Item (complimentary - no charge)\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    std::string id;
+    std::cout << "Enter Order ID to comp\n";
+    std::cin >> id;
+
+    bool found = false;
+    for (auto &o : orders){
+        if (o.OrderID == id){
+            o.status = "Comped";
+            found = true;
+            break;
+        }
+    }
+
+    if (!found){ std::cout << "Order not found\n"; return; }
+
+    saveOrders(orders);
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Order " << id << " marked as Comped\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+}
+
+void OverRide::DiscountAnItem(){
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Discount an Item\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::vector<Orders> orders = Orders::checkOrderFile();
+
+    std::string id;
+    std::cout << "Enter Order ID to discount\n";
+    std::cin >> id;
+
+    bool found = false;
+    for (const auto &o : orders){ if (o.OrderID == id){ found = true; break; } }
+
+    if (!found){ std::cout << "Order not found\n"; return; }
+
+    int pct;
+    std::cout << "Enter discount percentage (e.g. 10 for 10%)\n";
+    std::cin >> pct;
+    if (pct <= 0 || pct >= 100){ std::cout << "Discount must be between 1 and 99\n"; return; }
+
+    for (auto &o : orders){
+        if (o.OrderID == id){
+            o.status = "Discounted-" + std::to_string(pct) + "%";
+            break;
+        }
+    }
+
+    saveOrders(orders);
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Order " << id << " discounted by " << pct << "%\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }

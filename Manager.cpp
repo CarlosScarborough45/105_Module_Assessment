@@ -221,15 +221,11 @@ void Manager::AllProfile()
     }
 }
 
-void Manager::Loggedprofile()
-{
-}
-
 void Manager::selectedprofile()
 {
     std::cout << "Enter the selected profile you want to see\n";
 
-    std::vector<UserRecord> users = Users::check_File();
+    std::vector<UserRecord> users = check_File();
 
     std::string person;
     std::cout << "Enter the person\n";
@@ -268,8 +264,7 @@ void Profile()
     std::cout << "\n--- Profile Options ---\n";
     std::cout << "[1] View selected profile\n";
     std::cout << "[2] View all profiles\n";
-    std::cout << "[3] View logged profile\n";
-    std::cout << "[4] Return to menu\n";
+    std::cout << "[3] Return to menu\n";
     std::cin >> profile;
 
     switch (profile)
@@ -285,11 +280,6 @@ void Profile()
         break;
     }
     case 3:
-    {
-        Manager::Loggedprofile();
-        break;
-    }
-    case 4:
     {
         std::cout << "+" << std::string(60, '=') << "+" << "\n";
         std::cout << "Returning to Menu\n";
@@ -526,7 +516,7 @@ void Staff::Remove_Staff()
     std::cout << "Found Staff for firing\n";
     users.erase(userToRemove);
 
-    std::ofstream file("Data/Users.csv");
+    std::ofstream file("../Data/Users.csv");
     if (!file)
     {
         std::cout << "Could not update the users file\n";
@@ -717,7 +707,7 @@ void Manager::selected_sales()
 
     std::cout << "Total Sales: $" << TotalSales << "\n";
 
-    std::ofstream file("Data/Sales.csv", std::ios::app);
+    std::ofstream file("../Data/Sales.csv", std::ios::app);
     if (file.is_open())
     {
         file << ID << "|" << found << "|" << TotalSales << "\n";
@@ -781,6 +771,31 @@ void Manager::WorstSales()
 
 void Manager::TableUsage()
 {
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Table Usage\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+
+    std::vector<Tables> tables = Tables::checkTableFile();
+
+    int occupied = 0, available = 0, reserved = 0;
+    std::cout << std::left << std::setw(12) << "Table ID" << "|"
+              << std::setw(12) << "Status" << "|"
+              << std::setw(10) << "Capacity" << "|\n";
+    std::cout << "+" << std::string(60, '-') << "+" << "\n";
+    for (const auto &t : tables)
+    {
+        std::cout << std::left << std::setw(12) << t.TableID << "|"
+                  << std::setw(12) << t.avalible << "|"
+                  << std::setw(10) << t.capacity << "|\n";
+        if (t.avalible == "Occupied")       occupied++;
+        else if (t.avalible == "Available" || t.avalible == "Avalible") available++;
+        else                                reserved++;
+    }
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
+    std::cout << "Occupied: "  << occupied  << "  |  "
+              << "Available: " << available << "  |  "
+              << "Reserved: "  << reserved  << "\n";
+    std::cout << "+" << std::string(60, '=') << "+" << "\n";
 }
 
 void Manager::Reports()
@@ -807,27 +822,27 @@ void Manager::Reports()
     {
     case 1:
     {
-        Manager::sales();
+        sales();
         break;
     }
     case 2:
     {
-        Manager::selected_sales();
+        selected_sales();
         break;
     }
     case 3:
     {
-        Manager::BestSales();
+       BestSales();
         break;
     }
     case 4:
     {
-        Manager::WorstSales();
+        WorstSales();
         break;
     }
     case 5:
     {
-        Manager::TableUsage();
+        TableUsage();
         break;
     }
     case 6:
@@ -838,7 +853,10 @@ void Manager::Reports()
         std::cout << "+              Returning to Manager Menu                     +\n";
         std::cout << "+                                                            +\n";
         std::cout << "+============================================================+\n";
-        return;
+        Boss();
+    }
+        default: {
+        std::cout << "must choose between 1 - 6\n";break;
     }
     }
 }
@@ -920,7 +938,7 @@ void Manager::Tables()
         }
         case 3:
         {
-            Tables::RemoveTable();
+            Tables::EditTable();
             break;
         }
         case 4:
@@ -935,6 +953,7 @@ void Manager::Tables()
             Tables::ViewTable();
             break;
         }
+                default:{std::cout << "must choose between 1 - 5\n";break;}
         }
     }
 }
