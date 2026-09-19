@@ -2,9 +2,9 @@
 #define VISUALAPP_FILEMANAGEMENT_H
 
 void FileManagement();
-void CheckFile();
 void ViewFiles();
 void DeleteFiles();
-void CheckFile();
-
+void CheckFiles();
+void CheckFileSize();
+void CheckFolders();
 #endif //VISUALAPP_FILEMANAGEMENT_H

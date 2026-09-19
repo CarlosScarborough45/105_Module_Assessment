@@ -15,24 +15,27 @@ void Admin::reports(){
     std::cout << "[2] Order Count\n";
     std::cout << "[3] Item Order\n";
     std::cout << "[4] Sales Total\n";
-    std::cout << "[5] File Sizes\n";
-    std::cout << "[6] Return Admin menu\n";
+    std::cout << "[5] Return Admin menu\n";
     std::cout << "+" << std::string(60, '=') << "+" << "\n";
     std::cout << "Enter the choice\n";
     std::cin >> report;
 
     switch (report){
-        case 1: {Admin::TableOccupancy();        break;}
-        case 2: {Admin::OrderCount();            break;}
-        case 3: {Admin::ItemOrder();             break;}
-        case 4: {Admin::TotalSales();            break;}
-        case 5: {FileSystem::ReportFileSizes();  break;}
-        case 6:
+        case 1: {TableOccupancy();        break;}
+        case 2: {OrderCount();            break;}
+        case 3: {ItemOrder();             break;}
+        case 4: {TotalSales();            break;}
+        case 5:
         {
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
             std::cout << "Returning to Admin Menu\n";
             std::cout << "+" << std::string(60, '=') << "+" << "\n";
             break;
+        }
+            default: {
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
+            std::cout << "Must Choose between 1 - 5\n";
+            std::cout << "+" << std::string(60, '=') << "+" << "\n";
         }
     }
     }

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace FileSystem
-{
-    void ReportFileSizes();
-}
+void ViewFiles();
+void DeleteFiles();
+void CheckFiles();
+void CheckFileSize();
